@@ -5,6 +5,10 @@ import Button from "components/Button.astro";
 interface Props {
   title?: string;
   subtitle?: string;
+  announcement?: {
+    text: string;
+    link: string;
+  };
   date?: string;
   location?: string;
   heroImage?: string;
@@ -17,7 +21,7 @@ interface Props {
   }>;
 }
 
-const { title = "GOSIM Spotlight", subtitle, date, location, heroImage, heroVideo, links } = Astro.props;
+const { title = "GOSIM Spotlight", subtitle, announcement, date, location, heroImage, heroVideo, links } = Astro.props;
 ---
 
 <section
@@ -60,6 +64,13 @@ const { title = "GOSIM Spotlight", subtitle, date, location, heroImage, heroVide
   <div class="container">
     <div class="row">
       <div class="col">
+        {announcement && (
+          <a href={announcement.link} class="announcement-badge">
+            <span class="announcement-dot"></span>
+            {announcement.text}
+            <span class="announcement-arrow">&rarr;</span>
+          </a>
+        )}
         <div class="col col-title">
           <h1>{title}</h1>
           {subtitle && <p class="hero-subtitle">{subtitle}</p>}
@@ -94,15 +105,54 @@ const { title = "GOSIM Spotlight", subtitle, date, location, heroImage, heroVide
     min-height: 100vh;
   }
 
+  .announcement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    background: rgba(0, 210, 255, 0.15);
+    border: 1px solid rgba(0, 210, 255, 0.5);
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+    margin-bottom: 1rem;
+  }
+  .announcement-badge:hover {
+    background: rgba(0, 210, 255, 0.25);
+    border-color: rgba(0, 210, 255, 0.65);
+  }
+  .announcement-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00d2ff;
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
+  .announcement-arrow {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  .announcement-badge:hover .announcement-arrow {
+    opacity: 1;
+  }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
   .col-title {
     margin-top: 6%;
   }
 
   .hero-subtitle {
-    font-size: 1.75rem;
+    font-size: calc(var(--title-size) * 0.55);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
   }
 
   .hero-bg-image {

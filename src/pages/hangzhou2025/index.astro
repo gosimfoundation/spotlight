@@ -6,7 +6,7 @@ import HeroFinalists from "components/HeroFinalists.astro"
 import Intro from "components/Intro.astro"
 import TextAndImage from "components/TextAndImage.astro"
 import PreviousEvents from "components/PreviousEvents.astro"
-import SpotlightAi from "images/homepage/spotlight-badge-ai2025.png"
+import SpotlightAigc from "images/homepage/spotlight-badge-aigc2025.svg"
 import projectsData from "json/Projects.json"
 // Images
 import GosimDelft from "images/homepage/gosim-delft.png"
@@ -24,6 +24,7 @@ const numProjs = projectsData.projects.length
   pageTransitionName="Home"
 >
   <HeroFinalists
+    year="2025"
     category="AIGC"
     date="September 13-14, 2025"
     location="Hangzhou, China"
@@ -63,7 +64,7 @@ const numProjs = projectsData.projects.length
   <TextAndImage
     title="GOSIM Spotlight 2025: AIGC Finalists"
     text="The GOSIM Spotlight 2025: AIGC showcased groundbreaking projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence. This edition featured two tracks: Applied AI and Interactive Demos, bringing together developers, researchers, artists, and practitioners working at the frontier of generative AI."
-    image={SpotlightAi}
+    image={SpotlightAigc}
     imageAlt="Gosim Spotlight badge"
     dataBgSection="beige"
     dataThemeSection="light"
