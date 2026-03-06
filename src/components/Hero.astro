@@ -5,6 +5,7 @@ import Button from "components/Button.astro";
 interface Props {
   title?: string;
   subtitle?: string;
+  subtitleAbove?: boolean;
   announcement?: {
     text: string;
     link: string;
@@ -21,7 +22,7 @@ interface Props {
   }>;
 }
 
-const { title = "GOSIM Spotlight", subtitle, announcement, date, location, heroImage, heroVideo, links } = Astro.props;
+const { title = "GOSIM Spotlight", subtitle, subtitleAbove = false, announcement, date, location, heroImage, heroVideo, links } = Astro.props;
 ---
 
 <section
@@ -72,8 +73,9 @@ const { title = "GOSIM Spotlight", subtitle, announcement, date, location, heroI
           </a>
         )}
         <div class="col col-title">
+          {subtitle && subtitleAbove && <p class="hero-subtitle hero-subtitle-above">{subtitle}</p>}
           <h1>{title}</h1>
-          {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+          {subtitle && !subtitleAbove && <p class="hero-subtitle">{subtitle}</p>}
         </div>
 
         {(date || location) && (
@@ -149,10 +151,14 @@ const { title = "GOSIM Spotlight", subtitle, announcement, date, location, heroI
   }
 
   .hero-subtitle {
-    font-size: calc(var(--title-size) * 0.55);
+    font-size: calc(var(--title-size) * 0.3);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
     margin-top: 0.25rem;
+  }
+  .hero-subtitle-above {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
   }
 
   .hero-bg-image {

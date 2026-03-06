@@ -6,6 +6,8 @@ interface Project {
   title: string
   content: string
   url?: string
+  author?: string
+  category?: string
 }
 
 interface Props {
@@ -28,7 +30,9 @@ const { projects = projectsData.projects } = Astro.props
       {projects.map((project: Project) => (
         <div class="col project-card">
           <div class="project-content">
+            {project.category && <span class="project-category">{project.category}</span>}
             <h4>{project.title}</h4>
+            {project.author && <p class="project-author">{project.author}</p>}
             <p>{project.content}</p>
             {project.url && (
               <a href={project.url} class="project-link" target="_blank" rel="noopener noreferrer">
@@ -67,8 +71,18 @@ const { projects = projectsData.projects } = Astro.props
     gap: 20px;
   }
 
-  .project-content p {
+  .project-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #076597;
+  }
 
+  .project-author {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: -0.5rem;
   }
 
   .project-link {

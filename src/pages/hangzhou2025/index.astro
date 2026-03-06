@@ -1,40 +1,39 @@
 ---
 // Components
 import Layout from "layouts/Layout.astro"
-import Projects from "components/Projects.astro"
 import HeroFinalists from "components/HeroFinalists.astro"
 import Intro from "components/Intro.astro"
 import TextAndImage from "components/TextAndImage.astro"
 import PreviousEvents from "components/PreviousEvents.astro"
 import SpotlightAigc from "images/homepage/spotlight-badge-aigc2025.svg"
-import projectsData from "json/Projects.json"
+import projectsData from "json/Projects-hangzhou2025.json"
 // Images
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
 
-const numProjs = projectsData.projects.length
+const projects = projectsData.projects
+const numProjs = projects.length
+const categories = [...new Set(projects.map((p: any) => p.category).filter(Boolean))]
 ---
 
 <Layout
-  title="GOSIM Spotlight 2025: AIGC"
-  description="GOSIM Spotlight 2025: AIGC — where exceptional AIGC projects were showcased to the world."
+  title="GOSIM Spotlight 2025: AI for Humanity"
+  description="GOSIM Spotlight 2025: AI for Humanity — where exceptional AI for Humanity projects were showcased to the world."
   navDarkMode={true}
   navBackground="header-home"
   pageTransitionName="Home"
 >
   <HeroFinalists
     year="2025"
-    category="AIGC"
+    category="AI for Humanity"
     date="September 13-14, 2025"
     location="Hangzhou, China"
     heroVideo="/videos/hangzhou2025-hero.mp4"
     heroImage="/images/homepage/gosim-hangzhou-hero.png"
     conferenceName="GOSIM Hangzhou 2025"
     conferenceLink="https://hangzhou2025.gosim.org/"
-    tagline={"Here are the " +
-      numProjs +
-      " projects selected for the GOSIM Spotlight 2025: AIGC"}
+    tagline=""
     links={[
       {
         text: "View Projects ↓",
@@ -62,26 +61,72 @@ const numProjs = projectsData.projects.length
     </Intro>
   </div>
   <TextAndImage
-    title="GOSIM Spotlight 2025: AIGC Finalists"
-    text="The GOSIM Spotlight 2025: AIGC showcased groundbreaking projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence. This edition featured two tracks: Applied AI and Interactive Demos, bringing together developers, researchers, artists, and practitioners working at the frontier of generative AI."
+    title="GOSIM Spotlight 2025: AI for Humanity Finalists"
+    text="The GOSIM Spotlight 2025: AI for Humanity showcased groundbreaking projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence. This edition featured two tracks: Applied AI and Interactive Demos, bringing together developers, researchers, artists, and practitioners working at the frontier of generative AI."
     image={SpotlightAigc}
     imageAlt="Gosim Spotlight badge"
     dataBgSection="beige"
     dataThemeSection="light"
   />
-  <div id="projects">
-    <Projects projects={projectsData.projects} />
-  </div>
+  <section class="section section-finalists" id="projects" data-theme-section="light" data-bg-section="light">
+    <div class="container">
+      <h2 class="finalists-title">{numProjs} Finalists</h2>
+
+      <a href="/docs/gosim-spotlight-2025-ai-for-humanity-finalists.pdf" target="_blank" class="collection-banner">
+        <img src="/images/homepage/hangzhou2025-collection-cover.jpg" alt="GOSIM Spotlight 2025: AI for Humanity Collection" />
+        <span class="collection-cta">View Full Collection (PDF) →</span>
+      </a>
+
+      <div class="filter-tags" id="filter-tags">
+        <button class="filter-tag active" data-category="all">All</button>
+        {categories.map((cat: string) => (
+          <button class="filter-tag" data-category={cat}>{cat}</button>
+        ))}
+      </div>
+
+      <div class="finalists-list" id="finalists-list">
+        {projects.map((p: any) => (
+          <div class="finalist-row" data-category={p.category}>
+            <span class="finalist-category">{p.category}</span>
+            <span class="finalist-name">{p.title}</span>
+            <span class="finalist-author">{p.author}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tags = document.querySelectorAll('.filter-tag');
+      const rows = document.querySelectorAll('.finalist-row');
+
+      tags.forEach(tag => {
+        tag.addEventListener('click', () => {
+          tags.forEach(t => t.classList.remove('active'));
+          tag.classList.add('active');
+          const cat = tag.getAttribute('data-category');
+          rows.forEach(row => {
+            if (cat === 'all' || row.getAttribute('data-category') === cat) {
+              (row as HTMLElement).style.display = '';
+            } else {
+              (row as HTMLElement).style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 
   <div class="section-wrap" id="previous">
     <PreviousEvents
       title="Previous Spotlight Events"
       events={[
         {
-          title: "GOSIM Spotlight 2025: AIGC",
+          title: "GOSIM Spotlight 2025: AI for Humanity",
           date: "Hangzhou, China - September 13-14, 2025",
           description:
-            "Showcasing groundbreaking AIGC projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence.",
+            "Showcasing groundbreaking AI for Humanity projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence.",
           image: GosimHangzhou,
           link: "/hangzhou2025",
         },
@@ -105,3 +150,114 @@ const numProjs = projectsData.projects.length
     />
   </div>
 </Layout>
+
+<style>
+  .section-finalists {
+    padding: var(--section-padding) 0;
+  }
+  .finalists-title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Filter tags */
+  .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .filter-tag {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: transparent;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-dark);
+  }
+  .filter-tag:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .filter-tag.active {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+  }
+
+  /* Finalist list */
+  .finalists-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+  .finalist-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  .finalist-row:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .finalist-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #076597;
+  }
+  .finalist-name {
+    font-weight: 500;
+  }
+  .finalist-author {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: 720px) {
+    .finalist-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+      padding: 0.75rem 0.5rem;
+    }
+  }
+
+  /* Collection banner */
+  .collection-banner {
+    display: block;
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  .collection-banner:hover {
+    transform: scale(1.005);
+  }
+  .collection-banner img {
+    width: 100%;
+    display: block;
+  }
+  .collection-cta {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+</style>

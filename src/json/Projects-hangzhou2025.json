@@ -1,0 +1,466 @@
+{
+  "projects": [
+    {
+      "title": "CLOWN",
+      "content": "In a surreal fusion of live-action and AI-generated imagery, CLOWN centers on a talented clown who gradually loses her sense of self in pursuit of audience approval. Five AI tools were used: Runway, Midjourney, Autodesk, Artlist, and ChatGPT.",
+      "category": "Video",
+      "author": "Shanshan Jiang"
+    },
+    {
+      "title": "Vision",
+      "content": "\"Vision\" reflects on the influence of AI. Created in dialogue and collaboration with AI. AI tools used: OpenAI's ChatGPT for dialogue and code generation, Runway for image and video generation.",
+      "category": "Video",
+      "author": "Susanne Layla Petersen"
+    },
+    {
+      "title": "Nursing Home",
+      "content": "Digital storytelling through the personified character of a sentient seed paper, portraying a journey of self-identity exploration in the age of artificial intelligence.",
+      "category": "Video",
+      "author": "Chi Kiu So"
+    },
+    {
+      "title": "The Fold of Awakening",
+      "content": "\"The Fold of Awakening\" follows Sid's journey of growth and self-realization, exploring themes of identity and meaning in the age of AI. Through metaphors and visual symbolism, the story illustrates how one can draw strength from conflict and imperfection.",
+      "category": "Video",
+      "author": "Fan Pan"
+    },
+    {
+      "title": "Metro Ruins",
+      "content": "A sci-fi, post-apocalyptic, cyberpunk psychological thriller. In a post-apocalyptic city eroded by alienation and technology, a lost individual attempts to find meaning and connection. 100% AI-generated.",
+      "category": "Video",
+      "author": "Tianli Ma"
+    },
+    {
+      "title": "Her",
+      "content": "A surreal AI-generated short film that explores fear, trauma, and the silent resistance of a woman reclaiming her inner power. Blending hyperreal 3D imagery with painterly illustration.",
+      "category": "Video",
+      "author": "Yidan Hu"
+    },
+    {
+      "title": "Transmissions",
+      "content": "\"Transmissions\" explores the intersection of sound and vision, reimagining the visual music tradition for the digital age. This experimental work transforms audio into intricate visual compositions.",
+      "category": "Video",
+      "author": "Chris May"
+    },
+    {
+      "title": "For the love of nature",
+      "content": "A completely AI-generated \"fake commercial\" that explores the capabilities of generative AI in forming emotional connections and transmitting personality and purpose.",
+      "category": "Video",
+      "author": "Anna di Luce"
+    },
+    {
+      "title": "Format Error occurred at offset",
+      "content": "The film cuts through the administrative paperwork required for the director to live in different countries and explores the ambiguity and fragility of identity in the bureaucratic system.",
+      "category": "Video",
+      "author": "Zirui Chen"
+    },
+    {
+      "title": "Data Journeying Far and Wide",
+      "content": "Based on the Northern Song dynasty masterpiece 'A Thousand Li of Rivers and Mountains', this work transforms the landscape's visual essence into a flowing data stream, presented as a digital scroll painting.",
+      "category": "Video",
+      "author": "Ling Cui"
+    },
+    {
+      "title": "Mourning Skins: A Time-lapse Photography Series",
+      "content": "Explores the silent transformations of animal life under the relentless pressure of climate change, bridging the seemingly intangible phenomenon of global warming with tangible, visible shifts in animals' appearances.",
+      "category": "Video",
+      "author": "Yechun Peng"
+    },
+    {
+      "title": "Inner peace",
+      "content": "An AI-generated exploration of tranquility and inner harmony.",
+      "category": "Video",
+      "author": "ai.shapeshifter"
+    },
+    {
+      "title": "RAVE CINEMA",
+      "content": "An experimental AI-generated cinema experience.",
+      "category": "Video",
+      "author": "Yichu Li"
+    },
+    {
+      "title": "Circular Poem",
+      "content": "An AI-generated video exploring circular narratives and poetic form.",
+      "category": "Video",
+      "author": "Liu Tuo"
+    },
+    {
+      "title": "Digital Cosmos: Embodied Lunar Dialogue",
+      "content": "An AI-generated exploration of cosmic imagery and lunar dialogue.",
+      "category": "Video",
+      "author": "caizhixin"
+    },
+    {
+      "title": "Singularity",
+      "content": "An AI-generated video exploring the concept of technological singularity.",
+      "category": "Video",
+      "author": "Kong Defei"
+    },
+    {
+      "title": "Needleprayer",
+      "content": "An AI-generated exploration of prayer and ritual through needle imagery.",
+      "category": "Video",
+      "author": "Wei Luo"
+    },
+    {
+      "title": "Zheng He's Voyages to the West",
+      "content": "An AI-generated reimagining of the historic maritime expeditions of Zheng He.",
+      "category": "Video",
+      "author": "Yier Yu"
+    },
+    {
+      "title": "The Secret History of Peach Blossom Luck",
+      "content": "An AI metaphysics documentary exploring fortune and fate.",
+      "category": "Video",
+      "author": "Wang Xiang"
+    },
+    {
+      "title": "The Graceful Site",
+      "content": "An AI-generated exploration of grace and beauty in architecture.",
+      "category": "Video",
+      "author": "Ruiqi Zhang"
+    },
+    {
+      "title": "ECHO",
+      "content": "An AI-generated exploration of sound, memory, and resonance.",
+      "category": "Video",
+      "author": "Ziyu Liu"
+    },
+    {
+      "title": "Paws in the Moonlight",
+      "content": "An AI-generated reimagining of the classic Chinese garden tale with a feline twist.",
+      "category": "Video",
+      "author": "Morphique"
+    },
+    {
+      "title": "Echoes Always",
+      "content": "An AI-generated exploration of resonance and connection in the wild.",
+      "category": "Video",
+      "author": "Morphique"
+    },
+    {
+      "title": "Between Warp and Weft",
+      "content": "An AI-generated exploration of weaving, tradition, and interconnection.",
+      "category": "Video",
+      "author": "Ye Lijun"
+    },
+    {
+      "title": "NEXT",
+      "content": "An AI-generated vision of what comes next.",
+      "category": "Video",
+      "author": "Jeremy Oury"
+    },
+    {
+      "title": "Apple",
+      "content": "An AI-generated short film.",
+      "category": "Video",
+      "author": "Zheng Lvqing"
+    },
+    {
+      "title": "Until I Grasp a Star",
+      "content": "An AI-generated exploration of longing and aspiration.",
+      "category": "Video",
+      "author": "Qi Liu"
+    },
+    {
+      "title": "The Lost",
+      "content": "An AI-generated journey through fog and uncertainty at sea.",
+      "category": "Video",
+      "author": "Qi Liu"
+    },
+    {
+      "title": "The Somersault Cloud That Was",
+      "content": "An AI-generated nostalgic exploration of childhood imagination.",
+      "category": "Video",
+      "author": "Qi Liu"
+    },
+    {
+      "title": "AIGC Historical Short: Wooden Letters to Home",
+      "content": "An AI-generated historical short film about letters and longing for home.",
+      "category": "Video",
+      "author": "Changyue Sun"
+    },
+    {
+      "title": "Cathay Craftsman Spirit",
+      "content": "An AI-generated tribute to Chinese craftsmanship and cultural heritage.",
+      "category": "Video",
+      "author": "Hundian AI"
+    },
+    {
+      "title": "Lion Soul",
+      "content": "An AI-generated exploration of the spirit and power of the lion.",
+      "category": "Video",
+      "author": "Ji Chen"
+    },
+    {
+      "title": "Boundary of Extinction",
+      "content": "An AI-generated exploration of the edge between existence and oblivion.",
+      "category": "Video",
+      "author": "Zhang Rui"
+    },
+    {
+      "title": "The Dream of Neon Night",
+      "content": "An AI-generated neon-lit dreamscape.",
+      "category": "Video",
+      "author": "Yuheng Chen"
+    },
+    {
+      "title": "Sika Deer",
+      "content": "An AI-generated portrait of the sika deer.",
+      "category": "Video",
+      "author": "Ami"
+    },
+    {
+      "title": "Midnight Escape",
+      "content": "An AI-generated thriller set in the depths of night.",
+      "category": "Video",
+      "author": "Oates Yinchao"
+    },
+    {
+      "title": "Dave Decides to Jump Into the Sea",
+      "content": "An AI-generated narrative about a decisive moment.",
+      "category": "Video",
+      "author": "Cheng Kuan"
+    },
+    {
+      "title": "Lander 3062",
+      "content": "An AI-generated science fiction narrative about landing on a new world.",
+      "category": "Video",
+      "author": "Chen Shaowei"
+    },
+    {
+      "title": "Occupying Latency: AI's Paradox of (Dis)Embodiment",
+      "content": "An exploration of AI's paradoxical relationship with physical embodiment, examining the tension between digital latency and corporeal presence.",
+      "category": "Video",
+      "author": "Carrie Yin"
+    },
+    {
+      "title": "dust",
+      "content": "An AI-generated meditation on impermanence and materiality.",
+      "category": "Video",
+      "author": "Huang Jiahao"
+    },
+    {
+      "title": "Autophagic City",
+      "content": "An AI-generated vision of a self-consuming urban landscape.",
+      "category": "Video",
+      "author": "He Congjin"
+    },
+    {
+      "title": "The Follower",
+      "content": "An AI-generated exploration of pursuit and observation.",
+      "category": "Video",
+      "author": "Yang Yiliang"
+    },
+    {
+      "title": "Retrospection and Reconstruction",
+      "content": "An AIGC work based on the Three Gorges migration, exploring memory and displacement through AI generation.",
+      "category": "Video",
+      "author": "Xue Jiawen, Zhang Lan"
+    },
+    {
+      "title": "Interconnected Existence",
+      "content": "An AI-generated exploration of symbiosis and interconnection among all living things.",
+      "category": "Video",
+      "author": "Liuhongye (Yea)"
+    },
+    {
+      "title": "Illusory Mountains and Seas",
+      "content": "An AI-generated reimagining of the mythical Shanhai Jing landscape.",
+      "category": "Video",
+      "author": "Xinyi"
+    },
+    {
+      "title": "If a Dream Can Be This Vivid",
+      "content": "An AI-generated exploration of vivid dreamscapes.",
+      "category": "Video",
+      "author": "Nanqiang Rylee"
+    },
+    {
+      "title": "Thousands of Years of Gazing",
+      "content": "An AI-generated meditation on time, distance, and enduring connection across millennia.",
+      "category": "Video",
+      "author": "Xiaoyun Su"
+    },
+    {
+      "title": "Winding Ring",
+      "content": "A collaborative AI-generated work exploring circular forms and cyclical narratives.",
+      "category": "Video",
+      "author": "Xinyi, Yea, Qiuhe, Dianli Mao, Feitao"
+    },
+    {
+      "title": "Jingwei's Dream",
+      "content": "An AI-generated retelling of the mythical Jingwei bird's determination to fill the sea.",
+      "category": "Video",
+      "author": "Xiaoyun Su"
+    },
+    {
+      "title": "The Masterless Era",
+      "content": "An AI-generated exploration of a world without authority or ownership.",
+      "category": "Video",
+      "author": "Kong Defei"
+    },
+    {
+      "title": "Antibodies to Empathy",
+      "content": "An AI-generated examination of the tension between empathy and emotional resistance.",
+      "category": "Video",
+      "author": "Cheng Xie"
+    },
+    {
+      "title": "The Concretization of Our Imagery",
+      "content": "An AI-generated exploration of how abstract imagery becomes tangible form.",
+      "category": "Image",
+      "author": "Kaiyu Cheng"
+    },
+    {
+      "title": "Zenith Swallow",
+      "content": "An AI-generated image work.",
+      "category": "Image",
+      "author": "Liyan Kuang"
+    },
+    {
+      "title": "Driving a Lynchian Scream",
+      "content": "An AI-generated music album exploring dark, surreal sonic landscapes.",
+      "category": "Music Album",
+      "author": "Skin Vehicles AKA Dex Hannon"
+    },
+    {
+      "title": "A Participatory Dreamscape Installation for GOSIM Hangzhou",
+      "content": "An interactive installation inviting participants to co-create a collective dreamscape.",
+      "category": "Installation Art",
+      "author": "Zonghuan Wu"
+    },
+    {
+      "title": "Mind Rain & Bamboo Whisper",
+      "content": "An AI-powered installation exploring the intersection of natural elements and digital consciousness.",
+      "category": "Installation Art",
+      "author": "Huixin Xue"
+    },
+    {
+      "title": "The Cost of War",
+      "content": "A human-AI exploration of conflict, memory, and healing through interactive installation.",
+      "category": "Installation Art",
+      "author": "João Carlos"
+    },
+    {
+      "title": "Astrofin",
+      "content": "An AI-powered installation art piece exploring cosmic and aquatic forms.",
+      "category": "Installation Art",
+      "author": "Bowen Wu, Taiyi Zhao"
+    },
+    {
+      "title": "Generative Unravelling Series",
+      "content": "A series of generative art installations exploring deconstruction and emergence.",
+      "category": "Installation Art",
+      "author": "Mi Lin"
+    },
+    {
+      "title": "Future Archeology",
+      "content": "An installation imagining what future archaeologists might discover from our present.",
+      "category": "Installation Art",
+      "author": "Jessie Yu"
+    },
+    {
+      "title": "Hermes 9",
+      "content": "A collaborative installation art piece.",
+      "category": "Installation Art",
+      "author": "Junrong Song, Hao Li, David Yip"
+    },
+    {
+      "title": "Memory Patchwork: Reconstructing Human Existence Through Fabric",
+      "content": "An installation using textile and AI to reconstruct and reimagine human memory and existence.",
+      "category": "Installation Art",
+      "author": "Xiuying Zhu"
+    },
+    {
+      "title": "Dressmi - Digital Wardrobe Project",
+      "content": "An AI-powered electronic wardrobe installation exploring fashion and identity.",
+      "category": "Installation Art",
+      "author": "Zheng Tingting"
+    },
+    {
+      "title": "Genesis of Strange Lifeless Beings",
+      "content": "An AI-generated code art project creating strange, lifeless digital beings.",
+      "category": "Code/Program",
+      "author": "Tobias Gaede"
+    },
+    {
+      "title": "Concrete Code",
+      "content": "An AI-generated code art project exploring the materiality of programming.",
+      "category": "Code/Program",
+      "author": "Tobias Gaede"
+    },
+    {
+      "title": "TamagotchU",
+      "content": "An AI-powered interactive game inspired by the classic Tamagotchi virtual pet.",
+      "category": "Interactive Installation/Game",
+      "author": "Eyez Li"
+    },
+    {
+      "title": "Soluma",
+      "content": "An applied AI demo project.",
+      "category": "Applied AI Demo",
+      "author": "Mitchell Fawcett"
+    },
+    {
+      "title": "Lumen Sentient",
+      "content": "An applied AI demo exploring sentient light and responsive environments.",
+      "category": "Applied AI Demo",
+      "author": "Mitchell Fawcett"
+    },
+    {
+      "title": "AI-Based Digital Storytelling Communication For Cultural Heritage Artifacts",
+      "content": "Using AI to create digital storytelling experiences that bring cultural heritage artifacts to life.",
+      "category": "Applied AI Demo",
+      "author": "Suwen Wang"
+    },
+    {
+      "title": "ServeUp",
+      "content": "An applied AI demo project.",
+      "category": "Applied AI Demo",
+      "author": "Yuqing"
+    },
+    {
+      "title": "Algaetopia",
+      "content": "An AI-powered exploration of algae-based ecosystems and sustainable futures.",
+      "category": "Applied AI Demo",
+      "author": "Liu Tuo"
+    },
+    {
+      "title": "Moxin LLM/VLM",
+      "content": "An open-source large language model and vision-language model project.",
+      "category": "Applied AI Demo",
+      "author": "Haochen Zeng"
+    },
+    {
+      "title": "PsyChing",
+      "content": "An AI-powered psychology and wellness application.",
+      "category": "Applied AI Demo",
+      "author": "Yu Ding"
+    },
+    {
+      "title": "Mood Bubble",
+      "content": "An AI-powered emotional awareness and mood tracking application.",
+      "category": "Applied AI Demo",
+      "author": "Ziqi Zhuang"
+    },
+    {
+      "title": "AuscultSim: Open-source Simulator for Human Vibroacoustic Sounds",
+      "content": "An open-source simulator for human vibroacoustic sounds, enabling medical training and research in auscultation.",
+      "category": "Applied AI Demo",
+      "author": "Yingtong Zhou"
+    },
+    {
+      "title": "YuZhou Voice Diary",
+      "content": "Speak your mind, reflect with AI. An AI-powered voice diary application for self-reflection and mindfulness.",
+      "category": "Applied AI Demo",
+      "author": "Gavin Leung"
+    },
+    {
+      "title": "Microverse In Box",
+      "content": "An AI-powered miniature universe contained within a box, exploring micro-scale generative worlds.",
+      "category": "Applied AI Demo",
+      "author": "Li Hao"
+    }
+  ]
+}

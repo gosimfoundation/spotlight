@@ -73,8 +73,8 @@ const { date, location, year, category, tagline, heroImage, heroVideo, conferenc
     <div class="row">
       <div class="col">
         <div class="col col-title">
-          <h1>{category}</h1>
           <p class="hero-subtitle">GOSIM Spotlight{year ? ` ${year}` : ''}</p>
+          <h1>{category}</h1>
         </div>
 
         {(date || location) && (
@@ -119,10 +119,10 @@ const { date, location, year, category, tagline, heroImage, heroVideo, conferenc
     margin-top: 6%;
   }
   .hero-subtitle {
-    font-size: calc(var(--title-size) * 0.55);
+    font-size: calc(var(--title-size) * 0.3);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
-    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
   }
   .co-located {
     margin-top: 0.5rem;
