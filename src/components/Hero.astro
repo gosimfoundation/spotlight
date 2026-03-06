@@ -3,16 +3,21 @@
 import Button from "components/Button.astro";
 
 interface Props {
+  title?: string;
+  subtitle?: string;
   date?: string;
   location?: string;
+  heroImage?: string;
+  heroVideo?: string;
   links?: Array<{
     text: string;
     link: string;
     openInNewTab: boolean;
+    highlight?: boolean;
   }>;
 }
 
-const { date, location, links } = Astro.props;
+const { title = "GOSIM Spotlight", subtitle, date, location, heroImage, heroVideo, links } = Astro.props;
 ---
 
 <section
@@ -20,22 +25,35 @@ const { date, location, links } = Astro.props;
   data-theme-section="dark"
   data-bg-section="header-home"
 >
-  <div class="overlay overlay-background overlay-background-video">
-    <div class="styled-video playpause overlay">
-      <video
-        class="overlay"
-        preload="auto"
-        autoplay
-        loop
-        muted
-        webkit-playsinline
-        playsinline
-        poster=""
-      >
-        <source src="/videos/bg.webm" type="video/webm" />
-        <source src="/videos/bg.mp4" type="video/mp4" />
-      </video>
-    </div>
+  <div class="overlay overlay-background overlay-background-video" style="opacity: 0.9;">
+    {heroImage ? (
+      <>
+        <img src={heroImage} alt="" class="overlay hero-bg-image" />
+        <div class="overlay hero-image-tint"></div>
+      </>
+    ) : (
+      <div class="styled-video playpause overlay">
+        <video
+          class="overlay video-landscape"
+          preload="auto"
+          autoplay
+          loop
+          muted
+          webkit-playsinline
+          playsinline
+          poster=""
+        >
+          {heroVideo ? (
+            <source src={heroVideo} type="video/mp4" />
+          ) : (
+            <>
+              <source src="/videos/bg.webm" type="video/webm" />
+              <source src="/videos/bg.mp4" type="video/mp4" />
+            </>
+          )}
+        </video>
+      </div>
+    )}
     <div class="overlay overlay-gradient-v2"></div>
   </div>
 
@@ -43,14 +61,16 @@ const { date, location, links } = Astro.props;
     <div class="row">
       <div class="col">
         <div class="col col-title">
-          <h1>GOSIM Spotlight: Inspiring the Future Through Open Creation!</h1>
+          <h1>{title}</h1>
+          {subtitle && <p class="hero-subtitle">{subtitle}</p>}
         </div>
 
-        <div class="event-facts">
-          {date && <p>{date}</p>}
-
-          {location && <p>{location}</p>}
-        </div>
+        {(date || location) && (
+          <div class="event-facts">
+            {date && <p>{date}</p>}
+            {location && <p>{location}</p>}
+          </div>
+        )}
 
         <div class="btn-home-wrap">
           {
@@ -59,7 +79,7 @@ const { date, location, links } = Astro.props;
                 text={loop.text}
                 link={loop.link}
                 openInNewTab={loop?.openInNewTab}
-                class="btn light xl btn-hover fade-in-last"
+                class={loop.highlight ? "btn primary xl btn-hover fade-in-last btn-glow" : "btn light xl btn-hover fade-in-last"}
               />
             ))
           }
@@ -70,7 +90,41 @@ const { date, location, links } = Astro.props;
 </section>
 
 <style>
+  .section.full-height .container > .row {
+    min-height: 100vh;
+  }
+
   .col-title {
     margin-top: 6%;
+  }
+
+  .hero-subtitle {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 0.5rem;
+  }
+
+  .hero-bg-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-image-tint {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.btn-glow) {
+    animation: glow-pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4), 0 0 30px rgba(0, 210, 255, 0.2);
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4), 0 0 30px rgba(0, 210, 255, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 210, 255, 0.6), 0 0 50px rgba(0, 210, 255, 0.3);
+    }
   }
 </style>

@@ -295,16 +295,15 @@ a {
 }
 
 .section.full-height .container > .row {
-   min-height: 100vh;
+   min-height: 85vh;
    padding-top: var(--section-padding);
    padding-bottom: var(--section-padding);
 }
 
-@media (hover: none) { 
+@media (hover: none) {
    @media screen and (max-width: 1024px) {
       .section.full-height .container > .row {
-         min-height: 100vh;
-         /* min-height: calc(var(--vh, 1vh) * 100); */
+         min-height: 85vh;
       }
    }
 }
@@ -509,6 +508,11 @@ video.overlay {
 
 .btn .btn-content.original .btn-fill {
    background-color: var(--color-light);
+}
+
+.btn .btn-click:hover .btn-fill {
+   opacity: 0.7 !important;
+   transition: opacity 0.2s ease;
 }
 
 .btn .btn-content span {
@@ -790,6 +794,11 @@ video.overlay {
 [data-theme-nav="dark"] .main-nav-bar .link .link-click span,
 [data-theme-section="dark"] .link .link-click span  {
    color: var(--color-white);
+}
+
+[data-theme-nav="dark"] .main-nav-bar .link .link-click:hover::before,
+[data-theme-section="dark"] .link .link-click:hover::before {
+   background-color: var(--color-white);
 }
 
 /* Hover */

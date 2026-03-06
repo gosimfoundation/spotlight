@@ -1,30 +1,23 @@
 ---
 // Components
 import Layout from "layouts/Layout.astro"
-import GetTickets from "components/GetTickets.astro"
 import HeroText from "components/HeroText.astro"
 import FAQ from "components/FAQ.astro"
 ---
 
 <Layout
-  title="FAQ – GOSIM Spotlight Hangzhou 2025"
-  description="FAQ – GOSIM Spotlight Hangzhou 2025"
+  title="FAQ – GOSIM Spotlight"
+  description="FAQ – GOSIM Spotlight"
   navBackground="light"
   pageTransitionName="FAQ"
+  footerCta={{
+    title: "Get involved with GOSIM Spotlight",
+    text: "Explore the latest GOSIM Spotlight edition and submit your project.",
+    buttonText: "Upcoming Spotlight: Paris 2026",
+    buttonLink: "/paris2026",
+  }}
 >
   <HeroText title="FAQs" lightgray />
 
   <FAQ />
-
-  <GetTickets
-    title="Grab your GOSIM Hangzhou ticket"
-    location="Hangzhou, China"
-    date="Sep 13-14, 2025"
-    text="Hangzhou,a city renowned for its historical legacy and vibrant technological future. Hangzhou, a historical gem and modern tech hub, offers the perfect backdrop for inspiration, networking, and breakthrough innovations. GOSIM Hangzhou Spotlgiht invites visionaries, disruptors, and pioneers to converge shape the next frontier of open-source."
-    ctaButton={{
-      text: "Get tickets",
-      link: "",
-      openInNewTab: true,
-    }}
-  />
 </Layout>

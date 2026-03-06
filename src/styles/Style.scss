@@ -658,8 +658,20 @@ footer {
 }
 
 .overlay-background-video .overlay-gradient-v2 {
+   background: linear-gradient(
+      75deg,
+      rgb(209 178 251 / 50%) 0%,
+      rgb(217 178 251 / 25%) 50%,
+      rgb(201 178 251 / 50%) 100%
+   );
    opacity: 1;
    mix-blend-mode: multiply;
+}
+
+@media (max-width: 860px) {
+   .overlay-background-video .overlay-gradient-v2 {
+      background-color: rgb(143 193 239 / 50%);
+   }
 }
 
 /* Presented by */
@@ -743,13 +755,12 @@ footer {
 .section-home-header .event-facts {
    width: 100%;
    display: flex;
+   flex-direction: row;
    justify-content: center;
-   gap: 1rem;
+   gap: 1.5rem;
    align-items: center;
-   overflow: hidden;
    position: relative;
-   max-width: 440px;
-   font-size: 1.5rem;
+   font-size: 3rem;
 }
 
 .section-home-header .event-facts p {
@@ -778,8 +789,7 @@ footer {
 @media screen and (max-width: 860px) {
 
    .section-home-header .event-facts {
-      height: 2em;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
    }
 
    .section-home-header .btn {
@@ -810,6 +820,30 @@ footer {
 }
 
 /* ------------------------- Section - Home Intro -------------------------------------------------- */
+
+.confetti-section {
+   position: relative;
+   overflow: hidden;
+}
+
+.confetti-video-wrap {
+   position: absolute;
+   inset: 0;
+   z-index: 0;
+   pointer-events: none;
+}
+
+.confetti-video-wrap video {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.confetti-section > .section-home-intro {
+   position: relative;
+   z-index: 1;
+   background: rgba(255, 255, 255, 0.7);
+}
 
 .section-home-intro {
    background-color: transparent;

@@ -20,6 +20,14 @@ interface Props {
   bgNav?: string;
   navBackground?: string;
   pageTransitionName?: string;
+  footerCta?: {
+    title: string;
+    text: string;
+    buttonText: string;
+    buttonLink: string;
+    buttonOpenInNewTab?: boolean;
+    bulletPoints?: string[];
+  };
 }
 
 const {
@@ -29,6 +37,7 @@ const {
   navDarkMode,
   navBackground,
   pageTransitionName,
+  footerCta,
 } = Astro.props;
 ---
 
@@ -68,7 +77,7 @@ const {
       <slot />
     </main>
 
-    <Footer />
+    <Footer footerCta={footerCta} />
 
     <script defer src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script

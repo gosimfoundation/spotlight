@@ -6,34 +6,27 @@ import NotificationBar from "components/NotificationBar.astro"
 
 const hasNotificationBar = false // Set this to false when NotificationBar is removed or page will crash
 
+const slug = Astro.url.pathname
+
 const links = [
   {
-    text: "The Program",
-    link: "/#program",
+    text: "About",
+    link: "/#about",
   },
   {
-    text: "How It Works",
-    link: "/#how",
-  },
-  {
-    text: "Why Participate",
-    link: "/#why",
-  },
-  {
-    text: "Timeline",
-    link: "/#timeline",
+    text: "Upcoming Spotlight",
+    link: "/paris2026",
   },
   {
     text: "Previous Spotlights",
     link: "/#previous",
   },
-  // {
-  //   text: "Rules & Eligibility",
-  //   link: "/faq/",
-  // },
+  {
+    text: "Why Spotlight",
+    link: "/#why",
+  },
 ]
 
-const slug = Astro.url.pathname
 ---
 
 <header>

@@ -1,0 +1,225 @@
+---
+// Components
+import Layout from "layouts/Layout.astro"
+import Hero from "components/Hero.astro"
+import Intro from "components/Intro.astro"
+import Tracks from "components/Tracks.astro"
+import Button from "components/Button.astro"
+import Cards from "components/Cards.astro"
+import ProgramOverview from "components/ProgramOverview.astro"
+import Timeline from "components/Timeline.astro"
+import PreviousEvents from "components/PreviousEvents.astro"
+// Images
+import GosimDelft from "images/homepage/gosim-delft.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+---
+
+<Layout
+  title="GOSIM Spotlight 2026: Frontier Creators"
+  description="GOSIM Spotlight 2026: Frontier Creators. A platform for those pushing the boundaries of AI and creativity. May 5-6, 2026, Paris, France."
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+  footerCta={{
+    title: "Now accepting applications!",
+    text: "Know any project that deserves recognition? Don't wait - nominate it today and help us shine a spotlight on its potential. Or apply with your own project. Here are the important dates: Application opens on March 10, 2026, and close on April 10, 2026.",
+    buttonText: "Nominate Project",
+    buttonLink: "https://cfp.gosim.org/",
+    buttonOpenInNewTab: true,
+    bulletPoints: [
+      "Application period ends: Friday, April 10 at 11:59 PM (UTC - 8)",
+      "Selected candidates will be announced by: April 15, 2026",
+      "Spotlight Showcase and Lightning Talks: May 5-6, 2026",
+    ],
+  }}
+>
+  <Hero
+    title="GOSIM Spotlight 2026"
+    subtitle="Frontier Creators"
+    date="May 5-6, 2026"
+    location="Paris, France"
+    heroImage="/images/homepage/paris-hero-bk.jpg"
+    links={[
+      {
+        text: "Nominate Project",
+        link: "https://cfp.gosim.org/",
+        openInNewTab: true,
+      },
+    ]}
+  />
+  <div
+    class="section-wrap"
+    id="program"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        Are you building something at the frontier of AI and creativity?
+      </h1>
+      <h1 class="h5 light split-words animate-read">
+        <div style="margin: 1rem 0;"></div>
+        Artificial intelligence is transforming how creation happens. At the same time, the boundaries of creators are becoming fluid. Developers, artists, researchers, and entrepreneurs are increasingly building, designing, and experimenting across roles.
+        <div style="margin: 1rem 0;"></div>
+        <b>GOSIM Spotlight 2026: Frontier Creators</b> is a platform for those pushing these boundaries. We welcome creations in any form — products, systems, code, research, prototypes, or artistic works.
+        <div style="margin: 1rem 0;"></div>
+        Selected projects will be showcased live in Paris, France, on May 5-6, 2026.
+      </h1>
+      <br />
+      <div style="margin-top: 1.5rem;">
+        <Button
+          text="Nominate Project"
+          link="https://cfp.gosim.org"
+          openInNewTab={true}
+          class="btn primary xl btn-hover fade-in-last"
+        />
+      </div>
+    </Intro>
+  </div>
+
+  <ProgramOverview
+    programTitle="The Program"
+    programDescription="GOSIM Spotlight 2026: Frontier Creators is designed to:"
+    bulletPoints={[
+      "Showcase frontier creations — from AI-native products and open-source tools to experimental prototypes, research ideas, and creative works that explore new forms of building and expression with AI.",
+      "Highlight the creators behind the work, giving visibility to developers, artists, researchers, and entrepreneurs who are pushing the boundaries of what it means to create in the age of AI.",
+      "Encourage cross-disciplinary exchange, bringing together people from different fields to share ideas, experiments, and perspectives on the evolving relationship between human creativity and artificial intelligence.",
+      "Selected projects — including products, tools, prototypes, research proposals, and creative works — will be presented live during GOSIM Spotlight 2026: Frontier Creators on May 5-6, 2026.",
+    ]}
+    finalistText="This year, 15-20 selected projects will be invited to Paris to showcase their work in person, through presentations and live demonstrations at"
+    conferenceLink="https://paris2026.gosim.org"
+    conferenceText="GOSIM Paris 2026"
+  />
+
+  <div
+    class="section-wrap"
+    id="how"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <Tracks
+      title="Participating in GOSIM Spotlight 2026 is a simple 3 step process"
+      description="Submissions will be reviewed by an independent jury composed of experts from technology, research, art, and entrepreneurship."
+      list={[
+        {
+          title: "Apply or Nominate",
+          text: `Tell us about what you are creating and the process behind it. We welcome submissions from all creators, and nominations of others' projects are also encouraged.`,
+        },
+        {
+          title: "Evaluation",
+          text: `Our panel of jury reviews the submissions, focusing on innovation, utility, and community impact.`,
+        },
+        {
+          title: "Selection",
+          text: `Selected works will be featured on the GOSIM Spotlight 2026 and promoted through our website, newsletter, and social media channels to reach a global audience. Among them, 15-20 creators will be invited to present their work in person at GOSIM Spotlight 2026: Frontier Creators on May 5-6, 2026.`,
+        },
+      ]}
+      ctaButton={{
+        text: "Nominate Project",
+        link: "https://cfp.gosim.org/",
+      }}
+    />
+  </div>
+
+  <div class="section-wrap" id="why">
+    <Cards
+      title="Why Apply?"
+      description="Be part of a new creator platform without boundaries. GOSIM Spotlight 2026: Frontier Creators brings together developers, artists, researchers, and entrepreneurs exploring new forms of creation with AI, where technology, expression, and system building increasingly converge. Selected works will be featured across the GOSIM Spotlight 2026, including our website, newsletter, and social media channels, reaching a global community of creators. Among them, 15-20 creators will be invited to present their work in person at GOSIM Spotlight 2026: Frontier Creators on May 5-6, 2026, joining a curated program that celebrates cross-disciplinary creation and collaboration."
+      cards={[
+        {
+          title: "Exclusive Showcase",
+          description:
+            "Present your creation — whether a product, research idea, tool, or artwork — to a global audience across technology, art, and innovation.",
+          image: "/icons/showcase.svg",
+        },
+        {
+          title: "Travel Support",
+          description:
+            "Selected creators invited to the final showcase will receive travel support to present their work in person in Paris at GOSIM Spotlight 2026: Frontier Creators.",
+          image: "/icons/travel-support.svg",
+        },
+        {
+          title: "Mentorship & Resources",
+          description:
+            "Receive feedback and insights from a diverse jury of technologists, researchers, artists, and builders working at the frontier of AI and creation.",
+          image: "/icons/mentorship.svg",
+        },
+        {
+          title: "Global Visibility",
+          description:
+            "Featured works will be highlighted across the GOSIM Spotlight 2026 platform, including our website, newsletter, and global creator network.",
+          image: "/icons/global-visibility.svg",
+        },
+        {
+          title: "Incubation Opportunities",
+          description:
+            "Outstanding creations may gain access to post-event opportunities such as early-stage support, partnerships, or invitations to future showcases.",
+          image: "/icons/networking-recognition.svg",
+        },
+        {
+          title: "Community Growth",
+          description:
+            "Join a growing global community of frontier creators exploring new forms of collaboration across technology, art, research, and entrepreneurship.",
+          image: "/icons/community-growth.svg",
+        },
+      ]}
+    />
+  </div>
+
+  <div class="section-wrap" id="timeline">
+    <Timeline
+      events={[
+        {
+          date: "March 10, 2026",
+          title: "Applications open",
+        },
+        {
+          date: "April 10, 2026",
+          title: "Applications close",
+        },
+        {
+          date: "April 15, 2026",
+          title: "Candidates announced",
+        },
+        {
+          date: "May 5-6, 2026",
+          title: "Spotlight Showcase",
+        },
+      ]}
+    />
+  </div>
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title="Previous Spotlight Events"
+      events={[
+        {
+          title: "GOSIM Spotlight 2025: AIGC",
+          date: "Hangzhou, China - September 13-14, 2025",
+          description:
+            "Showcasing groundbreaking AIGC projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence.",
+          image: GosimHangzhou,
+          link: "/hangzhou2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: AI",
+          date: "Paris, France - May 6-7, 2025",
+          description:
+            "Propelling Open-Source AI Forward: Innovative open AI models and robotics projects.",
+          image: GosimParis2,
+          link: "/paris2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: Rust",
+          date: "Delft, Netherlands - May 13-14, 2025",
+          description:
+            "Celebrating the brilliance and creativity of open-source projects developed with Rust.",
+          image: GosimDelft,
+          link: "/delft2025",
+        },
+      ]}
+    />
+  </div>
+
+</Layout>

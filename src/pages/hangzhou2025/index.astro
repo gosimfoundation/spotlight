@@ -1,0 +1,106 @@
+---
+// Components
+import Layout from "layouts/Layout.astro"
+import Projects from "components/Projects.astro"
+import HeroFinalists from "components/HeroFinalists.astro"
+import Intro from "components/Intro.astro"
+import TextAndImage from "components/TextAndImage.astro"
+import PreviousEvents from "components/PreviousEvents.astro"
+import SpotlightAi from "images/homepage/spotlight-badge-ai2025.png"
+import projectsData from "json/Projects.json"
+// Images
+import GosimDelft from "images/homepage/gosim-delft.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+
+const numProjs = projectsData.projects.length
+---
+
+<Layout
+  title="GOSIM Spotlight 2025: AIGC"
+  description="GOSIM Spotlight 2025: AIGC — where exceptional AIGC projects were showcased to the world."
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+>
+  <HeroFinalists
+    category="AIGC"
+    date="September 13-14, 2025"
+    location="Hangzhou, China"
+    heroVideo="/videos/hangzhou-hero-video.mp4"
+    heroImage="/images/homepage/gosim-hangzhou-hero.png"
+    conferenceName="GOSIM Hangzhou 2025"
+    conferenceLink="https://hangzhou2025.gosim.org/"
+    tagline={"Here are the " +
+      numProjs +
+      " projects selected for the GOSIM Spotlight 2025: AIGC"}
+    links={[
+      {
+        text: "View Projects ↓",
+        link: "#projects",
+        openInNewTab: false,
+      },
+    ]}
+  />
+  <div class="confetti-section">
+    <div class="confetti-video-wrap">
+      <video autoplay loop muted playsinline webkit-playsinline>
+        <source src="/videos/confetti.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        Congratulations to the {numProjs} projects selected!
+        <p></p>
+        These projects were showcased at the spotlight demo booths at <b>
+          <a href="https://hangzhou2025.gosim.org/">GOSIM Hangzhou 2025</a>.
+        </b> Conference attendees also listened to their lightning talks on <b>
+          September 13-14, 2025</b
+        >.
+      </h1>
+    </Intro>
+  </div>
+  <TextAndImage
+    title="GOSIM Spotlight 2025: AIGC Finalists"
+    text="The GOSIM Spotlight 2025: AIGC showcased groundbreaking projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence. This edition featured two tracks: Applied AI and Interactive Demos, bringing together developers, researchers, artists, and practitioners working at the frontier of generative AI."
+    image={SpotlightAi}
+    imageAlt="Gosim Spotlight badge"
+    dataBgSection="beige"
+    dataThemeSection="light"
+  />
+  <div id="projects">
+    <Projects projects={projectsData.projects} />
+  </div>
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title="Previous Spotlight Events"
+      events={[
+        {
+          title: "GOSIM Spotlight 2025: AIGC",
+          date: "Hangzhou, China - September 13-14, 2025",
+          description:
+            "Showcasing groundbreaking AIGC projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence.",
+          image: GosimHangzhou,
+          link: "/hangzhou2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: AI",
+          date: "Paris, France - May 6-7, 2025",
+          description:
+            "Propelling Open-Source AI Forward: Innovative open AI models and robotics projects.",
+          image: GosimParis2,
+          link: "/paris2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: Rust",
+          date: "Delft, Netherlands - May 13-14, 2025",
+          description:
+            "Celebrating the brilliance and creativity of open-source projects developed with Rust.",
+          image: GosimDelft,
+          link: "/delft2025",
+        },
+      ]}
+    />
+  </div>
+</Layout>

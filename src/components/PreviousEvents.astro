@@ -37,7 +37,7 @@ const { title, events } = Astro.props;
                     <div class="flickity-slide">
                         <a
                             href={loop.link}
-                            target="_blank"
+                            target={loop.link.startsWith("http") ? "_blank" : "_self"}
                             class="single-resources-card"
                         >
                             <div class="card-row card-row-image">

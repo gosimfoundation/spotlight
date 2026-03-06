@@ -3,258 +3,190 @@
 import Layout from "layouts/Layout.astro"
 import Hero from "components/Hero.astro"
 import Intro from "components/Intro.astro"
-import Tracks from "components/Tracks.astro"
-import Button from "components/Button.astro"
 import Cards from "components/Cards.astro"
-import GetTickets from "components/GetTickets.astro"
-import ProgramOverview from "components/ProgramOverview.astro"
-import Timeline from "components/Timeline.astro"
+import Button from "components/Button.astro"
 import PreviousEvents from "components/PreviousEvents.astro"
-// import Newsletter from "components/Newsletter.astro"
 // Images
 import GosimDelft from "images/homepage/gosim-delft.png"
-import GosimParis2 from "images/homepage/sl-paris2.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
 ---
 
 <Layout
-  title="GOSIM Spotlight Hangzhou 2025"
-  description="GOSIM Spotlight Hangzhou, where exceptional projects are showcased to the world."
+  title="GOSIM Spotlight"
+  description="GOSIM Spotlight: Inspiring the Future Through Open Creation. An international showcase for exceptional open-source projects."
   navDarkMode={true}
   navBackground="header-home"
   pageTransitionName="Home"
+  footerCta={{
+    title: "Get Involved",
+    text: "GOSIM Spotlight is always looking for exceptional open-source projects. Stay tuned for the next call for nominations, or explore our previous spotlight events to see what kind of projects we celebrate.",
+    buttonText: "Upcoming Spotlight: Paris 2026",
+    buttonLink: "/paris2026",
+  }}
 >
   <Hero
-    date="September 13-14, 2025"
-    location="Hangzhou, China"
+    subtitle="Inspiring the Future Through Open Creation"
+    date=""
+    location=""
     links={[
+      {
+        text: "Upcoming Spotlight",
+        link: "/paris2026",
+        openInNewTab: false,
+      },
       {
         text: "Nominate Project",
         link: "https://cfp.gosim.org/",
         openInNewTab: true,
-      },
-      {
-        text: "Learn More",
-        link: "#program-overview",
-        openInNewTab: false,
+        highlight: true,
       },
     ]}
   />
+
   <div
     class="section-wrap"
-    id="program"
+    id="about"
     data-theme-section="light"
     data-bg-section="lightgray"
   >
     <Intro>
       <h1 class="h3 light split-words animate-read">
-        Are you building something revolutionary?
-        <p>💡</p>
-        <b>GOSIM AI for Humanity Spotlight</b>
-        is your launchpad to the world! What if AI wasn't just built to serve, but
-        to co-create with us?
-        <br />
-        <p>✨</p>
+        GOSIM Spotlight is an international showcase program that highlights
+        exceptional open-source projects, bringing them to the attention of the
+        global community.
       </h1>
       <h1 class="h5 light split-words animate-read">
-        AI for Humanity Spotlight is an international showcase for projects that
-        explore how generative AI can foster empathy, shared creativity, and
-        ethical coexistence.
         <div style="margin: 1rem 0;"></div>
-        This spotlight will take place as part of GOSIM Hangzhou, China's leading
-        open-source conference, from September 13–14, 2025, in Hangzhou, China.
+        Each edition of GOSIM Spotlight is tied to a major GOSIM conference,
+        where selected projects are presented through lightning talks and demo
+        booths. Spotlight finalists receive global visibility, mentorship,
+        travel support, and the opportunity to connect with leading voices in
+        open source, AI, and beyond.
       </h1>
-      <br />
-      <h1 class="h3 light split-words animate-read">
-        This year’s edition features two distinct tracks:
-      </h1>
-      <div
-        style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem;"
-      >
-        <div
-          style="flex: 1; outline: 1px solid var(--color-border); padding: 1rem;"
-        >
-          <ul style="margin-bottom: 1rem;" class="h5 light">
-            <li>
-              <span style="font-weight: bold;">Applied AI</span> – showcasing practical
-              products and solutions powered by generative AI
-            </li>
-          </ul>
-          <Button
-            text="Submit Applied AI Project"
-            link="https://cfp.gosim.org"
-            openInNewTab={true}
-            class="btn primary xl btn-hover fade-in-last"
-          />
-        </div>
-
-        <div
-          style="flex: 1; outline: 1px solid var(--color-border); padding: 1rem;"
-        >
-          <ul style="margin-bottom: 1rem;" class="h5 light">
-            <li>
-              <span style="font-weight: bold;">Interactive Demos</span> – with applications
-              in education, mental health, elder care, and social services
-            </li>
-          </ul>
-          <Button
-            text="Submit Interactive Demo Project"
-            link="https://cfp.gosim.org"
-            openInNewTab={true}
-            class="btn primary xl btn-hover fade-in-last"
-          />
-        </div>
-      </div>
     </Intro>
   </div>
-  <ProgramOverview />
-  <div
-    class="section-wrap"
-    id="how"
-    data-theme-section="light"
-    data-bg-section="lightgray"
-  >
-    <Tracks
-      title="Participating in GOSIM Spotlight is a simple 3 step process"
-      description="The Spotlight aims to highlight a curated selection of impactful and forward-thinking projects that exemplify human–AI co-creation. Submissions will be evaluated by an independent jury composed of leading experts from academia, industry, and the creative sector."
-      list={[
+
+  <div class="section-wrap upcoming-spotlight" id="current">
+    <Cards
+      title="Upcoming Spotlight"
+      description="The next GOSIM Spotlight takes place at GOSIM Paris 2026. We are looking for innovative open-source projects that push boundaries, inspire creativity, and demonstrate real-world impact."
+      cards={[
         {
-          title: "Apply or Nominate",
-          text: `Tell us about your innovative work and why it deserves to be seen by the world. Anyone can also nominate others' projects.`,
-        },
-        {
-          title: "Evaluation",
-          text: `Our panel of experts reviews the submissions, focusing on innovation, utility, and community impact.`,
-        },
-        {
-          title: "Selection",
-          text: `Selected projects/papers/models will be showcased at the GOSIM Hangzhou Conference. They will also be featured on our website, newsletter, and social media channels, ensuring they reach a global audience.`,
+          title: "GOSIM Spotlight 2026: Frontier Creators",
+          description:
+            "The next edition of GOSIM Spotlight will take place at GOSIM Paris 2026. Details coming soon.",
+          image: "/icons/showcase.svg",
         },
       ]}
-      ctaButton={{
-        text: "Apply or Nominate Now",
-        link: "https://cfp.gosim.org/",
-      }}
+    />
+    <div style="text-align: center; padding-bottom: 4rem;">
+      <Button
+        text="Upcoming Spotlight: Paris 2026"
+        link="/paris2026"
+        class="btn primary xl btn-hover"
+      />
+    </div>
+  </div>
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title="Previous Spotlight Events"
+      events={[
+        {
+          title: "GOSIM Spotlight 2025: AIGC",
+          date: "Hangzhou, China - September 13-14, 2025",
+          description:
+            "Showcasing groundbreaking AIGC projects exploring how generative AI can foster empathy, shared creativity, and ethical coexistence.",
+          image: GosimHangzhou,
+          link: "/hangzhou2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: AI",
+          date: "Paris, France - May 6-7, 2025",
+          description:
+            "Propelling Open-Source AI Forward: Innovative open AI models and robotics projects.",
+          image: GosimParis2,
+          link: "/paris2025",
+        },
+        {
+          title: "GOSIM Spotlight 2025: Rust",
+          date: "Delft, Netherlands - May 13-14, 2025",
+          description:
+            "Celebrating the brilliance and creativity of open-source projects developed with Rust.",
+          image: GosimDelft,
+          link: "/delft2025",
+        },
+      ]}
     />
   </div>
 
-  <!--
-  <Notify
-    title="Try the GOSIM ticket lucky draw!"
-    text="Join our Lucky Draw for a chance to unlock MASSIVE DISCOUNTS on your conference ticket!"
-    buttons={[
-      {
-        text: "X (Twitter)",
-        link: "https://x.com/gosimfoundation/status/1912744752925282408?s=46",
-        openInNewTab: true,
-      },
-      {
-        text: "LinkedIn",
-        link: "https://www.linkedin.com/posts/gosim-foundation_opensource-paris-gosim-activity-7320228660119056384-8G0N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAADy6IEBVFnqXCcxI2wwmkLQxsENI_ltXOc",
-        openInNewTab: true,
-      },
-    ]}
-  />
-   -->
-
   <div class="section-wrap" id="why">
     <Cards
-      title="Why Apply?"
-      description="Gain international visibility, connect with leading voices across AI, art, and society, and showcase your work at the AI for Humanity Spotlight at GOSIM Hangzhou 2025. Selected submissions will be featured in a curated program that brings together developers, researchers, artists, and practitioners working at the frontier of generative AI. Participants will receive expert feedback, strategic exposure, and access to a global network of collaborators. Travel support and follow-up opportunities for incubation or publication may be available for outstanding projects."
+      title="Why GOSIM Spotlight?"
+      description="GOSIM Spotlight is your launchpad to the world. Selected projects gain international recognition and access to a global network of collaborators, mentors, and opportunities."
       cards={[
         {
           title: "Exclusive Showcase",
           description:
-            "Present your project or artwork to a curated global audience across tech, art, and society.",
+            "Present your project to a curated global audience at major GOSIM conferences.",
           image: "/icons/showcase.svg",
         },
         {
           title: "Travel Support",
           description:
-            "Receive travel and accommodation funding for selected representatives to present their work on-site in Hangzhou.",
+            "Receive travel and accommodation funding for selected representatives to present their work on-site.",
           image: "/icons/travel-support.svg",
         },
         {
           title: "Mentorship & Resources",
           description:
-            "Get expert feedback from leading AI researchers, designers, artists, and spotlight jury members.",
+            "Get expert feedback from leading researchers, developers, and industry experts.",
           image: "/icons/mentorship.svg",
         },
         {
           title: "Global Visibility",
           description:
-            "Gain recognition at GOSIM Hangzhou 2025 and connect with international collaborators and platforms.",
+            "Gain recognition at GOSIM conferences and connect with international collaborators and platforms.",
           image: "/icons/global-visibility.svg",
         },
         {
-          title: "Incubation Opportunities",
+          title: "Networking & Recognition",
           description:
-            "Selected projects may be connected with post-event opportunities such as early-stage funding, institutional partnerships, or showcase invitations.",
+            "Connect with leading voices across open source, AI, Rust, and more.",
           image: "/icons/networking-recognition.svg",
         },
         {
           title: "Community Growth",
           description:
-            "Build long-term partnerships, and grow within a values-driven open-source ecosystem.",
+            "Build long-term partnerships and grow within a values-driven open-source ecosystem.",
           image: "/icons/community-growth.svg",
         },
       ]}
     />
   </div>
 
-  <div class="section-wrap" id="timeline">
-    <Timeline
-      events={[
-        {
-          date: "June 18, 2025",
-          title: "Applications open",
-        },
-        {
-          date: "August 18, 2025",
-          title: "Nominations close",
-        },
-        {
-          date: "August 25, 2025",
-          title: "Candidates announced",
-        },
-        {
-          date: "September 13-14, 2025",
-          title: "Spotlight showcase",
-        },
-      ]}
-    />
-  </div>
-  <div class="section-wrap" id="previous">
-    <PreviousEvents
-      title="Previous Spotlight Events"
-      events={[
-        {
-          title: "AI Spotlight: Paris",
-          date: "May 6-7, 2025",
-          description:
-            "Propelling Open-Source AI Forward: Innovative open AI models and robotics projects.",
-          image: GosimParis2,
-          link: "/ai2025",
-        },
-        {
-          title: "Rust Spotlight: Delft",
-          date: "May 13-14, 2025",
-          description:
-            "Celebrating the brilliance and creativity of open-source projects developed with Rust.",
-          image: GosimDelft,
-          link: "/rust2025",
-        },
-      ]}
-    />
-    </div>
-    <GetTickets
-      title="Now accepting applications!"
-      text="Know any project that deserves recognition? Don't wait - nominate it today and help us shine a spotlight on its potential. Or apply with your own project. Here are the important dates: Nominations opens on June 18, 2025, and close on August 18, 2025."
-      ctaButton={{
-        text: "Nominate Project",
-        link: "https://cfp.gosim.org/",
-        openInNewTab: true,
-      }}
-    />
-    <!-- <Newsletter /> -->
-  </div>
 </Layout>
+
+<style>
+  .upcoming-spotlight {
+    position: relative;
+    background-image: url("/images/homepage/paris-hero-bk.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .upcoming-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+  }
+
+  .upcoming-spotlight > :global(*) {
+    position: relative;
+    z-index: 1;
+  }
+</style>
