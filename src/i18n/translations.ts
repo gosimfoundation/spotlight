@@ -13,7 +13,7 @@ const translations = {
   en: {
     // Header / Nav
     "nav.about": "About",
-    "nav.upcoming": "✨ Upcoming Spotlight",
+    "nav.upcoming": "Upcoming Spotlight",
     "nav.previous": "Previous Spotlights",
     "nav.why": "Why Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",
@@ -193,7 +193,7 @@ const translations = {
   fr: {
     // Header / Nav
     "nav.about": "À propos",
-    "nav.upcoming": "✨ Prochain Spotlight",
+    "nav.upcoming": "Prochain Spotlight",
     "nav.previous": "Spotlights précédents",
     "nav.why": "Pourquoi Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",
@@ -373,7 +373,7 @@ const translations = {
   zh: {
     // Header / Nav
     "nav.about": "关于",
-    "nav.upcoming": "✨ 即将举办",
+    "nav.upcoming": "即将举办",
     "nav.previous": "往期活动",
     "nav.why": "为什么选择 Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",

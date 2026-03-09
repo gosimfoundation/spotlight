@@ -25,6 +25,7 @@ const links = [
   {
     text: t("nav.upcoming"),
     link: getLocalizedPath("/paris2026", locale),
+    highlight: true,
   },
   {
     text: t("nav.previous"),
@@ -100,10 +101,11 @@ const links = [
                   </button>
                 ) : (
                   <a
-                    class="link-click"
+                    class={`link-click ${loop.highlight ? "nav-highlight" : ""}`}
                     href={loop.link}
                     data-navigation-toggle="close"
                   >
+                    {loop.highlight && <span class="nav-highlight-dot" />}
                     <span>{loop.text}</span>
                   </a>
                 )}
@@ -199,7 +201,8 @@ const links = [
                     </svg>
                   </button>
                 ) : (
-                  <a class="link-click" href={loop.link}>
+                  <a class={`link-click ${loop.highlight ? "nav-highlight" : ""}`} href={loop.link}>
+                    {loop.highlight && <span class="nav-highlight-dot" />}
                     <span>{loop.text}</span>
                   </a>
                 )}
@@ -257,6 +260,8 @@ const links = [
     width: 100%;
     pointer-events: auto;
   }
+
+  /* .nav-highlight-dot styled globally in Components.scss */
 
   .main-nav-bar[data-has-notification="true"] {
     padding-top: calc(var(--row-gap) + 45px);

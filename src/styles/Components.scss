@@ -1,3 +1,22 @@
+/* ------------------------- Shared pulsing dot ------------------------------------------------------ */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.announcement-dot,
+.nav-highlight-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+.nav-highlight-dot {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 /* ------------------------- Custom Classes (Messy) -------------------------------------------------- */
 
 .col-dev-credits {
