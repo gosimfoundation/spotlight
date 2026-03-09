@@ -5,8 +5,6 @@ import Hero from "components/Hero.astro"
 import Intro from "components/Intro.astro"
 import Tracks from "components/Tracks.astro"
 import Button from "components/Button.astro"
-import Cards from "components/Cards.astro"
-import ProgramOverview from "components/ProgramOverview.astro"
 import Timeline from "components/Timeline.astro"
 import PreviousEvents from "components/PreviousEvents.astro"
 // Images
@@ -84,19 +82,72 @@ import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
     </Intro>
   </div>
 
-  <ProgramOverview
-    programTitle="The Program"
-    programDescription="GOSIM Spotlight 2026: Frontier Creators is designed to:"
-    bulletPoints={[
-      "Showcase frontier creations — from AI-native products and open-source tools to experimental prototypes, research ideas, and creative works that explore new forms of building and expression with AI.",
-      "Highlight the creators behind the work, giving visibility to developers, artists, researchers, and entrepreneurs who are pushing the boundaries of what it means to create in the age of AI.",
-      "Encourage cross-disciplinary exchange, bringing together people from different fields to share ideas, experiments, and perspectives on the evolving relationship between human creativity and artificial intelligence.",
-      "Selected projects — including products, tools, prototypes, research proposals, and creative works — will be presented live during GOSIM Spotlight 2026: Frontier Creators on May 5-6, 2026.",
-    ]}
-    finalistText="This year, 15-20 selected projects will be invited to Paris to showcase their work in person, through presentations and live demonstrations at"
-    conferenceLink="https://paris2026.gosim.org"
-    conferenceText="GOSIM Paris 2026"
-  />
+  <section
+    class="section section-guidelines"
+    id="guidelines"
+    data-theme-section="light"
+    data-bg-section="light"
+  >
+    <div class="container">
+      <h2>Submission Guidelines</h2>
+      <h1 class="h5 light split-words animate-read" style="text-align: center;">
+        Frontier Creators Spotlight is an open call for creative projects exploring the intersection of artificial intelligence and human creativity. We welcome submissions from artists, researchers, developers, designers, and interdisciplinary creators working with AI technologies.
+      </h1>
+
+      <div class="guidelines-categories">
+        <h3>Accepted Categories</h3>
+        <div class="category-tags">
+          <span class="category-tag">AI Visual Art</span>
+          <span class="category-tag">AI Video</span>
+          <span class="category-tag">Interactive Digital Work</span>
+          <span class="category-tag">AI Application / Creative Tool</span>
+          <span class="category-tag">Interactive Installation</span>
+          <span class="category-tag">Physical Installation</span>
+          <span class="category-tag">Performance / Live Experience</span>
+          <span class="category-tag">Creative Coding Project</span>
+          <span class="category-tag">Research-based Creative Project</span>
+        </div>
+        <p class="guidelines-muted">Hybrid and interdisciplinary works are also welcome.</p>
+      </div>
+
+      <div class="guidelines-grid">
+        <div class="guideline-card">
+          <h3>Submission Requirements</h3>
+          <p>Complete the online submission form with:</h4>
+          <ul>
+            <li><strong>Project information</strong> — title and short description</li>
+            <li><strong>AI's role in the creative process</strong> — how AI participates and the contribution of the human creator</li>
+            <li><strong>A submission link</strong> to the project materials</li>
+          </ul>
+          <p>Submit the final work itself along with supporting materials (description, images, demo video, or other documentation). Concept-only submissions without a completed work will not be considered.</p>
+          <p>For physical installations, live performances, or software-based works, clear documentation of the final work may be submitted instead.</p>
+          <p class="guidelines-muted">Please ensure your link remains accessible until after the event.</p>
+        </div>
+
+        <div class="guideline-card">
+          <h3>Technical Format Requirements</h3>
+          <h4>Images / Visual Works</h4>
+          <ul>
+            <li>Format: JPG or PNG</li>
+            <li>Resolution: at least 1920px on the longer side</li>
+          </ul>
+          <h4>Video Works</h4>
+          <ul>
+            <li>Format: MP4 (H.264 recommended)</li>
+            <li>Resolution: 1920×1080 (Full HD) or 4K</li>
+            <li>Aspect ratio: 16:9</li>
+            <li>Preview duration: 2–5 minutes</li>
+          </ul>
+          <h4>Installation / Interactive / Software</h4>
+          <ul>
+            <li>Visual documentation (images or video)</li>
+            <li>Short project explanation</li>
+            <li>Basic information about the work</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div
     class="section-wrap"
@@ -105,7 +156,7 @@ import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
     data-bg-section="lightgray"
   >
     <Tracks
-      title="Participating in GOSIM Spotlight 2026 is a simple 3 step process"
+      title="3 Simple Steps to Participate in GOSIM Spotlight 2026"
       description="Submissions will be reviewed by an independent jury composed of experts from technology, research, art, and entrepreneurship."
       list={[
         {
@@ -125,51 +176,6 @@ import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
         text: "Nominate Project",
         link: "https://cfp.gosim.org/",
       }}
-    />
-  </div>
-
-  <div class="section-wrap" id="why">
-    <Cards
-      title="Why Apply?"
-      description="Be part of a new creator platform without boundaries. GOSIM Spotlight 2026: Frontier Creators brings together developers, artists, researchers, and entrepreneurs exploring new forms of creation with AI, where technology, expression, and system building increasingly converge. Selected works will be featured across the GOSIM Spotlight 2026, including our website, newsletter, and social media channels, reaching a global community of creators. Among them, 15-20 creators will be invited to present their work in person at GOSIM Spotlight 2026: Frontier Creators on May 5-6, 2026, joining a curated program that celebrates cross-disciplinary creation and collaboration."
-      cards={[
-        {
-          title: "Exclusive Showcase",
-          description:
-            "Present your creation — whether a product, research idea, tool, or artwork — to a global audience across technology, art, and innovation.",
-          image: "/icons/showcase.svg",
-        },
-        {
-          title: "Travel Support",
-          description:
-            "Selected creators invited to the final showcase will receive travel support to present their work in person in Paris at GOSIM Spotlight 2026: Frontier Creators.",
-          image: "/icons/travel-support.svg",
-        },
-        {
-          title: "Mentorship & Resources",
-          description:
-            "Receive feedback and insights from a diverse jury of technologists, researchers, artists, and builders working at the frontier of AI and creation.",
-          image: "/icons/mentorship.svg",
-        },
-        {
-          title: "Global Visibility",
-          description:
-            "Featured works will be highlighted across the GOSIM Spotlight 2026 platform, including our website, newsletter, and global creator network.",
-          image: "/icons/global-visibility.svg",
-        },
-        {
-          title: "Incubation Opportunities",
-          description:
-            "Outstanding creations may gain access to post-event opportunities such as early-stage support, partnerships, or invitations to future showcases.",
-          image: "/icons/networking-recognition.svg",
-        },
-        {
-          title: "Community Growth",
-          description:
-            "Join a growing global community of frontier creators exploring new forms of collaboration across technology, art, research, and entrepreneurship.",
-          image: "/icons/community-growth.svg",
-        },
-      ]}
     />
   </div>
 
@@ -229,3 +235,81 @@ import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
   </div>
 
 </Layout>
+
+<style>
+  :global(.section-home-intro) {
+    padding-bottom: calc(var(--section-padding) * 0.4);
+  }
+  .section-guidelines {
+    padding: calc(var(--section-padding) * 0.4) 0;
+  }
+  :global(.section-how-it-works) {
+    padding-top: calc(var(--section-padding) * 0.4);
+    padding-bottom: calc(var(--section-padding) * 0.4);
+  }
+  .section-guidelines h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .section-guidelines h3 {
+    margin-bottom: 0.5rem;
+  }
+  .section-guidelines h4 {
+    margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
+  }
+  .section-guidelines .h5 {
+    max-width: calc(var(--title-size) * 9);
+    margin: 0 auto 2rem;
+  }
+  .guidelines-categories {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .category-tag {
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-dark);
+  }
+  .guidelines-muted {
+    color: rgba(0, 0, 0, 0.4);
+    font-style: italic;
+  }
+  .guidelines-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .guideline-card {
+    background: #f5f5f5;
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+  }
+  .guideline-card p {
+    margin-bottom: 0.5rem;
+  }
+  .guideline-card ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .guideline-card li {
+    margin-bottom: 0.2rem;
+    list-style: disc;
+  }
+  @media screen and (max-width: 720px) {
+    .guidelines-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

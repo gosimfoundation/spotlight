@@ -1032,6 +1032,10 @@ footer {
    align-items: flex-start;
 }
 
+.footer .row-cta>.col {
+   width: 100% !important;
+}
+
 .footer .row>.col:nth-child(1) {
    width: 28%;
 }

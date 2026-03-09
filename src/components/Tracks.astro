@@ -31,7 +31,7 @@ const { title, description, list, ctaButton } = Astro.props;
         <div class="row" style="justify-content: center;">
           <div
             class="col col-title"
-            style="text-align: center; max-width: 90vw; margin: 0 auto;"
+            style="text-align: center; max-width: calc(var(--title-size) * 9); margin: 0 auto;"
           >
             <h2>{title}</h2>
             {
@@ -44,40 +44,16 @@ const { title, description, list, ctaButton } = Astro.props;
           </div>
         </div>
 
-        <ul
-          class="row row-list"
-          style="margin-top: 32px;    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;"
-        >
+        <ul class="steps-list">
           {
             list?.map((loop, i) => (
-              <li
-                class="single-agenda-card single-accordion-item card-hover"
-                data-accordion-status="not-active"
-              >
-                <div class="top" data-accordion-toggle>
-                  <div class="left">
-                    <div class="timeslot">
-                      <p class="h5">{(i + 1).toString().padStart(3, "0")}</p>
-                    </div>
-                    <h3 class="h4">{loop.title}</h3>
-                  </div>
-                  <div class="plus">
-                    <div class="plus-fill" />
-                    <div class="bar bar-top" />
-                    <div class="bar bar-bottom" />
-                  </div>
+              <li class="step-item">
+                <div class="step-number">
+                  <p class="h5">{(i + 1).toString().padStart(3, "0")}</p>
                 </div>
-                <div class="bottom">
-                  <div class="bottom-wrap">
-                    <div class="bottom-content">
-                      <div class="card-row styled-content">
-                        <p>{loop.text}</p>
-                      </div>
-                    </div>
-                  </div>
+                <div class="step-content">
+                  <h3 class="h4">{loop.title}</h3>
+                  <p>{loop.text}</p>
                 </div>
               </li>
             ))
@@ -103,5 +79,31 @@ const { title, description, list, ctaButton } = Astro.props;
     .col-title {
       max-width: 50vw !important;
     }
+  }
+  .steps-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+  }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--border-radius);
+  }
+  .step-number {
+    flex-shrink: 0;
+    opacity: 0.4;
+  }
+  .step-content h3 {
+    margin-bottom: 0.25rem;
+  }
+  .step-content p {
+    opacity: 0.7;
   }
 </style>
