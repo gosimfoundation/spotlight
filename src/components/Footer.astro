@@ -2,8 +2,10 @@
 // Components
 import Button from "components/Button.astro"
 import Logo from "./Logo.astro"
+import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
 
 interface Props {
+  locale?: string;
   footerCta?: {
     title: string;
     text: string;
@@ -14,31 +16,33 @@ interface Props {
   };
 }
 
+const locale = (Astro.props.locale || "en") as Locale;
+const t = getTranslations(locale);
 const { footerCta } = Astro.props;
 
 const firstColumnLinks = [
   {
-    text: "Home",
-    link: "/",
+    text: t("footer.home"),
+    link: getLocalizedPath("/", locale),
   },
   {
-    text: "Spotlight 2026: Frontier Creators",
-    link: "/paris2026",
+    text: t("footer.spotlight2026"),
+    link: getLocalizedPath("/paris2026", locale),
   },
 ]
 
 const secondColumnLinks = [
   {
-    text: "Spotlight 2025: AI for Humanity",
-    link: "/hangzhou2025",
+    text: t("footer.spotlightHangzhou"),
+    link: getLocalizedPath("/hangzhou2025", locale),
   },
   {
-    text: "Spotlight 2025: AI",
-    link: "/paris2025",
+    text: t("footer.spotlightParis"),
+    link: getLocalizedPath("/paris2025", locale),
   },
   {
-    text: "Spotlight 2025: Rust",
-    link: "/delft2025",
+    text: t("footer.spotlightDelft"),
+    link: getLocalizedPath("/delft2025", locale),
   },
 ]
 
@@ -81,7 +85,7 @@ const slug = Astro.url.pathname
     <div class="row row-base">
       <div class="col col-logo-gosim">
         <div class="logo">
-          <a href="/" aria-label="Go to homepage" class="logo-click">
+          <a href={getLocalizedPath("/", locale)} aria-label="Go to homepage" class="logo-click">
             <Logo />
           </a>
         </div>
@@ -294,13 +298,13 @@ const slug = Astro.url.pathname
 
       <div class="col col-dev-credits">
         <div class="link link-hover">
-          <a class="link-click" href="/code-of-conduct/">
-            <span>Code of Conduct</span>
+          <a class="link-click" href={getLocalizedPath("/code-of-conduct", locale)}>
+            <span>{t("footer.codeOfConduct")}</span>
           </a>
         </div>
         <div class="link link-hover">
-          <a class="link-click" href="/privacy/">
-            <span>Privacy</span>
+          <a class="link-click" href={getLocalizedPath("/privacy", locale)}>
+            <span>{t("footer.privacy")}</span>
           </a>
         </div>
       </div>

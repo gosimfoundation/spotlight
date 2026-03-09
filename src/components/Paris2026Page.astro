@@ -1,0 +1,241 @@
+---
+// Components
+import Layout from "layouts/Layout.astro"
+import Hero from "components/Hero.astro"
+import Intro from "components/Intro.astro"
+import Tracks from "components/Tracks.astro"
+import Button from "components/Button.astro"
+import Timeline from "components/Timeline.astro"
+import PreviousEvents from "components/PreviousEvents.astro"
+// Images
+import GosimDelft from "images/homepage/gosim-delft.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+// i18n
+import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<Layout
+  title={t("paris2026.meta.title")}
+  description={t("paris2026.meta.desc")}
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+  locale={locale}
+  footerCta={{
+    title: t("paris2026.cta.title"),
+    text: t("paris2026.cta.text"),
+    buttonText: t("nav.nominate"),
+    buttonLink: "https://cfp.gosim.org/",
+    buttonOpenInNewTab: true,
+    bulletPoints: [
+      t("paris2026.cta.bullet1"),
+      t("paris2026.cta.bullet2"),
+      t("paris2026.cta.bullet3"),
+    ],
+  }}
+>
+  <Hero
+    title={t("paris2026.hero.title")}
+    subtitle="GOSIM Spotlight 2026"
+    subtitleAbove
+    date={t("paris2026.hero.date")}
+    location={t("paris2026.hero.location")}
+    heroImage="/images/homepage/paris-hero-bk.jpg"
+    links={[
+      {
+        text: t("nav.nominate"),
+        link: "https://cfp.gosim.org/",
+        openInNewTab: true,
+      },
+      {
+        text: t("paris2026.hero.visitParis"),
+        link: "https://paris2026.gosim.org",
+        openInNewTab: true,
+      },
+    ]}
+  />
+  <div
+    class="section-wrap"
+    id="program"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        {t("paris2026.intro.heading")}
+      </h1>
+      <h1 class="h5 light split-words animate-read">
+        <div style="margin: 1rem 0;"></div>
+        {t("paris2026.intro.p1")}
+        <div style="margin: 1rem 0;"></div>
+        <b>{t("paris2026.intro.p2bold")}</b>{t("paris2026.intro.p2")}
+        <div style="margin: 1rem 0;"></div>
+        {t("paris2026.intro.p3")}
+      </h1>
+      <br />
+      <div style="margin-top: 1.5rem;">
+        <Button
+          text={t("nav.nominate")}
+          link="https://cfp.gosim.org"
+          openInNewTab={true}
+          class="btn primary xl btn-hover fade-in-last"
+        />
+      </div>
+    </Intro>
+  </div>
+
+  <section
+    class="section section-guidelines"
+    id="guidelines"
+    data-theme-section="light"
+    data-bg-section="light"
+  >
+    <div class="container">
+      <h2>{t("paris2026.guidelines.title")}</h2>
+      <h1 class="h5 light split-words animate-read" style="text-align: center;">
+        {t("paris2026.guidelines.intro")}
+      </h1>
+
+      <div class="guidelines-categories">
+        <h3>{t("paris2026.guidelines.categories")}</h3>
+        <div class="category-tags">
+          <span class="category-tag">{t("paris2026.guidelines.cat.visualArt")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.video")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.digitalWork")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.creativeTool")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.interactiveInstall")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.physicalInstall")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.performance")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.creativeCoding")}</span>
+          <span class="category-tag">{t("paris2026.guidelines.cat.research")}</span>
+        </div>
+        <p class="guidelines-muted">{t("paris2026.guidelines.cat.hybrid")}</p>
+      </div>
+
+      <div class="guidelines-grid">
+        <div class="guideline-card">
+          <h3>{t("paris2026.guidelines.requirements")}</h3>
+          <p>{t("paris2026.guidelines.requirementsIntro")}</p>
+          <ul>
+            <li><strong>{t("paris2026.guidelines.req.projectInfo")}</strong>{t("paris2026.guidelines.req.projectInfoDesc")}</li>
+            <li><strong>{t("paris2026.guidelines.req.aiRole")}</strong>{t("paris2026.guidelines.req.aiRoleDesc")}</li>
+            <li><strong>{t("paris2026.guidelines.req.link")}</strong>{t("paris2026.guidelines.req.linkDesc")}</li>
+          </ul>
+          <p>{t("paris2026.guidelines.req.finalWork")}</p>
+          <p>{t("paris2026.guidelines.req.physical")}</p>
+          <p class="guidelines-muted">{t("paris2026.guidelines.req.linkNote")}</p>
+        </div>
+
+        <div class="guideline-card">
+          <h3>{t("paris2026.guidelines.technical")}</h3>
+          <h4>{t("paris2026.guidelines.tech.images")}</h4>
+          <ul>
+            <li>{t("paris2026.guidelines.tech.imgFormat")}</li>
+            <li>{t("paris2026.guidelines.tech.imgRes")}</li>
+          </ul>
+          <h4>{t("paris2026.guidelines.tech.video")}</h4>
+          <ul>
+            <li>{t("paris2026.guidelines.tech.vidFormat")}</li>
+            <li>{t("paris2026.guidelines.tech.vidRes")}</li>
+            <li>{t("paris2026.guidelines.tech.vidAspect")}</li>
+            <li>{t("paris2026.guidelines.tech.vidDuration")}</li>
+          </ul>
+          <h4>{t("paris2026.guidelines.tech.install")}</h4>
+          <ul>
+            <li>{t("paris2026.guidelines.tech.installDoc")}</li>
+            <li>{t("paris2026.guidelines.tech.installExplain")}</li>
+            <li>{t("paris2026.guidelines.tech.installInfo")}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="section-wrap"
+    id="how"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <Tracks
+      title={t("paris2026.steps.title")}
+      description={t("paris2026.steps.desc")}
+      list={[
+        {
+          title: t("paris2026.steps.apply.title"),
+          text: t("paris2026.steps.apply.text"),
+        },
+        {
+          title: t("paris2026.steps.evaluate.title"),
+          text: t("paris2026.steps.evaluate.text"),
+        },
+        {
+          title: t("paris2026.steps.select.title"),
+          text: t("paris2026.steps.select.text"),
+        },
+      ]}
+      ctaButton={{
+        text: t("nav.nominate"),
+        link: "https://cfp.gosim.org/",
+      }}
+    />
+  </div>
+
+  <div class="section-wrap" id="timeline">
+    <Timeline
+      events={[
+        { date: t("paris2026.timeline.date1"), title: t("paris2026.timeline.open") },
+        { date: t("paris2026.timeline.date2"), title: t("paris2026.timeline.close") },
+        { date: t("paris2026.timeline.date3"), title: t("paris2026.timeline.announced") },
+        { date: t("paris2026.timeline.date4"), title: t("paris2026.timeline.showcase") },
+      ]}
+    />
+  </div>
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title={t("previous.title")}
+      events={[
+        { title: t("previous.hangzhou.title"), date: t("previous.hangzhou.date"), description: t("previous.hangzhou.desc"), image: GosimHangzhou, link: getLocalizedPath("/hangzhou2025", locale) },
+        { title: t("previous.paris.title"), date: t("previous.paris.date"), description: t("previous.paris.desc"), image: GosimParis2, link: getLocalizedPath("/paris2025", locale) },
+        { title: t("previous.delft.title"), date: t("previous.delft.date"), description: t("previous.delft.desc"), image: GosimDelft, link: getLocalizedPath("/delft2025", locale) },
+      ]}
+    />
+  </div>
+
+</Layout>
+
+<style>
+  :global(.section-home-intro) {
+    padding-bottom: calc(var(--section-padding) * 0.4);
+  }
+  .section-guidelines {
+    padding: calc(var(--section-padding) * 0.4) 0;
+  }
+  :global(.section-how-it-works) {
+    padding-top: calc(var(--section-padding) * 0.4);
+    padding-bottom: calc(var(--section-padding) * 0.4);
+  }
+  .section-guidelines h2 { text-align: center; margin-bottom: 1rem; }
+  .section-guidelines h3 { margin-bottom: 0.5rem; }
+  .section-guidelines h4 { margin-bottom: 0.25rem; margin-top: 0.75rem; }
+  .section-guidelines .h5 { max-width: calc(var(--title-size) * 9); margin: 0 auto 2rem; }
+  .guidelines-categories { text-align: center; margin-bottom: 2rem; }
+  .category-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 0.5rem; }
+  .category-tag { padding: 0.3rem 0.75rem; border-radius: 999px; border: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; font-weight: 500; color: var(--color-dark); }
+  .guidelines-muted { color: rgba(0,0,0,0.4); font-style: italic; }
+  .guidelines-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .guideline-card { background: #f5f5f5; border-radius: var(--border-radius); padding: 1.75rem; }
+  .guideline-card p { margin-bottom: 0.5rem; }
+  .guideline-card ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+  .guideline-card li { margin-bottom: 0.2rem; list-style: disc; }
+  @media screen and (max-width: 720px) { .guidelines-grid { grid-template-columns: 1fr; } }
+</style>

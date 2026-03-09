@@ -1,0 +1,161 @@
+---
+import Layout from "layouts/Layout.astro"
+import Hero from "components/Hero.astro"
+import Intro from "components/Intro.astro"
+import Cards from "components/Cards.astro"
+import Button from "components/Button.astro"
+import PreviousEvents from "components/PreviousEvents.astro"
+import GosimDelft from "images/homepage/gosim-delft.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<Layout
+  title={t("home.meta.title")}
+  description={t("home.meta.desc")}
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+  locale={locale}
+  footerCta={{
+    title: t("home.cta.title"),
+    text: t("home.cta.text"),
+    buttonText: t("home.cta.button"),
+    buttonLink: getLocalizedPath("/paris2026", locale),
+  }}
+>
+  <Hero
+    subtitle={t("home.hero.subtitle")}
+    announcement={{
+      text: t("home.hero.announcement"),
+      link: getLocalizedPath("/paris2026", locale),
+    }}
+    date=""
+    location=""
+    links={[
+      {
+        text: t("home.hero.upcoming"),
+        link: getLocalizedPath("/paris2026", locale),
+        openInNewTab: false,
+      },
+      {
+        text: t("nav.nominate"),
+        link: "https://cfp.gosim.org/",
+        openInNewTab: true,
+        highlight: true,
+      },
+    ]}
+  />
+
+  <div
+    class="section-wrap"
+    id="about"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        {t("home.intro.heading")}
+      </h1>
+      <h1 class="h5 light split-words animate-read">
+        <div style="margin: 1rem 0;"></div>
+        {t("home.intro.body")}
+      </h1>
+    </Intro>
+  </div>
+
+  <div class="section-wrap upcoming-spotlight" id="current">
+    <Cards
+      title={t("home.upcoming.title")}
+      description={t("home.upcoming.desc")}
+      cards={[
+        {
+          title: t("home.upcoming.card.title"),
+          description: t("home.upcoming.card.desc"),
+          image: "/icons/showcase.svg",
+        },
+      ]}
+    />
+    <div style="text-align: center; padding-bottom: 4rem;">
+      <Button
+        text={t("home.upcoming.button")}
+        link={getLocalizedPath("/paris2026", locale)}
+        class="btn primary xl btn-hover"
+      />
+    </div>
+  </div>
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title={t("previous.title")}
+      events={[
+        {
+          title: t("previous.hangzhou.title"),
+          date: t("previous.hangzhou.date"),
+          description: t("previous.hangzhou.desc"),
+          image: GosimHangzhou,
+          link: getLocalizedPath("/hangzhou2025", locale),
+        },
+        {
+          title: t("previous.paris.title"),
+          date: t("previous.paris.date"),
+          description: t("previous.paris.desc"),
+          image: GosimParis2,
+          link: getLocalizedPath("/paris2025", locale),
+        },
+        {
+          title: t("previous.delft.title"),
+          date: t("previous.delft.date"),
+          description: t("previous.delft.desc"),
+          image: GosimDelft,
+          link: getLocalizedPath("/delft2025", locale),
+        },
+      ]}
+    />
+  </div>
+
+  <div class="section-wrap" id="why">
+    <Cards
+      title={t("home.why.title")}
+      description={t("home.why.desc")}
+      cards={[
+        { title: t("home.why.showcase.title"), description: t("home.why.showcase.desc"), image: "/icons/showcase.svg" },
+        { title: t("home.why.travel.title"), description: t("home.why.travel.desc"), image: "/icons/travel-support.svg" },
+        { title: t("home.why.mentorship.title"), description: t("home.why.mentorship.desc"), image: "/icons/mentorship.svg" },
+        { title: t("home.why.visibility.title"), description: t("home.why.visibility.desc"), image: "/icons/global-visibility.svg" },
+        { title: t("home.why.networking.title"), description: t("home.why.networking.desc"), image: "/icons/networking-recognition.svg" },
+        { title: t("home.why.community.title"), description: t("home.why.community.desc"), image: "/icons/community-growth.svg" },
+      ]}
+    />
+  </div>
+
+</Layout>
+
+<style>
+  .upcoming-spotlight {
+    position: relative;
+    background-image: url("/images/homepage/paris-hero-bk.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .upcoming-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+  }
+  .upcoming-spotlight > :global(*) {
+    position: relative;
+    z-index: 1;
+  }
+</style>

@@ -12,6 +12,7 @@ interface Props {
   heroVideo?: string
   conferenceName?: string
   conferenceLink?: string
+  colocatedText?: string
   links?: Array<{
     text: string
     link: string
@@ -19,7 +20,7 @@ interface Props {
   }>
 }
 
-const { date, location, year, category, tagline, heroImage, heroVideo, conferenceName, conferenceLink, links } = Astro.props
+const { date, location, year, category, tagline, heroImage, heroVideo, conferenceName, conferenceLink, colocatedText = "Co-located with", links } = Astro.props
 ---
 
 <section
@@ -86,7 +87,7 @@ const { date, location, year, category, tagline, heroImage, heroVideo, conferenc
 
         {conferenceName && conferenceLink && (
           <div class="co-located">
-            <p>Co-located with <a href={conferenceLink} target="_blank" rel="noopener noreferrer">{conferenceName}</a></p>
+            <p>{colocatedText} <a href={conferenceLink} target="_blank" rel="noopener noreferrer">{conferenceName}</a></p>
           </div>
         )}
 

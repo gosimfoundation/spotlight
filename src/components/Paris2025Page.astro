@@ -1,0 +1,80 @@
+---
+import Layout from "layouts/Layout.astro"
+import Projects from "components/Projects.astro"
+import HeroFinalists from "components/HeroFinalists.astro"
+import Intro from "components/Intro.astro"
+import TextAndImage from "components/TextAndImage.astro"
+import PreviousEvents from "components/PreviousEvents.astro"
+import SpotlightAi from "images/homepage/spotlight-badge-ai2025.png"
+import projectsData from "json/Projects-ai2025.json"
+import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import GosimParis2 from "images/homepage/gosim-paris2025.png"
+import GosimDelft from "images/homepage/gosim-delft.png"
+import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const numProjs = projectsData.projects.length
+---
+
+<Layout
+  title={t("paris2025.meta.title")}
+  description={t("paris2025.meta.desc")}
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+  locale={locale}
+>
+  <HeroFinalists
+    year="2025"
+    category="AI"
+    date={t("paris2025.hero.date")}
+    location={t("paris2025.hero.location")}
+    heroVideo="/videos/paris2025-hero.mp4"
+    heroImage="/images/homepage/gosim-paris2025-hero.png"
+    conferenceName={t("paris2025.conference")}
+    conferenceLink="https://paris2025.gosim.org/"
+    colocatedText={t("paris2025.colocated")}
+    tagline=""
+    links={[]}
+  />
+  <div class="confetti-section">
+    <div class="confetti-video-wrap">
+      <video autoplay loop muted playsinline webkit-playsinline>
+        <source src="/videos/confetti.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        {t("paris2025.congrats", { count: numProjs })}
+        <p></p>
+        {t("paris2025.intro")} <b>
+          <a href="https://paris2025.gosim.org/">{t("paris2025.conference")}</a>.
+        </b> {t("paris2025.talks")} <b
+          ><a href="https://paris2025.gosim.org/schedule">{t("paris2025.talksDates")}</a></b
+        >.
+      </h1>
+    </Intro>
+  </div>
+  <TextAndImage
+    title={t("paris2025.finalists.title")}
+    text={t("paris2025.finalists.desc")}
+    image={SpotlightAi}
+    imageAlt="Gosim Spotlight badge"
+    dataBgSection="beige"
+    dataThemeSection="light"
+  />
+  <Projects projects={projectsData.projects} />
+
+  <div class="section-wrap" id="previous">
+    <PreviousEvents
+      title={t("previous.title")}
+      events={[
+        { title: t("previous.hangzhou.title"), date: t("previous.hangzhou.date"), description: t("previous.hangzhou.desc"), image: GosimHangzhou, link: getLocalizedPath("/hangzhou2025", locale) },
+        { title: t("previous.paris.title"), date: t("previous.paris.date"), description: t("previous.paris.desc"), image: GosimParis2, link: getLocalizedPath("/paris2025", locale) },
+        { title: t("previous.delft.title"), date: t("previous.delft.date"), description: t("previous.delft.desc"), image: GosimDelft, link: getLocalizedPath("/delft2025", locale) },
+      ]}
+    />
+  </div>
+</Layout>

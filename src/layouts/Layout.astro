@@ -20,6 +20,7 @@ interface Props {
   bgNav?: string;
   navBackground?: string;
   pageTransitionName?: string;
+  locale?: string;
   footerCta?: {
     title: string;
     text: string;
@@ -37,12 +38,13 @@ const {
   navDarkMode,
   navBackground,
   pageTransitionName,
+  locale = "en",
   footerCta,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="lenis lenis-smooth">
+<html lang={locale} class="lenis lenis-smooth">
   <head>
     <Seo
       title={title}
@@ -65,7 +67,7 @@ const {
     data-scrolling-direction="down"
     data-barba="wrapper"
   >
-    <Header />
+    <Header locale={locale} />
 
     <main
       id="main"
@@ -77,7 +79,7 @@ const {
       <slot />
     </main>
 
-    <Footer footerCta={footerCta} />
+    <Footer footerCta={footerCta} locale={locale} />
 
     <script defer src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script
@@ -97,5 +99,18 @@ const {
     ></script>
     <script defer src="/js/ScrollTrigger.min.js"></script>
     <script defer src="/js/Animations.js"></script>
+    <script is:inline data-locale={locale}>
+      // Auto-redirect based on browser language (only on default English pages)
+      (function() {
+        var el = document.querySelector('script[data-locale]');
+        if (!el || el.getAttribute('data-locale') !== 'en') return;
+        var stored = document.cookie.match(/(?:^|;\s*)locale=(\w+)/);
+        if (stored) return;
+        var lang = (navigator.language || '').toLowerCase();
+        var path = window.location.pathname.replace(/\/$/, '') || '';
+        if (lang.startsWith('zh')) window.location.replace('/zh' + path);
+        else if (lang.startsWith('fr')) window.location.replace('/fr' + path);
+      })();
+    </script>
   </body>
 </html>
