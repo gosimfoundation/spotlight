@@ -74,11 +74,11 @@ const t = getTranslations(locale);
       </h1>
       <h1 class="h5 light split-words animate-read">
         <div style="margin: 1rem 0;"></div>
-        {t("paris2026.intro.p1")}
+        {t("paris2026.intro.p1a")}<b>{t("paris2026.intro.p1bold")}</b>{t("paris2026.intro.p1b")}
         <div style="margin: 1rem 0;"></div>
-        <b>{t("paris2026.intro.p2bold")}</b>{t("paris2026.intro.p2")}
+        <b>{t("paris2026.intro.p2bold")}</b>{t("paris2026.intro.p2a")}<b>{t("paris2026.intro.p2bold2")}</b>{t("paris2026.intro.p2b")}
         <div style="margin: 1rem 0;"></div>
-        {t("paris2026.intro.p3")}
+        {t("paris2026.intro.p3a")}<b>{t("paris2026.intro.p3bold")}</b>{t("paris2026.intro.p3b")}
       </h1>
       <br />
       <div style="margin-top: 1.5rem;">
@@ -101,7 +101,7 @@ const t = getTranslations(locale);
     <div class="container">
       <h2>{t("paris2026.guidelines.title")}</h2>
       <h1 class="h5 light split-words animate-read" style="text-align: center;">
-        {t("paris2026.guidelines.intro")}
+        {t("paris2026.guidelines.intro.a")}<b>{t("paris2026.guidelines.intro.bold1")}</b>{t("paris2026.guidelines.intro.b")}<b>{t("paris2026.guidelines.intro.bold2")}</b>{t("paris2026.guidelines.intro.c")}
       </h1>
 
       <div class="guidelines-categories">
@@ -123,15 +123,17 @@ const t = getTranslations(locale);
       <div class="guidelines-grid">
         <div class="guideline-card">
           <h3>{t("paris2026.guidelines.requirements")}</h3>
-          <p>{t("paris2026.guidelines.requirementsIntro")}</p>
+          <h4>{t("paris2026.guidelines.requirementsIntro")}</h4>
           <ul>
             <li><strong>{t("paris2026.guidelines.req.projectInfo")}</strong>{t("paris2026.guidelines.req.projectInfoDesc")}</li>
             <li><strong>{t("paris2026.guidelines.req.aiRole")}</strong>{t("paris2026.guidelines.req.aiRoleDesc")}</li>
             <li><strong>{t("paris2026.guidelines.req.link")}</strong>{t("paris2026.guidelines.req.linkDesc")}</li>
           </ul>
-          <p>{t("paris2026.guidelines.req.finalWork")}</p>
-          <p>{t("paris2026.guidelines.req.physical")}</p>
-          <p class="guidelines-muted">{t("paris2026.guidelines.req.linkNote")}</p>
+          <h4>{t("paris2026.guidelines.req.finalWork")}</h4>
+          <ul class="guidelines-notes" style="margin-top: 0.75rem;">
+            <li>{t("paris2026.guidelines.req.physical")}</li>
+            <li>{t("paris2026.guidelines.req.linkNote")}</li>
+          </ul>
         </div>
 
         <div class="guideline-card">
@@ -234,8 +236,11 @@ const t = getTranslations(locale);
   .guidelines-muted { color: rgba(0,0,0,0.4); font-style: italic; }
   .guidelines-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .guideline-card { background: #f5f5f5; border-radius: var(--border-radius); padding: 1.75rem; }
-  .guideline-card p { margin-bottom: 0.5rem; }
-  .guideline-card ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.5rem; }
-  .guideline-card li { margin-bottom: 0.2rem; list-style: disc; }
+  .guideline-card h4 { font-size: 0.95rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.4rem; }
+  .guideline-card p { margin-bottom: 0.5rem; font-size: 0.9rem; }
+  .guideline-card ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; font-size: 0.9rem; }
+  .guideline-card li { margin-bottom: 0.3rem; list-style: disc; line-height: 1.5; }
+  .guideline-card .guidelines-notes { list-style: none; padding-left: 0; margin-top: 0.25rem; }
+  .guideline-card .guidelines-notes li { color: rgba(0,0,0,0.5); font-size: 0.82rem; font-style: italic; margin-bottom: 0.2rem; }
   @media screen and (max-width: 720px) { .guidelines-grid { grid-template-columns: 1fr; } }
 </style>
