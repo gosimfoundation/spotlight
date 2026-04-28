@@ -1,16 +1,18 @@
 ---
 // Components
 import Layout from "layouts/Layout.astro"
-import Hero from "components/Hero.astro"
+import HeroFinalists from "components/HeroFinalists.astro"
 import Intro from "components/Intro.astro"
 import Tracks from "components/Tracks.astro"
 import Button from "components/Button.astro"
 import Timeline from "components/Timeline.astro"
+import Shortlisted from "components/Shortlisted.astro"
 import PreviousEvents from "components/PreviousEvents.astro"
 // Images
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import shortlistedData from "json/Shortlisted-2026.json"
 // i18n
 import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
 
@@ -20,6 +22,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
+const totalShortlisted = shortlistedData.technology.length + shortlistedData.arts.length;
 ---
 
 <Layout
@@ -33,8 +36,7 @@ const t = getTranslations(locale);
     title: t("paris2026.cta.title"),
     text: t("paris2026.cta.text"),
     buttonText: t("nav.nominate"),
-    buttonLink: "https://cfp.gosim.org/",
-    buttonOpenInNewTab: true,
+    buttonLink: "#shortlisted",
     bulletPoints: [
       t("paris2026.cta.bullet1"),
       t("paris2026.cta.bullet2"),
@@ -42,18 +44,17 @@ const t = getTranslations(locale);
     ],
   }}
 >
-  <Hero
-    title={t("paris2026.hero.title")}
-    subtitle="GOSIM Spotlight 2026"
-    subtitleAbove
+  <HeroFinalists
+    year="2026"
+    category={t("paris2026.hero.title")}
     date={t("paris2026.hero.date")}
     location={t("paris2026.hero.location")}
     heroImage="/images/homepage/paris-hero-bk.jpg"
     links={[
       {
         text: t("nav.nominate"),
-        link: "https://cfp.gosim.org/",
-        openInNewTab: true,
+        link: "#shortlisted",
+        openInNewTab: false,
       },
       {
         text: t("paris2026.hero.visitParis"),
@@ -62,6 +63,31 @@ const t = getTranslations(locale);
       },
     ]}
   />
+  <div class="confetti-section">
+    <div class="confetti-video-wrap">
+      <video autoplay loop muted playsinline webkit-playsinline>
+        <source src="/videos/confetti.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <Intro>
+      <h1 class="h3 light split-words animate-read">
+        {t("paris2026.congrats", { count: totalShortlisted })}
+        <p></p>
+        {t("paris2026.congrats.intro")} <b>
+          <a href="https://paris2026.gosim.org/">{t("paris2026.congrats.conference")}</a>
+        </b> {t("paris2026.congrats.talks")} <b>{t("paris2026.congrats.talksDates")}</b>.
+      </h1>
+      <br />
+      <div style="margin-top: 1.5rem;">
+        <Button
+          text={t("nav.nominate")}
+          link="#shortlisted"
+          class="btn primary xl btn-hover fade-in-last"
+        />
+      </div>
+    </Intro>
+  </div>
+
   <div
     class="section-wrap"
     id="program"
@@ -80,15 +106,6 @@ const t = getTranslations(locale);
         <div style="margin: 1rem 0;"></div>
         {t("paris2026.intro.p3a")}<b>{t("paris2026.intro.p3bold")}</b>{t("paris2026.intro.p3b")}
       </h1>
-      <br />
-      <div style="margin-top: 1.5rem;">
-        <Button
-          text={t("nav.nominate")}
-          link="https://cfp.gosim.org"
-          openInNewTab={true}
-          class="btn primary xl btn-hover fade-in-last"
-        />
-      </div>
     </Intro>
   </div>
 
@@ -184,10 +201,6 @@ const t = getTranslations(locale);
           text: t("paris2026.steps.select.text"),
         },
       ]}
-      ctaButton={{
-        text: t("nav.nominate"),
-        link: "https://cfp.gosim.org/",
-      }}
     />
   </div>
 
@@ -201,6 +214,14 @@ const t = getTranslations(locale);
       ]}
     />
   </div>
+
+  <Shortlisted
+    sectionTitle={t("paris2026.shortlisted.title")}
+    techTitle={t("paris2026.shortlisted.technology")}
+    artsTitle={t("paris2026.shortlisted.arts")}
+    technology={shortlistedData.technology}
+    arts={shortlistedData.arts}
+  />
 
   <div class="section-wrap" id="previous">
     <PreviousEvents

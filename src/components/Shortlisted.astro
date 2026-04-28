@@ -1,0 +1,143 @@
+---
+interface Entry {
+  rank: number
+  author: string
+  title: string
+}
+
+interface Props {
+  sectionTitle: string
+  techTitle: string
+  artsTitle: string
+  technology: Entry[]
+  arts: Entry[]
+}
+
+const { sectionTitle, techTitle, artsTitle, technology, arts } = Astro.props
+---
+
+<section
+  class="section section-shortlisted"
+  id="shortlisted"
+  data-theme-section="light"
+  data-bg-section="light"
+>
+  <div class="container">
+    <h2>{sectionTitle}</h2>
+
+    <div class="shortlisted-category">
+      <h3>{techTitle}</h3>
+      <span class="category-count">{technology.length}</span>
+      <div class="shortlisted-grid">
+        {technology.map((entry) => (
+          <div class="shortlisted-card">
+            <span class="shortlisted-rank">#{entry.rank}</span>
+            <div class="shortlisted-info">
+              <h4>{entry.title}</h4>
+              <p>{entry.author}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="shortlisted-category">
+      <h3>{artsTitle}</h3>
+      <span class="category-count">{arts.length}</span>
+      <div class="shortlisted-grid">
+        {arts.map((entry) => (
+          <div class="shortlisted-card">
+            <span class="shortlisted-rank">#{entry.rank}</span>
+            <div class="shortlisted-info">
+              <h4>{entry.title}</h4>
+              <p>{entry.author}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-shortlisted {
+    padding: var(--section-padding) 0;
+  }
+
+  .section-shortlisted h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .shortlisted-category {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .shortlisted-category h3 {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+  }
+
+  .category-count {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 1.25rem;
+  }
+
+  .shortlisted-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .shortlisted-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #f5f5f5;
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+
+  .shortlisted-card:hover {
+    background: #edeafc;
+  }
+
+  .shortlisted-rank {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    min-width: 2rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .shortlisted-info {
+    min-width: 0;
+  }
+
+  .shortlisted-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .shortlisted-info p {
+    font-size: 0.82rem;
+    color: rgba(0, 0, 0, 0.55);
+    margin: 0.15rem 0 0;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 720px) {
+    .shortlisted-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

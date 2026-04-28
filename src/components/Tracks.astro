@@ -9,7 +9,7 @@ interface Props {
     title: string;
     text: string;
   }>;
-  ctaButton: {
+  ctaButton?: {
     text: string;
     link: string;
   };
@@ -62,15 +62,17 @@ const { title, description, list, ctaButton } = Astro.props;
       </div>
     </div>
 
-    <div class="row row-custom">
-      <div class="col">
-        <Button
-          text={ctaButton.text}
-          link={ctaButton.link}
-          class="btn outline btn-hover xl"
-        />
+    {ctaButton && (
+      <div class="row row-custom">
+        <div class="col">
+          <Button
+            text={ctaButton.text}
+            link={ctaButton.link}
+            class="btn outline btn-hover xl"
+          />
+        </div>
       </div>
-    </div>
+    )}
   </div>
 </section>
 

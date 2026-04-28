@@ -1,0 +1,41 @@
+{
+  "technology": [
+    { "rank": 1, "author": "Gong Zihan, Huang Chenxi, He Feng, Su Yicheng, Wang Yanqi", "title": "Vesti" },
+    { "rank": 2, "author": "Lei Lei", "title": "Actionbook" },
+    { "rank": 3, "author": "Yassine Ghorbel", "title": "GFS - The AI - Native Database Version Control System" },
+    { "rank": 4, "author": "Tao Jian", "title": "KernelGen2.0" },
+    { "rank": 5, "author": "FairladyZ625", "title": "Agora — The Context Infrastructure for the Age of Agents" },
+    { "rank": 6, "author": "Yuchen Xia", "title": "LLM Agents for Industrial Automation Systems" },
+    { "rank": 7, "author": "Haorui Yu", "title": "VULCA — Culture - Native AI Creative Studio for Visual Art Across 13 Traditions" },
+    { "rank": 8, "author": "Alina", "title": "Reachy Mini - Conversation App" },
+    { "rank": 9, "author": "Aurélien", "title": "Morgan CLAUDON - retrain - pipelines" },
+    { "rank": 10, "author": "Ahmad Varasteh", "title": "AI Agents for Medical Diagnostics: A Collaborative AI Reasoning Approach" }
+  ],
+  "arts": [
+    { "rank": 1, "author": "程宽", "title": "They Found Tim a Job" },
+    { "rank": 2, "author": "Andres Planas", "title": "The Candidate" },
+    { "rank": 3, "author": "Li Ting", "title": "Paper Phone" },
+    { "rank": 4, "author": "Lin Zirui", "title": "AI sci-fi short film「Emotional Code」" },
+    { "rank": 5, "author": "Ma Chong", "title": "undone by the one who held it." },
+    { "rank": 6, "author": "LI GENGEN (Kuri)", "title": "Galaxy Express" },
+    { "rank": 7, "author": "易森立", "title": "《纸扎霓虹》" },
+    { "rank": 8, "author": "王圣喆 金恬田", "title": "Witness" },
+    { "rank": 9, "author": "Chaoli Yu", "title": "We Own Tonight (电影院最后的夜晚)" },
+    { "rank": 10, "author": "ADK", "title": "Dark Anime Version of Little Red Riding Hood" },
+    { "rank": 11, "author": "Ao Ning", "title": "The Pennies from heaven" },
+    { "rank": 12, "author": "Zheyan Li", "title": "A Bedtime Story for the End" },
+    { "rank": 13, "author": "Junie Lau", "title": "《无限帧率》 (Infinite Frames)" },
+    { "rank": 14, "author": "Lee Han Gyu", "title": "REAL ACTION" },
+    { "rank": 15, "author": "Yanzhen Huang", "title": "The Geology of an Embrace" },
+    { "rank": 16, "author": "Li Jiayang", "title": "Generate™" },
+    { "rank": 17, "author": "Zhitong Zeng", "title": "Skills" },
+    { "rank": 18, "author": "Ioana B", "title": "Groups:" },
+    { "rank": 19, "author": "YU", "title": "Chinese Room" },
+    { "rank": 20, "author": "李学帅", "title": "Fictional Profile Archive" },
+    { "rank": 21, "author": "任庆齐", "title": "机器人之梦" },
+    { "rank": 22, "author": "Xintong Wang & Enqi Huang", "title": "The Apple's Decay" },
+    { "rank": 23, "author": "Zijian Zhang", "title": "Digital Display Design of Chaozhou Woodcarving" },
+    { "rank": 24, "author": "Rakey Yang", "title": "AI Shrine" },
+    { "rank": 25, "author": "Scenocosme", "title": "Scenocosme : Gregory Lasserre & Anais met den Ancxt" }
+  ]
+}
