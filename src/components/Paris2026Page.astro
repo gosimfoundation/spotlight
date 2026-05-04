@@ -3,6 +3,7 @@
 import Layout from "layouts/Layout.astro"
 import HeroFinalists from "components/HeroFinalists.astro"
 import Intro from "components/Intro.astro"
+import TextAndImage from "components/TextAndImage.astro"
 import Tracks from "components/Tracks.astro"
 import Button from "components/Button.astro"
 import Timeline from "components/Timeline.astro"
@@ -12,6 +13,7 @@ import PreviousEvents from "components/PreviousEvents.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import SpotlightBadge from "images/homepage/spotlight-badge-paris2026.png"
 import shortlistedData from "json/Shortlisted-2026.json"
 // i18n
 import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
@@ -88,6 +90,16 @@ const totalShortlisted = shortlistedData.technology.length + shortlistedData.art
     </Intro>
   </div>
 
+  <TextAndImage
+    title={t("paris2026.finalists.title")}
+    text={t("paris2026.finalists.desc")}
+    image={SpotlightBadge}
+    imageAlt="GOSIM Spotlight 2026 badge"
+    dataBgSection="beige"
+    dataThemeSection="light"
+  />
+
+  <!-- Application period sections hidden — uncomment to restore
   <div
     class="section-wrap"
     id="program"
@@ -214,6 +226,7 @@ const totalShortlisted = shortlistedData.technology.length + shortlistedData.art
       ]}
     />
   </div>
+  End of application period sections -->
 
   <Shortlisted
     sectionTitle={t("paris2026.shortlisted.title")}
