@@ -13,6 +13,7 @@ import PreviousEvents from "components/PreviousEvents.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import GosimParis2026 from "images/homepage/paris-hero-bk.jpg"
 import SpotlightBadge from "images/homepage/spotlight-badge-paris2026.png"
 import shortlistedData from "json/Shortlisted-2026.json"
 // i18n
@@ -37,12 +38,11 @@ const totalShortlisted = shortlistedData.technology.length + shortlistedData.art
   footerCta={{
     title: t("paris2026.cta.title"),
     text: t("paris2026.cta.text"),
-    buttonText: t("nav.nominate"),
-    buttonLink: "#shortlisted",
+    buttonText: t("paris2026.cta.bullet3"),
+    buttonLink: getLocalizedPath("/#current", locale),
     bulletPoints: [
       t("paris2026.cta.bullet1"),
       t("paris2026.cta.bullet2"),
-      t("paris2026.cta.bullet3"),
     ],
   }}
 >
@@ -240,6 +240,7 @@ const totalShortlisted = shortlistedData.technology.length + shortlistedData.art
     <PreviousEvents
       title={t("previous.title")}
       events={[
+        { title: t("previous.paris2026.title"), date: t("previous.paris2026.date"), description: t("previous.paris2026.desc"), image: GosimParis2026, link: getLocalizedPath("/paris2026", locale) },
         { title: t("previous.hangzhou.title"), date: t("previous.hangzhou.date"), description: t("previous.hangzhou.desc"), image: GosimHangzhou, link: getLocalizedPath("/hangzhou2025", locale) },
         { title: t("previous.paris.title"), date: t("previous.paris.date"), description: t("previous.paris.desc"), image: GosimParis2, link: getLocalizedPath("/paris2025", locale) },
         { title: t("previous.delft.title"), date: t("previous.delft.date"), description: t("previous.delft.desc"), image: GosimDelft, link: getLocalizedPath("/delft2025", locale) },

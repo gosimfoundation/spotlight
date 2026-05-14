@@ -8,6 +8,7 @@ import PreviousEvents from "components/PreviousEvents.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
+import GosimParis2026 from "images/homepage/paris-hero-bk.jpg"
 import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translations"
 
 interface Props {
@@ -29,28 +30,22 @@ const t = getTranslations(locale);
     title: t("home.cta.title"),
     text: t("home.cta.text"),
     buttonText: t("home.cta.button"),
-    buttonLink: getLocalizedPath("/paris2026", locale),
+    buttonLink: getLocalizedPath("/#current", locale),
   }}
 >
   <Hero
     subtitle={t("home.hero.subtitle")}
     announcement={{
       text: t("home.hero.announcement"),
-      link: getLocalizedPath("/paris2026", locale),
+      link: getLocalizedPath("/#current", locale),
     }}
     date=""
     location=""
     links={[
       {
         text: t("home.hero.upcoming"),
-        link: getLocalizedPath("/paris2026", locale),
+        link: getLocalizedPath("/#current", locale),
         openInNewTab: false,
-      },
-      {
-        text: t("nav.nominate"),
-        link: getLocalizedPath("/paris2026#shortlisted", locale),
-        openInNewTab: false,
-        highlight: true,
       },
     ]}
   />
@@ -87,16 +82,26 @@ const t = getTranslations(locale);
     <div style="text-align: center; padding-bottom: 4rem;">
       <Button
         text={t("home.upcoming.button")}
-        link={getLocalizedPath("/paris2026", locale)}
+        link={getLocalizedPath("/#current", locale)}
         class="btn primary xl btn-hover"
       />
     </div>
+    <p class="photo-credit">
+      Photo: <a href="https://commons.wikimedia.org/wiki/File:Shenzhen_Skyline_At_Night_(214551663).jpeg" target="_blank" rel="noopener noreferrer">Shenzhen Skyline At Night</a> by Andreas Bunen, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>
+    </p>
   </div>
 
   <div class="section-wrap" id="previous">
     <PreviousEvents
       title={t("previous.title")}
       events={[
+        {
+          title: t("previous.paris2026.title"),
+          date: t("previous.paris2026.date"),
+          description: t("previous.paris2026.desc"),
+          image: GosimParis2026,
+          link: getLocalizedPath("/paris2026", locale),
+        },
         {
           title: t("previous.hangzhou.title"),
           date: t("previous.hangzhou.date"),
@@ -142,7 +147,7 @@ const t = getTranslations(locale);
 <style>
   .upcoming-spotlight {
     position: relative;
-    background-image: url("/images/homepage/paris-hero-bk.jpg");
+    background-image: url("/images/homepage/shenzhen-hero-bk.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -157,5 +162,17 @@ const t = getTranslations(locale);
   .upcoming-spotlight > :global(*) {
     position: relative;
     z-index: 1;
+  }
+  .photo-credit {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 2rem 1.5rem;
+  }
+  .photo-credit a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: underline;
   }
 </style>

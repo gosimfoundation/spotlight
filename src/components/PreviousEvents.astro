@@ -14,6 +14,7 @@ interface Props {
 }
 
 const { title, events } = Astro.props;
+const count = events?.length ?? 0;
 ---
 
 <section
@@ -29,7 +30,7 @@ const { title, events } = Astro.props;
         </div>
 
         <div
-            class="flickity-slider-group three-col count-3"
+            class={`flickity-slider-group three-col count-${count}`}
             data-flickity-slider-type="cards"
         >
             <div class="flickity-carousel">
@@ -62,6 +63,40 @@ const { title, events } = Astro.props;
                     </div>
                 ))}
             </div>
+            <div class="flickity-controls">
+                <button class="flickity-arrow" data-flickity-control="prev" disabled aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+                <button class="flickity-arrow" data-flickity-control="next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+  .flickity-arrow {
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .card-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .card-image :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .card-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
