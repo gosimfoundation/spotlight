@@ -30,21 +30,21 @@ const t = getTranslations(locale);
     title: t("home.cta.title"),
     text: t("home.cta.text"),
     buttonText: t("home.cta.button"),
-    buttonLink: getLocalizedPath("/#current", locale),
+    buttonLink: getLocalizedPath("/shenzhen2026", locale),
   }}
 >
   <Hero
     subtitle={t("home.hero.subtitle")}
     announcement={{
       text: t("home.hero.announcement"),
-      link: getLocalizedPath("/#current", locale),
+      link: getLocalizedPath("/shenzhen2026", locale),
     }}
     date=""
     location=""
     links={[
       {
         text: t("home.hero.upcoming"),
-        link: getLocalizedPath("/#current", locale),
+        link: getLocalizedPath("/shenzhen2026", locale),
         openInNewTab: false,
       },
     ]}
@@ -68,27 +68,41 @@ const t = getTranslations(locale);
   </div>
 
   <div class="section-wrap upcoming-spotlight" id="current">
+    <video
+      class="upcoming-spotlight-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="/videos/shenzhen-hero-compressed.mp4" type="video/mp4" />
+    </video>
     <Cards
       title={t("home.upcoming.title")}
-      description={t("home.upcoming.desc")}
       cards={[
         {
           title: t("home.upcoming.card.title"),
           description: t("home.upcoming.card.desc"),
           image: "/icons/showcase.svg",
+          date: t("home.upcoming.date"),
+          location: t("home.upcoming.location"),
         },
       ]}
     />
-    <div style="text-align: center; padding-bottom: 4rem;">
+    <div class="upcoming-buttons">
       <Button
         text={t("home.upcoming.button")}
-        link={getLocalizedPath("/#current", locale)}
+        link={getLocalizedPath("/shenzhen2026", locale)}
         class="btn primary xl btn-hover"
       />
+      <Button
+        text={t("home.upcoming.colocated")}
+        link="https://shenzhen2026.gosim.org"
+        openInNewTab={true}
+        class="btn light xl btn-hover"
+      />
     </div>
-    <p class="photo-credit">
-      Photo: <a href="https://commons.wikimedia.org/wiki/File:Shenzhen_Skyline_At_Night_(214551663).jpeg" target="_blank" rel="noopener noreferrer">Shenzhen Skyline At Night</a> by Andreas Bunen, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>
-    </p>
   </div>
 
   <div class="section-wrap" id="previous">
@@ -147,21 +161,37 @@ const t = getTranslations(locale);
 <style>
   .upcoming-spotlight {
     position: relative;
-    background-image: url("/images/homepage/shenzhen-hero-bk.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .upcoming-spotlight > .upcoming-spotlight-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
   .upcoming-spotlight::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.6);
+    //background: rgba(255, 255, 255, 0.6);
     z-index: 0;
   }
   .upcoming-spotlight > :global(*) {
     position: relative;
     z-index: 1;
+  }
+  .upcoming-spotlight :global(.col-title h2),
+  .upcoming-spotlight :global(.styled-content p) {
+    color: #ffffff;
+  }
+  .upcoming-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding-bottom: 4rem;
   }
   .photo-credit {
     position: relative;

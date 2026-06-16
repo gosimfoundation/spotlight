@@ -6,6 +6,8 @@ interface Props {
         title: string,
         description: string,
         image: string,
+        date?: string,
+        location?: string,
     }>,
 }
 
@@ -42,9 +44,30 @@ const { title, description, cards } = Astro.props;
                     <div class="why-content">
                         <h4>{loop.title}</h4>
                         <p>{loop.description}</p>
+                        {(loop.date || loop.location) && (
+                            <div class="card-facts">
+                                {loop.date && <p class="card-date">{loop.date}</p>}
+                                {loop.location && <p class="card-location">{loop.location}</p>}
+                            </div>
+                        )}
                     </div>
                 </div>
             ))}
         </div>
     </div>
 </section>
+
+<style>
+    .card-facts {
+        margin-top: 1rem;
+    }
+    .card-date {
+        font-weight: 600;
+        margin: 0;
+    }
+    .card-location {
+        letter-spacing: 0.12em;
+        margin: 0.15rem 0 0;
+        opacity: 0.75;
+    }
+</style>

@@ -1,0 +1,91 @@
+---
+// Components
+import Layout from "layouts/Layout.astro"
+import Hero from "components/Hero.astro"
+// i18n
+import { getTranslations, type Locale } from "../i18n/translations"
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<Layout
+  title={t("shenzhen.meta.title")}
+  description={t("shenzhen.meta.desc")}
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Home"
+  locale={locale}
+>
+  <div class="shenzhen-hero">
+    <Hero
+      title={t("shenzhen.meta.title")}
+      subtitle={t("shenzhen.intro")}
+      date={t("shenzhen.hero.date")}
+      location={t("shenzhen.hero.location")}
+      heroVideo="/videos/shenzhen-hero-compressed.mp4"
+      links={[
+        {
+          text: t("shenzhen.hero.colocated"),
+          link: "https://shenzhen2026.gosim.org",
+          openInNewTab: true,
+          highlight: true,
+        },
+      ]}
+    />
+  </div>
+</Layout>
+
+<style>
+  /* Blue cinematic grade on the Shenzhen hero video + stronger blue overlay
+     for text legibility (scoped to this page only). */
+  .shenzhen-hero :global(.video-landscape) {
+    filter: saturate(1) brightness(1.2) contrast(1.17) hue-rotate(220deg);
+  }
+  .shenzhen-hero :global(.overlay-gradient-v2) {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4, 16, 42, 0.43) 0%,
+        rgba(4, 16, 42, 0.28) 28%,
+        rgba(4, 16, 42, 0.28) 60%,
+        rgba(2, 9, 25, 0.52) 100%
+      ),
+      radial-gradient(
+        ellipse 80% 60% at 50% 42%,
+        rgba(32, 64, 160, 0.16) 0%,
+        rgba(2, 9, 25, 0.32) 100%
+      );
+  }
+</style>
+
+<style is:global>
+  /* Re-tint the "Co-located" CTA so its blue matches the hero background.
+     Both the fill and the glow use the same rgb(32, 64, 160) hue as the
+     overlay's accent gradient — fill is a darker shade of that exact blue. */
+  @keyframes shenzhen-glow {
+    0%, 100% {
+      box-shadow: 0 0 14px rgba(32, 64, 160, 0.5), 0 0 30px rgba(32, 64, 160, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 22px rgba(40, 78, 190, 0.65), 0 0 46px rgba(32, 64, 160, 0.4);
+    }
+  }
+  .shenzhen-hero .btn-glow {
+    animation: shenzhen-glow 2.4s ease-in-out infinite;
+    box-shadow: 0 0 14px rgba(32, 64, 160, 0.5), 0 0 30px rgba(32, 64, 160, 0.3);
+  }
+  .shenzhen-hero .btn-glow .btn-content .btn-fill {
+    background-color: rgb(20, 40, 100) !important;
+  }
+  .shenzhen-hero .btn-glow .btn-content span {
+    color: #ffffff !important;
+  }
+  .shenzhen-hero .btn-glow .btn-content svg :is(polyline, line) {
+    stroke: #ffffff !important;
+  }
+</style>
