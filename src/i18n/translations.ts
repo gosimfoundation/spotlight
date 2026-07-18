@@ -630,7 +630,7 @@ const translations = {
     "delft2025.meta.title": "GOSIM Spotlight 2025: Rust",
     "delft2025.meta.desc": "GOSIM Spotlight 2025: Rust — 向世界展示卓越的 Rust 项目。",
     "delft2025.hero.date": "2025年5月13-14日",
-    "delft2025.hero.location": "荷兰乌特勒支",
+    "delft2025.hero.location": "荷兰乌得勒支",
     "delft2025.congrats": "祝贺入选的 {count} 个项目！",
     "delft2025.intro": "来 Spotlight 展示展台了解他们的项目，地点在",
     "delft2025.conference": "RustWeek 2025",
