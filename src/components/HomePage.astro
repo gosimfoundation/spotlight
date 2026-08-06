@@ -33,7 +33,13 @@ const t = getTranslations(locale);
     buttonLink: getLocalizedPath("/shenzhen2026", locale),
   }}
 >
-  <Hero subtitle={t("home.hero.subtitle")} />
+  <Hero
+    subtitle={t("home.hero.subtitle")}
+    announcement={{
+      text: t("home.hero.announcement"),
+      link: getLocalizedPath("/shenzhen2026", locale),
+    }}
+  />
 
   <div
     class="section-wrap"
