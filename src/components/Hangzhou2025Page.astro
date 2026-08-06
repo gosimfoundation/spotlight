@@ -29,6 +29,7 @@ const categories = [...new Set(projects.map((p: any) => p.category).filter(Boole
   locale={locale}
 >
   <HeroFinalists
+    city="Hangzhou"
     year="2025"
     category="AI for Humanity"
     date={t("hangzhou2025.hero.date")}
@@ -78,7 +79,7 @@ const categories = [...new Set(projects.map((p: any) => p.category).filter(Boole
       <h2 class="finalists-title">{t("hangzhou2025.finalistsCount", { count: numProjs })}</h2>
 
       <a href="/docs/gosim-spotlight-2025-ai-for-humanity-finalists.pdf" target="_blank" class="collection-banner">
-        <img src="/images/homepage/hangzhou2025-collection-cover.jpg" alt="GOSIM Spotlight 2025: AI for Humanity Collection" />
+        <img src="/images/homepage/hangzhou2025-collection-cover.jpg" alt="Spotlight Hangzhou 2025: AI for Humanity Collection" />
         <span class="collection-cta">{t("hangzhou2025.viewCollection")}</span>
       </a>
 

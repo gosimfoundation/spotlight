@@ -10,13 +10,13 @@ const { locale } = Astro.props;
 
 const content = {
   zh: {
-    metaTitle: "GOSIM 深圳 Spotlight｜打造下一代 AI 原生产品",
-    metaDesc: "面向消费者、围绕 Agent OS 与新型人机交互展开的 AI 原生产品孵化计划。线上原型海选，深圳现场加速与最终展示。",
-    eyebrow: "GOSIM SPOTLIGHT · 深圳 2026",
-    heroTitle: "打造下一代",
+    metaTitle: "Spotlight 深圳 2026：下一代 AI 原生产品",
+    metaDesc: "面向消费者和新型人机交互展开的 AI 原生产品孵化计划。线上原型海选，深圳现场加速与最终展示。",
+    eyebrow: "Spotlight 深圳 2026",
+    heroTitle: "下一代",
     heroAccent: "AI 原生产品",
     heroText: "当 AI Agent 不再只是手机里的一个应用，而是成为设备与操作系统的核心，下一代消费者产品会是什么样？",
-    heroPrimary: "了解参赛方式",
+    heroConference: "与 GOSIM Shenzhen 2026 同期举办",
     heroSecondary: "报名即将开放",
     heroNote: "报名问卷正在准备中，上线后将在此处开放",
     meta: ["2026.10.16—17", "中国 · 深圳", "两阶段加速"],
@@ -44,69 +44,38 @@ const content = {
     after: ["AI 成为产品和系统的核心", "Agent 主动理解并完成任务", "Agent 统一调度服务、工具与设备", "根据用户意图动态生成交互", "Agent 能力在不同设备间迁移", "比拼产品价值、体验与实现能力"],
     beforeLabel: "今天",
     afterLabel: "Spotlight",
-    directionsKicker: "02 / 参赛范围",
-    directionsTitle: "选择一个具体场景，把 Agent 做成产品",
-    directionsText: "从购物、旅行、娱乐、教育或日常生活中选一个高频流程做深。产品可以是纯软件，也可以运行在随身设备或自制硬件上。",
-    directions: [
-      ["01", "AI 购物", "商品发现、比较、购买与售后代理"],
-      ["02", "AI 旅行", "行程规划、实时导航、翻译与现场助手"],
-      ["03", "AI 娱乐", "音乐、视频、游戏与内容探索"],
-      ["04", "AI 教育", "AI 台灯、学习助手与视觉辅导设备"],
-      ["05", "AI 陪伴", "桌面机器人、宠物机器人与个人助手"],
-      ["06", "AI 穿戴", "手表、眼镜、智能徽章与新型随身设备"],
-      ["07", "AI 生活", "家庭、健康、运动与日常事务管理"],
-    ],
+    directionsKicker: "02 / 产品形态",
+    directionsTitle: "产品形态不限，更鼓励新的硬件形态",
+    directionsText: "我们高度鼓励从真实需求出发，自主设计新的硬件产品形态；也欢迎使用或改造现有设备。若核心体验更适合由软件承载，也可以提交纯软件作品。无论采用哪种形态，最终都应形成自然、清晰的使用体验。",
     principlesTitle: "一件 Spotlight 作品应当",
     principles: [
       ["面向消费者", "服务个人用户，而非以企业后台工具为主"],
-      ["移动优先", "优先考虑随身设备与真实使用情境"],
-      ["Agent 原生", "Agent 是核心体验，不是附加聊天窗口"],
+      ["Agent 原生", "Agent 贯穿核心体验与关键流程"],
       ["可交互", "展示完整用户流程，而非只讲文字构想"],
       ["可实现", "在有限时间内验证核心体验或完成原型"],
     ],
     formsTitle: "产品形态不限",
-    forms: [
-      ["既有设备改造", "手机、手表、Rabbit R1、机器人、带屏设备"],
-      ["自创产品形态", "3D 打印外壳、激光切割结构、自制桌面设备"],
-    ],
-    osKicker: "03 / Agent OS",
-    osTitle: "Agent OS 是重点平台，\n但不是唯一答案",
-    osText: "使用官方 Agent OS 或相关能力，可竞争 Agent OS 专项奖；也欢迎其他技术方案，只要作品体现操作系统级或 Agent 原生交互。",
-    osRule: "普通应用增加一个聊天窗口，不足以体现 Spotlight 的主题。",
-    capabilities: [
-      ["语音交互", "用自然语言操作产品"],
-      ["多模态理解", "理解摄像头、麦克风、屏幕与传感器"],
-      ["长期记忆", "记住偏好、历史任务与使用背景"],
-      ["工具调用", "调用搜索、应用、服务与硬件能力"],
-      ["动态界面", "根据任务生成或调整界面"],
-      ["跨设备运行", "在手机、手表、机器人间迁移体验"],
-      ["主动服务", "主动提醒、规划并执行任务"],
-    ],
-    formatKicker: "05 / 比赛流程",
+    forms: [["自创硬件形态", "自主设计外形、交互与设备形态，可结合 3D 打印、激光切割或定制结构"], ["现有设备整合 / 改造", "重新组合或改造手机、智能手表、机器人及其他设备的能力与形态"], ["纯软件产品", "若核心体验无需新硬件，也可通过应用、网页、桌面界面或跨设备服务实现"]],
+    formatKicker: "04 / 比赛流程",
     formatTitle: "线上原型海选 → 深圳现场加速 → 最终展示",
     formatText: "第一阶段低成本验证创意、体验与执行能力；第二阶段集中提供资源，帮助入选项目完成或打磨真实原型。",
     stages: [
       ["01", "线上海选", "验证创意、体验与可实现性", "提交可交互原型、展示视频与实现计划"],
       ["02", "深圳现场加速", "约两天集中开发与打磨", "完成可运行产品，获得软件、硬件与导师支持"],
-      ["03", "最终展示", "现场演示下一代 AI 产品", "大会展示、评奖、宣传与后续孵化机会"],
+      ["03", "最终展示", "现场演示下一代 AI 产品", "大会展示、宣传与后续孵化机会"],
     ],
-    submitKicker: "04 / 线上提交",
-    submitTitle: "不是征集想法，\n而是验证产品体验",
-    submitText: "手机、网页和现有设备都可以作为原型载体。参赛者无需提前购买昂贵硬件，但必须证明产品体验清晰且可实现。只有文字说明、没有可视化或交互验证的项目，原则上不进入下一轮。",
-    materialsTitle: "需要提交",
+    submitKicker: "03 / 线上提交",
+    submitTitle: "让创意成为\n可以体验的原型",
+    submitText: "线上阶段希望看到一个清晰的产品设想，以及一种可体验或可验证的表达方式。网页、Figma、应用、模拟器或现有设备都可以成为原型载体，无需提前投入昂贵硬件。",
+    materialsTitle: "报名时建议准备",
     materials: [
-      ["产品介绍", "目标用户、使用场景、问题与核心价值"],
-      ["Agent 体验说明", "Agent 如何替代或重构传统应用流程"],
+      ["产品构想", "目标用户、使用场景与核心价值"],
+      ["Agent 体验", "Agent 如何改善或重新设计使用流程"],
       ["可交互原型", "网页、Figma、应用、模拟器或真实设备"],
       ["展示视频", "建议不超过 1 分钟，展示完整核心流程"],
-      ["现场实现计划", "说明入选后可在现场完成什么"],
-      ["资源与真实性材料", "所需支持及原型链接、安装包、录屏或实拍"],
+      ["下一步计划", "希望在深圳继续完成什么，以及可能需要的支持"],
     ],
-    questionsTitle: "每个项目都要回答",
-    questions: ["为什么它不能只是一个普通应用？", "Agent 在产品中承担了什么核心作用？", "它如何改善现有消费者体验？", "如果入选，能够在现场阶段完成什么？", "需要官方提供哪些支持？"],
-    toolkitTitle: "官方原型工具包",
-    toolkitText: "手机网页外壳、手表界面外壳、带屏设备外壳、Agent OS 示例、软件工厂指南与示例项目，帮助不同能力阶段的团队快速验证体验。",
-    accelerateKicker: "06 / 深圳现场加速",
+    accelerateKicker: "05 / 深圳现场加速",
     accelerateTitle: "把好想法变成可信、可运行的产品",
     accelerateText: "入选项目将在大会前参加约两天集中开发和打磨。已有产品可优化体验；缺软件、设备形态或产品表达的团队，会获得对应支持。",
     support: [
@@ -117,20 +86,16 @@ const content = {
       ["开发场地", "深圳办公室或指定协作空间"],
       ["展示辅导", "产品叙事、演示流程与现场展示优化"],
     ],
-    budgetTitle: "补助可用于",
-    budget: ["Android 手机与 RK3566 / RK3576 / RK3588", "Rabbit R1、智能手表、机器人", "摄像头、麦克风阵列、屏幕与传感器", "电路板、3D 打印、外壳与机械零件", "模型调用、开发工具与必要软件服务"],
-    budgetNote: "按实际支出报销；超出额度由团队承担。投入金额本身不构成评分优势。官方提供指导与协助，但团队仍需对最终成果负责。",
-    judgingKicker: "07 / 评审机制",
+    budgetTitle: "原型支持",
+    budgetNote: "原型补助可用于必要的软件、设备整合与制作支出，并按实际支出报销。",
+    judgingKicker: "06 / 评审机制",
     judgingTitle: "产品价值与真实完成度，同样重要",
-    judgingText: "总分由主观评分与客观完成度加分组成。硬件是加分项，但不是胜出的充分条件。",
+    judgingText: "60% 关注产品价值、Agent 体验、交互设计与创新；40% 关注原型完成度、实现难度与可信度。",
     subjective: "主观评分",
     objective: "客观完成度",
-    subjectiveItems: [["产品价值与使用场景", "15%"], ["Agent 原生体验", "15%"], ["用户体验与交互设计", "15%"], ["创新性", "10%"], ["成本效益与可推广性", "5%"]],
-    objectiveItems: ["可运行网页原型", "可安装手机应用", "现有设备整合或改装", "自制 / 3D 打印结构", "软硬件整合", "使用 Agent OS 核心能力", "独立完成完整产品"],
-    judgingNote: "一个交互普通、缺乏 Agent 价值的硬件产品，不会因为制作了外壳而获得高分。",
-    awardsTitle: "奖项方向",
-    awards: ["最佳 Spotlight 项目", "最佳 Agent OS 应用", "最佳产品设计", "最佳技术实现", "最佳硬件原型", "最具商业潜力项目", "评委选择奖"],
-    openKicker: "08 / 成果与开源",
+    subjectiveItems: [["产品价值与使用场景", ""], ["Agent 体验", ""], ["用户体验与交互设计", ""], ["创新性与推广潜力", ""]],
+    objectiveItems: ["可运行、可验证的原型", "软件或设备整合能力", "实现难度与稳定性", "整体完成度与团队执行力"],
+    openKicker: "07 / 成果与开源",
     openTitle: "从可信原型，到公开成果",
     openStages: [
       ["线上海选", "不强制开源，但必须提供可验证原型"],
@@ -138,14 +103,12 @@ const content = {
       ["最终展示", "提交公开仓库、项目说明或明确的成果公开方式"],
     ],
     openNote: "涉及第三方商业代码、硬件设计或个人隐私，可提前申请合理豁免。优秀项目将有机会获得 GOSIM 社区推广、媒体曝光与后续孵化支持。",
-    faqKicker: "09 / FAQ",
+    faqKicker: "08 / FAQ",
     faqTitle: "常见问题",
     faqs: [
-      ["一定要做硬件吗？", "不需要。高质量的软件产品同样可以获胜。硬件能提高产品完成度，但体验与 Agent 价值才是核心。"],
-      ["一定要使用官方 Agent OS 吗？", "不强制。使用 Agent OS 可参与专项奖；其他技术方案也可以，但必须体现操作系统级或 Agent 原生交互。"],
-      ["只有想法可以报名吗？", "不可以。第一阶段至少需要可视化、可交互或可验证的原型，纯文字构想原则上不进入下一轮。"],
+      ["一定要做硬件吗？", "不强制，但我们高度鼓励。自创硬件形态或改造现有设备，能够更充分地探索 Agent 原生交互；如果纯软件最适合承载核心体验，也可以参赛。"],
+      ["原型需要做到什么程度？", "只要核心体验清晰可验证即可。网页、Figma、应用、模拟器或设备演示都可以作为起点。"],
       ["技术能力不足还能参加吗？", "可以。设计突出且核心体验清晰的项目可在现场获得软件工厂、助教和技术指导，但团队仍需对成果负责。"],
-      ["Spotlight 和黑客松是什么关系？", "两者是平行项目。Spotlight 聚焦消费者产品、Agent 交互与设备体验；黑客松更聚焦软件工厂、Agent OS、AI 原生手机与技术实现。"],
       ["报名什么时候开放？", "报名问卷正在准备中。开放后，本页面顶部与底部的报名按钮会同步更新。"],
     ],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
@@ -153,16 +116,16 @@ const content = {
     applyText: "报名问卷正在准备中。现在可以先完善核心场景、交互原型和 1 分钟展示流程。",
     applyButton: "报名即将开放",
     applyHint: "问卷上线后将在此处开放提交",
-    conference: "访问 GOSIM 深圳 2026",
+    conference: "访问 GOSIM Shenzhen 2026",
   },
   en: {
-    metaTitle: "GOSIM Shenzhen Spotlight | Build the Next AI-Native Product",
-    metaDesc: "An AI-native product incubation program for consumer Agent experiences, Agent OS, and new forms of human-computer interaction.",
-    eyebrow: "GOSIM SPOTLIGHT · SHENZHEN 2026",
-    heroTitle: "Build the next generation of",
-    heroAccent: "AI-native products",
+    metaTitle: "Spotlight Shenzhen 2026: Next-Gen AI-Native Products",
+    metaDesc: "An AI-native product incubation program for consumer Agent experiences and new forms of human-computer interaction.",
+    eyebrow: "Spotlight Shenzhen 2026",
+    heroTitle: "Next-Gen",
+    heroAccent: "AI-Native Products",
     heroText: "When an AI Agent is no longer just an app on your phone—but the core of the device and operating system—what should the next consumer product look like?",
-    heroPrimary: "How to participate",
+    heroConference: "Co-located with GOSIM Shenzhen 2026",
     heroSecondary: "Applications coming soon",
     heroNote: "The application form is being prepared and will open here",
     meta: ["OCT 16—17, 2026", "SHENZHEN, CHINA", "TWO-STAGE SPRINT"],
@@ -184,56 +147,42 @@ const content = {
     after: ["AI becomes the product and system core", "Agents understand and complete tasks proactively", "One Agent orchestrates services, tools, and devices", "Interfaces adapt dynamically to intent", "Capabilities move across devices", "Competing on value, experience, and execution"],
     beforeLabel: "Today",
     afterLabel: "Spotlight",
-    directionsKicker: "02 / SCOPE",
-    directionsTitle: "Choose one scenario and turn the Agent into a product",
-    directionsText: "Go deep on one frequent flow in shopping, travel, entertainment, education, or daily life. It can be software-only or live on a portable or custom device.",
-    directions: [["01", "AI Shopping", "Discovery, comparison, purchase, and after-sales agents"], ["02", "AI Travel", "Planning, live navigation, translation, and on-site help"], ["03", "AI Entertainment", "Music, video, games, and content discovery"], ["04", "AI Education", "AI lamps, learning companions, and visual tutoring"], ["05", "AI Companionship", "Desktop robots, pet robots, and personal assistants"], ["06", "AI Wearables", "Watches, glasses, badges, and new portable devices"], ["07", "AI Life", "Home, health, fitness, and everyday task management"]],
+    directionsKicker: "02 / PRODUCT FORM",
+    directionsTitle: "Any product form—with new hardware strongly encouraged.",
+    directionsText: "We strongly encourage teams to start from a real need and design a new hardware product form. Integrating or adapting existing devices is also welcome. If the core experience is best delivered in software, a software-only project is still eligible. Whatever the form, the result should feel natural and clear to use.",
     principlesTitle: "A Spotlight project should be",
-    principles: [["Consumer-first", "Built for people, not primarily for enterprise back offices"], ["Mobile-first", "Grounded in portable devices and real contexts"], ["Agent-native", "The Agent is the core, not an added chat box"], ["Interactive", "A complete user flow, not only a written concept"], ["Buildable", "A prototype or core proof achievable in limited time"]],
+    principles: [["Consumer-first", "Built for people, not primarily for enterprise back offices"], ["Agent-native", "The Agent is the core of the experience"], ["Interactive", "A complete user flow people can experience"], ["Buildable", "A prototype or core proof achievable in limited time"]],
     formsTitle: "Any product form",
-    forms: [["Adapt an existing device", "Phone, watch, Rabbit R1, robot, or screened device"], ["Create a new form", "3D-printed shell, laser-cut structure, or custom desktop device"]],
-    osKicker: "03 / AGENT OS",
-    osTitle: "Agent OS is a focus,\nnot the only answer",
-    osText: "Use the official Agent OS or related capabilities to compete for the Agent OS award. Other technical approaches are welcome when they demonstrate OS-level or truly Agent-native interaction.",
-    osRule: "Adding a chat window to a conventional app is not enough.",
-    capabilities: [["Voice", "Operate through natural language"], ["Multimodal", "Understand camera, microphone, screen, and sensors"], ["Long-term memory", "Retain preferences, history, and context"], ["Tool use", "Call search, apps, services, and hardware"], ["Dynamic UI", "Generate or adapt interfaces to the task"], ["Cross-device", "Continue across phones, watches, and robots"], ["Proactive service", "Remind, plan, and execute before being asked"]],
-    formatKicker: "05 / FORMAT",
+    forms: [["Create a hardware form", "Design the form, interaction, and device itself using custom structures, 3D printing, or laser cutting"], ["Integrate or adapt a device", "Rework the capabilities or form of a phone, smartwatch, robot, or another existing device"], ["Build a software-only product", "When no new hardware is needed, use an app, web or desktop interface, or cross-device service"]],
+    formatKicker: "04 / FORMAT",
     formatTitle: "Online prototype selection → Shenzhen sprint → Final showcase",
     formatText: "Stage one validates the idea, experience, and ability to execute at low cost. Stage two concentrates resources to help selected teams finish or refine a real prototype.",
-    stages: [["01", "Online selection", "Validate value, experience, and feasibility", "Submit an interactive prototype, short video, and build plan"], ["02", "Shenzhen sprint", "About two focused days to build and refine", "Finish a working product with software, hardware, and mentor support"], ["03", "Final showcase", "Demo the next generation of AI products", "Conference exposure, awards, promotion, and incubation opportunities"]],
-    submitKicker: "04 / ONLINE SUBMISSION",
-    submitTitle: "Not an idea call.\nA test of the product experience.",
-    submitText: "A phone, website, or existing device can carry your prototype. You do not need expensive hardware upfront, but you must prove that the experience is clear and feasible. Text-only ideas without visual or interactive validation will generally not advance.",
-    materialsTitle: "What to submit",
-    materials: [["Product overview", "Audience, scenario, problem, and core value"], ["Agent experience", "How the Agent replaces or redesigns the traditional flow"], ["Interactive prototype", "Web, Figma, mobile app, simulator, or real device"], ["Demo video", "Recommended under one minute, showing the complete core flow"], ["On-site build plan", "What you can complete if selected"], ["Needs and proof", "Requested support plus links, builds, recordings, or hardware footage"]],
-    questionsTitle: "Every project must answer",
-    questions: ["Why can’t this be just a normal app?", "What essential role does the Agent play?", "How does it improve an existing consumer experience?", "What can you complete during the on-site stage?", "What support do you need from the organizers?"],
-    toolkitTitle: "Official prototype kit",
-    toolkitText: "Phone, watch, and screened-device shells; Agent OS examples; an AI software-factory guide; and reference projects help teams at different skill levels validate an experience quickly.",
-    accelerateKicker: "06 / SHENZHEN SPRINT",
+    stages: [["01", "Online selection", "Validate value, experience, and feasibility", "Submit an interactive prototype, short video, and build plan"], ["02", "Shenzhen sprint", "About two focused days to build and refine", "Finish a working product with software, hardware, and mentor support"], ["03", "Final showcase", "Demo the next generation of AI products", "Conference exposure, promotion, and incubation opportunities"]],
+    submitKicker: "03 / ONLINE SUBMISSION",
+    submitTitle: "Turn the idea\ninto an experience people can try",
+    submitText: "The online stage looks for a clear product idea and a way to experience or verify it. A website, Figma prototype, app, simulator, or existing device can carry the concept—expensive hardware is not required upfront.",
+    materialsTitle: "Recommended application materials",
+    materials: [["Product concept", "Audience, scenario, and core value"], ["Agent experience", "How the Agent improves or redesigns the flow"], ["Interactive prototype", "Web, Figma, app, simulator, or real device"], ["Demo video", "Recommended under one minute, showing the core flow"], ["Next-step plan", "What you hope to finish in Shenzhen and the support you may need"]],
+    accelerateKicker: "05 / SHENZHEN SPRINT",
     accelerateTitle: "Turn a strong idea into a credible, working product",
     accelerateText: "Selected teams join an approximately two-day build and polish sprint before the conference. Complete products can improve their experience; teams missing software, a device form, or product storytelling receive targeted support.",
     support: [["Prototype grant", "Up to US$100 equivalent reimbursement per selected project"], ["Software", "Model credits, development tools, and software-factory support"], ["Technical guidance", "Teaching assistants, engineers, and on-site help"], ["Fabrication", "3D printing, basic structural parts, and assembly space"], ["Workspace", "A Shenzhen office or designated collaboration venue"], ["Demo coaching", "Product story, demo flow, and presentation polish"]],
-    budgetTitle: "Eligible expenses",
-    budget: ["Android phones and RK3566 / RK3576 / RK3588 boards", "Rabbit R1, smartwatches, and robots", "Cameras, microphone arrays, screens, and sensors", "Circuit boards, 3D printing, shells, and mechanical parts", "Model usage, development tools, and necessary software services"],
-    budgetNote: "Reimbursement is based on actual spend; teams cover costs above the cap. Spending more is not a judging advantage. Organizers guide and assist, while teams remain responsible for the final result.",
-    judgingKicker: "07 / JUDGING",
+    budgetTitle: "Prototype support",
+    budgetNote: "Prototype support may cover necessary software, device integration, and fabrication costs, reimbursed against actual spending.",
+    judgingKicker: "06 / JUDGING",
     judgingTitle: "Product value and real execution matter equally",
-    judgingText: "The final score combines jury assessment with objective completion points. Hardware can add points, but hardware alone cannot win.",
+    judgingText: "60% considers product value, Agent experience, interaction design, and innovation; 40% considers prototype completeness, implementation difficulty, and credibility.",
     subjective: "Jury assessment",
     objective: "Completion points",
-    subjectiveItems: [["Product value and use case", "15%"], ["Agent-native experience", "15%"], ["UX and interaction design", "15%"], ["Innovation", "10%"], ["Cost efficiency and scalability", "5%"]],
-    objectiveItems: ["Working web prototype", "Installable mobile app", "Existing-device integration or modification", "Custom / 3D-printed structure", "Software-hardware integration", "Core Agent OS capabilities", "Complete independently executed product"],
-    judgingNote: "A conventional interaction with little Agent value will not score highly just because it has a fabricated enclosure.",
-    awardsTitle: "Award directions",
-    awards: ["Best Spotlight Project", "Best Agent OS Application", "Best Product Design", "Best Technical Implementation", "Best Hardware Prototype", "Most Commercial Potential", "Jury’s Choice"],
-    openKicker: "08 / OUTCOMES & OPEN SOURCE",
+    subjectiveItems: [["Product value and use case", ""], ["Agent experience", ""], ["UX and interaction design", ""], ["Innovation and potential to scale", ""]],
+    objectiveItems: ["Working, verifiable prototype", "Software or device integration", "Implementation difficulty and stability", "Overall completeness and execution"],
+    openKicker: "07 / OUTCOMES & OPEN SOURCE",
     openTitle: "From credible prototype to public outcome",
     openStages: [["Online selection", "Open source is optional, but the prototype must be verifiable"], ["After selection", "Core code, prototype, or primary outcome should generally be opened"], ["Final showcase", "Submit a public repository, project page, or a clear publication method"]],
     openNote: "Reasonable exemptions may be requested for third-party commercial code, hardware designs, or personal data. Strong projects may receive GOSIM promotion, media exposure, and further incubation support.",
-    faqKicker: "09 / FAQ",
+    faqKicker: "08 / FAQ",
     faqTitle: "Frequently asked questions",
-    faqs: [["Do I have to build hardware?", "No. A strong software product can win. Hardware can raise fidelity, but the experience and Agent value come first."], ["Must I use the official Agent OS?", "No. Agent OS entries can compete for the dedicated award; other stacks are welcome when they deliver OS-level or Agent-native interaction."], ["Can I apply with only an idea?", "No. Stage one requires a visual, interactive, or otherwise verifiable prototype. Text-only concepts generally do not advance."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["How does Spotlight relate to the hackathon?", "They are parallel programs. Spotlight focuses on consumer products, Agent interaction, design, and devices; the hackathon focuses more on software factories, Agent OS, AI-native phones, and technical implementation."], ["When do applications open?", "The application form is being prepared. The application buttons at the top and bottom of this page will be updated when it goes live."]],
+    faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications open?", "The application form is being prepared. The application buttons at the top and bottom of this page will be updated when it goes live."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "Turn the next AI product\ninto an experience people can try",
     applyText: "The application form is in preparation. Start refining your core scenario, interactive prototype, and one-minute demo flow now.",
@@ -242,13 +191,13 @@ const content = {
     conference: "Visit GOSIM Shenzhen 2026",
   },
   fr: {
-    metaTitle: "GOSIM Shenzhen Spotlight | Créer le prochain produit natif IA",
-    metaDesc: "Un programme d’incubation de produits natifs IA centré sur les Agents grand public, Agent OS et les nouvelles interactions humain-machine.",
-    eyebrow: "GOSIM SPOTLIGHT · SHENZHEN 2026",
-    heroTitle: "Créer la prochaine génération de",
-    heroAccent: "produits natifs IA",
+    metaTitle: "Spotlight Shenzhen 2026: Next-Gen AI-Native Products",
+    metaDesc: "Un programme d’incubation de produits natifs IA centré sur les Agents grand public et les nouvelles interactions humain-machine.",
+    eyebrow: "Spotlight Shenzhen 2026",
+    heroTitle: "Nouvelle génération",
+    heroAccent: "de produits natifs IA",
     heroText: "Lorsque l’Agent IA n’est plus une simple application, mais le cœur de l’appareil et du système, à quoi doit ressembler le prochain produit grand public ?",
-    heroPrimary: "Comment participer",
+    heroConference: "Colocalisé avec GOSIM Shenzhen 2026",
     heroSecondary: "Candidatures bientôt ouvertes",
     heroNote: "Le formulaire est en préparation et sera disponible ici",
     meta: ["16—17 OCT. 2026", "SHENZHEN, CHINE", "ACCÉLÉRATION EN 2 ÉTAPES"],
@@ -270,56 +219,42 @@ const content = {
     after: ["L’IA devient le cœur du produit et du système", "L’Agent comprend et accomplit les tâches", "Un Agent orchestre services, outils et appareils", "L’interface s’adapte à l’intention", "Les capacités passent d’un appareil à l’autre", "Compétition sur la valeur, l’expérience et l’exécution"],
     beforeLabel: "Aujourd’hui",
     afterLabel: "Spotlight",
-    directionsKicker: "02 / PÉRIMÈTRE",
-    directionsTitle: "Choisir un scénario précis et en faire un produit Agent",
-    directionsText: "Approfondissez un parcours fréquent dans le shopping, le voyage, le divertissement, l’éducation ou la vie quotidienne. Le produit peut être logiciel ou intégré à un appareil.",
-    directions: [["01", "Shopping IA", "Découverte, comparaison, achat et service après-vente"], ["02", "Voyage IA", "Planification, navigation, traduction et assistance sur place"], ["03", "Divertissement IA", "Musique, vidéo, jeux et découverte de contenu"], ["04", "Éducation IA", "Lampes IA, compagnons d’apprentissage et tutorat visuel"], ["05", "Compagnons IA", "Robots de bureau, robots animaux et assistants personnels"], ["06", "Objets portés IA", "Montres, lunettes, badges et nouveaux appareils portables"], ["07", "Vie quotidienne IA", "Maison, santé, sport et tâches du quotidien"]],
+    directionsKicker: "02 / FORME DU PRODUIT",
+    directionsTitle: "Toutes les formes sont possibles, avec un fort encouragement pour le matériel inédit.",
+    directionsText: "Nous encourageons vivement les équipes à partir d’un besoin réel pour concevoir une nouvelle forme de produit matériel. L’intégration ou la transformation d’un appareil existant est également bienvenue. Si le logiciel est le meilleur support de l’expérience centrale, un projet entièrement logiciel reste admissible. Quelle que soit la forme choisie, l’usage doit rester naturel et clair.",
     principlesTitle: "Un projet Spotlight doit être",
-    principles: [["Grand public", "Conçu d’abord pour les personnes"], ["Mobile-first", "Ancré dans des appareils portables et des contextes réels"], ["Natif Agent", "L’Agent est le cœur, pas une chatbox ajoutée"], ["Interactif", "Un parcours complet, pas seulement un concept écrit"], ["Réalisable", "Un prototype ou une preuve possible en temps limité"]],
+    principles: [["Grand public", "Conçu d’abord pour les personnes"], ["Natif Agent", "L’Agent structure l’expérience essentielle"], ["Interactif", "Un parcours complet que l’on peut essayer"], ["Réalisable", "Un prototype ou une preuve possible en temps limité"]],
     formsTitle: "Toutes les formes sont possibles",
-    forms: [["Adapter un appareil", "Téléphone, montre, Rabbit R1, robot ou appareil avec écran"], ["Créer une nouvelle forme", "Coque 3D, structure découpée au laser ou appareil de bureau"]],
-    osKicker: "03 / AGENT OS",
-    osTitle: "Agent OS est prioritaire,\nmais pas obligatoire",
-    osText: "Utilisez Agent OS officiel ou ses capacités pour concourir au prix dédié. D’autres approches sont acceptées si elles démontrent une interaction au niveau du système ou réellement native Agent.",
-    osRule: "Ajouter une fenêtre de chat à une application classique ne suffit pas.",
-    capabilities: [["Voix", "Commander le produit en langage naturel"], ["Multimodal", "Comprendre caméra, micro, écran et capteurs"], ["Mémoire longue", "Conserver préférences, historique et contexte"], ["Outils", "Appeler recherche, apps, services et matériel"], ["UI dynamique", "Générer ou adapter l’interface à la tâche"], ["Multi-appareils", "Continuer sur téléphone, montre et robot"], ["Service proactif", "Rappeler, planifier et exécuter spontanément"]],
-    formatKicker: "05 / FORMAT",
+    forms: [["Créer une forme matérielle", "Concevoir la forme, l’interaction et l’appareil à l’aide de structures sur mesure, d’impression 3D ou de découpe laser"], ["Intégrer ou adapter un appareil", "Repenser les capacités ou la forme d’un téléphone, d’une montre intelligente, d’un robot ou d’un autre appareil existant"], ["Créer un produit entièrement logiciel", "Lorsqu’aucun nouveau matériel n’est nécessaire, utiliser une application, une interface web ou desktop, ou un service multi-appareils"]],
+    formatKicker: "04 / FORMAT",
     formatTitle: "Sélection en ligne → Accélération à Shenzhen → Démonstration finale",
     formatText: "La première étape valide l’idée, l’expérience et la capacité d’exécution à faible coût. La seconde concentre les ressources pour finaliser ou améliorer un prototype réel.",
-    stages: [["01", "Sélection en ligne", "Valider valeur, expérience et faisabilité", "Prototype interactif, courte vidéo et plan de réalisation"], ["02", "Accélération à Shenzhen", "Environ deux jours pour construire et affiner", "Produit fonctionnel avec soutien logiciel, matériel et mentorat"], ["03", "Démonstration finale", "Présenter la prochaine génération de produits IA", "Visibilité, prix, promotion et opportunités d’incubation"]],
-    submitKicker: "04 / SOUMISSION EN LIGNE",
-    submitTitle: "Pas un appel à idées.\nUne validation de l’expérience produit.",
-    submitText: "Téléphone, site web ou appareil existant peuvent porter le prototype. Aucun matériel coûteux n’est requis au départ, mais l’expérience doit être claire et réalisable. Les concepts uniquement textuels ne seront en principe pas retenus.",
-    materialsTitle: "À soumettre",
-    materials: [["Présentation", "Public, scénario, problème et valeur"], ["Expérience Agent", "Comment l’Agent remplace ou repense le parcours"], ["Prototype interactif", "Web, Figma, app, simulateur ou appareil réel"], ["Vidéo de démo", "Moins d’une minute recommandé, avec le parcours complet"], ["Plan sur place", "Ce que l’équipe peut terminer si elle est retenue"], ["Besoins et preuves", "Soutiens demandés, liens, builds, captures ou vidéos"]],
-    questionsTitle: "Chaque projet doit répondre",
-    questions: ["Pourquoi ne peut-il pas être une application ordinaire ?", "Quel rôle essentiel joue l’Agent ?", "Comment améliore-t-il l’expérience grand public existante ?", "Que pouvez-vous terminer sur place ?", "De quel soutien avez-vous besoin ?"],
-    toolkitTitle: "Kit de prototypage officiel",
-    toolkitText: "Coques d’interface téléphone, montre et appareil avec écran, exemples Agent OS, guide de software factory et projets de référence pour valider rapidement une expérience.",
-    accelerateKicker: "06 / ACCÉLÉRATION À SHENZHEN",
+    stages: [["01", "Sélection en ligne", "Valider valeur, expérience et faisabilité", "Prototype interactif, courte vidéo et plan de réalisation"], ["02", "Accélération à Shenzhen", "Environ deux jours pour construire et affiner", "Produit fonctionnel avec soutien logiciel, matériel et mentorat"], ["03", "Démonstration finale", "Présenter la prochaine génération de produits IA", "Visibilité, promotion et opportunités d’incubation"]],
+    submitKicker: "03 / SOUMISSION EN LIGNE",
+    submitTitle: "Transformer l’idée\nen une expérience à essayer",
+    submitText: "La phase en ligne recherche une idée produit claire et une manière de l’expérimenter ou de la vérifier. Site web, Figma, application, simulateur ou appareil existant peuvent porter le concept, sans investissement matériel coûteux au départ.",
+    materialsTitle: "Éléments recommandés",
+    materials: [["Concept produit", "Public, scénario et valeur essentielle"], ["Expérience Agent", "Comment l’Agent améliore ou repense le parcours"], ["Prototype interactif", "Web, Figma, app, simulateur ou appareil réel"], ["Vidéo de démo", "Moins d’une minute recommandé, avec le parcours principal"], ["Étape suivante", "Ce que vous souhaitez terminer à Shenzhen et le soutien utile"]],
+    accelerateKicker: "05 / ACCÉLÉRATION À SHENZHEN",
     accelerateTitle: "Transformer une bonne idée en produit crédible et fonctionnel",
     accelerateText: "Les équipes retenues participent à environ deux jours de construction avant la conférence. Les produits complets peaufinent leur expérience ; les autres reçoivent un soutien ciblé en logiciel, matériel ou narration.",
     support: [["Aide au prototype", "Jusqu’à l’équivalent de 100 $US remboursés par projet"], ["Logiciels", "Crédits modèles, outils et software factory"], ["Soutien technique", "Assistants, ingénieurs et accompagnement sur place"], ["Fabrication", "Impression 3D, pièces de base et espace d’assemblage"], ["Espace", "Bureau à Shenzhen ou lieu de collaboration désigné"], ["Coaching démo", "Narration, déroulé et présentation"]],
-    budgetTitle: "Dépenses éligibles",
-    budget: ["Téléphones Android et cartes RK3566 / RK3576 / RK3588", "Rabbit R1, montres intelligentes et robots", "Caméras, réseaux de micros, écrans et capteurs", "Circuits, impression 3D, coques et pièces mécaniques", "Appels modèles, outils et services logiciels nécessaires"],
-    budgetNote: "Remboursement sur dépenses réelles ; le surplus reste à la charge de l’équipe. Dépenser plus n’est pas un avantage. L’organisation accompagne, mais l’équipe reste responsable du résultat.",
-    judgingKicker: "07 / ÉVALUATION",
+    budgetTitle: "Soutien au prototype",
+    budgetNote: "Le soutien peut couvrir les logiciels, l’intégration d’appareils et la fabrication nécessaires, sur remboursement des dépenses réelles.",
+    judgingKicker: "06 / ÉVALUATION",
     judgingTitle: "Valeur produit et réalisation comptent autant",
-    judgingText: "La note finale combine l’avis du jury et des points objectifs de réalisation. Le matériel ajoute des points, mais ne suffit pas pour gagner.",
+    judgingText: "60 % portent sur la valeur produit, l’expérience Agent, l’interaction et l’innovation ; 40 % sur la complétude, la difficulté de réalisation et la crédibilité du prototype.",
     subjective: "Évaluation du jury",
     objective: "Réalisation objective",
-    subjectiveItems: [["Valeur produit et cas d’usage", "15%"], ["Expérience native Agent", "15%"], ["UX et design d’interaction", "15%"], ["Innovation", "10%"], ["Coût et capacité de diffusion", "5%"]],
-    objectiveItems: ["Prototype web fonctionnel", "Application mobile installable", "Intégration ou modification d’appareil", "Structure sur mesure / imprimée en 3D", "Intégration logiciel-matériel", "Capacités clés d’Agent OS", "Produit complet réalisé en autonomie"],
-    judgingNote: "Une interaction banale avec peu de valeur Agent ne sera pas bien notée simplement grâce à une coque fabriquée.",
-    awardsTitle: "Prix envisagés",
-    awards: ["Meilleur projet Spotlight", "Meilleure application Agent OS", "Meilleur design produit", "Meilleure réalisation technique", "Meilleur prototype matériel", "Meilleur potentiel commercial", "Prix du jury"],
-    openKicker: "08 / RÉSULTATS & OPEN SOURCE",
+    subjectiveItems: [["Valeur produit et cas d’usage", ""], ["Expérience Agent", ""], ["UX et design d’interaction", ""], ["Innovation et potentiel de diffusion", ""]],
+    objectiveItems: ["Prototype fonctionnel et vérifiable", "Intégration logiciel ou appareil", "Difficulté et stabilité", "Complétude et capacité d’exécution"],
+    openKicker: "07 / RÉSULTATS & OPEN SOURCE",
     openTitle: "Du prototype crédible au résultat public",
     openStages: [["Sélection en ligne", "Open source facultatif, mais prototype vérifiable"], ["Après sélection", "Code central, prototype ou résultat principal à ouvrir en principe"], ["Démonstration finale", "Dépôt public, page projet ou méthode de publication claire"]],
     openNote: "Des dérogations raisonnables sont possibles pour code commercial tiers, design matériel ou données personnelles. Les meilleurs projets pourront bénéficier de la promotion et de l’incubation GOSIM.",
-    faqKicker: "09 / FAQ",
+    faqKicker: "08 / FAQ",
     faqTitle: "Questions fréquentes",
-    faqs: [["Faut-il construire du matériel ?", "Non. Un excellent produit logiciel peut gagner. Le matériel améliore la fidélité, mais l’expérience et la valeur Agent priment."], ["Agent OS officiel est-il obligatoire ?", "Non. Il ouvre le prix dédié ; les autres solutions sont acceptées avec une interaction système ou native Agent."], ["Une idée seule suffit-elle ?", "Non. La première étape exige un prototype visuel, interactif ou vérifiable."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quel lien avec le hackathon ?", "Ce sont deux programmes parallèles. Spotlight privilégie le produit grand public et l’expérience ; le hackathon se concentre davantage sur les software factories, Agent OS et l’implémentation."], ["Quand ouvrent les candidatures ?", "Le formulaire est en préparation. Les boutons en haut et en bas de cette page seront mis à jour dès son ouverture."]],
+    faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand ouvrent les candidatures ?", "Le formulaire est en préparation. Les boutons en haut et en bas de cette page seront mis à jour dès son ouverture."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "Transformer le prochain produit IA\nen une expérience à essayer",
     applyText: "Le formulaire est en préparation. Commencez dès maintenant à affiner votre scénario, prototype interactif et démo d’une minute.",
@@ -338,7 +273,7 @@ const sectionTitle = (text: string) => text.split("\n");
   description={c.metaDesc}
   navDarkMode={true}
   navBackground="header-home"
-  pageTransitionName="Spotlight Shenzhen 2026"
+  pageTransitionName="Spotlight Shenzhen 2026: Next-Gen AI-Native Products"
   locale={locale}
 >
   <div class="spotlight-page">
@@ -356,7 +291,7 @@ const sectionTitle = (text: string) => text.split("\n");
           <h1>{c.heroTitle}<br /><span>{c.heroAccent}</span></h1>
           <p class="hero-lede">{c.heroText}</p>
           <div class="hero-actions">
-            <a class="spot-button primary" href="#about">{c.heroPrimary}<span aria-hidden="true">↓</span></a>
+            <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span aria-hidden="true">↗</span></a>
             <a class="spot-button ghost" href="#apply" aria-describedby="application-note">{c.heroSecondary}</a>
           </div>
           <p class="application-note" id="application-note"><span></span>{c.heroNote}</p>
@@ -454,57 +389,19 @@ const sectionTitle = (text: string) => text.split("\n");
           </div>
         </div>
 
-        <div class="direction-grid">
-          {c.directions.map((item) => (
-            <article>
-              <span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p>
-            </article>
+        <div class="form-grid-primary">
+          {c.forms.map((item, index) => (
+            <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>
           ))}
         </div>
 
-        <div class="direction-footer">
-          <div>
-            <p class="eyebrow light">{c.principlesTitle}</p>
-            <div class="principle-strip">
+        <div class="principles-compact">
+          <p class="eyebrow light">{c.principlesTitle}</p>
+          <div class="principle-strip">
             {c.principles.map((item, index) => (
-                <article><span>{index + 1}</span><div><h4>{item[0]}</h4><p>{item[1]}</p></div></article>
+              <article><span>{index + 1}</span><div><h4>{item[0]}</h4><p>{item[1]}</p></div></article>
             ))}
-            </div>
           </div>
-          <div class="form-summary">
-            <p class="eyebrow light">{c.formsTitle}</p>
-            {c.forms.map((item) => <article><h3>{item[0]}</h3><p>{item[1]}</p></article>)}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section agent-os" id="agent-os">
-      <div class="spotlight-container os-grid">
-        <div class="os-copy">
-          <p class="eyebrow">{c.osKicker}</p>
-          <h2>{sectionTitle(c.osTitle).map((line) => <>{line}<br /></>)}</h2>
-          <p class="section-intro">{c.osText}</p>
-          <blockquote>{c.osRule}</blockquote>
-          <img
-            class="section-sticker sticker-os"
-            src="/images/shenzhen2026/agent-os-sticker.png"
-            alt=""
-            width="1254"
-            height="1254"
-            loading="lazy"
-            decoding="async"
-            aria-hidden="true"
-          />
-        </div>
-        <div class="capability-grid">
-          {c.capabilities.map((item, index) => (
-            <article>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item[0]}</h3>
-              <p>{item[1]}</p>
-            </article>
-          ))}
         </div>
       </div>
     </section>
@@ -526,16 +423,6 @@ const sectionTitle = (text: string) => text.split("\n");
           ))}
         </div>
 
-        <div class="submission-notes">
-          <details class="questions-card">
-            <summary><h3>{c.questionsTitle}</h3><i aria-hidden="true">+</i></summary>
-            <ol>{c.questions.map((question, index) => <li><span>{index + 1}</span><p>{question}</p></li>)}</ol>
-          </details>
-          <div class="toolkit-card">
-            <div class="toolkit-mark">KIT</div>
-            <div><h3>{c.toolkitTitle}</h3><p>{c.toolkitText}</p></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -585,10 +472,7 @@ const sectionTitle = (text: string) => text.split("\n");
             <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>
           ))}
         </div>
-        <details class="budget-panel">
-          <summary><span>{c.budgetTitle}</span><i aria-hidden="true">+</i></summary>
-          <div class="budget-body"><ul>{c.budget.map((item) => <li>{item}</li>)}</ul><p>{c.budgetNote}</p></div>
-        </details>
+        <div class="support-note"><strong>{c.budgetTitle}</strong><p>{c.budgetNote}</p></div>
       </div>
     </section>
 
@@ -606,19 +490,13 @@ const sectionTitle = (text: string) => text.split("\n");
           <article class="score-card subjective-card">
             <div class="score-header"><div class="score-ring ring-60"><strong>60</strong><small>%</small></div><h3>{c.subjective}</h3></div>
             <div class="score-lines">
-              {c.subjectiveItems.map((item) => <div><span>{item[0]}</span><strong>{item[1]}</strong></div>)}
+              {c.subjectiveItems.map((item) => <div><span>{item[0]}</span></div>)}
             </div>
           </article>
           <article class="score-card objective-card">
             <div class="score-header"><div class="score-ring ring-40"><strong>40</strong><small>%</small></div><h3>{c.objective}</h3></div>
             <ul>{c.objectiveItems.map((item) => <li>{item}</li>)}</ul>
           </article>
-        </div>
-        <blockquote class="judging-note">“{c.judgingNote}”</blockquote>
-
-        <div class="awards-wrap">
-          <p class="eyebrow">{c.awardsTitle}</p>
-          <div class="award-grid">{c.awards.map((award, index) => <div><span>{String(index + 1).padStart(2, "0")}</span>{award}</div>)}</div>
         </div>
         <div class="outcome-note" id="outcomes">
           <div><p class="eyebrow">{c.openKicker}</p><h3>{c.openTitle}</h3></div>
@@ -631,7 +509,7 @@ const sectionTitle = (text: string) => text.split("\n");
       <div class="spotlight-container faq-layout">
         <div class="faq-title"><p class="eyebrow">{c.faqKicker}</p><h2>{c.faqTitle}</h2></div>
         <div class="faq-list">
-          {c.faqs.slice(0, 5).map((faq) => (
+          {c.faqs.map((faq) => (
             <details>
               <summary><span>{faq[0]}</span><i aria-hidden="true">+</i></summary>
               <p>{faq[1]}</p>
@@ -667,23 +545,22 @@ const sectionTitle = (text: string) => text.split("\n");
   .eyebrow.light { color: var(--acid); }
   .section-head { margin-bottom: 48px; }
   .split-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 5vw; align-items: end; }
-  .section-head h2, .os-copy h2 { white-space: normal; font-size: clamp(2.35rem, 4.2vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; margin-top: 16px; color: var(--ink); }
+  .section-head h2 { white-space: normal; font-size: clamp(2.35rem, 4.2vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; margin-top: 16px; color: var(--ink); }
   .section-intro { color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.6; }
   .head-side { min-width: 0; }
   .section-sticker { display: block; max-width: 100%; object-fit: cover; object-position: center; pointer-events: none; user-select: none; filter: drop-shadow(0 14px 22px rgba(21,26,23,.14)); }
   .sticker-core { width: 250px; height: 162px; margin: 12px 0 -12px auto; transform: rotate(3deg); }
   .sticker-consumer { width: 255px; height: 178px; margin: 10px 0 -18px auto; transform: rotate(-3deg); filter: drop-shadow(0 14px 24px rgba(118,240,200,.15)); }
-  .sticker-os { width: 260px; height: 178px; margin: 18px 0 -8px auto; transform: rotate(-2.5deg); }
   .sticker-prototype { width: 320px; height: 124px; margin: 16px 0 -14px auto; transform: rotate(2deg); }
   .light-head h2, [data-theme-section="dark"] .section-head h2 { color: #fff; }
   .light-head .section-intro, [data-theme-section="dark"] .section-intro { color: rgba(255,255,255,.68); }
 
   .sz-hero { min-height: min(880px, 100svh); position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: #0c100e; padding: 145px 0 0; }
-  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.1) brightness(.88); }
-  .hero-colorwash { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(78,255,218,.88) 0%, rgba(31,211,177,.82) 48%, rgba(7,111,94,.9) 100%); mix-blend-mode: color; }
-  .hero-colorwash::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(82,240,207,.34) 0%, rgba(21,171,144,.22) 48%, rgba(5,76,64,.32) 100%); mix-blend-mode: screen; }
-  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,18,14,.68) 0%, rgba(7,34,27,.32) 50%, rgba(5,53,43,.05) 100%), linear-gradient(0deg, rgba(5,24,19,.56) 0%, transparent 56%); box-shadow: inset 0 0 0 100vmax rgba(39,190,160,.12); }
-  .hero-grid { position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(118,240,200,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(118,240,200,.22) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent 3%, #000 45%, #000 100%); }
+  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(.8); }
+  .hero-colorwash { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(6,32,24,.72) 0%, rgba(13,96,73,.62) 48%, rgba(4,45,34,.8) 100%); mix-blend-mode: multiply; }
+  .hero-colorwash::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(36,151,116,.42) 0%, rgba(18,104,79,.28) 48%, rgba(4,48,36,.32) 100%); mix-blend-mode: color; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2,10,8,.7) 0%, rgba(4,25,19,.38) 50%, rgba(4,34,26,.12) 100%), linear-gradient(0deg, rgba(2,13,10,.62) 0%, transparent 58%); box-shadow: inset 0 0 0 100vmax rgba(3,24,18,.1); }
+  .hero-grid { position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(118,240,200,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(118,240,200,.2) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent 3%, #000 45%, #000 100%); }
   .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .72fr); gap: 6vw; align-items: center; flex: 1; padding: 20px 0 44px; }
   .hero-copy h1 { color: #fff; font-size: clamp(3.5rem, 6.4vw, 6.8rem); line-height: .92; letter-spacing: -.07em; max-width: 11ch; margin: 20px 0 24px; font-weight: 600; }
   .hero-copy h1 span { color: var(--acid); }
@@ -723,23 +600,20 @@ const sectionTitle = (text: string) => text.split("\n");
   .quick-fact-grid h3 { margin-top: 8px; color: var(--ink); font-size: clamp(1.05rem,1.35vw,1.35rem); line-height: 1.35; }
 
   .directions { background: linear-gradient(145deg, #1b231f 0%, #111613 100%); overflow: hidden; }.directions::after { content: "AGENT"; position: absolute; right: -2vw; top: 10%; font-size: 18vw; font-weight: 800; letter-spacing: -.08em; line-height: 1; color: rgba(255,255,255,.028); pointer-events: none; }
-  .direction-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
-  .direction-grid article { min-height: 150px; padding: 20px; border: 1px solid rgba(255,255,255,.14); border-radius: 16px; background: rgba(255,255,255,.045); }
-  .direction-grid span { color: var(--acid); font-size: 10px; letter-spacing: .12em; }
-  .direction-grid h3 { color: #fff; font-size: 20px; margin-top: 28px; }
-  .direction-grid p { color: rgba(255,255,255,.58); font-size: 12px; line-height: 1.5; margin-top: 8px; }
-  .direction-footer { margin-top: 54px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.18); display: grid; grid-template-columns: 1.4fr .6fr; gap: 6vw; }
-  .principle-strip { margin-top: 18px; display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; }
+  .form-grid-primary { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .form-grid-primary article { --form-metal: var(--acid); --form-metal-rgb: 83, 255, 206; min-height: 190px; padding: 20px 22px 22px; border: 1px solid rgba(255,255,255,.15); border-top: 3px solid var(--form-metal); border-radius: 6px; background: rgba(255,255,255,.035); display: flex; flex-direction: column; }
+  .form-grid-primary article:nth-child(1) { --form-metal: #e6c568; --form-metal-rgb: 230, 197, 104; }
+  .form-grid-primary article:nth-child(2) { --form-metal: #c7d2cf; --form-metal-rgb: 199, 210, 207; }
+  .form-grid-primary article:nth-child(3) { --form-metal: #a9795d; --form-metal-rgb: 169, 121, 93; }
+  .form-grid-primary span { width: max-content; padding-bottom: 6px; color: var(--form-metal); border-bottom: 1px solid rgba(var(--form-metal-rgb),.55); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+  .form-grid-primary h3 { color: #fff; font-size: 22px; margin-top: auto; }
+  .form-grid-primary p { color: rgba(255,255,255,.6); font-size: 12px; line-height: 1.5; margin-top: 8px; }
+  .principles-compact { margin-top: 48px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.18); }
+  .principle-strip { margin-top: 18px; display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
   .principle-strip article { display: flex; gap: 10px; align-items: flex-start; }
   .principle-strip span { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; display: grid; place-items: center; color: var(--acid); border: 1px solid rgba(118,240,200,.45); font-size: 9px; }
   .principle-strip h4 { color: #fff; font-size: 14px; }
   .principle-strip p { color: rgba(255,255,255,.5); font-size: 11px; line-height: 1.45; margin-top: 5px; }
-  .form-summary article { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
-  .form-summary h3 { color: var(--acid); font-size: 15px; }
-  .form-summary p { color: rgba(255,255,255,.55); font-size: 11px; line-height: 1.45; margin-top: 4px; }
-
-  .agent-os { background: var(--acid); }.os-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 6vw; align-items: start; }.os-copy .section-intro { margin-top: 22px; color: rgba(21,26,23,.72); }.os-copy blockquote { margin: 24px 0 0; border-left: 3px solid var(--ink); padding: 2px 0 2px 16px; color: var(--ink); font-size: clamp(1.05rem,1.45vw,1.4rem); line-height: 1.45; font-weight: 700; }
-  .capability-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }.capability-grid article { min-height: 128px; border: 1px solid rgba(21,26,23,.25); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; }.capability-grid article:nth-child(even) { padding-left: 16px; }.capability-grid span { font-size: 9px; color: rgba(21,26,23,.48); letter-spacing: .13em; }.capability-grid h3 { margin-top: auto; color: var(--ink); font-size: 17px; }.capability-grid p { margin-top: 6px; color: rgba(21,26,23,.68); font-size: 11px; line-height: 1.45; }
 
   .format { background: #eef1ed; }.center-head { text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto; }.center-head .section-intro { max-width: 730px; margin: 18px auto 0; }.stage-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }.stage-card { min-height: 270px; border-radius: 20px; padding: 22px; background: #fff; display: flex; flex-direction: column; box-shadow: 0 12px 35px rgba(21,26,23,.05); }.stage-card:nth-child(2) { background: var(--ink); }.stage-card:nth-child(3) { background: var(--violet); }.stage-top { display: flex; justify-content: space-between; color: #748079; font-size: 10px; letter-spacing: .14em; }.stage-top i { font-style: normal; font-size: 20px; color: #748079; transform: translateX(32px); z-index: 2; }.stage-card h3 { font-size: clamp(1.55rem,2.1vw,2.25rem); color: var(--ink); margin-top: auto; }.stage-card strong { color: var(--ink); font-size: 13px; margin-top: 12px; line-height: 1.4; }.stage-card p { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 8px; }.stage-card:nth-child(2) :is(h3,strong) { color: #fff; }.stage-card:nth-child(2) p { color: rgba(255,255,255,.64); }.stage-card:nth-child(3) :is(h3,strong,p,.stage-top) { color: var(--ink); }
 
@@ -748,20 +622,13 @@ const sectionTitle = (text: string) => text.split("\n");
   .material-grid article { min-height: 128px; padding: 16px; border: 1px solid rgba(255,255,255,.15); border-radius: 14px; display: grid; grid-template-columns: 30px 1fr; gap: 8px; }
   .material-grid article > span { color: var(--acid); font-size: 9px; letter-spacing: .12em; padding-top: 3px; }
   .material-grid h4 { color: #fff; font-size: 16px; }.material-grid p { color: rgba(255,255,255,.58); font-size: 11px; margin-top: 6px; line-height: 1.45; }
-  .submission-notes { margin-top: 14px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 10px; align-items: start; }
-  .questions-card { background: var(--acid); border-radius: 16px; padding: 20px; }
-  .questions-card summary { list-style: none; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-  .questions-card summary::-webkit-details-marker { display: none; }.questions-card summary i { font-style: normal; font-size: 22px; transition: transform .2s ease; }.questions-card[open] summary i { transform: rotate(45deg); }
-  .questions-card h3 { color: var(--ink); font-size: 19px; }.questions-card ol { margin-top: 16px; }.questions-card li { display: grid; grid-template-columns: 28px 1fr; align-items: start; border-top: 1px solid rgba(21,26,23,.22); padding: 11px 0; }.questions-card li span { width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(21,26,23,.4); display: grid; place-items: center; font-size: 9px; }.questions-card li p { color: var(--ink); font-size: 12px; line-height: 1.45; }
-  .toolkit-card { border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 20px; display: grid; grid-template-columns: 72px 1fr; gap: 20px; align-items: center; }.toolkit-mark { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; border: 1px dashed var(--acid); color: var(--acid); font-size: 15px; font-weight: 700; letter-spacing: .12em; }.toolkit-card h3 { color: #fff; font-size: 19px; }.toolkit-card p { color: rgba(255,255,255,.58); font-size: 11px; line-height: 1.5; margin-top: 6px; }
-
   .accelerate { background: #f4f2ed; }.support-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }.support-grid article { min-height: 145px; background: #fff; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; border: 1px solid rgba(21,26,23,.08); }.support-grid span { font-size: 9px; color: #758079; letter-spacing: .13em; }.support-grid h3 { margin-top: auto; color: var(--ink); font-size: 18px; }.support-grid p { color: var(--muted); font-size: 11px; line-height: 1.45; margin-top: 6px; }
-  .budget-panel { margin-top: 14px; padding: 20px 22px; border-radius: 16px; background: #e7e9df; }.budget-panel summary { list-style: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: var(--ink); font-size: 15px; font-weight: 700; }.budget-panel summary::-webkit-details-marker { display: none; }.budget-panel summary i { font-style: normal; font-size: 22px; transition: transform .2s ease; }.budget-panel[open] summary i { transform: rotate(45deg); }.budget-body { margin-top: 16px; display: grid; grid-template-columns: 1fr .85fr; gap: 5vw; }.budget-panel li { color: var(--ink); font-size: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }.budget-panel li::before { content: "↳"; color: #496e62; margin-right: 10px; }.budget-body > p { color: var(--muted); font-size: 12px; line-height: 1.6; align-self: end; }
+  .support-note { margin-top: 14px; padding: 18px 20px; border-radius: 14px; background: #e7e9df; display: flex; align-items: baseline; gap: 24px; }
+  .support-note strong { flex: 0 0 auto; color: var(--ink); font-size: 14px; }
+  .support-note p { color: var(--muted); font-size: 12px; line-height: 1.55; }
 
-  .judging { background: #e4efeb; }.score-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }.score-card { border-radius: 20px; padding: 26px; min-height: 350px; }.subjective-card { background: #fff; }.objective-card { background: var(--ink); }.score-header { display: flex; align-items: center; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }.objective-card .score-header { border-color: rgba(255,255,255,.18); }.score-header h3 { font-size: 21px; color: var(--ink); }.objective-card .score-header h3 { color: #fff; }.score-ring { width: 82px; height: 82px; border-radius: 50%; display: flex; justify-content: center; align-items: baseline; padding-top: 23px; position: relative; }.score-ring::after { content:""; position: absolute; inset: 6px; border-radius: 50%; background: inherit; filter: brightness(1.1); z-index: 0; }.score-ring strong, .score-ring small { position: relative; z-index: 1; }.score-ring strong { font-size: 24px; }.score-ring small { font-size: 10px; }.ring-60 { background: conic-gradient(var(--violet) 0 60%, #e5eae7 60%); color: var(--ink); }.ring-40 { background: conic-gradient(var(--acid) 0 40%, rgba(255,255,255,.14) 40%); color: #fff; }
+  .judging { background: #e4efeb; }.score-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }.score-card { border-radius: 20px; padding: 26px; min-height: 310px; }.subjective-card { background: #fff; }.objective-card { background: var(--ink); }.score-header { display: flex; align-items: center; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }.objective-card .score-header { border-color: rgba(255,255,255,.18); }.score-header h3 { font-size: 21px; color: var(--ink); }.objective-card .score-header h3 { color: #fff; }.score-ring { width: 82px; height: 82px; border-radius: 50%; display: flex; justify-content: center; align-items: baseline; padding-top: 23px; position: relative; }.score-ring::after { content:""; position: absolute; inset: 6px; border-radius: 50%; background: inherit; filter: brightness(1.1); z-index: 0; }.score-ring strong, .score-ring small { position: relative; z-index: 1; }.score-ring strong { font-size: 24px; }.score-ring small { font-size: 10px; }.ring-60 { background: conic-gradient(var(--violet) 0 60%, #e5eae7 60%); color: var(--ink); }.ring-40 { background: conic-gradient(var(--acid) 0 40%, rgba(255,255,255,.14) 40%); color: #fff; }
   .score-lines { margin-top: 16px; }.score-lines div { display: flex; justify-content: space-between; align-items: center; min-height: 42px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }.score-lines strong { color: var(--ink); }.objective-card ul { display: grid; grid-template-columns: repeat(2,1fr); gap: 0 22px; margin-top: 16px; }.objective-card li { min-height: 48px; padding: 10px 0 10px 22px; border-bottom: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.7); font-size: 11px; line-height: 1.4; position: relative; }.objective-card li::before { content: "+"; position: absolute; left: 0; color: var(--acid); font-size: 16px; }
-  .judging-note { margin: 10px 0 0; padding: 20px; background: var(--acid); border-radius: 14px; text-align: center; color: var(--ink); font-size: clamp(1rem,1.45vw,1.35rem); font-weight: 700; }
-  .awards-wrap { margin-top: 52px; }.award-grid { margin-top: 16px; display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }.award-grid div { min-height: 68px; padding: 14px 16px; background: rgba(255,255,255,.6); border: 1px solid rgba(7,27,37,.1); border-radius: 12px; display: flex; align-items: center; gap: 12px; color: var(--ink); font-size: 12px; font-weight: 700; }.award-grid span { font-size: 8px; color: #72717f; letter-spacing: .12em; }
   .outcome-note { margin-top: 18px; padding: 24px; border-radius: 16px; background: var(--ink); display: grid; grid-template-columns: .8fr 1.2fr; gap: 5vw; align-items: end; }.outcome-note h3 { color: #fff; font-size: 21px; margin-top: 8px; }.outcome-note > p { color: rgba(255,255,255,.62); font-size: 12px; line-height: 1.55; }
 
   .faq-section { background: #f4f2ed; }.faq-layout { display: grid; grid-template-columns: .65fr 1.35fr; gap: 7vw; align-items: start; }.faq-title { position: sticky; top: 100px; }.faq-title h2 { font-size: clamp(2.8rem,4.6vw,4.8rem); color: var(--ink); letter-spacing: -.06em; margin-top: 14px; }.faq-list { border-top: 1px solid var(--line); }.faq-list details { border-bottom: 1px solid var(--line); }.faq-list summary { list-style: none; min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; color: var(--ink); font-size: clamp(1rem,1.3vw,1.18rem); font-weight: 700; }.faq-list summary::-webkit-details-marker { display: none; }.faq-list summary i { width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .25s ease, background .25s ease; }.faq-list details[open] summary i { transform: rotate(45deg); background: var(--acid); }.faq-list details > p { color: var(--muted); font-size: 13px; line-height: 1.6; max-width: 720px; padding: 0 54px 22px 0; }
@@ -773,23 +640,21 @@ const sectionTitle = (text: string) => text.split("\n");
     .spot-section { padding: 84px 0; }
     .hero-inner { grid-template-columns: 1fr .7fr; gap: 40px; }
     .quick-fact-grid { grid-template-columns: repeat(2,1fr); }.quick-fact-grid article:nth-child(2) { border-right: 0; }.quick-fact-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-    .direction-grid { grid-template-columns: repeat(3,1fr); }.principle-strip { grid-template-columns: repeat(3,1fr); }
-    .capability-grid { grid-template-columns: repeat(2,1fr); }
-    .support-grid, .award-grid { grid-template-columns: repeat(2,1fr); }
+    .principle-strip { grid-template-columns: repeat(2,1fr); }
+    .support-grid { grid-template-columns: repeat(2,1fr); }
   }
 
   @media (max-width: 800px) {
     .spotlight-container { width: min(100% - 36px, 1440px); }
     .spot-section { padding: 76px 0; }
-    .split-head, .os-grid, .faq-layout, .direction-footer, .submission-notes, .budget-body, .outcome-note { grid-template-columns: 1fr; gap: 32px; }
-    .section-head { margin-bottom: 40px; }.section-head h2, .os-copy h2 { font-size: clamp(2.3rem,8vw,3.7rem); }
+    .split-head, .faq-layout, .outcome-note { grid-template-columns: 1fr; gap: 32px; }
+    .section-head { margin-bottom: 40px; }.section-head h2 { font-size: clamp(2.3rem,8vw,3.7rem); }
     .sticker-core, .sticker-consumer, .sticker-prototype { margin-left: 0; }
-    .sticker-os { margin: 18px 0 0; }
     .sz-hero { padding-top: 125px; min-height: auto; }.hero-inner { grid-template-columns: 1fr; padding-bottom: 40px; }.hero-copy h1 { font-size: clamp(3.5rem,14vw,6rem); }.agent-console { width: min(100%, 520px); transform: none; }.hero-meta { grid-template-columns: repeat(2,1fr); }.hero-meta div { min-height: 54px; border-bottom: 1px solid rgba(255,255,255,.18); }.hero-meta div:nth-child(2) { border-right: 0; }.hero-meta div:nth-child(3) { padding-left: 0; border-bottom: 0; }
     .signal-inner { grid-template-columns: 1fr; align-items: start; }.signal-tags { grid-template-columns: repeat(4,auto); justify-content: start; }
-    .direction-grid, .principle-strip, .capability-grid, .material-grid, .support-grid, .award-grid { grid-template-columns: repeat(2,1fr); }
+    .form-grid-primary, .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
     .stage-grid { grid-template-columns: 1fr; }.stage-card { min-height: 220px; }.stage-top i { transform: rotate(90deg) translateY(-5px); }
-    .faq-title { position: static; }.capability-grid { margin-top: 14px; }
+    .faq-title { position: static; }
     .score-grid { grid-template-columns: 1fr; }
     .faq-title { margin-bottom: 10px; }
   }
@@ -800,21 +665,19 @@ const sectionTitle = (text: string) => text.split("\n");
     .section-head { margin-bottom: 34px; }
     .sticker-core { width: 210px; height: 138px; }
     .sticker-consumer { width: 220px; height: 152px; }
-    .sticker-os { width: 225px; height: 154px; }
     .sticker-prototype { width: 270px; height: 105px; }
     .hero-copy h1 { letter-spacing: -.06em; }.hero-lede { font-size: 1rem; }.hero-actions { display: grid; }.spot-button { width: 100%; }.application-note { align-items: flex-start; }
     .hero-meta { width: 100%; padding: 0 14px; }.hero-meta div { padding: 0 10px; font-size: 9px; }.hero-meta div:first-child, .hero-meta div:nth-child(3) { padding-left: 0; }
     .console-body { padding: 16px; }.user-bubble { margin-left: 6%; }.agent-flow li { min-height: 38px; }
     .signal-strip { padding: 30px 0; }.signal-tags { grid-template-columns: repeat(2,auto); }
-    .quick-fact-grid, .direction-grid, .capability-grid, .material-grid, .support-grid, .award-grid { grid-template-columns: repeat(2,1fr); }
+    .quick-fact-grid, .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
     .quick-fact-grid article { min-height: 122px; padding: 15px; }.quick-fact-grid article:nth-child(odd) { border-right: 1px solid var(--line); }.quick-fact-grid h3 { font-size: 1rem; }
-    .direction-grid article { min-height: 138px; padding: 14px; }.direction-grid h3 { font-size: 17px; margin-top: 20px; }
+    .form-grid-primary { grid-template-columns: 1fr; }.form-grid-primary article { min-height: 150px; padding: 18px; }
     .principle-strip { grid-template-columns: 1fr; }.principle-strip article { padding: 4px 0; }
-    .capability-grid article, .capability-grid article:nth-child(even) { padding: 13px; min-height: 120px; }.capability-grid h3 { font-size: 15px; }
     .material-grid article { min-height: 118px; padding: 13px; grid-template-columns: 24px 1fr; }.material-grid h4 { font-size: 14px; }
     .support-grid article { min-height: 128px; padding: 14px; }.support-grid h3 { font-size: 16px; }
-    .toolkit-card { grid-template-columns: 58px 1fr; gap: 14px; }.toolkit-mark { width: 52px; height: 52px; font-size: 13px; }
-    .budget-panel { padding: 18px; }.score-card { padding: 22px 18px; }.objective-card ul { grid-template-columns: 1fr; }.score-header h3 { font-size: 19px; }
+    .support-note { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .score-card { padding: 22px 18px; }.objective-card ul { grid-template-columns: 1fr; }.score-header h3 { font-size: 19px; }
     .outcome-note { padding: 20px; }
     .apply-section { min-height: 500px; padding: 72px 0; }.apply-inner h2 { font-size: clamp(2.7rem,13vw,4.6rem); }.apply-actions { display: grid; width: 100%; }.apply-actions button, .apply-actions a { width: 100%; justify-content: space-between; }
   }

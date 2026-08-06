@@ -33,22 +33,7 @@ const t = getTranslations(locale);
     buttonLink: getLocalizedPath("/shenzhen2026", locale),
   }}
 >
-  <Hero
-    subtitle={t("home.hero.subtitle")}
-    announcement={{
-      text: t("home.hero.announcement"),
-      link: getLocalizedPath("/shenzhen2026", locale),
-    }}
-    date=""
-    location=""
-    links={[
-      {
-        text: t("home.hero.upcoming"),
-        link: getLocalizedPath("/shenzhen2026", locale),
-        openInNewTab: false,
-      },
-    ]}
-  />
+  <Hero subtitle={t("home.hero.subtitle")} />
 
   <div
     class="section-wrap"
@@ -76,7 +61,7 @@ const t = getTranslations(locale);
       playsinline
       preload="auto"
     >
-      <source src="/videos/shenzhen-hero-compressed.mp4" type="video/mp4" />
+      <source src="/videos/shenzhen-spotlight-hero.mp4" type="video/mp4" />
     </video>
     <Cards
       title={t("home.upcoming.title")}
@@ -170,17 +155,23 @@ const t = getTranslations(locale);
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    filter: grayscale(1) contrast(1.12) brightness(.8);
   }
   .upcoming-spotlight::before {
     content: "";
     position: absolute;
     inset: 0;
-    //background: rgba(255, 255, 255, 0.6);
-    z-index: 0;
+    background: linear-gradient(145deg, rgba(6, 32, 24, .72) 0%, rgba(13, 96, 73, .62) 48%, rgba(4, 45, 34, .8) 100%);
+    mix-blend-mode: multiply;
+    z-index: 1;
   }
   .upcoming-spotlight > :global(*) {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+  }
+  .upcoming-spotlight > .upcoming-spotlight-video {
+    position: absolute;
+    z-index: 0;
   }
   .upcoming-spotlight :global(.col-title h2),
   .upcoming-spotlight :global(.styled-content p) {

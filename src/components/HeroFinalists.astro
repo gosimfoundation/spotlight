@@ -5,6 +5,7 @@ import Button from "components/Button.astro"
 interface Props {
   date?: string
   location?: string
+  city?: string
   year?: string
   category?: string
   tagline?: string
@@ -20,7 +21,7 @@ interface Props {
   }>
 }
 
-const { date, location, year, category, tagline, heroImage, heroVideo, conferenceName, conferenceLink, colocatedText = "Co-located with", links } = Astro.props
+const { date, location, city, year, category, tagline, heroImage, heroVideo, conferenceName, conferenceLink, colocatedText = "Co-located with", links } = Astro.props
 ---
 
 <section
@@ -74,7 +75,7 @@ const { date, location, year, category, tagline, heroImage, heroVideo, conferenc
     <div class="row">
       <div class="col">
         <div class="col col-title">
-          <p class="hero-subtitle">GOSIM Spotlight{year ? ` ${year}` : ''}</p>
+          <p class="hero-subtitle">Spotlight{city ? ` ${city}` : ''}{year ? ` ${year}` : ''}</p>
           <h1>{category}</h1>
         </div>
 
