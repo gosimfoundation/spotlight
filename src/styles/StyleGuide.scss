@@ -683,6 +683,20 @@ video.overlay {
    background-color: var(--color-primary);
 }
 
+/* Shenzhen application status */
+
+.btn.shenzhen-opening .border-box {
+   display: none;
+}
+
+.btn.shenzhen-opening .btn-fill {
+   background-color: #76f0c8 !important;
+}
+
+.btn.shenzhen-opening .btn-content span {
+   color: #10201a !important;
+}
+
 
 /* Outline */
 
