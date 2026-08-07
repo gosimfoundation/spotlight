@@ -29,24 +29,7 @@ const {
   data-bg-section="header-home"
   aria-label={sceneLabel}
 >
-  <div class="stage-haze" aria-hidden="true"></div>
-
-  <div class="spotlight-scene" aria-hidden="true">
-    <div class="moving-spotlight"></div>
-    <div class="spotlight-pool"></div>
-    <div class="focus-lockup">
-      <img
-        src="/images/gosim-logo-official.svg"
-        alt=""
-        width="255"
-        height="72"
-      />
-      <span></span>
-      <strong>Spotlight</strong>
-    </div>
-  </div>
-
-  <div class="light-wash" aria-hidden="true"></div>
+  <div class="spotlight-scene" aria-hidden="true"></div>
 
   <div class="hero-finale">
     <div class="finale-copy">
@@ -108,14 +91,14 @@ const {
         setNavigationTheme("dark");
         void hero.offsetWidth;
         hero.classList.add("is-playing");
-        completionTimer = window.setTimeout(completeIntro, 3000);
+        completionTimer = window.setTimeout(completeIntro, 2700);
       };
 
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         completeIntro();
       } else {
         setNavigationTheme("dark");
-        completionTimer = window.setTimeout(completeIntro, 3000);
+        completionTimer = window.setTimeout(completeIntro, 2700);
       }
 
       skipButton?.addEventListener("click", completeIntro);
@@ -131,9 +114,30 @@ const {
 </script>
 
 <style>
+  @property --spot-x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 76%;
+  }
+
+  @property --spot-y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 30%;
+  }
+
+  @property --spot-radius {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 1px;
+  }
+
   .spotlight-hero {
     --ink: #062e37;
     --mint: #64e6bd;
+    --focus-x: 28%;
+    --focus-y: 52%;
+    --focus-radius: min(34vw, 26rem);
     position: relative;
     min-height: 100svh;
     overflow: hidden;
@@ -144,94 +148,32 @@ const {
     transition: background-color .6s ease;
   }
 
-  .stage-haze {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: #020303;
-  }
-
   .spotlight-scene,
-  .hero-finale,
-  .light-wash {
+  .hero-finale {
     position: absolute;
     inset: 0;
   }
 
   .spotlight-scene {
-    z-index: 2;
-    overflow: hidden;
-  }
-
-  .moving-spotlight {
-    position: absolute;
-    top: -12%;
-    left: 50%;
-    width: clamp(23rem, 46vw, 46rem);
-    height: 94%;
-    opacity: 0;
-    transform: translateX(-50%) rotate(-18deg) scaleX(.55);
-    transform-origin: 50% 0;
-    clip-path: polygon(49.25% 0, 50.75% 0, 100% 100%, 0 100%);
-    background: linear-gradient(180deg, rgba(255,255,248,.74), rgba(242,246,239,.21) 58%, rgba(238,243,237,.05) 100%);
-    filter: blur(8px);
-  }
-
-  .moving-spotlight::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 12%, rgba(255,255,255,.17) 50%, transparent 88%);
-  }
-
-  .spotlight-pool {
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    width: min(58vw, 44rem);
-    aspect-ratio: 2.7 / 1;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(.72);
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(255,255,248,.24), rgba(242,246,239,.08) 42%, transparent 72%);
-    filter: blur(12px);
-  }
-
-  .focus-lockup {
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    gap: clamp(1rem, 2.2vw, 2rem);
-    opacity: 0;
-    transform: translate(-50%, -45%);
-    white-space: nowrap;
-  }
-
-  .focus-lockup img {
-    width: clamp(7.5rem, 11vw, 10.5rem);
-    height: auto;
-  }
-
-  .focus-lockup span {
-    width: 1px;
-    height: clamp(2.5rem, 4.8vw, 4.25rem);
-    background: rgba(255,255,255,.48);
-  }
-
-  .focus-lockup strong {
-    color: #fff;
-    font-size: clamp(2.75rem, 5.6vw, 5.8rem);
-    font-weight: 500;
-    line-height: .9;
-    letter-spacing: -.055em;
-  }
-
-  .light-wash {
-    z-index: 5;
-    opacity: 0;
-    background: radial-gradient(circle at 50% 58%, #fff 0%, #f8f9f6 64%);
+    --spot-x: 76%;
+    --spot-y: 30%;
+    --spot-radius: 1px;
+    z-index: 7;
+    background: #020303;
+    -webkit-mask-image: radial-gradient(
+      circle at var(--spot-x) var(--spot-y),
+      transparent 0 calc(var(--spot-radius) - 28px),
+      rgba(0, 0, 0, .16) calc(var(--spot-radius) - 20px),
+      rgba(0, 0, 0, .52) calc(var(--spot-radius) - 9px),
+      #000 var(--spot-radius)
+    );
+    mask-image: radial-gradient(
+      circle at var(--spot-x) var(--spot-y),
+      transparent 0 calc(var(--spot-radius) - 28px),
+      rgba(0, 0, 0, .16) calc(var(--spot-radius) - 20px),
+      rgba(0, 0, 0, .52) calc(var(--spot-radius) - 9px),
+      #000 var(--spot-radius)
+    );
     pointer-events: none;
   }
 
@@ -240,7 +182,7 @@ const {
     display: grid;
     place-items: stretch;
     overflow: hidden;
-    opacity: 0;
+    opacity: 1;
     color: var(--ink);
     background: #f8f9f6;
     pointer-events: none;
@@ -411,21 +353,14 @@ const {
     background: #fff;
   }
 
-  .is-playing .moving-spotlight { animation: spotlightPan 1.15s .18s cubic-bezier(.3,.72,.18,1) both, spotlightExit .42s 1.92s ease forwards; }
-  .is-playing .spotlight-pool { animation: poolReveal .55s .72s ease both, spotlightExit .42s 1.92s ease forwards; }
-  .is-playing .focus-lockup { animation: focusReveal .48s .78s cubic-bezier(.2,.8,.2,1) both, focusExit .35s 1.96s ease forwards; }
-  .is-playing .light-wash { animation: lightWash .68s 1.88s cubic-bezier(.4,0,.2,1) both; }
-  .is-playing .hero-finale { animation: finaleReveal .48s 2.18s ease both; }
-  .is-playing .finale-copy { animation: copyReveal .5s 2.23s cubic-bezier(.2,.8,.2,1) both; }
-  .is-playing .explore-cue { animation: copyReveal .4s 2.45s ease both; }
-  .is-playing .skip-intro { animation: controlExit .2s 1.82s ease forwards; }
+  .is-playing .spotlight-scene { animation: circularReveal 2.35s .12s cubic-bezier(.4,0,.18,1) both; }
+  .is-playing .hero-finale a { pointer-events: none; }
+  .is-playing .skip-intro { animation: controlExit .2s 1.8s ease forwards; }
 
   .is-complete {
     background: #fff;
   }
-  .is-complete .stage-haze,
   .is-complete .spotlight-scene,
-  .is-complete .light-wash,
   .is-complete .skip-intro {
     opacity: 0;
     visibility: hidden;
@@ -443,45 +378,33 @@ const {
     visibility: visible;
   }
 
-  @keyframes spotlightPan {
-    0% { opacity: 0; transform: translateX(-50%) rotate(-18deg) scaleX(.55); }
-    16% { opacity: .18; }
-    52% { opacity: .66; transform: translateX(-50%) rotate(7deg) scaleX(.88); }
-    100% { opacity: .76; transform: translateX(-50%) rotate(0deg) scaleX(1); }
-  }
-  @keyframes poolReveal {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(.72); }
-    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  }
-  @keyframes focusReveal {
-    from { opacity: 0; transform: translate(-50%, -44%); filter: blur(5px); }
-    to { opacity: 1; transform: translate(-50%, -50%); filter: blur(0); }
-  }
-  @keyframes spotlightExit { to { opacity: 0; } }
-  @keyframes focusExit { to { opacity: 0; transform: translate(-50%, -53%); } }
-  @keyframes lightWash {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes finaleReveal { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes copyReveal {
-    from { opacity: 0; transform: translateY(25px) scale(.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+  @keyframes circularReveal {
+    0%, 7% {
+      --spot-x: 76%;
+      --spot-y: 30%;
+      --spot-radius: 1px;
+    }
+    48%, 68% {
+      --spot-x: var(--focus-x);
+      --spot-y: var(--focus-y);
+      --spot-radius: var(--focus-radius);
+    }
+    100% {
+      --spot-x: var(--focus-x);
+      --spot-y: var(--focus-y);
+      --spot-radius: 160vmax;
+    }
   }
   @keyframes controlExit { to { opacity: 0; visibility: hidden; } }
   @keyframes cueBounce { 50% { transform: translateY(4px); } }
 
   @media (max-width: 720px) {
-    .spotlight-hero { min-height: max(100svh, 40rem); }
-    .moving-spotlight { width: 88vw; height: 88%; }
-    .spotlight-pool { width: 88vw; }
-    .focus-lockup {
-      flex-direction: column;
-      gap: 1rem;
-      white-space: normal;
+    .spotlight-hero {
+      --focus-x: 43%;
+      --focus-y: 51%;
+      --focus-radius: min(45vw, 12rem);
+      min-height: max(100svh, 40rem);
     }
-    .focus-lockup span { width: 3.25rem; height: 1px; }
-    .focus-lockup strong { font-size: clamp(3.25rem, 16vw, 5rem); }
     .finale-copy {
       width: 88vw;
       padding: 7rem 0 6.5rem;
@@ -513,8 +436,6 @@ const {
   @media (prefers-reduced-motion: reduce) {
     .spotlight-hero { background: #fff; }
     .spotlight-scene,
-    .stage-haze,
-    .light-wash,
     .skip-intro { display: none; }
     .hero-finale,
     .finale-copy,
