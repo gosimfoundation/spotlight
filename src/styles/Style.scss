@@ -435,6 +435,10 @@ footer {
       background-color: var(--color-dark);
    }
 
+   [data-theme-nav="dark"] .hamburger .bar {
+      background-color: var(--color-white);
+   }
+
    /* (Not) Active */
 
    [data-navigation-status="not-active"] .hamburger .bar {

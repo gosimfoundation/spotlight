@@ -16,6 +16,14 @@ const t = getTranslations(locale);
 const hasNotificationBar = false
 
 const slug = Astro.url.pathname
+const isShenzhenPage = /^\/(?:(?:fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
+const openingSoonText: Record<Locale, string> = {
+  en: "Opening Soon",
+  fr: "Bientôt disponible",
+  zh: "即将开放",
+}
+const headerCtaText = isShenzhenPage ? openingSoonText[locale] : t("nav.headerCta")
+const headerCtaLink = isShenzhenPage ? "#apply" : getLocalizedPath("/shenzhen2026", locale)
 
 const links = [
   {
@@ -57,8 +65,8 @@ const links = [
 
   <div class="floating-ticket-button">
     <Button
-      text={t("nav.headerCta")}
-      link={getLocalizedPath("/shenzhen2026", locale)}
+      text={headerCtaText}
+      link={headerCtaLink}
       class="btn primary btn-floating btn-hover"
     />
   </div>
@@ -121,8 +129,8 @@ const links = [
           <LanguageSwitcher />
         </div>
         <Button
-          text={t("nav.headerCta")}
-          link={getLocalizedPath("/shenzhen2026", locale)}
+          text={headerCtaText}
+          link={headerCtaLink}
           class="btn primary xl btn-hover"
         />
       </div>
@@ -216,8 +224,8 @@ const links = [
       <div class="nav-actions">
         <LanguageSwitcher />
         <Button
-          text={t("nav.headerCta")}
-          link={getLocalizedPath("/shenzhen2026", locale)}
+          text={headerCtaText}
+          link={headerCtaLink}
           class="btn dark btn-hover"
         />
       </div>
