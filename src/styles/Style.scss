@@ -99,7 +99,7 @@ footer {
 
    svg {
       stroke: #000 !important;
-      margin-right: -1rem;
+      margin: 0;
    }
 
    button {
@@ -435,7 +435,7 @@ footer {
       background-color: var(--color-dark);
    }
 
-   [data-theme-nav="dark"] .hamburger .bar {
+   [data-theme-nav="dark"] .main-nav-bar .hamburger.outline .bar {
       background-color: var(--color-white);
    }
 
@@ -546,7 +546,36 @@ footer {
 }
 
 .mobile-nav-box nav ul .link .link-click {
+   display: grid;
+   grid-template-columns: 1rem auto 1rem;
+   align-items: center;
+   justify-content: center;
+   column-gap: 0.45rem;
+   width: max-content;
+   margin-inline: auto;
    padding: 1vh 0;
+}
+
+.mobile-nav-box nav ul .link .link-click > span:not(.nav-highlight-dot) {
+   grid-column: 2;
+   grid-row: 1;
+}
+
+.mobile-nav-box nav ul .link .link-click .nav-highlight-dot {
+   grid-column: 1;
+   grid-row: 1;
+   justify-self: center;
+   margin-right: 0;
+}
+
+.mobile-nav-box nav ul .has-sublinks .link-click {
+   width: max-content;
+}
+
+.mobile-nav-box nav ul .has-sublinks .link-click svg {
+   grid-column: 3;
+   grid-row: 1;
+   justify-self: center;
 }
 
 .mobile-nav-box nav ul .link .link-click span {
@@ -554,6 +583,10 @@ footer {
    font-family: 'Manrope', sans-serif;
    font-size: min(5vw, 1.5em);
    font-weight: 600;
+}
+
+.mobile-nav-box .lang-current {
+   color: var(--color-dark) !important;
 }
 
 
