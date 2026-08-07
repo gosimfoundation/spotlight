@@ -70,6 +70,7 @@ const {
       if (!(hero instanceof HTMLElement) || hero.dataset.initialized === "true") return;
       hero.dataset.initialized = "true";
       document.body.dataset.themeNav = "light";
+      document.body.dataset.spotlightIntro = "playing";
 
       const skipButton = hero.querySelector("[data-skip-intro]");
       const replayButton = hero.querySelector("[data-replay-intro]");
@@ -79,11 +80,13 @@ const {
         window.clearTimeout(completionTimer);
         hero.classList.remove("is-playing");
         hero.classList.add("is-complete");
+        document.body.dataset.spotlightIntro = "complete";
       };
 
       const playIntro = () => {
         window.clearTimeout(completionTimer);
         hero.classList.remove("is-playing", "is-complete");
+        document.body.dataset.spotlightIntro = "playing";
         void hero.offsetWidth;
         hero.classList.add("is-playing");
         completionTimer = window.setTimeout(completeIntro, 2700);
@@ -169,6 +172,29 @@ const {
       #000 var(--spot-radius)
     );
     pointer-events: none;
+  }
+
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar .has-sublinks svg) {
+    stroke: var(--color-dark, #043e5d) !important;
+  }
+
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar) {
+    pointer-events: none;
+  }
+
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar .lang-current),
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar .lang-current:hover) {
+    color: var(--color-dark, #043e5d);
+    border-color: var(--color-dark, #043e5d);
+    background: var(--color-dark, #043e5d);
+  }
+
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar .nav-actions .btn .btn-fill) {
+    background: var(--color-dark, #043e5d) !important;
+  }
+
+  :global(body[data-spotlight-intro="playing"] .main-nav-bar .nav-actions .btn span) {
+    color: var(--color-dark, #043e5d) !important;
   }
 
   .hero-finale {

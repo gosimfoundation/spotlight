@@ -17,6 +17,7 @@ interface Props {
   description: string;
   noindex?: boolean;
   navDarkMode?: boolean;
+  spotlightIntro?: boolean;
   bgNav?: string;
   navBackground?: string;
   pageTransitionName?: string;
@@ -36,6 +37,7 @@ const {
   description,
   noindex,
   navDarkMode,
+  spotlightIntro = false,
   navBackground,
   pageTransitionName,
   locale = "en",
@@ -62,6 +64,7 @@ const {
     data-modal-tickets-status="not-active"
     data-nav-filter-status="not-active"
     data-theme-nav={navDarkMode ? "dark" : "light"}
+    data-spotlight-intro={spotlightIntro ? "playing" : "complete"}
     data-scrolling-started="false"
     data-bg-nav={navBackground}
     data-scrolling-direction="down"
