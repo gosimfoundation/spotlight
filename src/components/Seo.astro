@@ -6,15 +6,17 @@ interface Props {
     pageTransitionName?: string;
 }
 
-const { title, description, noindex, pageTransitionName } = Astro.props;
+const { title, description, noindex } = Astro.props;
 
-const newTitle = title || 'GOSIM Hangzhou 2025';
+const newTitle = title || 'GOSIM Spotlight';
 
-const newDescription = description || 'GOSIM Hangzhou 2025 is a gathering of open-source projects, developers, researchers, and industry sponsors to share knowledge, learn from each other, and collaborate.'
+const newDescription = description || 'GOSIM Spotlight brings exceptional open-source projects to the attention of the global community.'
 
-const domain = "https://hangzhou2025.gosim.org";
+const domain = Astro.site?.origin || Astro.url.origin;
 
 const slug = Astro.url.pathname;
+const pageUrl = new URL(slug, domain).href;
+const socialImage = new URL('/og.png', domain).href;
 
 ---
 
@@ -27,12 +29,12 @@ const slug = Astro.url.pathname;
 <meta property="og:title" content={newTitle}/>
 <meta property="twitter:title" content={newTitle}/>
 
-<meta property="og:site_name" content="GOSIM Hangzhou 2025" />
+<meta property="og:site_name" content="GOSIM Spotlight" />
 <meta property="twitter:card" content="summary_large_image" />
 
-<link rel="canonical" href={`${domain}${slug}`} />
-<meta property="og:url" content={`${domain}${slug}`} />
-<meta property="twitter:url" content={`${domain}${slug}`} />
+<link rel="canonical" href={pageUrl} />
+<meta property="og:url" content={pageUrl} />
+<meta property="twitter:url" content={pageUrl} />
 
 <link rel="sitemap" href={`${domain}/sitemap-index.xml`} />
 
@@ -44,17 +46,13 @@ const slug = Astro.url.pathname;
 
 <link rel="preload" href="/fonts/inter-v18-latin-500.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
-<link rel="icon" href="/images/favicon-gosim.png" type="image/svg+xml">
+<link rel="icon" href="/images/favicon-gosim.png" type="image/png">
 
-<meta property="og:image" content="/images/thumbnail.jpg" />
-<meta property="twitter:image" content="/images/thumbnail.jpg" />
+<meta property="og:image" content={socialImage} />
+<meta property="twitter:image" content={socialImage} />
 <meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="800" />
+<meta property="og:image:height" content="630" />
 
 <meta name="description" content={newDescription} />
 <meta property="og:description" content={newDescription} />
 <meta property="twitter:description" content={newDescription} />
-
-{pageTransitionName === "Home" &&
-    <link rel="prefetch" href="/videos/bg.webm" as="video" type="video/webm" />
-}

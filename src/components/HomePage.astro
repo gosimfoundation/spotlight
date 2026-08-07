@@ -1,6 +1,6 @@
 ---
 import Layout from "layouts/Layout.astro"
-import Hero from "components/Hero.astro"
+import SpotlightHero from "components/SpotlightHero.astro"
 import Intro from "components/Intro.astro"
 import Cards from "components/Cards.astro"
 import Button from "components/Button.astro"
@@ -33,11 +33,22 @@ const t = getTranslations(locale);
     buttonLink: getLocalizedPath("/shenzhen2026", locale),
   }}
 >
-  <Hero
+  <SpotlightHero
     subtitle={t("home.hero.subtitle")}
+    eyebrow={t("home.hero.eyebrow")}
+    sceneLabel={t("home.hero.sceneLabel")}
+    skipLabel={t("home.hero.skip")}
+    replayLabel={t("home.hero.replay")}
+    exploreLabel={t("home.hero.explore")}
     announcement={{
       text: t("home.hero.announcement"),
       link: getLocalizedPath("/shenzhen2026", locale),
+    }}
+    objectLabels={{
+      robot: t("home.hero.robot"),
+      laptop: t("home.hero.laptop"),
+      watch: t("home.hero.watch"),
+      telescope: t("home.hero.telescope"),
     }}
   />
 
