@@ -69,26 +69,21 @@ const {
     document.querySelectorAll("[data-spotlight-hero]").forEach((hero) => {
       if (!(hero instanceof HTMLElement) || hero.dataset.initialized === "true") return;
       hero.dataset.initialized = "true";
+      document.body.dataset.themeNav = "light";
 
       const skipButton = hero.querySelector("[data-skip-intro]");
       const replayButton = hero.querySelector("[data-replay-intro]");
       let completionTimer;
 
-      const setNavigationTheme = (theme) => {
-        document.body.dataset.themeNav = theme;
-      };
-
       const completeIntro = () => {
         window.clearTimeout(completionTimer);
         hero.classList.remove("is-playing");
         hero.classList.add("is-complete");
-        setNavigationTheme("light");
       };
 
       const playIntro = () => {
         window.clearTimeout(completionTimer);
         hero.classList.remove("is-playing", "is-complete");
-        setNavigationTheme("dark");
         void hero.offsetWidth;
         hero.classList.add("is-playing");
         completionTimer = window.setTimeout(completeIntro, 2700);
@@ -97,7 +92,6 @@ const {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         completeIntro();
       } else {
-        setNavigationTheme("dark");
         completionTimer = window.setTimeout(completeIntro, 2700);
       }
 
