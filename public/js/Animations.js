@@ -52,6 +52,7 @@ navItems.forEach(item => {
 gsap.registerPlugin(ScrollTrigger);
 
 let scroll;
+const useNativeScroll = document.body?.dataset.nativeScroll === 'true';
 
 // Allow browser's natural scroll restoration
 if ('scrollRestoration' in history) {
@@ -92,8 +93,42 @@ window.addEventListener('popstate', function () {
 
 function initSmoothScroll() {
    // Lenis: https://github.com/studio-freight/lenis
-   initLenis();
+   if (useNativeScroll) {
+      scroll = createNativeScrollAdapter();
+   } else {
+      initLenis();
+   }
    ScrollTrigger.refresh();
+}
+
+function createNativeScrollAdapter() {
+   return {
+      isScrolling: false,
+      on: function () {},
+      stop: function () {},
+      start: function () {},
+      destroy: function () {},
+      scrollTo: function (target, options = {}) {
+         let targetTop = 0;
+
+         if (typeof target === 'number') {
+            targetTop = target;
+         } else {
+            const targetElement = typeof target === 'string'
+               ? document.querySelector(target)
+               : target;
+
+            if (!targetElement) return;
+            targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
+         }
+
+         const offset = Number(options.offset) || 0;
+         window.scrollTo({
+            top: Math.max(0, targetTop + offset),
+            behavior: options.immediate ? 'auto' : 'smooth'
+         });
+      }
+   };
 }
 
 function initLenis() {
@@ -122,13 +157,13 @@ function initLenis() {
  * Fire all scripts on page load
  */
 function initScript() {
-   initFlickitySlider();
+   if (!useNativeScroll) initFlickitySlider();
    initCheckWindowHeight();
    initBasicFunctions();
    initCheckScrollUpDown();
    initScrollToAnchor();
    initScrollTriggerDataBackground();
-   initScrolltriggerAnimations();
+   if (!useNativeScroll) initScrolltriggerAnimations();
 }
 
 /**

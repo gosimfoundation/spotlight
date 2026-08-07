@@ -1,10 +1,7 @@
 ---
+import { Picture } from "astro:assets"
 import Layout from "layouts/Layout.astro"
 import SpotlightHero from "components/SpotlightHero.astro"
-import Intro from "components/Intro.astro"
-import Cards from "components/Cards.astro"
-import Button from "components/Button.astro"
-import PreviousEvents from "components/PreviousEvents.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
@@ -17,6 +14,46 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
+
+const previousEvents = [
+  {
+    title: t("previous.paris2026.title"),
+    date: t("previous.paris2026.date"),
+    description: t("previous.paris2026.desc"),
+    image: GosimParis2026,
+    link: getLocalizedPath("/paris2026", locale),
+  },
+  {
+    title: t("previous.hangzhou.title"),
+    date: t("previous.hangzhou.date"),
+    description: t("previous.hangzhou.desc"),
+    image: GosimHangzhou,
+    link: getLocalizedPath("/hangzhou2025", locale),
+  },
+  {
+    title: t("previous.paris.title"),
+    date: t("previous.paris.date"),
+    description: t("previous.paris.desc"),
+    image: GosimParis2,
+    link: getLocalizedPath("/paris2025", locale),
+  },
+  {
+    title: t("previous.delft.title"),
+    date: t("previous.delft.date"),
+    description: t("previous.delft.desc"),
+    image: GosimDelft,
+    link: getLocalizedPath("/delft2025", locale),
+  },
+];
+
+const benefits = [
+  { title: t("home.why.showcase.title"), description: t("home.why.showcase.desc") },
+  { title: t("home.why.travel.title"), description: t("home.why.travel.desc") },
+  { title: t("home.why.mentorship.title"), description: t("home.why.mentorship.desc") },
+  { title: t("home.why.visibility.title"), description: t("home.why.visibility.desc") },
+  { title: t("home.why.networking.title"), description: t("home.why.networking.desc") },
+  { title: t("home.why.community.title"), description: t("home.why.community.desc") },
+];
 ---
 
 <Layout
@@ -27,6 +64,8 @@ const t = getTranslations(locale);
   navBackground="header-home"
   pageTransitionName="Home"
   locale={locale}
+  nativeScroll={true}
+  footerVariant="spotlight"
   footerCta={{
     title: t("home.cta.title"),
     text: t("home.cta.text"),
@@ -45,165 +84,666 @@ const t = getTranslations(locale);
     }}
   />
 
-  <div
-    class="section-wrap"
+  <section
+    class="home-section home-about"
     id="about"
     data-theme-section="light"
     data-bg-section="lightgray"
   >
-    <Intro>
-      <h1 class="h3 light split-words animate-read">
-        {t("home.intro.heading")}
-      </h1>
-      <h1 class="h5 light split-words animate-read">
-        <div style="margin: 1rem 0;"></div>
-        {t("home.intro.body")}
-      </h1>
-    </Intro>
-  </div>
+    <div class="home-shell">
+      <div class="section-label">
+        <span>01</span>
+        <span>{t("nav.about")}</span>
+      </div>
+      <div class="about-grid">
+        <h2>{t("home.intro.heading")}</h2>
+        <p>{t("home.intro.body")}</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="section-wrap upcoming-spotlight" id="current">
+  <section
+    class="home-section current-spotlight"
+    id="current"
+    data-theme-section="dark"
+    data-bg-section="dark"
+  >
     <video
-      class="upcoming-spotlight-video"
+      class="current-video"
+      data-shenzhen-video
       autoplay
       muted
       loop
       playsinline
-      preload="auto"
+      preload="metadata"
     >
       <source src="/videos/shenzhen-spotlight-hero.mp4" type="video/mp4" />
     </video>
-    <Cards
-      title={t("home.upcoming.title")}
-      cards={[
-        {
-          title: t("home.upcoming.card.title"),
-          description: t("home.upcoming.card.desc"),
-          image: "/icons/showcase.svg",
-          date: t("home.upcoming.date"),
-          location: t("home.upcoming.location"),
-        },
-      ]}
-    />
-    <div class="upcoming-buttons">
-      <Button
-        text={t("home.upcoming.button")}
-        link={getLocalizedPath("/shenzhen2026", locale)}
-        class="btn primary xl btn-hover"
-      />
-      <Button
-        text={t("home.upcoming.colocated")}
-        link="https://shenzhen2026.gosim.org"
-        openInNewTab={true}
-        class="btn light xl btn-hover"
-      />
+    <div class="current-tint" aria-hidden="true"></div>
+
+    <div class="home-shell current-content">
+      <div class="section-label section-label--light">
+        <span>02</span>
+        <span>{t("nav.upcoming")}</span>
+      </div>
+
+      <div class="current-grid">
+        <h2>{t("home.upcoming.title")}</h2>
+        <div class="current-summary">
+          <h3>{t("home.upcoming.card.title")}</h3>
+          <p>{t("home.upcoming.card.desc")}</p>
+        </div>
+      </div>
+
+      <div class="event-bar">
+        <dl class="event-facts">
+          <div>
+            <dt>01</dt>
+            <dd>{t("home.upcoming.date")}</dd>
+          </div>
+          <div>
+            <dt>02</dt>
+            <dd>{t("home.upcoming.location")}</dd>
+          </div>
+        </dl>
+        <div class="event-links">
+          <a href={getLocalizedPath("/shenzhen2026", locale)}>
+            <span>{t("home.upcoming.button")}</span><i aria-hidden="true">↗</i>
+          </a>
+          <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">
+            <span>{t("home.upcoming.colocated")}</span><i aria-hidden="true">↗</i>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section-wrap" id="previous">
-    <PreviousEvents
-      title={t("previous.title")}
-      events={[
-        {
-          title: t("previous.paris2026.title"),
-          date: t("previous.paris2026.date"),
-          description: t("previous.paris2026.desc"),
-          image: GosimParis2026,
-          link: getLocalizedPath("/paris2026", locale),
-        },
-        {
-          title: t("previous.hangzhou.title"),
-          date: t("previous.hangzhou.date"),
-          description: t("previous.hangzhou.desc"),
-          image: GosimHangzhou,
-          link: getLocalizedPath("/hangzhou2025", locale),
-        },
-        {
-          title: t("previous.paris.title"),
-          date: t("previous.paris.date"),
-          description: t("previous.paris.desc"),
-          image: GosimParis2,
-          link: getLocalizedPath("/paris2025", locale),
-        },
-        {
-          title: t("previous.delft.title"),
-          date: t("previous.delft.date"),
-          description: t("previous.delft.desc"),
-          image: GosimDelft,
-          link: getLocalizedPath("/delft2025", locale),
-        },
-      ]}
-    />
-  </div>
+  <section
+    class="home-section previous-section"
+    id="previous"
+    data-theme-section="light"
+    data-bg-section="lightgray"
+  >
+    <div class="home-shell">
+      <div class="section-label">
+        <span>03</span>
+        <span>{t("nav.previous")}</span>
+      </div>
+      <div class="section-heading">
+        <h2>{t("previous.title")}</h2>
+      </div>
 
-  <div class="section-wrap" id="why">
-    <Cards
-      title={t("home.why.title")}
-      description={t("home.why.desc")}
-      cards={[
-        { title: t("home.why.showcase.title"), description: t("home.why.showcase.desc"), image: "/icons/showcase.svg" },
-        { title: t("home.why.travel.title"), description: t("home.why.travel.desc"), image: "/icons/travel-support.svg" },
-        { title: t("home.why.mentorship.title"), description: t("home.why.mentorship.desc"), image: "/icons/mentorship.svg" },
-        { title: t("home.why.visibility.title"), description: t("home.why.visibility.desc"), image: "/icons/global-visibility.svg" },
-        { title: t("home.why.networking.title"), description: t("home.why.networking.desc"), image: "/icons/networking-recognition.svg" },
-        { title: t("home.why.community.title"), description: t("home.why.community.desc"), image: "/icons/community-growth.svg" },
-      ]}
-    />
-  </div>
+      <div class="events-grid">
+        {previousEvents.map((event, index) => (
+          <a class:list={["event-card", `event-card--${index + 1}`]} href={event.link}>
+            <div class="event-image">
+              <Picture
+                src={event.image}
+                formats={["avif", "webp"]}
+                alt={event.title}
+                widths={[480, 720, 1080]}
+                sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 42vw"
+                loading="lazy"
+              />
+              <span aria-hidden="true">↗</span>
+            </div>
+            <div class="event-copy">
+              <p class="event-date">{event.date}</p>
+              <h3>{event.title}</h3>
+              <p>{event.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
+  <section
+    class="home-section why-section"
+    id="why"
+    data-theme-section="light"
+    data-bg-section="light"
+  >
+    <div class="home-shell">
+      <div class="section-label">
+        <span>04</span>
+        <span>{t("nav.why")}</span>
+      </div>
+      <div class="why-intro">
+        <h2>{t("home.why.title")}</h2>
+        <p>{t("home.why.desc")}</p>
+      </div>
+      <ol class="benefits-grid">
+        {benefits.map((benefit, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
 </Layout>
 
-<style>
-  .upcoming-spotlight {
-    position: relative;
-    overflow: hidden;
+<script>
+  const shenzhenVideo = document.querySelector("[data-shenzhen-video]");
+
+  if (shenzhenVideo instanceof HTMLVideoElement) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (reducedMotion.matches) {
+      shenzhenVideo.pause();
+    } else if ("IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver(([entry]) => {
+        if (entry?.isIntersecting) {
+          shenzhenVideo.play().catch(() => {});
+        } else {
+          shenzhenVideo.pause();
+        }
+      }, { rootMargin: "15% 0px", threshold: 0.01 });
+
+      videoObserver.observe(shenzhenVideo);
+    }
   }
-  .upcoming-spotlight > .upcoming-spotlight-video {
+</script>
+
+<style>
+  :global(body[data-bg-nav="header-home"]) {
+    --home-ink: #062e37;
+    --home-blue: #043e5d;
+    --home-mint: #64e6bd;
+    --home-paper: #f8f9f6;
+    --home-rule: rgba(6, 46, 55, 0.18);
+  }
+
+  .home-section {
+    position: relative;
+    color: var(--home-ink);
+    background: var(--home-paper);
+    font-family: "Manrope", sans-serif;
+  }
+
+  .home-shell {
+    width: min(86vw, 78rem);
+    margin: 0 auto;
+    padding: clamp(5.5rem, 10vw, 9rem) 0;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+    color: #315b52;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .section-label span:first-child {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid var(--home-rule);
+    border-radius: 50%;
+    color: var(--home-ink);
+    font-size: 0.64rem;
+    letter-spacing: 0;
+  }
+
+  .section-label--light {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .section-label--light span:first-child {
+    border-color: rgba(255, 255, 255, 0.32);
+    color: var(--home-mint);
+  }
+
+  .home-about {
+    background: #eef2ee;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.72fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .about-grid h2,
+  .section-heading h2,
+  .why-intro h2 {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  .about-grid h2 {
+    max-width: 54rem;
+    font-size: clamp(2.7rem, 5.5vw, 5.7rem);
+    line-height: 1.02;
+  }
+
+  .about-grid p {
+    margin: 0 0 0.45rem;
+    color: #46605d;
+    font-size: clamp(1rem, 1.2vw, 1.16rem);
+    font-weight: 550;
+    line-height: 1.7;
+  }
+
+  .current-spotlight {
+    min-height: min(58rem, 100svh);
+    overflow: hidden;
+    color: #fff;
+    background: var(--home-blue);
+  }
+
+  .current-video,
+  .current-tint {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    filter: grayscale(1) contrast(1.12) brightness(.8);
   }
-  .upcoming-spotlight::before {
+
+  .current-video {
+    object-fit: cover;
+  }
+
+  .current-tint {
+    background: rgba(4, 62, 93, 0.74);
+  }
+
+  .current-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: min(58rem, 100svh);
+    flex-direction: column;
+  }
+
+  .current-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.68fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    margin: auto 0 clamp(4rem, 8vh, 7rem);
+    align-items: end;
+  }
+
+  .current-grid h2 {
+    max-width: 48rem;
+    margin: 0;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(3.25rem, 7vw, 7.2rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+  }
+
+  .current-summary {
+    border-top: 1px solid rgba(255, 255, 255, 0.42);
+    padding-top: 1.35rem;
+  }
+
+  .current-summary h3 {
+    margin: 0 0 1rem;
+    color: #fff;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  .current-summary p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.98rem;
+    font-weight: 550;
+    line-height: 1.65;
+  }
+
+  .event-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.38);
+    padding-top: 1.35rem;
+  }
+
+  .event-facts {
+    display: flex;
+    gap: clamp(2rem, 7vw, 7rem);
+    margin: 0;
+  }
+
+  .event-facts div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: baseline;
+  }
+
+  .event-facts dt {
+    color: var(--home-mint);
+    font-size: 0.66rem;
+    font-weight: 700;
+  }
+
+  .event-facts dd {
+    margin: 0;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .event-links {
+    display: flex;
+    gap: 0.6rem 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .event-links a {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    color: #fff;
+    font-size: 0.83rem;
+    font-weight: 650;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .event-links i {
+    color: var(--home-mint);
+    font-style: normal;
+  }
+
+  .event-links a:hover span {
+    text-decoration: underline;
+    text-underline-offset: 0.28em;
+  }
+
+  .previous-section {
+    background: var(--home-paper);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1100px;
+  }
+
+  .section-heading {
+    max-width: 54rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-heading h2,
+  .why-intro h2 {
+    font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+    line-height: 0.98;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .event-card {
+    grid-column: span 6;
+    color: var(--home-ink);
+    text-decoration: none;
+  }
+
+  .event-card--1 {
+    grid-column: span 7;
+  }
+
+  .event-card--2 {
+    grid-column: span 5;
+  }
+
+  .event-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #dfe8e4;
+  }
+
+  .event-card--2 .event-image {
+    aspect-ratio: 5 / 4;
+  }
+
+  .event-image :global(picture),
+  .event-image :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .event-image :global(img) {
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .event-image > span {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    width: 2.6rem;
+    height: 2.6rem;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--home-blue);
+    background: var(--home-mint);
+    font-size: 1rem;
+  }
+
+  .event-card:hover .event-image :global(img) {
+    transform: scale(1.025);
+  }
+
+  .event-copy {
+    border-top: 1px solid var(--home-rule);
+    margin-top: 1rem;
+    padding-top: 1.25rem;
+  }
+
+  .event-date {
+    margin: 0 0 1.1rem;
+    color: #417066;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .event-copy h3 {
+    max-width: 30rem;
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.45rem, 2.2vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+
+  .event-copy > p:last-child {
+    max-width: 39rem;
+    margin: 0;
+    color: #526865;
+    font-size: 0.94rem;
+    font-weight: 520;
+    line-height: 1.6;
+  }
+
+  .why-section {
+    background: #eef2ee;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+
+  .why-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.65fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    margin-bottom: clamp(4rem, 8vw, 7rem);
+    align-items: end;
+  }
+
+  .why-intro p {
+    margin: 0 0 0.3rem;
+    color: #46605d;
+    font-size: clamp(1rem, 1.25vw, 1.16rem);
+    font-weight: 550;
+    line-height: 1.7;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .benefits-grid li {
+    position: relative;
+    border-top: 1px solid rgba(6, 46, 55, 0.28);
+    padding-top: 1.2rem;
+  }
+
+  .benefits-grid li::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(6, 32, 24, .72) 0%, rgba(13, 96, 73, .62) 48%, rgba(4, 45, 34, .8) 100%);
-    mix-blend-mode: multiply;
-    z-index: 1;
+    top: -1px;
+    left: 0;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--home-mint);
   }
-  .upcoming-spotlight > :global(*) {
-    position: relative;
-    z-index: 2;
+
+  .benefits-grid li > span {
+    display: block;
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    color: #417066;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
   }
-  .upcoming-spotlight > .upcoming-spotlight-video {
-    position: absolute;
-    z-index: 0;
+
+  .benefits-grid h3 {
+    margin: 0 0 0.85rem;
+    color: var(--home-ink);
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
   }
-  .upcoming-spotlight :global(.col-title h2),
-  .upcoming-spotlight :global(.styled-content p) {
-    color: #ffffff;
+
+  .benefits-grid p {
+    margin: 0;
+    color: #526865;
+    font-size: 0.94rem;
+    font-weight: 530;
+    line-height: 1.65;
   }
-  .upcoming-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    padding-bottom: 4rem;
+
+  @media (max-width: 900px) {
+    .about-grid,
+    .current-grid,
+    .why-intro {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .current-spotlight,
+    .current-content {
+      min-height: 52rem;
+    }
+
+    .event-bar {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .event-links {
+      justify-content: flex-start;
+    }
+
+    .event-card,
+    .event-card--1,
+    .event-card--2 {
+      grid-column: span 6;
+    }
+
+    .event-card--2 .event-image {
+      aspect-ratio: 16 / 10;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
-  .photo-credit {
-    position: relative;
-    z-index: 1;
-    text-align: right;
-    font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.5);
-    padding: 0 2rem 1.5rem;
+
+  @media (max-width: 620px) {
+    .home-shell {
+      width: min(88vw, 78rem);
+      padding: 5rem 0;
+    }
+
+    .section-label {
+      margin-bottom: 3.25rem;
+    }
+
+    .about-grid h2,
+    .section-heading h2,
+    .why-intro h2 {
+      font-size: clamp(2.45rem, 12vw, 3.5rem);
+    }
+
+    .current-grid h2 {
+      font-size: clamp(3rem, 14vw, 4.2rem);
+    }
+
+    .event-facts {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .events-grid {
+      display: block;
+    }
+
+    .event-card {
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .benefits-grid li > span {
+      margin-bottom: 2.25rem;
+    }
   }
-  .photo-credit a {
-    color: rgba(0, 0, 0, 0.6);
-    text-decoration: underline;
+
+  @media (prefers-reduced-motion: reduce) {
+    .event-image :global(img) {
+      transition: none;
+    }
   }
 </style>

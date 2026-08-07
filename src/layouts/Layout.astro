@@ -22,6 +22,8 @@ interface Props {
   navBackground?: string;
   pageTransitionName?: string;
   locale?: string;
+  nativeScroll?: boolean;
+  footerVariant?: "spotlight";
   footerCta?: {
     title: string;
     text: string;
@@ -41,12 +43,14 @@ const {
   navBackground,
   pageTransitionName,
   locale = "en",
+  nativeScroll = false,
+  footerVariant,
   footerCta,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={locale} class="lenis lenis-smooth">
+<html lang={locale} class={nativeScroll ? "native-scroll" : "lenis lenis-smooth"}>
   <head>
     <Seo
       title={title}
@@ -65,6 +69,7 @@ const {
     data-nav-filter-status="not-active"
     data-theme-nav={navDarkMode ? "dark" : "light"}
     data-spotlight-intro={spotlightIntro ? "playing" : "complete"}
+    data-native-scroll={nativeScroll ? "true" : "false"}
     data-scrolling-started="false"
     data-bg-nav={navBackground}
     data-scrolling-direction="down"
@@ -82,16 +87,13 @@ const {
       <slot />
     </main>
 
-    <Footer footerCta={footerCta} locale={locale} />
+    <Footer footerCta={footerCta} locale={locale} variant={footerVariant} />
 
     <script defer src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script
       defer
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     ></script>
-    <script
-      defer
-      src="https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js"></script>
     <script
       defer
       src="https://unpkg.com/flickity@2.3.0/dist/flickity.pkgd.min.js"></script>

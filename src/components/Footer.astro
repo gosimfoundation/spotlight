@@ -6,6 +6,7 @@ import { getTranslations, getLocalizedPath, type Locale } from "../i18n/translat
 
 interface Props {
   locale?: string;
+  variant?: "spotlight";
   footerCta?: {
     title: string;
     text: string;
@@ -18,7 +19,7 @@ interface Props {
 
 const locale = (Astro.props.locale || "en") as Locale;
 const t = getTranslations(locale);
-const { footerCta } = Astro.props;
+const { footerCta, variant } = Astro.props;
 
 const firstColumnLinks = [
   {
@@ -53,7 +54,7 @@ const secondColumnLinks = [
 const slug = Astro.url.pathname
 ---
 
-<footer class="section footer" data-theme-section="dark" data-bg-section="dark">
+<footer class:list={["section", "footer", variant === "spotlight" && "footer--spotlight"]} data-theme-section="dark" data-bg-section="dark">
   <div class="container">
     {footerCta && (
       <div class="row row-cta">
@@ -363,5 +364,55 @@ const slug = Astro.url.pathname
       color: white;
     }
 
+  }
+
+  .footer--spotlight {
+    padding-top: clamp(5.5rem, 9vw, 8.5rem);
+    background: #043e5d;
+    font-family: "Manrope", sans-serif;
+
+    .row-cta {
+      padding-bottom: clamp(4rem, 7vw, 6rem);
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+      border-bottom-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .col-cta :global(h2) {
+      max-width: 50rem;
+      margin-bottom: 1.25rem !important;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .col-cta :global(p) {
+      max-width: 48rem;
+      color: rgba(255, 255, 255, 0.76) !important;
+      font-size: clamp(1rem, 1.25vw, 1.16rem) !important;
+      font-weight: 550;
+    }
+
+    .col-cta :global(.btn) {
+      border-top: 1px solid rgba(255, 255, 255, 0.38);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 0;
+    }
+
+    .col-cta :global(.btn-fill),
+    .col-cta :global(.border-box) {
+      border-radius: 0;
+    }
+
+    .col-cta :global(.btn-fill) {
+      background: transparent !important;
+    }
+
+    .col-cta :global(.btn span) {
+      color: #fff !important;
+      font-family: "Manrope", sans-serif;
+      font-weight: 650;
+    }
   }
 </style>
