@@ -67,7 +67,7 @@ const links = [
     <Button
       text={headerCtaText}
       link={headerCtaLink}
-      class="btn primary btn-floating btn-hover"
+      class={`btn primary btn-floating btn-hover ${isShenzhenPage ? "shenzhen-opening" : ""}`}
     />
   </div>
 
@@ -131,7 +131,7 @@ const links = [
         <Button
           text={headerCtaText}
           link={headerCtaLink}
-          class="btn primary xl btn-hover"
+          class={`btn primary xl btn-hover ${isShenzhenPage ? "shenzhen-opening" : ""}`}
         />
       </div>
     </div>
@@ -226,7 +226,7 @@ const links = [
         <Button
           text={headerCtaText}
           link={headerCtaLink}
-          class="btn dark btn-hover"
+          class={`btn ${isShenzhenPage ? "shenzhen-opening" : "dark"} btn-hover`}
         />
       </div>
       <div class="hamburger outline" data-navigation-toggle="toggle">
@@ -261,6 +261,12 @@ const links = [
   }
   .btn .btn-content > span {
     color: white !important;
+  }
+  :global(.btn.shenzhen-opening .btn-content.duplicate .btn-fill) {
+    background-color: #76f0c8;
+  }
+  :global(.btn.shenzhen-opening .btn-content.duplicate span) {
+    color: #10201a !important;
   }
   :global(.notification-bar) {
     position: relative;
