@@ -158,22 +158,6 @@ const {
     pointer-events: none;
   }
 
-  :global(.main-nav-bar .nav-actions) {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity .2s ease;
-  }
-
-  :global(body[data-spotlight-intro="playing"] .main-nav-bar .nav-actions) {
-    opacity: 0;
-    visibility: hidden;
-    transition: none;
-  }
-
-  :global(body[data-spotlight-intro="complete"] .main-nav-bar .nav-actions) {
-    transition-delay: .04s;
-  }
-
   .hero-finale {
     z-index: 6;
     display: grid;
@@ -396,10 +380,5 @@ const {
       pointer-events: auto;
     }
     .explore-cue i { animation: none; }
-    :global(body[data-spotlight-intro] .main-nav-bar .nav-actions) {
-      opacity: 1;
-      visibility: visible;
-      transition: none;
-    }
   }
 </style>
