@@ -742,6 +742,30 @@ const benefits = [
     }
   }
 
+  :global(html[lang="zh"]) .about-grid h2,
+  :global(html[lang="zh"]) .section-heading h2,
+  :global(html[lang="zh"]) .why-intro h2,
+  :global(html[lang="zh"]) .current-grid h2 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :global(html[lang="zh"]) .about-grid h2 {
+    font-size: clamp(2.35rem, 4.2vw, 4.35rem);
+    line-height: 1.18;
+  }
+
+  :global(html[lang="zh"]) .current-grid h2 {
+    font-size: clamp(2.8rem, 5.2vw, 5.35rem);
+    line-height: 1.12;
+  }
+
+  :global(html[lang="zh"]) .section-heading h2,
+  :global(html[lang="zh"]) .why-intro h2 {
+    font-size: clamp(2.5rem, 4.6vw, 4.75rem);
+    line-height: 1.14;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .event-image :global(img) {
       transition: none;
