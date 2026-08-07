@@ -28,10 +28,15 @@ const content = {
     agentPrompt: "这道几何题我卡住了，先给我一个提示。",
     agentStatus: "学习灯已看见题目和你的解题进度",
     agentSteps: ["识别题目", "理解当前步骤", "生成一个提示", "投射到桌面"],
-    definitionKicker: "01 / 30 秒了解",
-    definitionTitle: "你要做什么，\n怎么进入深圳现场",
-    definitionText: "Spotlight 寻找能真正改善消费者体验的 Agent 原生产品。重点不是硬件有多复杂，而是一个具体场景是否被做得更自然、更有价值。",
-    quickFacts: [["做什么", "面向消费者的 Agent 原生产品"], ["先交什么", "可交互原型＋1 分钟演示"], ["主要评什么", "产品价值、Agent 体验与完成度"], ["入选之后", "深圳约两天集中加速与展示"]],
+    definitionKicker: "时间线 / 关键日期",
+    definitionTitle: "什么时候提交，\n每一步交什么",
+    definitionText: "报名和评选日期尚未公布。时间线会在日期确认后立即更新；在此之前，你可以根据每个节点的要求准备材料。最终展示日期已确定。",
+    timeline: [
+      ["日期待公布", "报名开放", "提交产品构想、目标用户与核心使用场景"],
+      ["日期待公布", "报名截止", "提交可交互原型、1 分钟内演示视频与实现计划"],
+      ["日期待公布", "入选公布", "入选团队确认深圳行程、制作计划与所需支持"],
+      ["2026.10.16—17", "最终展示", "在 GOSIM Shenzhen 现场演示可运行产品"],
+    ],
     pillars: [
       ["Agent OS", "推荐的软件与交互基础"],
       ["AI Agent", "产品的智能核心"],
@@ -137,10 +142,15 @@ const content = {
     agentPrompt: "I’m stuck on this geometry problem. Give me one hint.",
     agentStatus: "The lamp can see the problem and your current work",
     agentSteps: ["Read the problem", "Understand progress", "Create one hint", "Project it on the desk"],
-    definitionKicker: "01 / IN 30 SECONDS",
-    definitionTitle: "What to build,\nand how to reach Shenzhen",
-    definitionText: "Spotlight looks for Agent-native products that genuinely improve a consumer experience. Hardware complexity is not the goal; making one concrete scenario more natural and valuable is.",
-    quickFacts: [["Build", "A consumer-facing Agent-native product"], ["Submit first", "Interactive prototype + 1-minute demo"], ["Judged on", "Product value, Agent experience, and execution"], ["If selected", "About two focused build days in Shenzhen"]],
+    definitionKicker: "TIMELINE / KEY DATES",
+    definitionTitle: "What to submit,\nand when",
+    definitionText: "Application and selection dates have not been published yet. This timeline will update as soon as they are confirmed; meanwhile, use each milestone to prepare the right materials. Final showcase dates are confirmed.",
+    timeline: [
+      ["DATE TO BE ANNOUNCED", "Applications open", "Submit your product concept, target user, and core scenario"],
+      ["DATE TO BE ANNOUNCED", "Application deadline", "Submit an interactive prototype, demo under one minute, and build plan"],
+      ["DATE TO BE ANNOUNCED", "Selection results", "Selected teams confirm Shenzhen travel, fabrication plan, and support needs"],
+      ["OCT 16—17, 2026", "Final showcase", "Demo the working product live at GOSIM Shenzhen"],
+    ],
     pillars: [["Agent OS", "Recommended software and interaction layer"], ["AI Agent", "The intelligent core of the product"], ["Software UI", "The base canvas for the experience"], ["Hardware", "A form factor that raises fidelity"], ["Product experience", "The primary object of judging"]],
     shiftTitle: "The product shift we want to accelerate",
     before: ["AI is a standalone app", "Users open ChatGPT themselves", "Every task means another app", "Fixed menus and pages", "Software and devices are fragmented", "Competing on hardware and model specs"],
@@ -209,10 +219,15 @@ const content = {
     agentPrompt: "Je bloque sur ce problème de géométrie. Donne-moi un seul indice.",
     agentStatus: "La lampe voit le problème et l’avancement du raisonnement",
     agentSteps: ["Lire le problème", "Comprendre l’étape", "Créer un indice", "Le projeter sur le bureau"],
-    definitionKicker: "01 / EN 30 SECONDES",
-    definitionTitle: "Quoi construire,\net comment rejoindre Shenzhen",
-    definitionText: "Spotlight recherche des produits natifs Agent qui améliorent réellement une expérience grand public. La complexité matérielle n’est pas le but : un scénario précis doit devenir plus naturel et plus utile.",
-    quickFacts: [["Construire", "Un produit Agent grand public"], ["Soumettre", "Prototype interactif + démo d’une minute"], ["Évaluation", "Valeur produit, expérience Agent et réalisation"], ["Si retenu", "Environ deux jours de construction à Shenzhen"]],
+    definitionKicker: "CALENDRIER / DATES CLÉS",
+    definitionTitle: "Quoi soumettre,\net à quel moment",
+    definitionText: "Les dates de candidature et de sélection ne sont pas encore publiées. Ce calendrier sera mis à jour dès leur confirmation ; chaque étape indique déjà les éléments à préparer. Les dates de la présentation finale sont confirmées.",
+    timeline: [
+      ["DATE À ANNONCER", "Ouverture des candidatures", "Concept produit, public cible et scénario principal"],
+      ["DATE À ANNONCER", "Clôture des candidatures", "Prototype interactif, démo de moins d’une minute et plan de réalisation"],
+      ["DATE À ANNONCER", "Résultats de la sélection", "Les équipes retenues confirment voyage, fabrication et besoins de soutien"],
+      ["16—17 OCT. 2026", "Présentation finale", "Démonstration du produit fonctionnel à GOSIM Shenzhen"],
+    ],
     pillars: [["Agent OS", "Socle logiciel et interaction recommandé"], ["Agent IA", "Cœur intelligent du produit"], ["Interface", "Support de base de l’expérience"], ["Matériel", "Forme qui augmente la fidélité"], ["Expérience produit", "Objet principal de l’évaluation"]],
     shiftTitle: "Le changement de paradigme recherché",
     before: ["L’IA est une application isolée", "L’utilisateur ouvre lui-même ChatGPT", "Chaque tâche mène à une autre application", "Menus et pages fixes", "Logiciels et appareils fragmentés", "Compétition sur les spécifications"],
@@ -343,11 +358,11 @@ const sectionTitle = (text: string) => text.split("\n");
           <div class="head-side">
             <p class="section-intro">{c.definitionText}</p>
             <img
-              class="section-sticker sticker-core"
-              src="/images/shenzhen2026/agent-core-sticker.png"
+              class="section-sticker sticker-camera"
+              src="/images/shenzhen2026/camera-equation-v2.png"
               alt=""
-              width="1254"
-              height="1254"
+              width="1928"
+              height="815"
               loading="lazy"
               decoding="async"
               aria-hidden="true"
@@ -355,12 +370,13 @@ const sectionTitle = (text: string) => text.split("\n");
           </div>
         </div>
 
-        <div class="quick-fact-grid">
-          {c.quickFacts.map((item, index) => (
+        <div class="timeline-grid">
+          {c.timeline.map((item, index) => (
             <article>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{item[0]}</p>
+              <div class="timeline-marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
+              <time>{item[0]}</time>
               <h3>{item[1]}</h3>
+              <p>{item[2]}</p>
             </article>
           ))}
         </div>
@@ -377,11 +393,11 @@ const sectionTitle = (text: string) => text.split("\n");
           <div class="head-side">
             <p class="section-intro">{c.directionsText}</p>
             <img
-              class="section-sticker sticker-consumer"
-              src="/images/shenzhen2026/consumer-scenes-sticker.png"
+              class="section-sticker sticker-accessibility"
+              src="/images/shenzhen2026/accessibility-reader-equation-v2.png"
               alt=""
-              width="1254"
-              height="1254"
+              width="2051"
+              height="767"
               loading="lazy"
               decoding="async"
               aria-hidden="true"
@@ -391,7 +407,7 @@ const sectionTitle = (text: string) => text.split("\n");
 
         <div class="form-grid-primary">
           {c.forms.map((item, index) => (
-            <article><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>
+            <article><span>OPTION {String.fromCharCode(65 + index)}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>
           ))}
         </div>
 
@@ -413,7 +429,19 @@ const sectionTitle = (text: string) => text.split("\n");
             <p class="eyebrow light">{c.submitKicker}</p>
             <h2>{sectionTitle(c.submitTitle).map((line) => <>{line}<br /></>)}</h2>
           </div>
-          <p class="section-intro">{c.submitText}</p>
+          <div class="head-side">
+            <p class="section-intro">{c.submitText}</p>
+            <img
+              class="section-sticker sticker-travel"
+              src="/images/shenzhen2026/travel-copilot-equation-v2.png"
+              alt=""
+              width="2031"
+              height="774"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+          </div>
         </div>
 
         <h3 class="subheading">{c.materialsTitle}</h3>
@@ -456,11 +484,11 @@ const sectionTitle = (text: string) => text.split("\n");
           <div class="head-side">
             <p class="section-intro">{c.accelerateText}</p>
             <img
-              class="section-sticker sticker-prototype"
-              src="/images/shenzhen2026/prototype-sprint-sticker.png"
+              class="section-sticker sticker-study"
+              src="/images/shenzhen2026/study-lamp-equation-v2.png"
               alt=""
-              width="1254"
-              height="1254"
+              width="2033"
+              height="774"
               loading="lazy"
               decoding="async"
               aria-hidden="true"
@@ -483,7 +511,19 @@ const sectionTitle = (text: string) => text.split("\n");
             <p class="eyebrow">{c.judgingKicker}</p>
             <h2>{c.judgingTitle}</h2>
           </div>
-          <p class="section-intro">{c.judgingText}</p>
+          <div class="head-side">
+            <p class="section-intro">{c.judgingText}</p>
+            <img
+              class="section-sticker sticker-wellness"
+              src="/images/shenzhen2026/wellness-wearable-equation-v2.png"
+              alt=""
+              width="2029"
+              height="775"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+          </div>
         </div>
 
         <div class="score-grid">
@@ -548,10 +588,12 @@ const sectionTitle = (text: string) => text.split("\n");
   .section-head h2 { white-space: normal; font-size: clamp(2.35rem, 4.2vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; margin-top: 16px; color: var(--ink); }
   .section-intro { color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.6; }
   .head-side { min-width: 0; }
-  .section-sticker { display: block; max-width: 100%; object-fit: cover; object-position: center; pointer-events: none; user-select: none; filter: drop-shadow(0 14px 22px rgba(21,26,23,.14)); }
-  .sticker-core { width: 250px; height: 162px; margin: 12px 0 -12px auto; transform: rotate(3deg); }
-  .sticker-consumer { width: 255px; height: 178px; margin: 10px 0 -18px auto; transform: rotate(-3deg); filter: drop-shadow(0 14px 24px rgba(118,240,200,.15)); }
-  .sticker-prototype { width: 320px; height: 124px; margin: 16px 0 -14px auto; transform: rotate(2deg); }
+  .section-sticker { display: block; width: min(100%, 560px); height: auto; margin: 20px 0 -18px auto; object-fit: contain; object-position: center; pointer-events: none; user-select: none; filter: drop-shadow(0 18px 28px rgba(21,26,23,.18)); }
+  .sticker-camera { width: min(100%, 540px); transform: rotate(1.5deg); }
+  .sticker-accessibility { width: min(100%, 580px); transform: rotate(-1.5deg); filter: drop-shadow(0 18px 30px rgba(118,240,200,.18)); }
+  .sticker-travel { transform: rotate(1deg); }
+  .sticker-study { width: min(100%, 580px); transform: rotate(-1.5deg); }
+  .sticker-wellness { transform: rotate(1.5deg); }
   .light-head h2, [data-theme-section="dark"] .section-head h2 { color: #fff; }
   .light-head .section-intro, [data-theme-section="dark"] .section-intro { color: rgba(255,255,255,.68); }
 
@@ -592,12 +634,16 @@ const sectionTitle = (text: string) => text.split("\n");
   .signal-tags { display: grid; grid-template-columns: repeat(2,auto); gap: 8px; }.signal-tags span { border: 1px solid rgba(7,27,37,.35); border-radius: 999px; padding: 8px 13px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
 
   .definition { background: #f4f2ed; }
-  .quick-fact-grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .quick-fact-grid article { min-height: 160px; padding: 22px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
-  .quick-fact-grid article:last-child { border-right: 0; }
-  .quick-fact-grid span { font-size: 10px; color: #78857e; letter-spacing: .14em; }
-  .quick-fact-grid p { margin-top: auto; color: #2f6d5b; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-  .quick-fact-grid h3 { margin-top: 8px; color: var(--ink); font-size: clamp(1.05rem,1.35vw,1.35rem); line-height: 1.35; }
+  .timeline-grid { position: relative; display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .timeline-grid::before { content: ""; position: absolute; z-index: 0; top: 38px; left: 4%; right: 4%; height: 2px; background: linear-gradient(90deg, var(--acid), #9ccfbe 62%, var(--ink)); }
+  .timeline-grid article { position: relative; z-index: 1; min-height: 238px; padding: 22px 24px 24px; border-right: 1px solid var(--line); }
+  .timeline-grid article:last-child { border-right: 0; }
+  .timeline-marker { height: 48px; display: flex; align-items: flex-start; }
+  .timeline-marker span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); border: 5px solid #f4f2ed; color: var(--acid); box-shadow: 0 0 0 1px rgba(21,26,23,.22); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+  .timeline-grid article:last-child .timeline-marker span { background: var(--acid); color: var(--ink); }
+  .timeline-grid time { display: block; margin-top: 14px; color: #2f6d5b; font-size: 10px; font-weight: 800; letter-spacing: .11em; }
+  .timeline-grid h3 { margin-top: 10px; color: var(--ink); font-size: clamp(1.25rem,1.7vw,1.7rem); line-height: 1.2; }
+  .timeline-grid p { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
   .directions { background: linear-gradient(145deg, #1b231f 0%, #111613 100%); overflow: hidden; }.directions::after { content: "AGENT"; position: absolute; right: -2vw; top: 10%; font-size: 18vw; font-weight: 800; letter-spacing: -.08em; line-height: 1; color: rgba(255,255,255,.028); pointer-events: none; }
   .form-grid-primary { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
@@ -639,7 +685,7 @@ const sectionTitle = (text: string) => text.split("\n");
     .spotlight-container { width: min(100% - 48px, 1440px); }
     .spot-section { padding: 84px 0; }
     .hero-inner { grid-template-columns: 1fr .7fr; gap: 40px; }
-    .quick-fact-grid { grid-template-columns: repeat(2,1fr); }.quick-fact-grid article:nth-child(2) { border-right: 0; }.quick-fact-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .timeline-grid { grid-template-columns: repeat(2,1fr); }.timeline-grid::before { display: none; }.timeline-grid article:nth-child(2) { border-right: 0; }.timeline-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     .principle-strip { grid-template-columns: repeat(2,1fr); }
     .support-grid { grid-template-columns: repeat(2,1fr); }
   }
@@ -649,7 +695,7 @@ const sectionTitle = (text: string) => text.split("\n");
     .spot-section { padding: 76px 0; }
     .split-head, .faq-layout, .outcome-note { grid-template-columns: 1fr; gap: 32px; }
     .section-head { margin-bottom: 40px; }.section-head h2 { font-size: clamp(2.3rem,8vw,3.7rem); }
-    .sticker-core, .sticker-consumer, .sticker-prototype { margin-left: 0; }
+    .section-sticker { margin-left: 0; }
     .sz-hero { padding-top: 125px; min-height: auto; }.hero-inner { grid-template-columns: 1fr; padding-bottom: 40px; }.hero-copy h1 { font-size: clamp(3.5rem,14vw,6rem); }.agent-console { width: min(100%, 520px); transform: none; }.hero-meta { grid-template-columns: repeat(2,1fr); }.hero-meta div { min-height: 54px; border-bottom: 1px solid rgba(255,255,255,.18); }.hero-meta div:nth-child(2) { border-right: 0; }.hero-meta div:nth-child(3) { padding-left: 0; border-bottom: 0; }
     .signal-inner { grid-template-columns: 1fr; align-items: start; }.signal-tags { grid-template-columns: repeat(4,auto); justify-content: start; }
     .form-grid-primary, .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
@@ -663,15 +709,13 @@ const sectionTitle = (text: string) => text.split("\n");
     .spotlight-container { width: calc(100% - 28px); }
     .spot-section { padding: 60px 0; }
     .section-head { margin-bottom: 34px; }
-    .sticker-core { width: 210px; height: 138px; }
-    .sticker-consumer { width: 220px; height: 152px; }
-    .sticker-prototype { width: 270px; height: 105px; }
+    .section-sticker { width: 100%; margin: 18px 0 -8px; transform: none; }
     .hero-copy h1 { letter-spacing: -.06em; }.hero-lede { font-size: 1rem; }.hero-actions { display: grid; }.spot-button { width: 100%; }.application-note { align-items: flex-start; }
     .hero-meta { width: 100%; padding: 0 14px; }.hero-meta div { padding: 0 10px; font-size: 9px; }.hero-meta div:first-child, .hero-meta div:nth-child(3) { padding-left: 0; }
     .console-body { padding: 16px; }.user-bubble { margin-left: 6%; }.agent-flow li { min-height: 38px; }
     .signal-strip { padding: 30px 0; }.signal-tags { grid-template-columns: repeat(2,auto); }
-    .quick-fact-grid, .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
-    .quick-fact-grid article { min-height: 122px; padding: 15px; }.quick-fact-grid article:nth-child(odd) { border-right: 1px solid var(--line); }.quick-fact-grid h3 { font-size: 1rem; }
+    .timeline-grid { grid-template-columns: 1fr; }.timeline-grid article { min-height: auto; padding: 18px 16px 22px 66px; border-right: 0; border-bottom: 1px solid var(--line); }.timeline-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }.timeline-grid article:last-child { border-bottom: 0; }.timeline-marker { position: absolute; left: 17px; top: 19px; }.timeline-grid time { margin-top: 0; }.timeline-grid h3 { font-size: 1.25rem; }
+    .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
     .form-grid-primary { grid-template-columns: 1fr; }.form-grid-primary article { min-height: 150px; padding: 18px; }
     .principle-strip { grid-template-columns: 1fr; }.principle-strip article { padding: 4px 0; }
     .material-grid article { min-height: 118px; padding: 13px; grid-template-columns: 24px 1fr; }.material-grid h4 { font-size: 14px; }
