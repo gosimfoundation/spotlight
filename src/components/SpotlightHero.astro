@@ -32,29 +32,17 @@ const {
   <div class="stage-haze" aria-hidden="true"></div>
 
   <div class="spotlight-scene" aria-hidden="true">
-    <div class="beam beam-robot" style="--reveal: .2s;"><i></i></div>
-    <div class="beam beam-laptop" style="--reveal: .85s;"><i></i></div>
-    <div class="beam beam-watch" style="--reveal: 1.5s;"><i></i></div>
-    <div class="beam beam-telescope" style="--reveal: 2.15s;"><i></i></div>
-
-    <div class="product-stage">
+    <div class="moving-spotlight"></div>
+    <div class="spotlight-pool"></div>
+    <div class="focus-lockup">
       <img
-        class="stage-products stage-products-base"
-        src="/images/homepage/spotlight-stage.png"
+        src="/images/gosim-logo-official.svg"
         alt=""
+        width="255"
+        height="72"
       />
-      <div class="product-reveal reveal-robot" style="--reveal: .28s; --reveal-x: 13%;">
-        <img class="stage-products" src="/images/homepage/spotlight-stage.png" alt="" />
-      </div>
-      <div class="product-reveal reveal-laptop" style="--reveal: .93s; --reveal-x: 38%;">
-        <img class="stage-products" src="/images/homepage/spotlight-stage.png" alt="" />
-      </div>
-      <div class="product-reveal reveal-watch" style="--reveal: 1.58s; --reveal-x: 63%;">
-        <img class="stage-products" src="/images/homepage/spotlight-stage.png" alt="" />
-      </div>
-      <div class="product-reveal reveal-telescope" style="--reveal: 2.23s; --reveal-x: 88%;">
-        <img class="stage-products" src="/images/homepage/spotlight-stage.png" alt="" />
-      </div>
+      <span></span>
+      <strong>Spotlight</strong>
     </div>
   </div>
 
@@ -120,14 +108,14 @@ const {
         setNavigationTheme("dark");
         void hero.offsetWidth;
         hero.classList.add("is-playing");
-        completionTimer = window.setTimeout(completeIntro, 4300);
+        completionTimer = window.setTimeout(completeIntro, 3000);
       };
 
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         completeIntro();
       } else {
         setNavigationTheme("dark");
-        completionTimer = window.setTimeout(completeIntro, 4300);
+        completionTimer = window.setTimeout(completeIntro, 3000);
       }
 
       skipButton?.addEventListener("click", completeIntro);
@@ -160,11 +148,7 @@ const {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: .42;
-    background:
-      radial-gradient(circle at 50% 8%, rgba(134, 175, 171, .16), transparent 32%),
-      repeating-radial-gradient(ellipse at 50% 110%, transparent 0 28px, rgba(255,255,255,.018) 29px 30px),
-      linear-gradient(180deg, #050708 0%, #071012 62%, #0d1718 100%);
+    background: #020303;
   }
 
   .spotlight-scene,
@@ -176,80 +160,78 @@ const {
 
   .spotlight-scene {
     z-index: 2;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-  }
-
-  .beam {
-    position: absolute;
-    top: -4%;
-    left: var(--x);
-    z-index: 3;
-    width: clamp(9rem, 22vw, 24rem);
-    height: 76%;
-    opacity: 0;
-    transform: translateX(-50%);
-    transform-origin: 50% 0;
-    clip-path: polygon(48% 0, 52% 0, 100% 100%, 0 100%);
-    background: linear-gradient(180deg, rgba(242, 246, 242, .82), rgba(230, 240, 234, .17) 68%, rgba(230, 240, 234, 0));
-    filter: blur(7px);
-    mix-blend-mode: screen;
-  }
-
-  .beam i {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 88%, rgba(233, 242, 236, .72), transparent 57%);
-    animation: beamBreathe 1.7s ease-in-out infinite alternate;
-  }
-
-  .beam-robot { --x: 13%; }
-  .beam-laptop { --x: 38%; }
-  .beam-watch { --x: 63%; }
-  .beam-telescope { --x: 88%; }
-
-  .product-stage,
-  .product-reveal,
-  .stage-products {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .product-stage {
-    z-index: 2;
     overflow: hidden;
   }
 
-  .stage-products {
-    object-fit: contain;
-    object-position: center bottom;
-  }
-
-  .stage-products-base {
-    opacity: .7;
-    filter: brightness(.25) contrast(1.08);
-  }
-
-  .product-reveal {
-    --reveal-y: 73%;
+  .moving-spotlight {
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    width: clamp(23rem, 46vw, 46rem);
+    height: 94%;
     opacity: 0;
-    -webkit-mask-image: radial-gradient(ellipse 17% 38% at var(--reveal-x) var(--reveal-y), #000 14%, rgba(0,0,0,.9) 43%, transparent 78%);
-    mask-image: radial-gradient(ellipse 17% 38% at var(--reveal-x) var(--reveal-y), #000 14%, rgba(0,0,0,.9) 43%, transparent 78%);
+    transform: translateX(-50%) rotate(-18deg) scaleX(.55);
+    transform-origin: 50% 0;
+    clip-path: polygon(49.25% 0, 50.75% 0, 100% 100%, 0 100%);
+    background: linear-gradient(180deg, rgba(255,255,248,.74), rgba(242,246,239,.21) 58%, rgba(238,243,237,.05) 100%);
+    filter: blur(8px);
   }
 
-  .product-reveal .stage-products {
-    filter: brightness(1.12) contrast(1.08);
+  .moving-spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 12%, rgba(255,255,255,.17) 50%, transparent 88%);
+  }
+
+  .spotlight-pool {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    width: min(58vw, 44rem);
+    aspect-ratio: 2.7 / 1;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.72);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255,255,248,.24), rgba(242,246,239,.08) 42%, transparent 72%);
+    filter: blur(12px);
+  }
+
+  .focus-lockup {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.2vw, 2rem);
+    opacity: 0;
+    transform: translate(-50%, -45%);
+    white-space: nowrap;
+  }
+
+  .focus-lockup img {
+    width: clamp(7.5rem, 11vw, 10.5rem);
+    height: auto;
+  }
+
+  .focus-lockup span {
+    width: 1px;
+    height: clamp(2.5rem, 4.8vw, 4.25rem);
+    background: rgba(255,255,255,.48);
+  }
+
+  .focus-lockup strong {
+    color: #fff;
+    font-size: clamp(2.75rem, 5.6vw, 5.8rem);
+    font-weight: 500;
+    line-height: .9;
+    letter-spacing: -.055em;
   }
 
   .light-wash {
     z-index: 5;
     opacity: 0;
-    transform: scale(.08);
-    border-radius: 50%;
-    background: radial-gradient(circle, #fafbf8 0 42%, rgba(250,251,248,.98) 61%, rgba(240,243,238,.62) 74%, transparent 76%);
-    filter: blur(18px);
+    background: radial-gradient(circle at 50% 58%, #fff 0%, #f8f9f6 64%);
     pointer-events: none;
   }
 
@@ -429,17 +411,14 @@ const {
     background: #fff;
   }
 
-  .is-playing .beam {
-    animation: beamReveal .22s var(--reveal) cubic-bezier(.2,.75,.2,1) both, beamExit .48s 3.05s ease forwards;
-  }
-  .is-playing .product-reveal {
-    animation: productReveal .5s var(--reveal) ease both, productExit .48s 3.08s ease forwards;
-  }
-  .is-playing .light-wash { animation: lightWash 1.05s 2.95s cubic-bezier(.7,0,.25,1) both; }
-  .is-playing .hero-finale { animation: finaleReveal .68s 3.42s ease both; }
-  .is-playing .finale-copy { animation: copyReveal .58s 3.5s cubic-bezier(.2,.8,.2,1) both; }
-  .is-playing .explore-cue { animation: copyReveal .45s 3.78s ease both; }
-  .is-playing .skip-intro { animation: controlExit .2s 2.95s ease forwards; }
+  .is-playing .moving-spotlight { animation: spotlightPan 1.15s .18s cubic-bezier(.3,.72,.18,1) both, spotlightExit .42s 1.92s ease forwards; }
+  .is-playing .spotlight-pool { animation: poolReveal .55s .72s ease both, spotlightExit .42s 1.92s ease forwards; }
+  .is-playing .focus-lockup { animation: focusReveal .48s .78s cubic-bezier(.2,.8,.2,1) both, focusExit .35s 1.96s ease forwards; }
+  .is-playing .light-wash { animation: lightWash .68s 1.88s cubic-bezier(.4,0,.2,1) both; }
+  .is-playing .hero-finale { animation: finaleReveal .48s 2.18s ease both; }
+  .is-playing .finale-copy { animation: copyReveal .5s 2.23s cubic-bezier(.2,.8,.2,1) both; }
+  .is-playing .explore-cue { animation: copyReveal .4s 2.45s ease both; }
+  .is-playing .skip-intro { animation: controlExit .2s 1.82s ease forwards; }
 
   .is-complete {
     background: #fff;
@@ -464,21 +443,25 @@ const {
     visibility: visible;
   }
 
-  @keyframes beamReveal {
-    from { opacity: 0; transform: translateX(-50%) scaleX(.2); }
-    to { opacity: .78; transform: translateX(-50%) scaleX(1); }
+  @keyframes spotlightPan {
+    0% { opacity: 0; transform: translateX(-50%) rotate(-18deg) scaleX(.55); }
+    16% { opacity: .18; }
+    52% { opacity: .66; transform: translateX(-50%) rotate(7deg) scaleX(.88); }
+    100% { opacity: .76; transform: translateX(-50%) rotate(0deg) scaleX(1); }
   }
-  @keyframes beamExit { to { opacity: .06; } }
-  @keyframes beamBreathe { to { opacity: .62; transform: scaleX(.88); } }
-  @keyframes productReveal {
+  @keyframes poolReveal {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(.72); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes focusReveal {
+    from { opacity: 0; transform: translate(-50%, -44%); filter: blur(5px); }
+    to { opacity: 1; transform: translate(-50%, -50%); filter: blur(0); }
+  }
+  @keyframes spotlightExit { to { opacity: 0; } }
+  @keyframes focusExit { to { opacity: 0; transform: translate(-50%, -53%); } }
+  @keyframes lightWash {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-  @keyframes productExit { to { opacity: .08; } }
-  @keyframes lightWash {
-    0% { opacity: 0; transform: scale(.08); }
-    35% { opacity: .88; }
-    100% { opacity: 1; transform: scale(2.2); }
   }
   @keyframes finaleReveal { from { opacity: 0; } to { opacity: 1; } }
   @keyframes copyReveal {
@@ -490,12 +473,15 @@ const {
 
   @media (max-width: 720px) {
     .spotlight-hero { min-height: max(100svh, 40rem); }
-    .beam-robot { --x: 10%; }
-    .beam-laptop { --x: 36%; }
-    .beam-watch { --x: 64%; }
-    .beam-telescope { --x: 90%; }
-    .beam { width: 36vw; height: 100%; }
-    .product-reveal { --reveal-y: 87%; }
+    .moving-spotlight { width: 88vw; height: 88%; }
+    .spotlight-pool { width: 88vw; }
+    .focus-lockup {
+      flex-direction: column;
+      gap: 1rem;
+      white-space: normal;
+    }
+    .focus-lockup span { width: 3.25rem; height: 1px; }
+    .focus-lockup strong { font-size: clamp(3.25rem, 16vw, 5rem); }
     .finale-copy {
       width: 88vw;
       padding: 7rem 0 6.5rem;
