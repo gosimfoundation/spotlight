@@ -322,14 +322,14 @@ const benefits = [
     margin: 0;
     font-family: "Manrope", sans-serif;
     font-weight: 600;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
   .about-grid h2 {
     max-width: 54rem;
-    font-size: clamp(2.7rem, 5.5vw, 5.7rem);
-    line-height: 1.02;
+    font-size: clamp(2.35rem, 4.2vw, 4.35rem);
+    line-height: 1.18;
   }
 
   .about-grid p {
@@ -384,10 +384,10 @@ const benefits = [
     margin: 0;
     color: #fff;
     font-family: "Manrope", sans-serif;
-    font-size: clamp(3.25rem, 7vw, 7.2rem);
+    font-size: clamp(2.8rem, 5.2vw, 5.35rem);
     font-weight: 600;
-    line-height: 0.98;
-    letter-spacing: -0.055em;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
@@ -490,8 +490,8 @@ const benefits = [
 
   .section-heading h2,
   .why-intro h2 {
-    font-size: clamp(2.8rem, 5.5vw, 5.8rem);
-    line-height: 0.98;
+    font-size: clamp(2.5rem, 4.6vw, 4.75rem);
+    line-height: 1.14;
   }
 
   .events-grid {
@@ -712,11 +712,13 @@ const benefits = [
     .about-grid h2,
     .section-heading h2,
     .why-intro h2 {
-      font-size: clamp(2.45rem, 12vw, 3.5rem);
+      font-size: clamp(2rem, 8.5vw, 2.7rem);
+      line-height: 1.16;
     }
 
     .current-grid h2 {
-      font-size: clamp(3rem, 14vw, 4.2rem);
+      font-size: clamp(2.4rem, 10vw, 3.3rem);
+      line-height: 1.12;
     }
 
     .event-facts {
@@ -740,30 +742,6 @@ const benefits = [
     .benefits-grid li > span {
       margin-bottom: 2.25rem;
     }
-  }
-
-  :global(html[lang="zh"]) .about-grid h2,
-  :global(html[lang="zh"]) .section-heading h2,
-  :global(html[lang="zh"]) .why-intro h2,
-  :global(html[lang="zh"]) .current-grid h2 {
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-
-  :global(html[lang="zh"]) .about-grid h2 {
-    font-size: clamp(2.35rem, 4.2vw, 4.35rem);
-    line-height: 1.18;
-  }
-
-  :global(html[lang="zh"]) .current-grid h2 {
-    font-size: clamp(2.8rem, 5.2vw, 5.35rem);
-    line-height: 1.12;
-  }
-
-  :global(html[lang="zh"]) .section-heading h2,
-  :global(html[lang="zh"]) .why-intro h2 {
-    font-size: clamp(2.5rem, 4.6vw, 4.75rem);
-    line-height: 1.14;
   }
 
   @media (prefers-reduced-motion: reduce) {
