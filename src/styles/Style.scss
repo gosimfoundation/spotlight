@@ -403,32 +403,32 @@ footer {
    /* Outline */
 
    .hamburger.outline .hamburger-fill {
-      background-color: var(--color-dark);
-      border: 1px solid var(--color-border-light);
+      background-color: transparent;
+      border: 0;
    }
 
    [data-bg-nav="light"] .hamburger.outline .hamburger-fill {
-      background-color: var(--color-light);
-      border: 1px solid var(--color-border);
+      background-color: transparent;
+      border: 0;
    }
 
    [data-bg-nav="lightgray"] .hamburger.outline .hamburger-fill {
-      background-color: var(--color-lightgray);
-      border: 1px solid var(--color-border);
+      background-color: transparent;
+      border: 0;
    }
 
    [data-bg-nav="beige"] .hamburger.outline .hamburger-fill {
-      background-color: var(--color-beige);
-      border: 1px solid var(--color-border);
+      background-color: transparent;
+      border: 0;
    }
 
    [data-bg-nav="header-home"] .hamburger.outline .hamburger-fill {
-      background-color: var(--color-primary);
-      border: 1px solid var(--color-border-light);
+      background-color: transparent;
+      border: 0;
    }
 
    .hamburger.outline .bar {
-      background-color: var(--color-white);
+      background-color: var(--color-dark);
    }
 
    [data-theme-nav="light"] .hamburger.outline .bar {
