@@ -30,13 +30,19 @@ const {
   <div class="hero-finale">
     <div class="finale-copy">
       <p class="finale-eyebrow"><span></span>{eyebrow}</p>
-      <img
-        class="finale-logo"
-        src="/images/gosim-logo-official.svg"
-        alt="GOSIM"
-        width="255"
-        height="72"
-      />
+      <a
+        class="finale-logo-link"
+        href="https://gosim.org"
+        aria-label="Visit the GOSIM website"
+      >
+        <img
+          class="finale-logo"
+          src="/images/gosim-logo-official.svg"
+          alt="GOSIM"
+          width="255"
+          height="72"
+        />
+      </a>
       <h1>Spotlight</h1>
       <p class="finale-subtitle">{subtitle}</p>
       <a href={announcement.link} class="finale-announcement">
@@ -217,6 +223,12 @@ const {
     width: clamp(8rem, 11vw, 10.5rem);
     height: auto;
     filter: brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(1179%) hue-rotate(135deg) brightness(91%) contrast(96%);
+  }
+  .finale-logo-link {
+    display: inline-flex;
+    width: max-content;
+    line-height: 0;
+    pointer-events: auto;
   }
   .finale-subtitle {
     max-width: 38rem;
