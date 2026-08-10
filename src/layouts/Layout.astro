@@ -21,6 +21,7 @@ interface Props {
   bgNav?: string;
   navBackground?: string;
   pageTransitionName?: string;
+  socialImage?: string;
   locale?: string;
   nativeScroll?: boolean;
   footerVariant?: "spotlight";
@@ -42,6 +43,7 @@ const {
   spotlightIntro = false,
   navBackground,
   pageTransitionName,
+  socialImage,
   locale = "en",
   nativeScroll = false,
   footerVariant,
@@ -57,6 +59,7 @@ const {
       description={description}
       noindex={noindex}
       pageTransitionName={pageTransitionName}
+      socialImage={socialImage}
     />
   </head>
 

@@ -4,9 +4,10 @@ interface Props {
     description: string;
     noindex?: boolean;
     pageTransitionName?: string;
+    socialImage?: string;
 }
 
-const { title, description, noindex } = Astro.props;
+const { title, description, noindex, socialImage: socialImagePath = '/og.png' } = Astro.props;
 
 const newTitle = title || 'GOSIM Spotlight';
 
@@ -16,7 +17,7 @@ const domain = Astro.site?.origin || Astro.url.origin;
 
 const slug = Astro.url.pathname;
 const pageUrl = new URL(slug, domain).href;
-const socialImage = new URL('/og.png', domain).href;
+const socialImage = new URL(socialImagePath, domain).href;
 
 ---
 
