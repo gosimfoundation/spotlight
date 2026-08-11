@@ -15,7 +15,7 @@ const content = {
     eyebrow: "Spotlight 深圳 2026",
     heroTitle: "NEXT IS NOT",
     heroAccent: "GIVEN.",
-    heroStatement: "不要追随下一代。定义它。",
+    heroStatement: '"The best way to predict the future is to invent it."',
     heroText: "我们寻找的不是又一个接入模型的应用，而是足以建立新品类、重写交互规则，并走向全球市场的 AI 原生产品。",
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "与 GOSIM Shenzhen 2026 同期举办",
@@ -313,7 +313,11 @@ const applyPath = locale === "zh"
         <div class="hero-copy">
           <p class="eyebrow light">{c.eyebrow}</p>
           <h1>{c.heroTitle}<br /><span>{c.heroAccent}</span></h1>
-          <p class="hero-statement">{c.heroStatement}</p>
+          <p class="hero-statement">
+            {locale === "zh" ? (
+              <><strong><em>{c.heroStatement}</em></strong><span class="hero-statement-source">- Alan Kay</span></>
+            ) : c.heroStatement}
+          </p>
           <p class="hero-lede">{c.heroText}</p>
           <div class="hero-actions">
             <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span aria-hidden="true">↗</span></a>
@@ -745,6 +749,7 @@ const applyPath = locale === "zh"
   .monolith-page .hero-copy h1 { max-width: none; margin: 28px auto 26px; color: #eff6ff; font-size: clamp(4.8rem, 9.2vw, 9.8rem); line-height: .76; letter-spacing: -.09em; font-weight: 300; text-transform: uppercase; text-shadow: 0 0 70px rgba(113, 174, 240, .17); }
   .monolith-page .hero-copy h1 span { color: transparent; -webkit-text-stroke: 1px rgba(176, 211, 249, .66); }
   .monolith-page .hero-statement { margin: 38px auto 0; color: #edf5ff; font-size: clamp(1.05rem, 1.5vw, 1.5rem); line-height: 1.5; font-weight: 500; letter-spacing: -.02em; }
+  .monolith-page .hero-statement-source { margin-left: .45em; font-weight: 400; font-style: normal; white-space: nowrap; }
   .monolith-page .hero-lede { max-width: 610px; margin: 13px auto 0; color: rgba(177, 198, 222, .68); font-size: clamp(.9rem, 1.05vw, 1.08rem); line-height: 1.8; }
   .monolith-page .hero-actions { justify-content: center; margin-top: 30px; }
   .monolith-page .spot-button { min-height: 50px; padding: 0 20px; border-radius: 1px; gap: 56px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
