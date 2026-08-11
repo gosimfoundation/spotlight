@@ -1,0 +1,578 @@
+---
+import Layout from "layouts/Layout.astro";
+import type { Locale } from "../i18n/translations";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const content = {
+  en: {
+    metaTitle: "Apply — Spotlight Shenzhen 2026",
+    metaDesc: "Apply to GOSIM Spotlight Shenzhen 2026 with an AI-native product, prototype, and plan for the Shenzhen sprint.",
+    back: "Program details",
+    eyebrow: "SPOTLIGHT SHENZHEN 2026 / APPLICATION",
+    title: "DEFINE WHAT\nCOMES NEXT.",
+    intro: "Tell us what category you are creating, why the Agent is essential, and what you have already made real. You can submit in English, Chinese, or French.",
+    open: "Applications are open",
+    timing: "The closing date will be announced on the program page. Earlier submissions may be reviewed on a rolling basis.",
+    time: "About 20–30 minutes",
+    prepare: "Before you start",
+    prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "Optional demo video and source repository links", "Your Shenzhen build goal and support needs"],
+    required: "Required fields are marked with *",
+    sections: ["Contact & team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
+    contactTitle: "Contact & team",
+    contactIntro: "One primary contact is enough. We will use these details only to review the application and coordinate the program.",
+    applicantName: "Primary contact name",
+    applicantEmail: "Email",
+    contactHandle: "Phone, WeChat, or other contact (optional)",
+    countryRegion: "Country / region",
+    teamOrganization: "Team or organization (optional)",
+    teamSize: "Team size",
+    teamMembers: "Team members and roles",
+    teamMembersHelp: "List the people actively building this product and what each person owns.",
+    productTitle: "Product thesis",
+    productIntro: "We are selecting a product judgment, not a feature list. Be direct and concrete.",
+    projectName: "Project name",
+    projectUrl: "Project website (optional)",
+    productForm: "Product form",
+    productFormOptions: [["", "Select one"], ["new_hardware", "New hardware form"], ["adapted_device", "Adapted or integrated device"], ["software", "Software-only product"], ["cross_device", "Cross-device or ambient system"], ["other", "Other"]],
+    oneLiner: "One-sentence product description",
+    oneLinerHelp: "What it is, who it is for, and the result it creates — 240 characters maximum.",
+    targetUsers: "Target users and core scenario",
+    problemStatement: "What important problem are you solving?",
+    categoryThesis: "What new category or product boundary are you defining?",
+    categoryHelp: "Explain why this should exist now and why it is more than an improvement to an existing app.",
+    agentCore: "Why is the Agent essential?",
+    agentHelp: "Describe what the Agent perceives, decides, or does—and what breaks if it is removed.",
+    proofTitle: "Proof & technology",
+    proofIntro: "Give reviewers something they can verify. Links must remain accessible through the selection period.",
+    currentStage: "Current stage",
+    currentStageOptions: [["", "Select one"], ["concept", "Concept with an interaction design"], ["prototype", "Working prototype"], ["pilot", "Pilot or private beta"], ["launched", "Publicly launched"]],
+    prototypeUrl: "Prototype or primary review link",
+    prototypeHelp: "Website, app, Figma prototype, simulator, device documentation, or another reviewer-accessible link.",
+    demoVideoUrl: "Demo video link (optional)",
+    demoVideoHelp: "A focused walkthrough of about one minute is recommended.",
+    repositoryUrl: "Source repository (optional)",
+    technologySummary: "How does the product work?",
+    technologyHelp: "Summarize models, tools, system architecture, interfaces, and hardware where relevant.",
+    traction: "Evidence, testing, or traction (optional)",
+    tractionHelp: "User tests, deployments, usage, partnerships, revenue, research results, or the strongest evidence you have.",
+    shenzhenTitle: "Shenzhen & open source",
+    shenzhenIntro: "Tell us what you can deliver during the acceleration sprint and what would unlock the largest leap.",
+    attendance: "Can at least one team member join the Shenzhen sprint and showcase in person?",
+    attendanceOptions: [["", "Select one"], ["yes", "Yes"], ["likely", "Likely; final confirmation pending"], ["need_support", "Yes, with travel or visa support"], ["no", "No"]],
+    sprintGoal: "What will you build or improve in Shenzhen?",
+    supportNeeds: "What support would help? (select all that apply)",
+    supportOptions: [["product", "Product review"], ["ai_engineering", "AI / software engineering"], ["hardware", "Hardware integration"], ["fabrication", "Fabrication / 3D printing"], ["demo_story", "Demo and product story"], ["travel", "Travel or visa coordination"], ["other", "Other"]],
+    supportDetails: "Support details (optional)",
+    openSourceStatus: "Open-source plan",
+    openSourceOptions: [["", "Select one"], ["already_open", "Core work is already open source"], ["planning_core", "We plan to open the core work if selected"], ["planning_partial", "We plan a partial open release"], ["request_exemption", "We would request a justified exemption"]],
+    licenseName: "Current or planned license (optional)",
+    confirmTitle: "Confirm & submit",
+    confirmIntro: "We collect only what the selection team needs. Do not include passwords, private keys, identity documents, or confidential customer data in your answers or links.",
+    privacyConsent: "I agree that GOSIM may store and use this submission to review the project and contact the team, as described in the Privacy Policy.",
+    codeConsent: "I agree to the GOSIM Code of Conduct for program participation.",
+    declaration: "I confirm that I am authorized to submit these materials and that the information is accurate to the best of my knowledge.",
+    submit: "Submit application",
+    submitting: "Submitting…",
+    submitNote: "Your answers are sent securely to the GOSIM Spotlight selection database.",
+    error: "We could not submit the application. Check the required fields and links, then try again. If the problem continues, email spotlight@gosim.org.",
+    tooFast: "Please review your answers before submitting.",
+    successEyebrow: "APPLICATION RECEIVED",
+    successTitle: "Thank you. Your project is in review.",
+    successText: "Save the reference below. We will contact the primary email if the selection team needs anything else.",
+    reference: "Reference",
+    returnProgram: "Return to program",
+  },
+  zh: {
+    metaTitle: "报名 — Spotlight 深圳 2026",
+    metaDesc: "提交 AI 原生产品、可验证原型与深圳加速计划，申请 GOSIM Spotlight 深圳 2026。",
+    back: "返回项目详情",
+    eyebrow: "SPOTLIGHT 深圳 2026 / 项目报名",
+    title: "定义下一代\n产品。",
+    intro: "告诉我们你正在创建什么新品类、为什么 Agent 不可替代，以及哪些部分已经真实可用。可使用中文、英文或法文提交。",
+    open: "报名现已开放",
+    timing: "截止日期将在项目页面公布；较早提交的项目可能会滚动评审。",
+    time: "预计 20–30 分钟",
+    prepare: "开始前请准备",
+    prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "可选的演示视频与代码仓库链接", "深圳现场的开发目标与资源需求"],
+    required: "标有 * 的项目为必填",
+    sections: ["联系人和团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
+    contactTitle: "联系人和团队",
+    contactIntro: "只需一位主要联系人。以下信息仅用于项目评审和活动协调。",
+    applicantName: "主要联系人姓名",
+    applicantEmail: "电子邮箱",
+    contactHandle: "电话、微信或其他联系方式（选填）",
+    countryRegion: "国家 / 地区",
+    teamOrganization: "团队或机构名称（选填）",
+    teamSize: "团队人数",
+    teamMembers: "团队成员与分工",
+    teamMembersHelp: "列出实际参与产品开发的成员，以及每个人负责的部分。",
+    productTitle: "产品命题",
+    productIntro: "我们评选的是清晰的产品判断，而不是功能清单。请直接、具体地说明。",
+    projectName: "项目名称",
+    projectUrl: "项目官网（选填）",
+    productForm: "产品形态",
+    productFormOptions: [["", "请选择"], ["new_hardware", "全新硬件形态"], ["adapted_device", "改造或整合现有设备"], ["software", "纯软件产品"], ["cross_device", "跨设备或环境智能系统"], ["other", "其他"]],
+    oneLiner: "一句话产品介绍",
+    oneLinerHelp: "说明它是什么、为谁服务、带来什么结果；最多 240 字符。",
+    targetUsers: "目标用户与核心场景",
+    problemStatement: "你正在解决什么重要问题？",
+    categoryThesis: "你要定义什么新品类或产品边界？",
+    categoryHelp: "说明为什么它必须在今天出现，以及为什么它不是现有 App 的普通功能改进。",
+    agentCore: "为什么 Agent 不可替代？",
+    agentHelp: "说明 Agent 感知、判断或执行什么；如果移除 Agent，产品的核心价值会失去什么。",
+    proofTitle: "原型与技术",
+    proofIntro: "请提供评委可以实际验证的材料；所有链接需在评审期内保持可访问。",
+    currentStage: "当前阶段",
+    currentStageOptions: [["", "请选择"], ["concept", "已有交互设计的概念"], ["prototype", "可运行原型"], ["pilot", "试点或内测"], ["launched", "已公开发布"]],
+    prototypeUrl: "原型或主要评审链接",
+    prototypeHelp: "可填写网站、App、Figma 原型、模拟器、设备说明或其他评委可访问链接。",
+    demoVideoUrl: "演示视频链接（选填）",
+    demoVideoHelp: "建议用约一分钟集中展示核心体验。",
+    repositoryUrl: "代码仓库（选填）",
+    technologySummary: "产品如何工作？",
+    technologyHelp: "简述模型、工具、系统架构、交互界面，以及相关硬件。",
+    traction: "验证、测试或进展（选填）",
+    tractionHelp: "例如用户测试、部署、使用量、合作、收入、研究结果，或你目前最有力的证据。",
+    shenzhenTitle: "深圳与开源",
+    shenzhenIntro: "告诉我们你能在现场加速阶段交付什么，以及哪些支持能带来最大提升。",
+    attendance: "能否至少有一位团队成员到深圳参加加速与现场展示？",
+    attendanceOptions: [["", "请选择"], ["yes", "可以"], ["likely", "大概率可以，待最终确认"], ["need_support", "可以，但需要差旅或签证支持"], ["no", "不能"]],
+    sprintGoal: "你计划在深圳完成或提升什么？",
+    supportNeeds: "希望获得哪些支持？（可多选）",
+    supportOptions: [["product", "产品评审"], ["ai_engineering", "AI / 软件工程"], ["hardware", "硬件整合"], ["fabrication", "制作 / 3D 打印"], ["demo_story", "演示与产品叙事"], ["travel", "差旅或签证协调"], ["other", "其他"]],
+    supportDetails: "资源需求说明（选填）",
+    openSourceStatus: "开源计划",
+    openSourceOptions: [["", "请选择"], ["already_open", "核心成果已经开源"], ["planning_core", "入选后计划开放核心成果"], ["planning_partial", "计划部分开放"], ["request_exemption", "需要申请合理豁免"]],
+    licenseName: "当前或计划使用的许可证（选填）",
+    confirmTitle: "确认并提交",
+    confirmIntro: "我们只收集评审所需信息。请勿在回答或链接中提供密码、密钥、身份证件或客户机密数据。",
+    privacyConsent: "我同意 GOSIM 按照隐私政策存储并使用本次提交内容，用于项目评审及与团队联系。",
+    codeConsent: "我同意在参与项目期间遵守 GOSIM 行为准则。",
+    declaration: "我确认有权提交这些材料，且所填信息在本人所知范围内真实准确。",
+    submit: "提交报名",
+    submitting: "正在提交…",
+    submitNote: "你的回答将安全发送至 GOSIM Spotlight 评审数据库。",
+    error: "提交失败。请检查必填项和链接后重试；如问题持续，请邮件联系 spotlight@gosim.org。",
+    tooFast: "请先检查填写内容，再提交。",
+    successEyebrow: "报名已收到",
+    successTitle: "谢谢，你的项目已进入评审。",
+    successText: "请保存以下编号。如评审团队需要补充信息，我们会联系主要联系人邮箱。",
+    reference: "报名编号",
+    returnProgram: "返回项目页面",
+  },
+  fr: {
+    metaTitle: "Candidature — Spotlight Shenzhen 2026",
+    metaDesc: "Candidatez à GOSIM Spotlight Shenzhen 2026 avec un produit IA natif, un prototype et un plan pour l’accélération à Shenzhen.",
+    back: "Détails du programme",
+    eyebrow: "SPOTLIGHT SHENZHEN 2026 / CANDIDATURE",
+    title: "DÉFINISSEZ\nLA SUITE.",
+    intro: "Présentez la catégorie que vous créez, pourquoi l’Agent est essentiel et ce qui existe déjà concrètement. La candidature peut être rédigée en français, anglais ou chinois.",
+    open: "Les candidatures sont ouvertes",
+    timing: "La date de clôture sera annoncée sur la page du programme. Les premiers dossiers pourront être évalués au fil de l’eau.",
+    time: "Environ 20–30 minutes",
+    prepare: "À préparer",
+    prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Des liens facultatifs vers la démo vidéo et le dépôt", "Votre objectif à Shenzhen et vos besoins"],
+    required: "Les champs obligatoires portent un *",
+    sections: ["Contact et équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
+    contactTitle: "Contact et équipe",
+    contactIntro: "Un contact principal suffit. Ces informations servent uniquement à l’évaluation et à la coordination du programme.",
+    applicantName: "Nom du contact principal",
+    applicantEmail: "E-mail",
+    contactHandle: "Téléphone, WeChat ou autre contact (facultatif)",
+    countryRegion: "Pays / région",
+    teamOrganization: "Équipe ou organisation (facultatif)",
+    teamSize: "Taille de l’équipe",
+    teamMembers: "Membres de l’équipe et rôles",
+    teamMembersHelp: "Indiquez les personnes qui construisent activement le produit et leur responsabilité.",
+    productTitle: "Thèse produit",
+    productIntro: "Nous sélectionnons un jugement produit, pas une liste de fonctions. Soyez direct et concret.",
+    projectName: "Nom du projet",
+    projectUrl: "Site du projet (facultatif)",
+    productForm: "Forme du produit",
+    productFormOptions: [["", "Sélectionner"], ["new_hardware", "Nouvelle forme matérielle"], ["adapted_device", "Appareil adapté ou intégré"], ["software", "Produit entièrement logiciel"], ["cross_device", "Système multi-appareils ou ambiant"], ["other", "Autre"]],
+    oneLiner: "Description du produit en une phrase",
+    oneLinerHelp: "Ce que c’est, pour qui et le résultat produit — 240 caractères maximum.",
+    targetUsers: "Utilisateurs cibles et scénario principal",
+    problemStatement: "Quel problème important résolvez-vous ?",
+    categoryThesis: "Quelle nouvelle catégorie ou frontière produit définissez-vous ?",
+    categoryHelp: "Expliquez pourquoi elle doit exister maintenant et pourquoi ce n’est pas une simple amélioration d’une app existante.",
+    agentCore: "Pourquoi l’Agent est-il essentiel ?",
+    agentHelp: "Décrivez ce que l’Agent perçoit, décide ou accomplit — et ce qui disparaît si on le retire.",
+    proofTitle: "Preuves et technologie",
+    proofIntro: "Donnez au jury un élément vérifiable. Les liens doivent rester accessibles pendant la sélection.",
+    currentStage: "Stade actuel",
+    currentStageOptions: [["", "Sélectionner"], ["concept", "Concept avec design d’interaction"], ["prototype", "Prototype fonctionnel"], ["pilot", "Pilote ou bêta privée"], ["launched", "Produit lancé publiquement"]],
+    prototypeUrl: "Prototype ou lien principal d’évaluation",
+    prototypeHelp: "Site, app, prototype Figma, simulateur, documentation d’un appareil ou autre lien accessible au jury.",
+    demoVideoUrl: "Lien de démo vidéo (facultatif)",
+    demoVideoHelp: "Une présentation ciblée d’environ une minute est recommandée.",
+    repositoryUrl: "Dépôt source (facultatif)",
+    technologySummary: "Comment fonctionne le produit ?",
+    technologyHelp: "Résumez les modèles, outils, architecture, interfaces et matériel, le cas échéant.",
+    traction: "Tests, preuves ou traction (facultatif)",
+    tractionHelp: "Tests utilisateurs, déploiements, usage, partenariats, revenus, résultats de recherche ou votre meilleure preuve actuelle.",
+    shenzhenTitle: "Shenzhen et open source",
+    shenzhenIntro: "Dites-nous ce que vous pouvez livrer pendant l’accélération et quel soutien créerait le plus grand progrès.",
+    attendance: "Au moins un membre peut-il participer à l’accélération et à la présentation à Shenzhen ?",
+    attendanceOptions: [["", "Sélectionner"], ["yes", "Oui"], ["likely", "Probablement, confirmation en attente"], ["need_support", "Oui, avec aide voyage ou visa"], ["no", "Non"]],
+    sprintGoal: "Que construirez-vous ou améliorerez-vous à Shenzhen ?",
+    supportNeeds: "Quel soutien serait utile ? (plusieurs choix possibles)",
+    supportOptions: [["product", "Revue produit"], ["ai_engineering", "Ingénierie IA / logiciel"], ["hardware", "Intégration matérielle"], ["fabrication", "Fabrication / impression 3D"], ["demo_story", "Démo et récit produit"], ["travel", "Coordination voyage ou visa"], ["other", "Autre"]],
+    supportDetails: "Précisions sur les besoins (facultatif)",
+    openSourceStatus: "Plan open source",
+    openSourceOptions: [["", "Sélectionner"], ["already_open", "Le cœur est déjà open source"], ["planning_core", "Nous ouvrirons le cœur si nous sommes retenus"], ["planning_partial", "Nous prévoyons une ouverture partielle"], ["request_exemption", "Nous demanderions une exemption justifiée"]],
+    licenseName: "Licence actuelle ou prévue (facultatif)",
+    confirmTitle: "Confirmer et envoyer",
+    confirmIntro: "Nous ne collectons que les éléments utiles à la sélection. N’incluez aucun mot de passe, clé privée, document d’identité ou donnée client confidentielle.",
+    privacyConsent: "J’accepte que GOSIM conserve et utilise ce dossier pour évaluer le projet et contacter l’équipe, conformément à la Politique de confidentialité.",
+    codeConsent: "J’accepte le Code de conduite GOSIM pour la participation au programme.",
+    declaration: "Je confirme être autorisé à soumettre ces éléments et que les informations sont exactes à ma connaissance.",
+    submit: "Envoyer la candidature",
+    submitting: "Envoi…",
+    submitNote: "Vos réponses sont envoyées de manière sécurisée à la base de sélection GOSIM Spotlight.",
+    error: "La candidature n’a pas pu être envoyée. Vérifiez les champs obligatoires et les liens, puis réessayez. Si le problème persiste : spotlight@gosim.org.",
+    tooFast: "Veuillez relire vos réponses avant l’envoi.",
+    successEyebrow: "CANDIDATURE REÇUE",
+    successTitle: "Merci. Votre projet est en cours d’évaluation.",
+    successText: "Conservez la référence ci-dessous. Nous contacterons l’adresse principale si l’équipe de sélection a besoin d’informations.",
+    reference: "Référence",
+    returnProgram: "Retour au programme",
+  },
+} as const;
+
+const c = content[locale] || content.en;
+const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen2026/`;
+---
+
+<Layout
+  title={c.metaTitle}
+  description={c.metaDesc}
+  navDarkMode={true}
+  navBackground="header-home"
+  pageTransitionName="Spotlight Shenzhen 2026 Application"
+  socialImage="/images/shenzhen2026/og-shenzhen.png"
+  locale={locale}
+  nativeScroll={true}
+>
+  <div class="application-page">
+    <header class="application-hero" data-theme-section="dark">
+      <div class="hero-grid"></div>
+      <div class="application-container hero-content">
+        <a class="back-link" href={programPath}>← {c.back}</a>
+        <p class="eyebrow">{c.eyebrow}</p>
+        <h1>{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
+        <p class="hero-intro">{c.intro}</p>
+        <div class="hero-status">
+          <strong><span></span>{c.open}</strong>
+          <p>{c.timing}</p>
+          <small>{c.time}</small>
+        </div>
+      </div>
+    </header>
+
+    <main class="application-container application-layout">
+      <aside class="application-guide">
+        <div class="guide-card">
+          <p class="guide-title">{c.prepare}</p>
+          <ul>{c.prepareItems.map((item) => <li>{item}</li>)}</ul>
+          <small>{c.required}</small>
+        </div>
+        <nav aria-label="Application sections">
+          <ol>{c.sections.map((section, index) => <li><a href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2, "0")}</span>{section}</a></li>)}</ol>
+        </nav>
+      </aside>
+
+      <section class="form-column">
+        <form
+          id="application-form"
+          data-language={locale}
+          data-project-url="https://rotznvannxypesxaeyda.supabase.co"
+          data-api-key="sb_publishable_CpwHPombYza4gK9F6f_WwQ_gwfDsXPz"
+          data-error-message={c.error}
+          data-too-fast-message={c.tooFast}
+          data-submitting-label={c.submitting}
+        >
+          <div class="honeypot" aria-hidden="true">
+            <label for="company_website">Company website</label>
+            <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <fieldset class="form-section" id="section-1">
+            <legend><span>01</span>{c.contactTitle}</legend>
+            <p class="section-intro">{c.contactIntro}</p>
+            <div class="field-grid">
+              <label>{c.applicantName} *<input name="applicant_name" type="text" minlength="2" maxlength="120" autocomplete="name" required /></label>
+              <label>{c.applicantEmail} *<input name="applicant_email" type="email" maxlength="320" autocomplete="email" required /></label>
+              <label>{c.contactHandle}<input name="contact_handle" type="text" maxlength="200" autocomplete="tel" /></label>
+              <label>{c.countryRegion} *<input name="country_region" type="text" minlength="2" maxlength="120" autocomplete="country-name" required /></label>
+              <label>{c.teamOrganization}<input name="team_organization" type="text" maxlength="200" autocomplete="organization" /></label>
+              <label>{c.teamSize} *<input name="team_size" type="number" min="1" max="100" inputmode="numeric" required /></label>
+            </div>
+            <label class="field-full">{c.teamMembers} *<textarea name="team_members_and_roles" minlength="5" maxlength="2000" rows="4" required></textarea><small>{c.teamMembersHelp}</small></label>
+          </fieldset>
+
+          <fieldset class="form-section" id="section-2">
+            <legend><span>02</span>{c.productTitle}</legend>
+            <p class="section-intro">{c.productIntro}</p>
+            <div class="field-grid">
+              <label>{c.projectName} *<input name="project_name" type="text" minlength="2" maxlength="160" required /></label>
+              <label>{c.projectUrl}<input name="project_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /></label>
+              <label>{c.productForm} *<select name="product_form" required>{c.productFormOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
+            </div>
+            <label class="field-full">{c.oneLiner} *<textarea name="one_liner" minlength="10" maxlength="240" rows="2" required></textarea><small>{c.oneLinerHelp}</small></label>
+            <label class="field-full">{c.targetUsers} *<textarea name="target_users" minlength="20" maxlength="1500" rows="4" required></textarea></label>
+            <label class="field-full">{c.problemStatement} *<textarea name="problem_statement" minlength="30" maxlength="2500" rows="5" required></textarea></label>
+            <label class="field-full">{c.categoryThesis} *<textarea name="category_thesis" minlength="30" maxlength="2500" rows="5" required></textarea><small>{c.categoryHelp}</small></label>
+            <label class="field-full">{c.agentCore} *<textarea name="agent_core" minlength="30" maxlength="3000" rows="6" required></textarea><small>{c.agentHelp}</small></label>
+          </fieldset>
+
+          <fieldset class="form-section" id="section-3">
+            <legend><span>03</span>{c.proofTitle}</legend>
+            <p class="section-intro">{c.proofIntro}</p>
+            <div class="field-grid">
+              <label>{c.currentStage} *<select name="current_stage" required>{c.currentStageOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
+              <label>{c.prototypeUrl} *<input name="prototype_url" type="url" maxlength="500" inputmode="url" placeholder="https://" required /><small>{c.prototypeHelp}</small></label>
+              <label>{c.demoVideoUrl}<input name="demo_video_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /><small>{c.demoVideoHelp}</small></label>
+              <label>{c.repositoryUrl}<input name="repository_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /></label>
+            </div>
+            <label class="field-full">{c.technologySummary} *<textarea name="technology_summary" minlength="20" maxlength="3000" rows="6" required></textarea><small>{c.technologyHelp}</small></label>
+            <label class="field-full">{c.traction}<textarea name="traction" maxlength="2000" rows="4"></textarea><small>{c.tractionHelp}</small></label>
+          </fieldset>
+
+          <fieldset class="form-section" id="section-4">
+            <legend><span>04</span>{c.shenzhenTitle}</legend>
+            <p class="section-intro">{c.shenzhenIntro}</p>
+            <div class="field-grid">
+              <label>{c.attendance} *<select name="shenzhen_attendance" required>{c.attendanceOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
+              <label>{c.openSourceStatus} *<select name="open_source_status" required>{c.openSourceOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
+              <label>{c.licenseName}<input name="license_name" type="text" maxlength="120" placeholder="Apache-2.0, MIT…" /></label>
+            </div>
+            <label class="field-full">{c.sprintGoal} *<textarea name="sprint_goal" minlength="20" maxlength="2500" rows="5" required></textarea></label>
+            <div class="field-full checkbox-group">
+              <span class="checkbox-title">{c.supportNeeds}</span>
+              <div class="checkbox-grid">{c.supportOptions.map((option) => <label><input type="checkbox" name="support_needs" value={option[0]} /><span>{option[1]}</span></label>)}</div>
+            </div>
+            <label class="field-full">{c.supportDetails}<textarea name="support_details" maxlength="2000" rows="4"></textarea></label>
+          </fieldset>
+
+          <fieldset class="form-section confirm-section" id="section-5">
+            <legend><span>05</span>{c.confirmTitle}</legend>
+            <p class="section-intro">{c.confirmIntro}</p>
+            <label class="consent"><input name="privacy_consent" type="checkbox" required /><span>{c.privacyConsent} <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a></span></label>
+            <label class="consent"><input name="code_of_conduct_consent" type="checkbox" required /><span>{c.codeConsent} <a href="/code-of-conduct/" target="_blank" rel="noopener noreferrer">Code of Conduct ↗</a></span></label>
+            <label class="consent"><input name="submission_declaration" type="checkbox" required /><span>{c.declaration}</span></label>
+            <div class="submit-area">
+              <button type="submit"><span>{c.submit}</span><b aria-hidden="true">↗</b></button>
+              <small>{c.submitNote}</small>
+              <p class="form-message" role="alert" aria-live="polite"></p>
+            </div>
+          </fieldset>
+        </form>
+
+        <section class="success-panel" id="success-panel" aria-live="polite" hidden>
+          <p class="eyebrow">{c.successEyebrow}</p>
+          <h2>{c.successTitle}</h2>
+          <p>{c.successText}</p>
+          <div><span>{c.reference}</span><strong id="submission-reference"></strong></div>
+          <a href={programPath}>{c.returnProgram} →</a>
+        </section>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#application-form");
+  const successPanel = document.querySelector<HTMLElement>("#success-panel");
+  const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
+  const startedAt = Date.now();
+
+  const optionalTextFields = [
+    "contact_handle", "team_organization", "project_url", "demo_video_url",
+    "repository_url", "traction", "license_name", "support_details",
+  ];
+
+  const createReference = () => {
+    const bytes = new Uint8Array(6);
+    crypto.getRandomValues(bytes);
+    return `SZ26-${Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
+  };
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const message = form.querySelector<HTMLElement>(".form-message");
+    const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const submitLabel = submitButton?.querySelector<HTMLElement>("span");
+    const originalLabel = submitLabel?.textContent || "Submit";
+    const values = new FormData(form);
+
+    if (String(values.get("company_website") || "").trim()) return;
+    if (Date.now() - startedAt < 2500) {
+      if (message) message.textContent = form.dataset.tooFastMessage || "Please review your answers.";
+      return;
+    }
+
+    const reference = createReference();
+    const payload: Record<string, string | number | boolean | string[] | null> = {
+      public_reference: reference,
+      application_language: form.dataset.language || "en",
+      applicant_name: String(values.get("applicant_name") || "").trim(),
+      applicant_email: String(values.get("applicant_email") || "").trim().toLowerCase(),
+      contact_handle: String(values.get("contact_handle") || "").trim(),
+      country_region: String(values.get("country_region") || "").trim(),
+      team_organization: String(values.get("team_organization") || "").trim(),
+      team_size: Number(values.get("team_size")),
+      team_members_and_roles: String(values.get("team_members_and_roles") || "").trim(),
+      project_name: String(values.get("project_name") || "").trim(),
+      project_url: String(values.get("project_url") || "").trim(),
+      product_form: String(values.get("product_form") || ""),
+      one_liner: String(values.get("one_liner") || "").trim(),
+      target_users: String(values.get("target_users") || "").trim(),
+      problem_statement: String(values.get("problem_statement") || "").trim(),
+      category_thesis: String(values.get("category_thesis") || "").trim(),
+      agent_core: String(values.get("agent_core") || "").trim(),
+      current_stage: String(values.get("current_stage") || ""),
+      prototype_url: String(values.get("prototype_url") || "").trim(),
+      demo_video_url: String(values.get("demo_video_url") || "").trim(),
+      repository_url: String(values.get("repository_url") || "").trim(),
+      technology_summary: String(values.get("technology_summary") || "").trim(),
+      traction: String(values.get("traction") || "").trim(),
+      open_source_status: String(values.get("open_source_status") || ""),
+      license_name: String(values.get("license_name") || "").trim(),
+      shenzhen_attendance: String(values.get("shenzhen_attendance") || ""),
+      sprint_goal: String(values.get("sprint_goal") || "").trim(),
+      support_needs: values.getAll("support_needs").map(String),
+      support_details: String(values.get("support_details") || "").trim(),
+      privacy_consent: values.get("privacy_consent") === "on",
+      code_of_conduct_consent: values.get("code_of_conduct_consent") === "on",
+      submission_declaration: values.get("submission_declaration") === "on",
+      source_path: window.location.pathname,
+    };
+
+    optionalTextFields.forEach((field) => {
+      if (payload[field] === "") payload[field] = null;
+    });
+
+    if (submitButton) submitButton.disabled = true;
+    if (submitLabel) submitLabel.textContent = form.dataset.submittingLabel || "Submitting…";
+    if (message) message.textContent = "";
+
+    try {
+      const response = await fetch(`${form.dataset.projectUrl}/rest/v1/spotlight_shenzhen_2026_applications`, {
+        method: "POST",
+        headers: {
+          apikey: form.dataset.apiKey || "",
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+      form.hidden = true;
+      if (referenceOutput) referenceOutput.textContent = reference;
+      if (successPanel) {
+        successPanel.hidden = false;
+        successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } catch (error) {
+      console.error(error);
+      if (message) message.textContent = form.dataset.errorMessage || "Submission failed. Please try again.";
+      if (submitButton) submitButton.disabled = false;
+      if (submitLabel) submitLabel.textContent = originalLabel;
+    }
+  });
+</script>
+
+<style>
+  :global(body) { background: #eef3f8; }
+  .application-page { --ink: #08111c; --muted: #5e6f82; --blue: #8fc4ff; --blue-strong: #2e78c6; --line: rgba(22, 51, 82, .17); min-height: 100vh; color: var(--ink); background: #eef3f8; font-family: "Manrope", sans-serif; }
+  .application-container { width: min(1240px, calc(100% - 64px)); margin: 0 auto; }
+  .application-hero { position: relative; overflow: hidden; padding: 150px 0 74px; color: #edf6ff; background: radial-gradient(circle at 67% 58%, rgba(53, 115, 181, .38), transparent 34%), #03080f; }
+  .hero-grid { position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(rgba(137, 191, 249, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(137, 191, 249, .08) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(to bottom, #000, transparent); }
+  .hero-content { position: relative; }
+  .back-link { display: inline-flex; margin-bottom: 54px; color: #87a9cc; font-size: 12px; text-decoration: none; letter-spacing: .04em; }
+  .back-link:hover { color: #fff; }
+  .eyebrow { color: #80b7ef; font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+  .application-hero h1 { margin: 20px 0 28px; font-size: clamp(4rem, 8vw, 8.2rem); font-weight: 300; line-height: .79; letter-spacing: -.085em; text-transform: uppercase; }
+  .hero-intro { max-width: 760px; color: rgba(214, 230, 247, .7); font-size: clamp(1rem, 1.4vw, 1.22rem); line-height: 1.75; }
+  .hero-status { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; margin-top: 46px; padding-top: 22px; border-top: 1px solid rgba(144, 195, 250, .17); }
+  .hero-status strong { display: flex; gap: 9px; align-items: center; color: #dbeeff; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+  .hero-status strong span { width: 7px; height: 7px; border-radius: 50%; background: #83c2ff; box-shadow: 0 0 14px #78baff; }
+  .hero-status p { color: rgba(187, 210, 234, .62); font-size: 11px; line-height: 1.5; }
+  .hero-status small { color: #85a5c5; font-size: 11px; }
+  .application-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 74px; padding: 76px 0 120px; align-items: start; }
+  .application-guide { position: sticky; top: 94px; }
+  .guide-card { padding: 24px; border: 1px solid var(--line); background: rgba(255,255,255,.58); }
+  .guide-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+  .guide-card ul { display: grid; gap: 12px; margin: 18px 0 20px; }
+  .guide-card li { position: relative; padding-left: 18px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+  .guide-card li::before { content: "+"; position: absolute; left: 0; color: var(--blue-strong); font-weight: 800; }
+  .guide-card small { color: #8190a0; font-size: 10px; }
+  .application-guide nav { margin-top: 22px; border-top: 1px solid var(--line); }
+  .application-guide nav li { border-bottom: 1px solid var(--line); }
+  .application-guide nav a { display: flex; gap: 12px; padding: 13px 3px; color: #5e6d7c; font-size: 11px; text-decoration: none; }
+  .application-guide nav a:hover { color: var(--blue-strong); }
+  .application-guide nav span { color: #94a3b3; font-variant-numeric: tabular-nums; }
+  .form-column { min-width: 0; }
+  #application-form { display: grid; gap: 28px; }
+  .form-section { scroll-margin-top: 90px; margin: 0; padding: 42px; border: 1px solid var(--line); background: #fff; box-shadow: 0 22px 70px rgba(37, 67, 97, .06); }
+  .form-section legend { display: flex; gap: 18px; align-items: baseline; width: 100%; padding: 0; color: var(--ink); font-size: clamp(1.65rem, 2.7vw, 2.7rem); font-weight: 700; letter-spacing: -.05em; }
+  .form-section legend span { color: #76a9dd; font-size: 10px; letter-spacing: .12em; }
+  .section-intro { max-width: 680px; margin: 14px 0 34px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .field-grid > label:first-child:nth-last-child(3) { grid-column: auto; }
+  label, .checkbox-title { display: grid; gap: 9px; color: #24364a; font-size: 11px; font-weight: 700; line-height: 1.45; }
+  input, textarea, select { width: 100%; border: 1px solid #cbd7e3; border-radius: 0; padding: 12px 13px; color: #0c1825; background: #f9fbfd; font: inherit; font-size: 13px; font-weight: 500; line-height: 1.5; transition: border-color .16s ease, box-shadow .16s ease, background .16s ease; }
+  input, select { min-height: 47px; }
+  textarea { resize: vertical; min-height: 96px; }
+  input:focus, textarea:focus, select:focus { outline: 0; border-color: #5798d9; box-shadow: 0 0 0 3px rgba(74, 143, 213, .12); background: #fff; }
+  label small { color: #7b8998; font-size: 10px; font-weight: 500; line-height: 1.55; }
+  .field-full { margin-top: 22px; }
+  .checkbox-group { display: grid; gap: 13px; }
+  .checkbox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .checkbox-grid label, .consent { display: flex; align-items: flex-start; gap: 11px; padding: 13px; border: 1px solid #d8e1ea; background: #f8fafc; font-weight: 600; cursor: pointer; }
+  .checkbox-grid input, .consent input { width: 17px; height: 17px; min-height: 0; margin: 1px 0 0; padding: 0; accent-color: #286eb5; flex: 0 0 auto; }
+  .confirm-section .section-intro { margin-bottom: 24px; }
+  .consent + .consent { margin-top: 10px; }
+  .consent span { color: #526273; font-size: 11px; font-weight: 500; line-height: 1.6; }
+  .consent a { color: #256bad; }
+  .submit-area { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 0; padding: 0 22px; color: #06111d; background: #91c7ff; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
+  .submit-area button:hover { background: #b3d9ff; }
+  .submit-area button:disabled { opacity: .58; cursor: wait; }
+  .submit-area > small { display: block; margin-top: 12px; color: #7c8a98; font-size: 10px; }
+  .form-message { margin-top: 12px; color: #a12d2d; font-size: 12px; line-height: 1.5; }
+  .success-panel { scroll-margin-top: 100px; padding: clamp(34px, 6vw, 70px); border: 1px solid #a8c9e8; background: #fff; box-shadow: 0 26px 90px rgba(26, 79, 126, .12); }
+  .success-panel h2 { max-width: 700px; margin: 18px 0; color: var(--ink); font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .98; letter-spacing: -.065em; }
+  .success-panel > p:not(.eyebrow) { max-width: 610px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .success-panel > div { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; border: 1px solid var(--line); background: #eef6fd; }
+  .success-panel > div span { color: #6a7d8f; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+  .success-panel > div strong { font-size: 20px; letter-spacing: .08em; }
+  .success-panel > a { display: block; color: #2468a9; font-size: 12px; font-weight: 700; }
+  .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+  @media (max-width: 900px) {
+    .application-container { width: min(100% - 40px, 1240px); }
+    .application-layout { grid-template-columns: 1fr; gap: 30px; padding-top: 40px; }
+    .application-guide { position: static; }
+    .application-guide nav { display: none; }
+    .hero-status { grid-template-columns: 1fr; gap: 10px; }
+  }
+  @media (max-width: 620px) {
+    .application-container { width: calc(100% - 24px); }
+    .application-hero { padding: 126px 0 52px; }
+    .back-link { margin-bottom: 38px; }
+    .application-hero h1 { font-size: clamp(3.5rem, 18vw, 5.4rem); }
+    .form-section { padding: 28px 18px; }
+    .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
+    .submit-area button { width: 100%; }
+  }
+</style>

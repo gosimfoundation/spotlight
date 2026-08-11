@@ -17,13 +17,13 @@ const hasNotificationBar = false
 
 const slug = Astro.url.pathname
 const isShenzhenPage = /^\/(?:(?:fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
-const openingSoonText: Record<Locale, string> = {
-  en: "Opening Soon",
-  fr: "Bientôt disponible",
-  zh: "即将开放",
+const applyNowText: Record<Locale, string> = {
+  en: "Apply Now",
+  fr: "Candidater",
+  zh: "立即报名",
 }
-const headerCtaText = isShenzhenPage ? openingSoonText[locale] : t("nav.headerCta")
-const headerCtaLink = isShenzhenPage ? "#apply" : getLocalizedPath("/shenzhen2026", locale)
+const headerCtaText = isShenzhenPage ? applyNowText[locale] : t("nav.headerCta")
+const headerCtaLink = isShenzhenPage ? getLocalizedPath("/shenzhen2026/apply", locale) : getLocalizedPath("/shenzhen2026", locale)
 
 const links = [
   {
