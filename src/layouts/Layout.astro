@@ -111,7 +111,7 @@ const {
       // Auto-redirect based on browser language (only on default English pages)
       (function() {
         var el = document.querySelector('script[data-locale]');
-        if (!el || el.getAttribute('data-locale') !== 'en') return;
+        if (!el || el.getAttribute('data-locale') !== 'en' || window.location.pathname.startsWith('/en/')) return;
         var stored = document.cookie.match(/(?:^|;\s*)locale=(\w+)/);
         if (stored) return;
         var lang = (navigator.language || '').toLowerCase();

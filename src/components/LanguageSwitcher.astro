@@ -1,8 +1,21 @@
 ---
-import { locales, localeNames, getLocaleFromUrl, getLocalizedPath } from "../i18n/translations";
+import { locales, localeNames, getLocaleFromUrl, getLocalizedPath, type Locale } from "../i18n/translations";
 
-const currentLocale = getLocaleFromUrl(Astro.url);
-const currentPath = Astro.url.pathname.replace(/^\/(fr|zh)/, "") || "/";
+interface Props {
+  locale?: Locale;
+}
+
+const currentLocale = Astro.props.locale || getLocaleFromUrl(Astro.url);
+const isApplicationPath = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026\/apply(?:\/|$)/.test(Astro.url.pathname);
+const currentPath = Astro.url.pathname.replace(/^\/(en|fr|zh)/, "") || "/";
+const applicationPaths: Record<Locale, string> = {
+  en: "/en/shenzhen2026/apply/",
+  fr: "/fr/shenzhen2026/apply/",
+  zh: "/shenzhen2026/apply/",
+};
+const localePath = (locale: Locale) => isApplicationPath
+  ? applicationPaths[locale]
+  : getLocalizedPath(currentPath, locale);
 ---
 
 <div class="lang-switcher">
@@ -20,7 +33,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(fr|zh)/, "") || "/";
   <div class="lang-dropdown">
     {locales.map((locale) => (
       <a
-        href={getLocalizedPath(currentPath, locale)}
+        href={localePath(locale)}
         class={`lang-option ${locale === currentLocale ? "active" : ""}`}
         data-locale={locale}
       >

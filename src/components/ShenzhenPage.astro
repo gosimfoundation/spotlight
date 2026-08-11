@@ -287,7 +287,9 @@ const content = {
 
 const c = content[locale] || content.en;
 const sectionTitle = (text: string) => text.split("\n");
-const applyPath = locale === "en" ? "/shenzhen2026/apply/" : `/${locale}/shenzhen2026/apply/`;
+const applyPath = locale === "zh"
+  ? "/shenzhen2026/apply/"
+  : `/${locale}/shenzhen2026/apply/`;
 ---
 
 <Layout

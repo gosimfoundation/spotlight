@@ -21,6 +21,7 @@ const content = {
     time: "About 20–30 minutes",
     prepare: "Before you start",
     prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "Optional demo video and source repository links", "Your Shenzhen build goal and support needs"],
+    fileNote: "This form does not upload files. Prototype, video, and repository materials are submitted as accessible links, so there is no file-size limit here.",
     required: "Required fields are marked with *",
     sections: ["Contact & team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
     contactTitle: "Contact & team",
@@ -85,6 +86,11 @@ const content = {
     successTitle: "Thank you. Your project is in review.",
     successText: "Save the reference below. We will contact the primary email if the selection team needs anything else.",
     reference: "Reference",
+    summaryTitle: "Submitted information",
+    summaryIntro: "This is the information sent with this application.",
+    summaryEmpty: "Not provided",
+    summaryConfirmed: "Confirmed",
+    summaryConsent: "Required confirmations",
     returnProgram: "Return to program",
   },
   zh: {
@@ -99,6 +105,7 @@ const content = {
     time: "预计 20–30 分钟",
     prepare: "开始前请准备",
     prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "可选的演示视频与代码仓库链接", "深圳现场的开发目标与资源需求"],
+    fileNote: "本问卷不直接上传文件。原型、视频和代码材料均填写可访问链接，因此这里没有文件大小限制。",
     required: "标有 * 的项目为必填",
     sections: ["联系人和团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
     contactTitle: "联系人和团队",
@@ -163,6 +170,11 @@ const content = {
     successTitle: "谢谢，你的项目已进入评审。",
     successText: "请保存以下编号。如评审团队需要补充信息，我们会联系主要联系人邮箱。",
     reference: "报名编号",
+    summaryTitle: "本次提交内容",
+    summaryIntro: "以下是本次报名实际发送到评审数据库的信息。",
+    summaryEmpty: "未填写",
+    summaryConfirmed: "已全部确认",
+    summaryConsent: "隐私、行为准则与材料授权",
     returnProgram: "返回项目页面",
   },
   fr: {
@@ -177,6 +189,7 @@ const content = {
     time: "Environ 20–30 minutes",
     prepare: "À préparer",
     prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Des liens facultatifs vers la démo vidéo et le dépôt", "Votre objectif à Shenzhen et vos besoins"],
+    fileNote: "Ce formulaire ne téléverse aucun fichier. Les prototypes, vidéos et dépôts sont transmis par lien accessible ; il n’y a donc pas de limite de taille de fichier ici.",
     required: "Les champs obligatoires portent un *",
     sections: ["Contact et équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
     contactTitle: "Contact et équipe",
@@ -241,12 +254,52 @@ const content = {
     successTitle: "Merci. Votre projet est en cours d’évaluation.",
     successText: "Conservez la référence ci-dessous. Nous contacterons l’adresse principale si l’équipe de sélection a besoin d’informations.",
     reference: "Référence",
+    summaryTitle: "Informations envoyées",
+    summaryIntro: "Voici les informations transmises avec cette candidature.",
+    summaryEmpty: "Non renseigné",
+    summaryConfirmed: "Confirmé",
+    summaryConsent: "Confirmations obligatoires",
     returnProgram: "Retour au programme",
   },
 } as const;
 
 const c = content[locale] || content.en;
 const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen2026/`;
+const languageLinks = [
+  { locale: "zh", label: "中文", href: "/shenzhen2026/apply/" },
+  { locale: "en", label: "EN", href: "/en/shenzhen2026/apply/" },
+  { locale: "fr", label: "FR", href: "/fr/shenzhen2026/apply/" },
+] as const;
+const summaryFields = [
+  { name: "applicant_name", label: c.applicantName },
+  { name: "applicant_email", label: c.applicantEmail },
+  { name: "contact_handle", label: c.contactHandle },
+  { name: "country_region", label: c.countryRegion },
+  { name: "team_organization", label: c.teamOrganization },
+  { name: "team_size", label: c.teamSize },
+  { name: "team_members_and_roles", label: c.teamMembers },
+  { name: "project_name", label: c.projectName },
+  { name: "project_url", label: c.projectUrl, type: "url" },
+  { name: "product_form", label: c.productForm, type: "select" },
+  { name: "one_liner", label: c.oneLiner },
+  { name: "target_users", label: c.targetUsers },
+  { name: "problem_statement", label: c.problemStatement },
+  { name: "category_thesis", label: c.categoryThesis },
+  { name: "agent_core", label: c.agentCore },
+  { name: "current_stage", label: c.currentStage, type: "select" },
+  { name: "prototype_url", label: c.prototypeUrl, type: "url" },
+  { name: "demo_video_url", label: c.demoVideoUrl, type: "url" },
+  { name: "repository_url", label: c.repositoryUrl, type: "url" },
+  { name: "technology_summary", label: c.technologySummary },
+  { name: "traction", label: c.traction },
+  { name: "shenzhen_attendance", label: c.attendance, type: "select" },
+  { name: "open_source_status", label: c.openSourceStatus, type: "select" },
+  { name: "license_name", label: c.licenseName },
+  { name: "sprint_goal", label: c.sprintGoal },
+  { name: "support_needs", label: c.supportNeeds, type: "checkboxes" },
+  { name: "support_details", label: c.supportDetails },
+  { name: "consents", label: c.summaryConsent, type: "consent" },
+];
 ---
 
 <Layout
@@ -263,7 +316,14 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
     <header class="application-hero" data-theme-section="dark">
       <div class="hero-grid"></div>
       <div class="application-container hero-content">
-        <a class="back-link" href={programPath}>← {c.back}</a>
+        <div class="hero-topline">
+          <a class="back-link" href={programPath}>← {c.back}</a>
+          <nav class="application-language-switch" aria-label="Application language">
+            {languageLinks.map((item) => (
+              <a href={item.href} data-locale={item.locale} aria-current={locale === item.locale ? "page" : undefined}>{item.label}</a>
+            ))}
+          </nav>
+        </div>
         <p class="eyebrow">{c.eyebrow}</p>
         <h1>{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
         <p class="hero-intro">{c.intro}</p>
@@ -280,6 +340,7 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
         <div class="guide-card">
           <p class="guide-title">{c.prepare}</p>
           <ul>{c.prepareItems.map((item) => <li>{item}</li>)}</ul>
+          <p class="file-note">{c.fileNote}</p>
           <small>{c.required}</small>
         </div>
         <nav aria-label="Application sections">
@@ -374,11 +435,24 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
           </fieldset>
         </form>
 
-        <section class="success-panel" id="success-panel" aria-live="polite" hidden>
+        <section
+          class="success-panel"
+          id="success-panel"
+          data-summary-fields={JSON.stringify(summaryFields)}
+          data-summary-empty={c.summaryEmpty}
+          data-summary-confirmed={c.summaryConfirmed}
+          aria-live="polite"
+          hidden
+        >
           <p class="eyebrow">{c.successEyebrow}</p>
           <h2>{c.successTitle}</h2>
           <p>{c.successText}</p>
-          <div><span>{c.reference}</span><strong id="submission-reference"></strong></div>
+          <div class="reference-card"><span>{c.reference}</span><strong id="submission-reference"></strong></div>
+          <section class="submission-summary" aria-labelledby="submission-summary-title">
+            <h3 id="submission-summary-title">{c.summaryTitle}</h3>
+            <p>{c.summaryIntro}</p>
+            <dl id="submission-summary"></dl>
+          </section>
           <a href={programPath}>{c.returnProgram} →</a>
         </section>
       </section>
@@ -390,7 +464,15 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
   const form = document.querySelector<HTMLFormElement>("#application-form");
   const successPanel = document.querySelector<HTMLElement>("#success-panel");
   const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
+  const summaryOutput = document.querySelector<HTMLDListElement>("#submission-summary");
   const startedAt = Date.now();
+
+  document.querySelectorAll<HTMLAnchorElement>(".application-language-switch a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const selectedLocale = link.dataset.locale;
+      if (selectedLocale) document.cookie = `locale=${selectedLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
+    });
+  });
 
   const optionalTextFields = [
     "contact_handle", "team_organization", "project_url", "demo_video_url",
@@ -401,6 +483,56 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
     const bytes = new Uint8Array(6);
     crypto.getRandomValues(bytes);
     return `SZ26-${Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
+  };
+
+  type SummaryField = {
+    name: string;
+    label: string;
+    type?: "url" | "select" | "checkboxes" | "consent";
+  };
+
+  const renderSubmissionSummary = (payload: Record<string, string | number | boolean | string[] | null>) => {
+    if (!successPanel || !summaryOutput) return;
+    const fields = JSON.parse(successPanel.dataset.summaryFields || "[]") as SummaryField[];
+    const emptyLabel = successPanel.dataset.summaryEmpty || "—";
+    const confirmedLabel = successPanel.dataset.summaryConfirmed || "Confirmed";
+    const fragment = document.createDocumentFragment();
+
+    fields.forEach((field) => {
+      const row = document.createElement("div");
+      const term = document.createElement("dt");
+      const detail = document.createElement("dd");
+      term.textContent = field.label;
+
+      let displayValue: string | number | null = payload[field.name] as string | number | null;
+      if (field.type === "select") {
+        const select = form?.querySelector<HTMLSelectElement>(`select[name="${field.name}"]`);
+        displayValue = select?.selectedOptions[0]?.textContent?.trim() || emptyLabel;
+      } else if (field.type === "checkboxes") {
+        const selected = Array.from(form?.querySelectorAll<HTMLInputElement>(`input[name="${field.name}"]:checked`) || [])
+          .map((input) => input.closest("label")?.textContent?.trim())
+          .filter(Boolean);
+        displayValue = selected.length ? selected.join("、") : emptyLabel;
+      } else if (field.type === "consent") {
+        displayValue = confirmedLabel;
+      }
+
+      if (field.type === "url" && typeof displayValue === "string" && displayValue) {
+        const link = document.createElement("a");
+        link.href = displayValue;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = displayValue;
+        detail.append(link);
+      } else {
+        detail.textContent = displayValue === null || displayValue === "" ? emptyLabel : String(displayValue);
+      }
+
+      row.append(term, detail);
+      fragment.append(row);
+    });
+
+    summaryOutput.replaceChildren(fragment);
   };
 
   form?.addEventListener("submit", async (event) => {
@@ -476,6 +608,7 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
       });
 
       if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+      renderSubmissionSummary(payload);
       form.hidden = true;
       if (referenceOutput) referenceOutput.textContent = reference;
       if (successPanel) {
@@ -498,8 +631,13 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
   .application-hero { position: relative; overflow: hidden; padding: 150px 0 74px; color: #edf6ff; background: radial-gradient(circle at 67% 58%, rgba(53, 115, 181, .38), transparent 34%), #03080f; }
   .hero-grid { position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(rgba(137, 191, 249, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(137, 191, 249, .08) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(to bottom, #000, transparent); }
   .hero-content { position: relative; }
-  .back-link { display: inline-flex; margin-bottom: 54px; color: #87a9cc; font-size: 12px; text-decoration: none; letter-spacing: .04em; }
+  .hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 54px; }
+  .back-link { display: inline-flex; color: #87a9cc; font-size: 12px; text-decoration: none; letter-spacing: .04em; }
   .back-link:hover { color: #fff; }
+  .application-language-switch { display: flex; align-items: center; gap: 6px; }
+  .application-language-switch a { min-width: 46px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(143, 196, 255, .28); color: #8eabc9; background: rgba(15, 38, 63, .45); font-size: 10px; font-weight: 700; text-decoration: none; letter-spacing: .06em; }
+  .application-language-switch a:hover { border-color: rgba(157, 208, 255, .64); color: #e8f5ff; }
+  .application-language-switch a[aria-current="page"] { border-color: #a9d5ff; color: #07101a; background: #a9d5ff; }
   .eyebrow { color: #80b7ef; font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
   .application-hero h1 { margin: 20px 0 28px; font-size: clamp(4rem, 8vw, 8.2rem); font-weight: 300; line-height: .79; letter-spacing: -.085em; text-transform: uppercase; }
   .hero-intro { max-width: 760px; color: rgba(214, 230, 247, .7); font-size: clamp(1rem, 1.4vw, 1.22rem); line-height: 1.75; }
@@ -515,6 +653,7 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
   .guide-card ul { display: grid; gap: 12px; margin: 18px 0 20px; }
   .guide-card li { position: relative; padding-left: 18px; color: var(--muted); font-size: 11px; line-height: 1.5; }
   .guide-card li::before { content: "+"; position: absolute; left: 0; color: var(--blue-strong); font-weight: 800; }
+  .file-note { margin: 0 0 18px; padding: 13px; color: #526b83; background: #e8f2fb; font-size: 10px; line-height: 1.55; }
   .guide-card small { color: #8190a0; font-size: 10px; }
   .application-guide nav { margin-top: 22px; border-top: 1px solid var(--line); }
   .application-guide nav li { border-bottom: 1px solid var(--line); }
@@ -553,9 +692,19 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
   .success-panel { scroll-margin-top: 100px; padding: clamp(34px, 6vw, 70px); border: 1px solid #a8c9e8; background: #fff; box-shadow: 0 26px 90px rgba(26, 79, 126, .12); }
   .success-panel h2 { max-width: 700px; margin: 18px 0; color: var(--ink); font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .98; letter-spacing: -.065em; }
   .success-panel > p:not(.eyebrow) { max-width: 610px; color: var(--muted); font-size: 14px; line-height: 1.7; }
-  .success-panel > div { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; border: 1px solid var(--line); background: #eef6fd; }
-  .success-panel > div span { color: #6a7d8f; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
-  .success-panel > div strong { font-size: 20px; letter-spacing: .08em; }
+  .reference-card { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; border: 1px solid var(--line); background: #eef6fd; }
+  .reference-card span { color: #6a7d8f; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+  .reference-card strong { font-size: 20px; letter-spacing: .08em; }
+  .submission-summary { margin: 18px 0 32px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .submission-summary h3 { color: var(--ink); font-size: clamp(1.45rem, 2.6vw, 2.25rem); letter-spacing: -.04em; }
+  .submission-summary > p { margin: 8px 0 22px; color: var(--muted); font-size: 11px; }
+  .submission-summary dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .submission-summary dl > div { min-width: 0; padding: 16px 14px 18px 0; border-bottom: 1px solid var(--line); }
+  .submission-summary dl > div:nth-child(odd) { padding-right: 24px; }
+  .submission-summary dl > div:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
+  .submission-summary dt { margin-bottom: 7px; color: #6d7e8f; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; color: #17293b; font-size: 12px; line-height: 1.6; }
+  .submission-summary dd a { color: #2468a9; }
   .success-panel > a { display: block; color: #2468a9; font-size: 12px; font-weight: 700; }
   .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
@@ -569,10 +718,14 @@ const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen202
   @media (max-width: 620px) {
     .application-container { width: calc(100% - 24px); }
     .application-hero { padding: 126px 0 52px; }
-    .back-link { margin-bottom: 38px; }
+    .hero-topline { align-items: flex-start; margin-bottom: 38px; }
+    .application-language-switch { gap: 4px; }
+    .application-language-switch a { min-width: 40px; min-height: 32px; }
     .application-hero h1 { font-size: clamp(3.5rem, 18vw, 5.4rem); }
     .form-section { padding: 28px 18px; }
     .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
+    .submission-summary dl { grid-template-columns: 1fr; }
+    .submission-summary dl > div:nth-child(odd), .submission-summary dl > div:nth-child(even) { padding: 15px 0 17px; border-left: 0; }
     .submit-area button { width: 100%; }
   }
 </style>
