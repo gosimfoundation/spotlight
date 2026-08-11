@@ -16,7 +16,7 @@ const t = getTranslations(locale);
 const hasNotificationBar = false
 
 const slug = Astro.url.pathname
-const isShenzhenPage = /^\/(?:(?:fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
+const isShenzhenPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
 const applyNowText: Record<Locale, string> = {
   en: "Apply Now",
   fr: "Candidater",

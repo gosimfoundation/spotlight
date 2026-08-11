@@ -6,6 +6,7 @@ interface Props {
 }
 
 const currentLocale = Astro.props.locale || getLocaleFromUrl(Astro.url);
+const isShenzhenPath = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026(?:\/|$)/.test(Astro.url.pathname);
 const isApplicationPath = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026\/apply(?:\/|$)/.test(Astro.url.pathname);
 const currentPath = Astro.url.pathname.replace(/^\/(en|fr|zh)/, "") || "/";
 const applicationPaths: Record<Locale, string> = {
@@ -16,12 +17,16 @@ const applicationPaths: Record<Locale, string> = {
 const localePath = (locale: Locale) => isApplicationPath
   ? applicationPaths[locale]
   : getLocalizedPath(currentPath, locale);
+const availableLocales = isShenzhenPath ? locales.filter((locale) => locale !== "fr") : locales;
 ---
 
 <div class="lang-switcher">
   <button
+    type="button"
     class="lang-current"
     aria-label={`Change language. Current language: ${localeNames[currentLocale]}`}
+    aria-haspopup="true"
+    aria-expanded="false"
     title={localeNames[currentLocale]}
   >
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -31,7 +36,7 @@ const localePath = (locale: Locale) => isApplicationPath
     </svg>
   </button>
   <div class="lang-dropdown">
-    {locales.map((locale) => (
+    {availableLocales.map((locale) => (
       <a
         href={localePath(locale)}
         class={`lang-option ${locale === currentLocale ? "active" : ""}`}
@@ -44,11 +49,37 @@ const localePath = (locale: Locale) => isApplicationPath
 </div>
 
 <script>
-  document.querySelectorAll(".lang-option").forEach((el) => {
-    el.addEventListener("click", () => {
-      const locale = (el as HTMLElement).dataset.locale;
-      document.cookie = `locale=${locale};path=/;max-age=${60 * 60 * 24 * 365}`;
+  const closeLanguageSwitchers = (except?: HTMLElement) => {
+    document.querySelectorAll<HTMLElement>(".lang-switcher.is-open").forEach((switcher) => {
+      if (switcher === except) return;
+      switcher.classList.remove("is-open");
+      switcher.querySelector<HTMLButtonElement>(".lang-current")?.setAttribute("aria-expanded", "false");
     });
+  };
+
+  document.querySelectorAll<HTMLElement>(".lang-switcher").forEach((switcher) => {
+    const button = switcher.querySelector<HTMLButtonElement>(".lang-current");
+    button?.addEventListener("click", () => {
+      const willOpen = !switcher.classList.contains("is-open");
+      closeLanguageSwitchers(switcher);
+      switcher.classList.toggle("is-open", willOpen);
+      button.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    switcher.querySelectorAll<HTMLElement>(".lang-option").forEach((el) => {
+      el.addEventListener("click", () => {
+        const locale = el.dataset.locale;
+        if (locale) document.cookie = `locale=${locale};path=/;max-age=${60 * 60 * 24 * 365}`;
+      });
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target as Element).closest(".lang-switcher")) closeLanguageSwitchers();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLanguageSwitchers();
   });
 </script>
 
@@ -102,7 +133,8 @@ const localePath = (locale: Locale) => isApplicationPath
     min-width: 90px;
   }
   .lang-switcher:hover .lang-dropdown,
-  .lang-switcher:focus-within .lang-dropdown {
+  .lang-switcher:focus-within .lang-dropdown,
+  .lang-switcher.is-open .lang-dropdown {
     display: block;
   }
   .lang-option {
