@@ -10,34 +10,35 @@ const { locale } = Astro.props;
 
 const content = {
   zh: {
-    metaTitle: "Spotlight 深圳 2026：定义下一代 AI 产品范式",
-    metaDesc: "面向全球产品创造者的 AI 原生产品选拔与加速计划。寻找足以重新定义个人计算与人机交互的系统级作品。",
-    eyebrow: "Spotlight 深圳 2026",
+    metaTitle: "Spotlight Shenzhen 2026：下一代 AI 原生产品",
+    metaDesc: "面向全球产品团队的选拔与加速计划。提交可交互的 AI 原生产品原型，入选后在深圳完成集中开发与现场展示。",
+    eyebrow: "Spotlight Shenzhen 2026",
+    heroProgramTitle: "下一代 AI\n原生产品",
     heroTitle: "NEXT IS NOT",
     heroAccent: "GIVEN.",
     heroStatement: '"The best way to predict the future is to invent it."',
-    heroText: "我们寻找的不是又一个接入模型的应用，而是足以建立新品类、重写交互规则，并走向全球市场的 AI 原生产品。",
+    heroText: "我们寻找围绕真实用户需求设计的产品：Agent 能理解情境、调用工具并完成任务，而不是只在现有应用里增加一个聊天框。硬件、软件或跨设备系统都可以，申请时需要提供可交互原型。",
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "与 GOSIM Shenzhen 2026 同期举办",
     heroSecondary: "立即报名",
-    heroNote: "报名现已开放；截止日期将在本页面公布",
+    heroNote: "报名现已开放；首轮提交截止 9 月 13 日（周日）北京时间 23:59",
     meta: ["2026.10.16—17", "中国 · 深圳", "全球项目征集"],
     signalLabel: "2026 / SELECTION MANDATE",
-    signalTitle: "寻找能够定义新品类的 AI 原生产品",
-    signalTags: ["品类定义", "Agent 原生", "系统完成度", "全球潜力"],
+    signalTitle: "寻找真正解决问题、已经可以上手体验的 AI 原生产品",
+    signalTags: ["真实用户问题", "Agent 完成任务", "可交互原型", "全球使用场景"],
     agentLabel: "SPOTLIGHT / SELECTION DIRECTIVE",
     agentContext: "MISSION 2026",
-    agentPrompt: "做出一个让今天的 App 范式显得过时的产品。",
-    agentStatus: "目标：定义下一代个人计算的默认交互",
-    agentSteps: ["提出品类命题", "建立系统核心", "交付可运行产品", "证明全球价值"],
-    definitionKicker: "时间线 / 关键日期",
-    definitionTitle: "什么时候提交，\n每一步交什么",
-    definitionText: "报名与评选日期将在确认后公布。最终发布日期已经确定；有意参选的团队现在就应开始验证核心命题、系统架构与关键体验。",
+    agentPrompt: "做一个能替用户完成完整任务，而不只是回答问题的产品。",
+    agentStatus: "目标：解决真实用户在具体场景中的问题",
+    agentSteps: ["明确用户与场景", "展示 Agent 完整工作", "交付可运行原型", "准备深圳现场目标"],
+    definitionKicker: "TL;DR / 参赛流程",
+    definitionTitle: "从提交原型，\n到深圳现场展示",
+    definitionText: "首轮提交于 9 月 13 日（周日）北京时间 23:59 截止。9 月 14—18 日线上评审，9 月 21 日公布入选团队并开始远程准备；10 月 14—15 日深圳集中开发，10 月 16—17 日现场展示。",
     timeline: [
-      ["现已开放", "全球征集开放", "提交品类命题、目标市场与核心产品判断"],
-      ["日期待公布", "申请截止", "提交可交互原型、产品影片与系统实现计划"],
-      ["日期待公布", "入选名单公布", "进入深圳加速阶段，完成工程与发布准备"],
-      ["2026.10.16—17", "全球现场发布", "在 GOSIM Shenzhen 面向全球社区发布可运行产品"],
+      ["现在—09.13", "首轮提交", "9 月 13 日（周日）北京时间 23:59 前提交团队、用户场景和可访问原型"],
+      ["09.14—09.18", "线上评审", "评委实际查看原型，确认用户价值、Agent 的作用和当前完成度"],
+      ["09.21—10.09", "入选与远程准备", "9 月 21 日公布结果；随后确定开发目标、出行安排和演示计划"],
+      ["10.14—10.17", "深圳开发与展示", "14—15 日集中开发；16—17 日在 GOSIM Shenzhen 现场演示"],
     ],
     pillars: [
       ["Agent OS", "推荐的软件与交互基础"],
@@ -52,39 +53,39 @@ const content = {
     beforeLabel: "今天",
     afterLabel: "Spotlight",
     directionsKicker: "02 / 产品形态",
-    directionsTitle: "不限定载体，\n只判断能否定义新品类",
-    directionsText: "硬件、软件或跨设备系统都可以参选。关键不在形式，而在于产品是否提出鲜明的系统命题，是否让 Agent 成为不可替代的核心，并以足够成熟的体验证明其成立。",
-    principlesTitle: "Spotlight 的入场标准",
+    directionsTitle: "产品形态不限，\n但鼓励创造新的用户体验",
+    directionsText: "我们优先关注面向真实消费者的产品。你可以自研新设备、改造或整合现有硬件，也可以提交纯软件。评审看的，是它为谁解决什么问题、Agent 具体完成哪些任务，以及现在能否实际体验。",
+    principlesTitle: "我们具体看这四件事",
     principles: [
-      ["品类级命题", "不是功能优化，而是对产品边界的重新定义"],
-      ["Agent 原生", "移除 Agent，产品的核心价值即不再成立"],
-      ["系统级完成", "硬件、软件、模型与交互形成统一判断"],
-      ["全球化潜力", "面向足够重要的问题与可扩展的市场"],
+      ["用户需求", "明确说明谁在什么场景遇到什么问题，以及现有产品为什么不够好"],
+      ["Agent 的工作", "展示 Agent 如何理解情境、调用工具并完成一段多步骤任务"],
+      ["可体验程度", "提供能点击、运行或现场操作的原型，让评委看到完整流程"],
+      ["做成产品的能力", "团队能够继续开发、稳定交付，并把产品带给更多用户"],
     ],
     formsTitle: "产品形态不限",
-    forms: [["新一代智能终端", "从设备形态、感知能力到交互逻辑，建立完整而独立的产品系统"], ["环境与跨设备智能", "让 Agent 跨越单一屏幕，持续理解情境并协调服务、空间与设备"], ["AI 原生软件系统", "以全新的工作流与界面范式，取代现有应用的核心操作方式"]],
+    forms: [["自研智能硬件", "为特定场景设计新的设备，并把感知、交互和 Agent 能力做进同一产品"], ["现有设备与跨设备系统", "改造或连接手机、电脑、可穿戴、家居与空间设备，让 Agent 协同完成任务"], ["AI 原生软件", "不依赖新硬件，用 Agent 重新组织一个完整工作流，而不只是增加聊天入口"]],
     formatKicker: "04 / 比赛流程",
-    formatTitle: "全球征集 → 深圳封闭加速 → 全球发布",
-    formatText: "Spotlight 不是创意征集，而是一条从产品判断到公开发布的加速路径。每一阶段都会提高完成标准，最终只留下能够被真实体验和验证的作品。",
+    formatTitle: "线上评选 → 深圳共创 → 现场展示",
+    formatText: "先通过线上材料和原型确认项目是否值得继续；入选团队在深圳用约两天解决最关键的工程、体验和演示问题；最后在 GOSIM 大会面对开发者、产业伙伴和开源社区现场展示。",
     stages: [
-      ["01", "全球项目筛选", "判断品类价值与创始产品能力", "提交产品论证、可交互原型、产品影片与系统计划"],
-      ["02", "深圳封闭加速", "集中完成最关键的工程与体验跃迁", "在产品、软件、硬件与演示导师支持下交付完整版本"],
-      ["03", "全球现场发布", "让真正的新产品接受公开检验", "面向产业、开发者与国际开源社区完成首次正式发布"],
+      ["01", "线上项目评选", "看清用户、场景和当前原型", "评委查看申请材料并实际体验团队提供的产品或演示"],
+      ["02", "深圳集中共创", "把最关键的使用流程做完整、做稳定", "产品、软件、硬件和演示导师围绕明确目标提供支持"],
+      ["03", "GOSIM 现场展示", "让观众在几分钟内看懂产品价值", "团队现场运行产品，展示 Agent 如何完成真实任务"],
     ],
     submitKicker: "03 / 线上提交",
-    submitTitle: "用产品证据，\n证明你的判断",
-    submitText: "我们不以概念文本评选概念。申请必须清楚呈现产品命题、目标市场与关键体验，并用可交互原型证明团队具备把判断变成产品的能力。",
+    submitTitle: "让评委在几分钟内\n看懂并试用你的产品",
+    submitText: "申请不需要长篇概念说明。请直接告诉我们：谁在使用、要完成什么任务、Agent 做了哪些工作，以及目前哪些部分已经能运行。至少提供一个可访问的交互原型或清晰演示。",
     materialsTitle: "一份有竞争力的申请应包括",
     materials: [
-      ["品类命题", "你要建立什么新品类，为什么必须在今天出现"],
-      ["Agent 核心", "Agent 如何从根本上改变产品能力与交互结构"],
-      ["可运行证据", "真实设备、应用、网页或高可信交互原型"],
-      ["产品影片", "用完整叙事呈现关键体验、技术可信度与产品气质"],
-      ["系统路线图", "从当前版本到可规模化产品的工程与市场路径"],
+      ["一句话说明", "它是什么、给谁用、解决什么问题"],
+      ["核心使用流程", "从用户提出需求到 Agent 完成任务，展示完整步骤"],
+      ["可访问原型", "网站、App、设备、Figma 原型或模拟器均可，链接需能打开"],
+      ["一分钟演示", "优先展示真实操作和结果，不需要制作品牌宣传片"],
+      ["下一步计划", "说明希望在深圳两天完成什么，以及需要哪些支持"],
     ],
     accelerateKicker: "05 / 深圳现场加速",
-    accelerateTitle: "把入选作品推到首次正式发布的标准",
-    accelerateText: "入选团队将在大会前进入约两天的集中加速。这里不再讨论方向是否成立，而是聚焦工程可靠性、产品完整度、叙事强度与现场发布质量。",
+    accelerateTitle: "用两天把最关键的产品体验做扎实",
+    accelerateText: "入选团队带着已有原型来到深圳，并先确定一个可以在两天内完成的目标。现场时间用于开发、联调、用户流程优化和演示排练，不会从零讨论一个新概念。",
     support: [
       ["产品评审", "围绕定位、体验结构与发布版本进行高强度评审"],
       ["AI 工程资源", "模型额度、开发工具与软件工程支持"],
@@ -96,31 +97,31 @@ const content = {
     budgetTitle: "定向资源支持",
     budgetNote: "组委会将根据入选项目的关键缺口，协调必要的软件、设备整合、原型制作与发布资源。",
     judgingKicker: "06 / 评审机制",
-    judgingTitle: "只有足以改变品类的产品，值得站上最终舞台",
-    judgingText: "60% 判断产品是否拥有独立、重要且可扩展的品类价值；40% 检验团队是否已经把这一判断交付为可信、稳定、可运行的系统。",
-    subjective: "主观评分",
-    objective: "客观完成度",
-    subjectiveItems: [["品类价值与市场判断", ""], ["Agent 原生程度", ""], ["产品体验与系统设计", ""], ["全球影响力与扩展潜力", ""]],
-    objectiveItems: ["公开可运行、可验证", "软件、模型与设备系统整合", "技术难度、可靠性与延展性", "整体完成度与团队交付能力"],
+    judgingTitle: "评委会实际看什么",
+    judgingText: "评委会先看产品是否解决明确且重要的用户问题，再看 Agent 是否真正承担任务，以及原型是否完整、稳定、可验证。概念表达不会代替可运行证据。",
+    subjective: "产品价值与体验",
+    objective: "实现与可验证性",
+    subjectiveItems: [["用户问题是否清楚、重要", ""], ["Agent 是否显著减少步骤或完成过去做不到的任务", ""], ["关键体验是否直观、好用", ""], ["产品能否服务更多用户与市场", ""]],
+    objectiveItems: ["原型可访问并完成主要流程", "模型、工具和设备协同稳定", "关键技术不是只在视频中演示", "团队能在深圳完成目标版本"],
     openKicker: "07 / 成果与开源",
-    openTitle: "从入选作品，到可被世界验证的公开成果",
+    openTitle: "最终展示后，留下可以继续查看和使用的成果",
     openStages: [
       ["线上海选", "不强制开源，但必须提供可验证原型"],
       ["入选之后", "原则上开放核心代码、原型或主要成果"],
       ["最终展示", "提交公开仓库、项目说明或明确的成果公开方式"],
     ],
-    openNote: "最终入选项目应以公开仓库、技术说明或明确的成果发布方式接受社区验证。涉及第三方商业代码、硬件设计或个人隐私，可提前申请合理豁免。",
+    openNote: "最终入选项目需要提供公开仓库、技术说明、可访问产品或其他明确的发布方式。涉及第三方商业代码、硬件设计或个人隐私时，可以提前说明并申请合理豁免。",
     faqKicker: "08 / FAQ",
     faqTitle: "常见问题",
     faqs: [
-      ["一定要做硬件吗？", "不强制。我们更关心你是否建立了一个完整、独立且难以被复制的产品系统；硬件、软件或跨设备形态都可以成为答案。"],
+      ["一定要做硬件吗？", "不强制。自研硬件、改造现有设备、纯软件或跨设备系统都可以。只要能说明具体用户场景，展示 Agent 实际完成任务，并提供可体验原型。"],
       ["只有概念可以申请吗？", "不可以。申请至少需要能验证关键体验的交互原型；最终入选项目必须在深圳交付稳定、可运行、可公开演示的产品。"],
-      ["早期团队可以参加吗？", "可以，但早期不等于低标准。团队需要具备清晰的产品判断、核心实现能力，以及在有限时间内交付高完成度版本的意愿。"],
-      ["报名什么时候开放？", "报名现已开放。截止日期确认后会在本页面公布；较早提交的项目可能会滚动评审。"],
+      ["早期团队可以参加吗？", "可以。你需要有清楚的目标用户和核心场景、能验证主要流程的原型，以及在有限时间内继续开发和交付的能力。"],
+      ["报名什么时候截止？", "首轮提交截止时间为 2026 年 9 月 13 日（周日）北京时间 23:59，9 月 21 日公布入选团队。"],
     ],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
-    applyText: "提交你的品类命题、系统原型与首次发布计划，申请进入 Spotlight 深圳 2026。",
+    applyText: "提交项目介绍和原型链接，并说明你希望在深圳完成的版本，申请进入 Spotlight Shenzhen 2026。",
     applyButton: "开始填写问卷",
     applyHint: "预计用时 20–30 分钟；可使用中文或英文提交",
     conference: "访问 GOSIM Shenzhen 2026",
@@ -129,6 +130,7 @@ const content = {
     metaTitle: "Spotlight Shenzhen 2026: Define the Next AI Product Paradigm",
     metaDesc: "A global selection and acceleration program for category-defining AI-native products, systems, and interfaces.",
     eyebrow: "Spotlight Shenzhen 2026",
+    heroProgramTitle: "Next-Generation\nAI-Native Products",
     heroTitle: "NEXT IS NOT",
     heroAccent: "GIVEN.",
     heroStatement: '"The best way to predict the future is to invent it."',
@@ -136,7 +138,7 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Co-located with GOSIM Shenzhen 2026",
     heroSecondary: "Apply now",
-    heroNote: "Applications are open; the closing date will be announced here",
+    heroNote: "Applications close Sunday, Sep 13, 2026 at 23:59 Beijing time",
     meta: ["OCT 16—17, 2026", "SHENZHEN, CHINA", "GLOBAL OPEN CALL"],
     signalLabel: "2026 / SELECTION MANDATE",
     signalTitle: "Seeking AI-native products capable of defining a category",
@@ -148,12 +150,12 @@ const content = {
     agentSteps: ["State the category thesis", "Build the system core", "Deliver a working product", "Prove global relevance"],
     definitionKicker: "TIMELINE / KEY DATES",
     definitionTitle: "What to submit,\nand when",
-    definitionText: "Application and selection dates have not been published yet. This timeline will update as soon as they are confirmed; meanwhile, use each milestone to prepare the right materials. Final showcase dates are confirmed.",
+    definitionText: "First-round applications close Sunday, Sep 13 at 23:59 Beijing time (UTC+8). Online review runs Sep 14–18. Selected teams are announced Sep 21, when remote preparation begins. The Shenzhen sprint is Oct 14–15, followed by the GOSIM showcase on Oct 16–17.",
     timeline: [
-      ["OPEN NOW", "Applications open", "Submit your product concept, target user, and core scenario"],
-      ["DATE TO BE ANNOUNCED", "Application deadline", "Submit an interactive prototype, demo under one minute, and build plan"],
-      ["DATE TO BE ANNOUNCED", "Selection results", "Selected teams confirm Shenzhen travel, fabrication plan, and support needs"],
-      ["OCT 16—17, 2026", "Final showcase", "Demo the working product live at GOSIM Shenzhen"],
+      ["NOW—SEP 13", "First-round submission", "Submit the team, user scenario, and accessible prototype by 23:59 Beijing time"],
+      ["SEP 14—18", "Online review", "Reviewers test prototypes and assess user value, the Agent’s role, and current completion"],
+      ["SEP 21—OCT 9", "Selection and remote prep", "Results are announced Sep 21; teams then confirm build, travel, and demo plans"],
+      ["OCT 14—17", "Shenzhen sprint and showcase", "Build on Oct 14–15 and demo live at GOSIM Shenzhen on Oct 16–17"],
     ],
     pillars: [["Agent OS", "Recommended software and interaction layer"], ["AI Agent", "The intelligent core of the product"], ["Software UI", "The base canvas for the experience"], ["Hardware", "A form factor that raises fidelity"], ["Product experience", "The primary object of judging"]],
     shiftTitle: "The product shift we want to accelerate",
@@ -162,7 +164,7 @@ const content = {
     beforeLabel: "Today",
     afterLabel: "Spotlight",
     directionsKicker: "02 / PRODUCT FORM",
-    directionsTitle: "The medium is open.\nThe bar is category-level.",
+    directionsTitle: "Any product form.\nNew user experiences encouraged.",
     directionsText: "Hardware, software, and cross-device systems are all eligible. What matters is a distinct system thesis, an Agent that is essential rather than ornamental, and a product experience mature enough to prove the thesis.",
     principlesTitle: "The Spotlight entry standard",
     principles: [["Category thesis", "Redefine a product boundary instead of optimizing a feature"], ["Agent-native", "Remove the Agent and the central value no longer exists"], ["System complete", "Hardware, software, models, and interaction express one conviction"], ["Global potential", "Address an important problem with a market that can scale"]],
@@ -196,7 +198,7 @@ const content = {
     openNote: "Reasonable exemptions may be requested for third-party commercial code, hardware designs, or personal data. Strong projects may receive GOSIM promotion, media exposure, and further incubation support.",
     faqKicker: "08 / FAQ",
     faqTitle: "Frequently asked questions",
-    faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "Applications are open now. The closing date will be announced on this page; earlier submissions may be reviewed on a rolling basis."]],
+    faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
     applyText: "Submit your category thesis, system prototype, and first-release plan for Spotlight Shenzhen 2026.",
@@ -208,6 +210,7 @@ const content = {
     metaTitle: "Spotlight Shenzhen 2026 : définir le prochain paradigme produit IA",
     metaDesc: "Un programme mondial de sélection et d’accélération pour des produits natifs IA capables de définir une catégorie.",
     eyebrow: "Spotlight Shenzhen 2026",
+    heroProgramTitle: "La prochaine génération\nde produits natifs IA",
     heroTitle: "NEXT IS NOT",
     heroAccent: "GIVEN.",
     heroStatement: "Ne suivez pas la prochaine ère. Définissez-la.",
@@ -215,7 +218,7 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Colocalisé avec GOSIM Shenzhen 2026",
     heroSecondary: "Candidater",
-    heroNote: "Les candidatures sont ouvertes ; la date de clôture sera annoncée ici",
+    heroNote: "Clôture : dimanche 13 sept. 2026 à 23 h 59, heure de Pékin",
     meta: ["16—17 OCT. 2026", "SHENZHEN, CHINE", "APPEL MONDIAL"],
     signalLabel: "2026 / MANDAT DE SÉLECTION",
     signalTitle: "Rechercher des produits natifs IA capables de définir une catégorie",
@@ -227,12 +230,12 @@ const content = {
     agentSteps: ["Formuler la thèse", "Bâtir le système", "Livrer un produit", "Prouver sa portée mondiale"],
     definitionKicker: "CALENDRIER / DATES CLÉS",
     definitionTitle: "Quoi soumettre,\net à quel moment",
-    definitionText: "Les dates de candidature et de sélection ne sont pas encore publiées. Ce calendrier sera mis à jour dès leur confirmation ; chaque étape indique déjà les éléments à préparer. Les dates de la présentation finale sont confirmées.",
+    definitionText: "Le premier tour ferme le dimanche 13 septembre à 23 h 59, heure de Pékin (UTC+8). L’évaluation en ligne a lieu du 14 au 18 septembre. Les équipes retenues sont annoncées le 21, date de début de la préparation à distance. Le sprint à Shenzhen se tient les 14–15 octobre, avant la présentation GOSIM des 16–17 octobre.",
     timeline: [
-      ["OUVERT", "Ouverture des candidatures", "Concept produit, public cible et scénario principal"],
-      ["DATE À ANNONCER", "Clôture des candidatures", "Prototype interactif, démo de moins d’une minute et plan de réalisation"],
-      ["DATE À ANNONCER", "Résultats de la sélection", "Les équipes retenues confirment voyage, fabrication et besoins de soutien"],
-      ["16—17 OCT. 2026", "Présentation finale", "Démonstration du produit fonctionnel à GOSIM Shenzhen"],
+      ["MAINTENANT—13 SEPT.", "Premier tour", "Équipe, scénario utilisateur et prototype avant 23 h 59, heure de Pékin"],
+      ["14—18 SEPT.", "Évaluation en ligne", "Le jury teste les prototypes et évalue la valeur, le rôle de l’Agent et l’avancement"],
+      ["21 SEPT.—9 OCT.", "Sélection et préparation", "Résultats le 21 septembre, puis objectifs, voyage et plan de démonstration"],
+      ["14—17 OCT.", "Sprint et présentation", "Construction les 14–15 octobre et démonstration GOSIM les 16–17 octobre"],
     ],
     pillars: [["Agent OS", "Socle logiciel et interaction recommandé"], ["Agent IA", "Cœur intelligent du produit"], ["Interface", "Support de base de l’expérience"], ["Matériel", "Forme qui augmente la fidélité"], ["Expérience produit", "Objet principal de l’évaluation"]],
     shiftTitle: "Le changement de paradigme recherché",
@@ -241,7 +244,7 @@ const content = {
     beforeLabel: "Aujourd’hui",
     afterLabel: "Spotlight",
     directionsKicker: "02 / FORME DU PRODUIT",
-    directionsTitle: "Le support est libre. L’exigence est celle d’une nouvelle catégorie.",
+    directionsTitle: "Toutes les formes sont possibles.\nL’usage doit être réellement nouveau.",
     directionsText: "Matériel, logiciel et systèmes multi-appareils sont admissibles. Ce qui compte : une thèse système distincte, un Agent indispensable et une expérience assez aboutie pour en apporter la preuve.",
     principlesTitle: "Le niveau d’entrée Spotlight",
     principles: [["Thèse de catégorie", "Redéfinir une frontière produit plutôt qu’optimiser une fonction"], ["Natif Agent", "Sans l’Agent, la valeur centrale disparaît"], ["Système complet", "Matériel, logiciel, modèles et interaction expriment une même conviction"], ["Potentiel mondial", "Résoudre un problème important sur un marché extensible"]],
@@ -275,7 +278,7 @@ const content = {
     openNote: "Des dérogations raisonnables sont possibles pour code commercial tiers, design matériel ou données personnelles. Les meilleurs projets pourront bénéficier de la promotion et de l’incubation GOSIM.",
     faqKicker: "08 / FAQ",
     faqTitle: "Questions fréquentes",
-    faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Les candidatures sont ouvertes. La date de clôture sera annoncée sur cette page ; les premiers dossiers pourront être évalués au fil de l’eau."]],
+    faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
     applyText: "Présentez votre thèse de catégorie, votre prototype système et votre plan de première version pour Spotlight Shenzhen 2026.",
@@ -300,10 +303,11 @@ const applyPath = locale === "zh"
   pageTransitionName="Spotlight Shenzhen 2026: Next-Gen AI-Native Products"
   socialImage="/images/shenzhen2026/og-shenzhen-film.png"
   locale={locale}
+  nativeScroll={true}
   footerVariant="spotlight"
 >
   <div class="spotlight-page monolith-page">
-    <section class="sz-hero" id="top" data-theme-section="dark">
+    <section class="sz-hero" id="top" data-theme-section="light">
       <video
         class="hero-video"
         autoplay
@@ -317,58 +321,37 @@ const applyPath = locale === "zh"
       >
         <source src="/videos/shenzhen-spotlight-soundless.mp4" type="video/mp4" />
       </video>
-      <div class="hero-scrim"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-aura"></div>
-
+      <div class="hero-wash" aria-hidden="true"></div>
       <div class="spotlight-container hero-inner">
         <div class="hero-copy">
           <p class="eyebrow light">{c.eyebrow}</p>
-          <h1>{c.heroTitle}<br /><span>{c.heroAccent}</span></h1>
-          <p class="hero-statement">
-            <strong><em>{c.heroStatement}</em></strong><span class="hero-statement-source">- Alan Kay</span>
-          </p>
-          <p class="hero-lede">{c.heroText}</p>
+          <h1>{sectionTitle(c.heroProgramTitle).map((line) => <>{line}<br /></>)}</h1>
+          <p class="hero-slogan">{c.heroTitle} {c.heroAccent}</p>
+        </div>
+        <div class="hero-footer">
+          <div class="hero-meta">
+            {c.meta.map((item) => <div>{item}</div>)}
+          </div>
           <div class="hero-actions">
             <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span aria-hidden="true">↗</span></a>
             <a class="spot-button ghost" href={applyPath} aria-describedby="application-note">{c.heroSecondary}</a>
           </div>
           <p class="application-note" id="application-note"><span></span>{c.heroNote}</p>
         </div>
-
-        <div class="agent-console" aria-label="Agent experience concept">
-          <div class="console-top">
-            <div class="console-dots"><i></i><i></i><i></i></div>
-            <span>{c.agentLabel}</span>
-          </div>
-          <div class="console-body">
-            <div class="user-bubble">“{c.agentPrompt}”</div>
-            <div class="agent-state">
-              <div class="agent-orb"><span>AI</span></div>
-              <div>
-                <small>{c.agentContext}</small>
-                <p>{c.agentStatus}</p>
-              </div>
-            </div>
-            <ol class="agent-flow">
-              {c.agentSteps.map((step, index) => <li class={index < c.agentSteps.length - 1 ? "done" : "active"}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <div class="spotlight-container hero-meta">
-        {c.meta.map((item) => <div>{item}</div>)}
       </div>
     </section>
 
-    <section class="signal-strip" aria-label={c.signalLabel} data-theme-section="dark">
+    <section class="signal-strip" aria-label={c.signalLabel} data-theme-section="light">
       <div class="spotlight-container signal-inner">
         <div>
           <p class="eyebrow">{c.signalLabel}</p>
           <h2>{c.signalTitle}</h2>
         </div>
-        <div class="signal-tags">{c.signalTags.map((tag) => <span>{tag}</span>)}</div>
+        <div class="signal-context">
+          <p>{c.heroText}</p>
+          <blockquote>{c.heroStatement}<span>— Alan Kay</span></blockquote>
+          <div class="signal-tags">{c.signalTags.map((tag) => <span>{tag}</span>)}</div>
+        </div>
       </div>
     </section>
 
@@ -426,7 +409,7 @@ const applyPath = locale === "zh"
       </div>
     </section>
 
-    <section class="spot-section submission" id="submission" data-theme-section="dark">
+    <section class="spot-section submission" id="submission" data-theme-section="light">
       <div class="spotlight-container">
         <div class="section-head split-head light-head">
           <div>
@@ -448,7 +431,7 @@ const applyPath = locale === "zh"
       </div>
     </section>
 
-    <section class="spot-section format" id="format" data-theme-section="dark">
+    <section class="spot-section format" id="format" data-theme-section="light">
       <div class="spotlight-container">
         <div class="section-head center-head">
           <p class="eyebrow">{c.formatKicker}</p>
@@ -488,7 +471,7 @@ const applyPath = locale === "zh"
       </div>
     </section>
 
-    <section class="spot-section judging" id="judging" data-theme-section="dark">
+    <section class="spot-section judging" id="judging" data-theme-section="light">
       <div class="spotlight-container">
         <div class="section-head split-head">
           <div>
@@ -533,8 +516,7 @@ const applyPath = locale === "zh"
       </div>
     </section>
 
-    <section class="apply-section" id="apply" data-theme-section="dark">
-      <div class="apply-glow"></div>
+    <section class="apply-section" id="apply" data-theme-section="light">
       <div class="spotlight-container apply-inner">
         <p class="eyebrow light">{c.applyEyebrow}</p>
         <h2>{sectionTitle(c.applyTitle).map((line) => <>{line}<br /></>)}</h2>
@@ -549,396 +531,420 @@ const applyPath = locale === "zh"
   </div>
 </Layout>
 
+
 <style>
-  :global(html) { scroll-behavior: smooth; }
-  :global(body) { background: #f4f2ed; }
-  :global(.spotlight-page) { --ink: #151a17; --muted: #58625d; --acid: #76f0c8; --violet: #a8c9be; --line: rgba(21, 26, 23, 0.15); font-family: "Manrope", sans-serif; color: var(--ink); }
-  .spotlight-container { width: min(1440px, calc(100% - 80px)); margin: 0 auto; }
-  .spot-section { padding: 96px 0; position: relative; }
-  .eyebrow { color: #29515d; font-size: 12px; line-height: 1.2; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
-  .eyebrow.light { color: var(--acid); }
-  .section-head { margin-bottom: 48px; }
-  .split-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 5vw; align-items: end; }
-  .section-head h2 { white-space: normal; font-size: clamp(2.35rem, 4.2vw, 4.6rem); line-height: 1.02; letter-spacing: -.055em; margin-top: 16px; color: var(--ink); }
-  .section-intro { color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.6; }
-  .head-side { min-width: 0; }
-  .section-sticker { display: block; width: min(100%, 560px); height: auto; margin: 20px 0 -18px auto; object-fit: contain; object-position: center; pointer-events: none; user-select: none; filter: drop-shadow(0 18px 28px rgba(21,26,23,.18)); }
-  .sticker-camera { width: min(100%, 540px); transform: rotate(1.5deg); }
-  .sticker-accessibility { width: min(100%, 580px); transform: rotate(-1.5deg); filter: drop-shadow(0 18px 30px rgba(118,240,200,.18)); }
-  .sticker-travel { transform: rotate(1deg); }
-  .sticker-study { width: min(100%, 580px); transform: rotate(-1.5deg); }
-  .sticker-wellness { transform: rotate(1.5deg); }
-  .light-head h2, [data-theme-section="dark"] .section-head h2 { color: #fff; }
-  .light-head .section-intro, [data-theme-section="dark"] .section-intro { color: rgba(255,255,255,.68); }
+  :global(html) { scroll-behavior: auto; }
+  :global(body) { background: #f4f3ef; }
+  :global(.monolith-page) {
+    --ink: #171918;
+    --paper: #f4f3ef;
+    --white: #fff;
+    --red: #ff431a;
+    --mineral: #a9bbb5;
+    --mineral-deep: #365e5a;
+    --graphite: #1b1d1c;
+    --mist: #dfe6e2;
+    --muted: #5e625f;
+    --line: rgba(23, 25, 24, .22);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
 
-  .sz-hero { min-height: min(880px, 100svh); position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: #0c100e; padding: 145px 0 0; }
-  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(.8); }
-  .hero-colorwash { position: absolute; inset: 0; background: linear-gradient(145deg, rgba(6,32,24,.72) 0%, rgba(13,96,73,.62) 48%, rgba(4,45,34,.8) 100%); mix-blend-mode: multiply; }
-  .hero-colorwash::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(36,151,116,.42) 0%, rgba(18,104,79,.28) 48%, rgba(4,48,36,.32) 100%); mix-blend-mode: color; }
-  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2,10,8,.7) 0%, rgba(4,25,19,.38) 50%, rgba(4,34,26,.12) 100%), linear-gradient(0deg, rgba(2,13,10,.62) 0%, transparent 58%); box-shadow: inset 0 0 0 100vmax rgba(3,24,18,.1); }
-  .hero-grid { position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(118,240,200,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(118,240,200,.2) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent 3%, #000 45%, #000 100%); }
-  .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .72fr); gap: 6vw; align-items: center; flex: 1; padding: 20px 0 44px; }
-  .hero-copy h1 { color: #fff; font-size: clamp(3.5rem, 6.4vw, 6.8rem); line-height: .92; letter-spacing: -.07em; max-width: 11ch; margin: 20px 0 24px; font-weight: 600; }
-  .hero-copy h1 span { color: var(--acid); }
-  .hero-lede { color: rgba(255,255,255,.78); font-size: clamp(1.05rem, 1.4vw, 1.4rem); line-height: 1.62; max-width: 670px; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .spot-button { min-height: 56px; padding: 0 24px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 36px; font-size: 15px; font-weight: 700; text-decoration: none; transition: transform .25s ease, background .25s ease; }
-  .spot-button:hover { transform: translateY(-2px); }
-  .spot-button.primary { background: var(--acid); color: #10201a; }
-  .spot-button.ghost { border: 1px solid rgba(255,255,255,.35); color: #fff; background: rgba(255,255,255,.07); backdrop-filter: blur(12px); }
-  .application-note { margin-top: 16px; display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,.5); font-size: 12px; }
-  .application-note span, .apply-inner small span { width: 7px; height: 7px; background: #f4c65c; border-radius: 50%; box-shadow: 0 0 12px rgba(244,198,92,.85); }
-  .agent-console { background: linear-gradient(145deg, rgba(7,37,29,.82), rgba(9,18,15,.72)); border: 1px solid rgba(118,240,200,.34); border-radius: 24px; backdrop-filter: blur(22px); box-shadow: 0 24px 80px rgba(0,0,0,.34), 0 0 70px rgba(118,240,200,.08); overflow: hidden; transform: rotate(1.5deg); }
-  .console-top { height: 52px; padding: 0 20px; border-bottom: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,.48); font-size: 10px; letter-spacing: .14em; }
-  .console-dots { display: flex; gap: 6px; }.console-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.25); }
-  .console-body { padding: 20px; }
-  .user-bubble { background: rgba(255,255,255,.09); color: rgba(255,255,255,.82); border-radius: 16px 16px 4px 16px; padding: 17px 18px; font-size: 14px; line-height: 1.5; margin-left: 15%; }
-  .agent-state { display: flex; align-items: center; gap: 14px; margin: 20px 0 15px; }
-  .agent-orb { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 32% 30%, #e2fff6, var(--acid) 40%, #3e7b69 78%); box-shadow: 0 0 32px rgba(118,240,200,.3); color: #10251e; font-weight: 800; font-size: 12px; }
-  .agent-state small { color: var(--acid); font-size: 9px; letter-spacing: .16em; }.agent-state p { color: #fff; font-size: 13px; line-height: 1.4; margin-top: 4px; }
-  .agent-flow { display: grid; gap: 8px; }
-  .agent-flow li { min-height: 38px; padding: 0 13px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; display: flex; align-items: center; gap: 13px; color: rgba(255,255,255,.48); font-size: 12px; }
-  .agent-flow li span { font-size: 9px; color: rgba(255,255,255,.32); }.agent-flow li.done { color: rgba(255,255,255,.78); }.agent-flow li.done::after { content: "DONE"; margin-left: auto; color: var(--acid); font-size: 8px; letter-spacing: .12em; }.agent-flow li.active { border-color: rgba(118,240,200,.55); color: #fff; box-shadow: inset 0 0 25px rgba(118,240,200,.07); }
-  .hero-meta { min-height: 64px; position: relative; z-index: 2; border-top: 1px solid rgba(118,240,200,.24); display: grid; grid-template-columns: repeat(3,1fr); }
-  .hero-meta div { display: flex; align-items: center; padding: 0 22px; border-right: 1px solid rgba(118,240,200,.2); color: rgba(224,255,246,.74); font-size: 11px; letter-spacing: .12em; }.hero-meta div:first-child { padding-left: 0; }.hero-meta div:last-child { border: 0; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    isolation: isolate;
+    box-shadow: none !important;
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill) {
+    opacity: 1 !important;
+    overflow: hidden;
+    background:
+      linear-gradient(112deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .015) 34%, rgba(93, 131, 123, .11) 62%, rgba(7, 9, 8, .08) 100%),
+      rgba(12, 14, 13, .56) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
+    backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), inset 0 -1px 0 rgba(255, 255, 255, .06) !important;
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::before) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(75% 180% at 16% -95%, rgba(255, 255, 255, .3), transparent 58%),
+      radial-gradient(58% 150% at 82% 175%, rgba(101, 158, 146, .16), transparent 62%);
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::after) {
+    content: "";
+    position: absolute;
+    top: -150%;
+    bottom: -150%;
+    left: 24%;
+    width: 20%;
+    pointer-events: none;
+    transform: rotate(18deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .07), transparent);
+    filter: blur(10px);
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .border-bottom) {
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, .14) !important;
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .logo svg path) { fill: #fff !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .link .link-click > span),
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .lang-current) { color: #fff !important; text-shadow: none !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .has-sublinks svg) { stroke: #fff !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .hamburger .bar) { background: #fff !important; }
+  :global(.btn.shenzhen-opening .btn-fill) { background: #ff431a !important; }
+  :global(.btn.shenzhen-opening .btn-content span) { color: #fff !important; }
+  :global(.footer--spotlight) { background: #181818 !important; border-top: 1px solid rgba(255, 255, 255, .18); }
 
-  .signal-strip { background: var(--acid); padding: 36px 0; }
-  .signal-inner { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
-  .signal-inner .eyebrow { color: rgba(7,27,37,.62); }.signal-inner h2 { max-width: 950px; font-size: clamp(1.8rem, 3vw, 3.6rem); line-height: 1.08; letter-spacing: -.045em; margin-top: 12px; color: var(--ink); }
-  .signal-tags { display: grid; grid-template-columns: repeat(2,auto); gap: 8px; }.signal-tags span { border: 1px solid rgba(7,27,37,.35); border-radius: 999px; padding: 8px 13px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+  .spotlight-container { width: min(1440px, calc(100% - 96px)); margin: 0 auto; }
+  .spot-section { position: relative; padding: clamp(80px, 8vw, 118px) 0; }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a53a22;
+    font-size: 14px;
+    line-height: 1.35;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .eyebrow::before { content: ""; width: 15px; height: 3px; flex: 0 0 auto; background: var(--red); }
+  .section-head { margin-bottom: 52px; }
+  .split-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 7vw; align-items: end; }
+  .section-head h2,
+  .faq-title h2 {
+    max-width: 17ch;
+    margin-top: 15px;
+    color: var(--ink);
+    font-size: clamp(2.5rem, 3.4vw, 3.85rem);
+    line-height: 1.05;
+    letter-spacing: -.045em;
+    font-weight: 700;
+  }
+  :global(html[lang="zh"]) .section-head h2,
+  :global(html[lang="zh"]) .faq-title h2 { max-width: none; line-height: 1.2; letter-spacing: -.025em; }
+  .section-intro { max-width: 700px; color: var(--muted); font-size: clamp(1.05rem, 1.15vw, 1.2rem); line-height: 1.72; }
 
-  .definition { background: #f4f2ed; }
-  .timeline-grid { position: relative; display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .timeline-grid::before { content: ""; position: absolute; z-index: 0; top: 38px; left: 4%; right: 4%; height: 2px; background: linear-gradient(90deg, var(--acid), #9ccfbe 62%, var(--ink)); }
-  .timeline-grid article { position: relative; z-index: 1; min-height: 238px; padding: 22px 24px 24px; border-right: 1px solid var(--line); }
+  .sz-hero {
+    position: relative;
+    height: 100svh;
+    min-height: 720px;
+    overflow: hidden;
+    background: #111;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #111;
+    filter: none;
+  }
+  .hero-wash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .3;
+    background:
+      linear-gradient(90deg, #080808 0%, rgba(8, 8, 8, .86) 22%, rgba(8, 8, 8, .18) 50%, transparent 68%),
+      linear-gradient(180deg, transparent 52%, rgba(8, 8, 8, .2) 68%, #080808 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(150px, 18vh, 190px) 0 42px;
+  }
+  .hero-copy {
+    width: min(730px, 62vw);
+    color: #fff;
+  }
+  .hero-copy {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, .42);
+  }
+  .hero-copy .eyebrow { color: rgba(255, 255, 255, .78); }
+  .hero-copy .eyebrow::before { width: 8px; height: 8px; background: var(--red); }
+  .hero-copy h1 {
+    max-width: 8.2ch;
+    margin: 22px 0 0;
+    color: #fff;
+    font-size: clamp(4.5rem, 6.5vw, 7.4rem);
+    line-height: .96;
+    letter-spacing: -.06em;
+    font-weight: 650;
+  }
+  .hero-slogan { margin-top: 24px; color: rgba(255, 255, 255, .82); font-size: 15px; line-height: 1.45; letter-spacing: .12em; font-weight: 650; }
+  .hero-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px 48px;
+    align-items: center;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .48);
+  }
+  .hero-meta { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); }
+  .hero-meta div { min-height: 42px; display: flex; align-items: center; padding: 7px 24px; border-right: 1px solid rgba(255, 255, 255, .28); color: rgba(255, 255, 255, .88); font-size: 14px; line-height: 1.4; font-weight: 650; }
+  .hero-meta div:first-child { padding-left: 0; }
+  .hero-meta div:last-child { border-right: 0; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .spot-button {
+    min-height: 48px;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    border: 1px solid rgba(247, 247, 244, .94);
+    color: var(--ink);
+    background: rgba(247, 247, 244, .94);
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 750;
+    text-decoration: none;
+    transition: color .2s ease, background .2s ease;
+  }
+  .spot-button:hover { color: #fff; border-color: var(--red); background: var(--red); }
+  .monolith-page .hero-actions .spot-button[href^="https://shenzhen2026.gosim.org"] {
+    color: var(--ink) !important;
+    background: rgba(247, 247, 244, .94) !important;
+    border-color: rgba(247, 247, 244, .94) !important;
+  }
+  .spot-button.ghost { color: #fff; border-color: var(--red); background: var(--red); }
+  .spot-button.ghost:hover { color: var(--ink); border-color: #fff; background: #fff; }
+  .application-note { grid-column: 1 / -1; margin-top: -2px; display: flex; align-items: center; gap: 9px; color: rgba(255, 255, 255, .7); font-size: 14px; line-height: 1.4; }
+  .application-note span,
+  .apply-inner small span { width: 8px; height: 8px; flex: 0 0 auto; background: var(--red); }
+
+  .signal-strip { padding: clamp(58px, 7vw, 92px) 0; background: var(--mist); border-bottom: 1px solid var(--ink); }
+  .signal-inner { display: grid; grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr); gap: 8vw; align-items: start; }
+  .signal-inner .eyebrow { color: var(--mineral-deep); }
+  .signal-inner h2 { max-width: 760px; margin-top: 14px; color: var(--ink); font-size: clamp(2.35rem, 3.5vw, 4rem); line-height: 1.06; letter-spacing: -.045em; }
+  :global(html[lang="zh"]) .signal-inner h2 { line-height: 1.18; letter-spacing: -.025em; }
+  .signal-context > p { max-width: 660px; color: #4f5753; font-size: 17px; line-height: 1.72; }
+  .signal-context blockquote { margin-top: 25px; padding-top: 18px; border-top: 1px solid rgba(24, 24, 24, .34); color: var(--ink); font-family: Georgia, serif; font-size: 18px; font-style: italic; line-height: 1.55; }
+  .signal-context blockquote span { margin-left: 10px; color: #6b7671; font-family: "Manrope", sans-serif; font-size: 14px; font-style: normal; letter-spacing: .06em; }
+  .signal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .signal-tags span { padding: 9px 12px; border: 1px solid rgba(24, 24, 24, .45); color: var(--ink); font-size: 14px; line-height: 1.2; font-weight: 700; }
+
+  .definition, .submission, .format, .accelerate, .judging, .faq-section { background: var(--paper); }
+  .timeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ink); }
+  .timeline-grid article { min-height: 250px; padding: 22px; border-right: 1px solid var(--ink); }
   .timeline-grid article:last-child { border-right: 0; }
-  .timeline-marker { height: 48px; display: flex; align-items: flex-start; }
-  .timeline-marker span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); border: 5px solid #f4f2ed; color: var(--acid); box-shadow: 0 0 0 1px rgba(21,26,23,.22); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
-  .timeline-grid article:last-child .timeline-marker span { background: var(--acid); color: var(--ink); }
-  .timeline-grid time { display: block; margin-top: 14px; color: #2f6d5b; font-size: 10px; font-weight: 800; letter-spacing: .11em; }
-  .timeline-grid h3 { margin-top: 10px; color: var(--ink); font-size: clamp(1.25rem,1.7vw,1.7rem); line-height: 1.2; }
-  .timeline-grid p { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+  .timeline-marker span { width: 36px; height: 36px; display: grid; place-items: center; color: #fff; background: var(--ink); font-size: 14px; font-weight: 800; }
+  .timeline-grid article:last-child .timeline-marker span { color: var(--ink); background: var(--mineral); }
+  .timeline-grid time { display: block; margin-top: 36px; color: #a53a22; font-size: 14px; line-height: 1.35; font-weight: 800; letter-spacing: .06em; }
+  .timeline-grid h3 { margin-top: 10px; color: var(--ink); font-size: clamp(1.45rem, 1.7vw, 1.75rem); line-height: 1.2; }
+  .timeline-grid p { margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.58; }
 
-  .directions { background: linear-gradient(145deg, #1b231f 0%, #111613 100%); overflow: hidden; }.directions::after { content: "AGENT"; position: absolute; right: -2vw; top: 10%; font-size: 18vw; font-weight: 800; letter-spacing: -.08em; line-height: 1; color: rgba(255,255,255,.028); pointer-events: none; }
-  .form-grid-primary { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-  .form-grid-primary article { --form-metal: var(--acid); --form-metal-rgb: 83, 255, 206; min-height: 190px; padding: 20px 22px 22px; border: 1px solid rgba(255,255,255,.15); border-top: 3px solid var(--form-metal); border-radius: 6px; background: rgba(255,255,255,.035); display: flex; flex-direction: column; }
-  .form-grid-primary article:nth-child(1) { --form-metal: #e6c568; --form-metal-rgb: 230, 197, 104; }
-  .form-grid-primary article:nth-child(2) { --form-metal: #c7d2cf; --form-metal-rgb: 199, 210, 207; }
-  .form-grid-primary article:nth-child(3) { --form-metal: #a9795d; --form-metal-rgb: 169, 121, 93; }
-  .form-grid-primary span { width: max-content; padding-bottom: 6px; color: var(--form-metal); border-bottom: 1px solid rgba(var(--form-metal-rgb),.55); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
-  .form-grid-primary h3 { color: #fff; font-size: 22px; margin-top: auto; }
-  .form-grid-primary p { color: rgba(255,255,255,.6); font-size: 12px; line-height: 1.5; margin-top: 8px; }
-  .principles-compact { margin-top: 48px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.18); }
-  .principle-strip { margin-top: 18px; display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-  .principle-strip article { display: flex; gap: 10px; align-items: flex-start; }
-  .principle-strip span { width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%; display: grid; place-items: center; color: var(--acid); border: 1px solid rgba(118,240,200,.45); font-size: 9px; }
-  .principle-strip h4 { color: #fff; font-size: 14px; }
-  .principle-strip p { color: rgba(255,255,255,.5); font-size: 11px; line-height: 1.45; margin-top: 5px; }
+  .directions { background: var(--graphite); }
+  .directions .section-head h2 { color: #fff; }
+  .directions .section-intro { color: rgba(255, 255, 255, .72); }
+  .directions .eyebrow { color: #fff; }
+  .form-grid-primary { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid rgba(255, 255, 255, .55); }
+  .form-grid-primary article { min-height: 230px; padding: 24px; display: flex; flex-direction: column; border-right: 1px solid rgba(255, 255, 255, .4); border-top: 5px solid var(--mineral); }
+  .form-grid-primary article:last-child { border-right: 0; }
+  .form-grid-primary span { color: #b7cbc4; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+  .form-grid-primary h3 { margin-top: auto; color: #fff; font-size: clamp(1.5rem, 1.8vw, 1.9rem); line-height: 1.25; }
+  .form-grid-primary p { margin-top: 10px; color: rgba(255, 255, 255, .68); font-size: 15px; line-height: 1.58; }
+  .principles-compact { margin-top: 54px; padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, .38); }
+  .principle-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; }
+  .principle-strip article { display: flex; gap: 14px; padding: 12px 18px; border-left: 1px solid rgba(255, 255, 255, .28); }
+  .principle-strip article:first-child { padding-left: 0; border-left: 0; }
+  .principle-strip span { width: 28px; height: 28px; flex: 0 0 28px; display: grid; place-items: center; color: var(--ink); background: var(--mineral); font-size: 14px; font-weight: 800; }
+  .principle-strip h4 { color: #fff; font-size: 17px; line-height: 1.3; }
+  .principle-strip p { margin-top: 6px; color: rgba(255, 255, 255, .64); font-size: 14px; line-height: 1.55; }
 
-  .format { background: #eef1ed; }.center-head { text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto; }.center-head .section-intro { max-width: 730px; margin: 18px auto 0; }.stage-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }.stage-card { min-height: 270px; border-radius: 20px; padding: 22px; background: #fff; display: flex; flex-direction: column; box-shadow: 0 12px 35px rgba(21,26,23,.05); }.stage-card:nth-child(2) { background: var(--ink); }.stage-card:nth-child(3) { background: var(--violet); }.stage-top { display: flex; justify-content: space-between; color: #748079; font-size: 10px; letter-spacing: .14em; }.stage-top i { font-style: normal; font-size: 20px; color: #748079; transform: translateX(32px); z-index: 2; }.stage-card h3 { font-size: clamp(1.55rem,2.1vw,2.25rem); color: var(--ink); margin-top: auto; }.stage-card strong { color: var(--ink); font-size: 13px; margin-top: 12px; line-height: 1.4; }.stage-card p { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 8px; }.stage-card:nth-child(2) :is(h3,strong) { color: #fff; }.stage-card:nth-child(2) p { color: rgba(255,255,255,.64); }.stage-card:nth-child(3) :is(h3,strong,p,.stage-top) { color: var(--ink); }
+  .submission { border-top: 8px solid var(--mineral); }
+  .submission .light-head h2,
+  .submission .subheading { color: var(--ink); }
+  .submission .light-head .section-intro { color: var(--muted); }
+  .submission .eyebrow.light { color: #a53a22; }
+  .subheading { margin-bottom: 20px; font-size: 22px; line-height: 1.35; }
+  .material-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .material-grid article { min-height: 164px; padding: 20px; display: grid; grid-template-columns: 34px 1fr; gap: 10px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .material-grid article > span { color: var(--red); font-size: 14px; font-weight: 800; letter-spacing: .08em; }
+  .material-grid h4 { color: var(--ink); font-size: 18px; line-height: 1.35; }
+  .material-grid p { margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.55; }
 
-  .submission { background: #202824; }.subheading { color: #fff; font-size: 20px; margin-bottom: 18px; }
-  .material-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-  .material-grid article { min-height: 128px; padding: 16px; border: 1px solid rgba(255,255,255,.15); border-radius: 14px; display: grid; grid-template-columns: 30px 1fr; gap: 8px; }
-  .material-grid article > span { color: var(--acid); font-size: 9px; letter-spacing: .12em; padding-top: 3px; }
-  .material-grid h4 { color: #fff; font-size: 16px; }.material-grid p { color: rgba(255,255,255,.58); font-size: 11px; margin-top: 6px; line-height: 1.45; }
-  .accelerate { background: #f4f2ed; }.support-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }.support-grid article { min-height: 145px; background: #fff; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; border: 1px solid rgba(21,26,23,.08); }.support-grid span { font-size: 9px; color: #758079; letter-spacing: .13em; }.support-grid h3 { margin-top: auto; color: var(--ink); font-size: 18px; }.support-grid p { color: var(--muted); font-size: 11px; line-height: 1.45; margin-top: 6px; }
-  .support-note { margin-top: 14px; padding: 18px 20px; border-radius: 14px; background: #e7e9df; display: flex; align-items: baseline; gap: 24px; }
-  .support-note strong { flex: 0 0 auto; color: var(--ink); font-size: 14px; }
-  .support-note p { color: var(--muted); font-size: 12px; line-height: 1.55; }
+  .format { border-top: 1px solid var(--ink); }
+  .center-head { max-width: 1040px; margin-left: auto; margin-right: auto; text-align: center; }
+  .center-head h2 { max-width: none; }
+  .center-head .eyebrow { justify-content: center; }
+  .center-head .section-intro { margin: 18px auto 0; }
+  .stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
+  .stage-card { min-height: 290px; padding: 24px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
+  .stage-card:last-child { border-right: 0; }
+  .stage-card:nth-child(2) { background: var(--mist); }
+  .stage-top { display: flex; justify-content: space-between; color: #5b5954; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+  .stage-top span { color: #a53a22; }
+  .stage-card:nth-child(2) .stage-top span { color: var(--ink); }
+  .stage-top i { font-style: normal; font-size: 20px; }
+  .stage-card h3 { margin-top: auto; color: var(--ink); font-size: clamp(1.65rem, 2.1vw, 2.25rem); line-height: 1.18; }
+  .stage-card strong { margin-top: 12px; color: var(--ink); font-size: 16px; line-height: 1.48; }
+  .stage-card p { margin-top: 8px; color: #54524d; font-size: 15px; line-height: 1.55; }
 
-  .judging { background: #e4efeb; }.score-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }.score-card { border-radius: 20px; padding: 26px; min-height: 310px; }.subjective-card { background: #fff; }.objective-card { background: var(--ink); }.score-header { display: flex; align-items: center; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }.objective-card .score-header { border-color: rgba(255,255,255,.18); }.score-header h3 { font-size: 21px; color: var(--ink); }.objective-card .score-header h3 { color: #fff; }.score-ring { width: 82px; height: 82px; border-radius: 50%; display: flex; justify-content: center; align-items: baseline; padding-top: 23px; position: relative; }.score-ring::after { content:""; position: absolute; inset: 6px; border-radius: 50%; background: inherit; filter: brightness(1.1); z-index: 0; }.score-ring strong, .score-ring small { position: relative; z-index: 1; }.score-ring strong { font-size: 24px; }.score-ring small { font-size: 10px; }.ring-60 { background: conic-gradient(var(--violet) 0 60%, #e5eae7 60%); color: var(--ink); }.ring-40 { background: conic-gradient(var(--acid) 0 40%, rgba(255,255,255,.14) 40%); color: #fff; }
-  .score-lines { margin-top: 16px; }.score-lines div { display: flex; justify-content: space-between; align-items: center; min-height: 42px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }.score-lines strong { color: var(--ink); }.objective-card ul { display: grid; grid-template-columns: repeat(2,1fr); gap: 0 22px; margin-top: 16px; }.objective-card li { min-height: 48px; padding: 10px 0 10px 22px; border-bottom: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.7); font-size: 11px; line-height: 1.4; position: relative; }.objective-card li::before { content: "+"; position: absolute; left: 0; color: var(--acid); font-size: 16px; }
-  .outcome-note { margin-top: 18px; padding: 24px; border-radius: 16px; background: var(--ink); display: grid; grid-template-columns: .8fr 1.2fr; gap: 5vw; align-items: end; }.outcome-note h3 { color: #fff; font-size: 21px; margin-top: 8px; }.outcome-note > p { color: rgba(255,255,255,.62); font-size: 12px; line-height: 1.55; }
+  .accelerate { border-top: 1px solid var(--ink); }
+  .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  .support-grid article { min-height: 176px; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .support-grid span { color: var(--red); font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+  .support-grid h3 { margin-top: auto; color: var(--ink); font-size: 20px; line-height: 1.3; }
+  .support-grid p { margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+  .support-note { margin-top: 22px; padding: 22px; display: grid; grid-template-columns: auto 1fr; gap: 28px; border: 1px solid var(--ink); }
+  .support-note strong { color: var(--ink); font-size: 17px; }
+  .support-note p { color: var(--muted); font-size: 15px; line-height: 1.6; }
 
-  .faq-section { background: #f4f2ed; }.faq-layout { display: grid; grid-template-columns: .65fr 1.35fr; gap: 7vw; align-items: start; }.faq-title { position: sticky; top: 100px; }.faq-title h2 { font-size: clamp(2.8rem,4.6vw,4.8rem); color: var(--ink); letter-spacing: -.06em; margin-top: 14px; }.faq-list { border-top: 1px solid var(--line); }.faq-list details { border-bottom: 1px solid var(--line); }.faq-list summary { list-style: none; min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; color: var(--ink); font-size: clamp(1rem,1.3vw,1.18rem); font-weight: 700; }.faq-list summary::-webkit-details-marker { display: none; }.faq-list summary i { width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .25s ease, background .25s ease; }.faq-list details[open] summary i { transform: rotate(45deg); background: var(--acid); }.faq-list details > p { color: var(--muted); font-size: 13px; line-height: 1.6; max-width: 720px; padding: 0 54px 22px 0; }
+  .judging { border-top: 8px solid var(--mineral); }
+  .score-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--ink); }
+  .score-card { min-height: 330px; padding: 28px; }
+  .subjective-card { border-right: 1px solid var(--ink); }
+  .objective-card { color: #fff; background: var(--ink); }
+  .score-header { display: flex; align-items: baseline; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .objective-card .score-header { border-color: rgba(255, 255, 255, .28); }
+  .score-ring { display: flex; align-items: baseline; color: #a53a22; }
+  .score-ring strong { font-size: clamp(3.8rem, 5vw, 5.6rem); line-height: .8; }
+  .score-ring small { font-size: 16px; }
+  .score-header h3 { color: var(--ink); font-size: 22px; }
+  .objective-card .score-header h3 { color: #fff; }
+  .score-lines { margin-top: 14px; }
+  .score-lines div { min-height: 48px; display: flex; align-items: center; border-bottom: 1px solid var(--line); color: #4e4c47; font-size: 15px; }
+  .objective-card ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin-top: 14px; }
+  .objective-card li { min-height: 54px; padding: 13px 0 13px 22px; position: relative; border-bottom: 1px solid rgba(255, 255, 255, .22); color: rgba(255, 255, 255, .76); font-size: 15px; line-height: 1.45; }
+  .objective-card li::before { content: "+"; position: absolute; left: 0; color: var(--red); }
+  .outcome-note { margin-top: 22px; padding: 30px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 6vw; align-items: end; color: #fff; background: var(--ink); border-left: 10px solid var(--mineral); }
+  .outcome-note .eyebrow { color: #fff; }
+  .outcome-note h3 { margin-top: 10px; color: #fff; font-size: clamp(1.65rem, 2.3vw, 2.35rem); line-height: 1.25; }
+  .outcome-note > p { color: rgba(255, 255, 255, .7); font-size: 15px; line-height: 1.62; }
 
-  .apply-section { min-height: 540px; padding: 90px 0; position: relative; overflow: hidden; background: #0e1210; display: flex; align-items: center; text-align: center; }.apply-section::before { content:""; position: absolute; inset: 0; opacity: .2; background-image: linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px); background-size: 70px 70px; }.apply-glow { width: min(700px,80vw); aspect-ratio: 1; position: absolute; left: 50%; top: 60%; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, rgba(104,180,156,.42), rgba(118,240,200,.13) 36%, transparent 70%); filter: blur(20px); }.apply-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }.apply-inner h2 { color: #fff; font-size: clamp(2.8rem,5vw,5.6rem); line-height: .98; letter-spacing: -.065em; margin: 18px 0 22px; }.apply-inner > p { color: rgba(255,255,255,.68); max-width: 680px; font-size: 15px; line-height: 1.55; }.apply-actions { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }.apply-actions a { min-height: 54px; border-radius: 999px; padding: 0 24px; display: inline-flex; align-items: center; gap: 36px; color: #fff; border: 1px solid rgba(255,255,255,.35); text-decoration: none; background: rgba(255,255,255,.06); font: inherit; font-size: 14px; font-weight: 700; }.apply-actions a.apply-primary { color: #08101a; border-color: #b8d9fb; background: #b8d9fb; }.apply-actions a.apply-primary:hover { background: #d8ebff; }.apply-inner small { display: flex; align-items: center; gap: 8px; margin-top: 14px; color: rgba(255,255,255,.5); font-size: 11px; }
+  .faq-section { border-top: 1px solid var(--ink); }
+  .faq-layout { display: grid; grid-template-columns: minmax(250px, .55fr) minmax(0, 1.45fr); gap: 8vw; align-items: start; }
+  .faq-title h2 { max-width: none; }
+  .faq-list { border-top: 1px solid var(--ink); }
+  .faq-list details { border-bottom: 1px solid var(--ink); }
+  .faq-list summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary i { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid var(--ink); font-style: normal; transition: transform .2s ease, color .2s ease, background .2s ease; }
+  .faq-list details[open] summary i { transform: rotate(45deg); color: var(--ink); background: var(--mineral); }
+  .faq-list details > p { max-width: 760px; padding: 0 52px 24px 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
 
-  @media (max-width: 1050px) {
-    .spotlight-container { width: min(100% - 48px, 1440px); }
-    .spot-section { padding: 84px 0; }
-    .hero-inner { grid-template-columns: 1fr .7fr; gap: 40px; }
-    .timeline-grid { grid-template-columns: repeat(2,1fr); }.timeline-grid::before { display: none; }.timeline-grid article:nth-child(2) { border-right: 0; }.timeline-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-    .principle-strip { grid-template-columns: repeat(2,1fr); }
-    .support-grid { grid-template-columns: repeat(2,1fr); }
+  .apply-section { padding: clamp(84px, 9vw, 130px) 0; color: var(--ink); background: #c8d7d1; border-top: 1px solid var(--ink); }
+  .apply-inner { display: flex; flex-direction: column; align-items: flex-start; }
+  .apply-inner .eyebrow.light { color: var(--ink); }
+  .apply-inner .eyebrow::before { background: var(--ink); }
+  .apply-inner h2 { max-width: 12ch; margin: 18px 0 22px; color: var(--ink); font-size: clamp(3.2rem, 5.5vw, 5.8rem); line-height: .9; letter-spacing: -.055em; }
+  .apply-inner > p { max-width: 760px; color: rgba(10, 10, 10, .75); font-size: 17px; line-height: 1.62; }
+  .apply-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .apply-actions a { min-height: 52px; padding: 0 20px; display: inline-flex; align-items: center; gap: 34px; color: var(--ink); background: transparent; border: 1px solid var(--ink); font-size: 15px; font-weight: 750; text-decoration: none; }
+  .apply-actions a.apply-primary { color: #fff; background: var(--red); border-color: var(--red); }
+  .apply-inner small { margin-top: 14px; display: flex; align-items: center; gap: 9px; color: rgba(10, 10, 10, .68); font-size: 14px; line-height: 1.4; }
+  .apply-inner small span { background: var(--ink); }
+
+  @media (max-width: 1100px) {
+    .spotlight-container { width: min(100% - 56px, 1440px); }
+    .hero-copy { width: min(660px, 72vw); }
+    .hero-copy h1 { font-size: clamp(4rem, 8vw, 6rem); }
+    .hero-footer { grid-template-columns: 1fr; gap: 15px; }
+    .hero-actions { grid-row: 2; }
+    .application-note { grid-row: 3; margin-top: 0; }
+    .signal-inner { grid-template-columns: 1fr; gap: 30px; }
+    .split-head { grid-template-columns: 1fr; gap: 24px; }
+    .section-head h2 { max-width: 19ch; }
+    .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+    .timeline-grid article:nth-child(2) { border-right: 0; }
+    .timeline-grid article:nth-child(-n + 2) { border-bottom: 1px solid var(--ink); }
+    .principle-strip { grid-template-columns: repeat(2, 1fr); }
+    .principle-strip article:nth-child(3) { padding-left: 0; border-left: 0; }
+    .support-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  @media (max-width: 800px) {
-    .spotlight-container { width: min(100% - 36px, 1440px); }
-    .spot-section { padding: 76px 0; }
-    .split-head, .faq-layout, .outcome-note { grid-template-columns: 1fr; gap: 32px; }
-    .section-head { margin-bottom: 40px; }.section-head h2 { font-size: clamp(2.3rem,8vw,3.7rem); }
-    .section-sticker { margin-left: 0; }
-    .sz-hero { padding-top: 125px; min-height: auto; }.hero-inner { grid-template-columns: 1fr; padding-bottom: 40px; }.hero-copy h1 { font-size: clamp(3.5rem,14vw,6rem); }.agent-console { width: min(100%, 520px); transform: none; }.hero-meta { grid-template-columns: repeat(2,1fr); }.hero-meta div { min-height: 54px; border-bottom: 1px solid rgba(255,255,255,.18); }.hero-meta div:nth-child(2) { border-right: 0; }.hero-meta div:nth-child(3) { padding-left: 0; border-bottom: 0; }
-    .signal-inner { grid-template-columns: 1fr; align-items: start; }.signal-tags { grid-template-columns: repeat(4,auto); justify-content: start; }
-    .form-grid-primary, .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
-    .stage-grid { grid-template-columns: 1fr; }.stage-card { min-height: 220px; }.stage-top i { transform: rotate(90deg) translateY(-5px); }
-    .faq-title { position: static; }
+  @media (max-width: 760px) {
+    :global(body[data-bg-nav="header-home"] .main-nav-bar) { padding-top: 10px; padding-bottom: 10px; }
+    .spotlight-container { width: calc(100% - 32px); }
+    .spot-section { padding: 72px 0; }
+    .section-head { margin-bottom: 38px; }
+    .section-head h2,
+    .faq-title h2 { font-size: clamp(2.35rem, 9vw, 3.45rem); }
+    .sz-hero { min-height: 100svh; }
+    .hero-video { object-fit: cover; }
+    .hero-wash {
+      background:
+        linear-gradient(180deg, #080808 0%, rgba(8, 8, 8, .08) 34%, rgba(8, 8, 8, .08) 54%, #080808 100%),
+        linear-gradient(90deg, rgba(8, 8, 8, .84), transparent 76%);
+    }
+    .hero-inner { padding: 118px 0 20px; }
+    .hero-copy { width: 100%; }
+    .hero-copy h1 { max-width: 8.2ch; margin-top: 16px; font-size: clamp(3.2rem, 15vw, 4.6rem); line-height: .96; }
+    .hero-slogan { max-width: 30ch; margin-top: 15px; font-size: 14px; line-height: 1.55; }
+    .hero-footer { gap: 12px; padding-top: 15px; }
+    .hero-meta { grid-template-columns: repeat(3, 1fr); }
+    .hero-meta div,
+    .hero-meta div:first-child { min-height: 40px; padding: 6px 8px; border-right: 1px solid rgba(255, 255, 255, .28); border-bottom: 0; font-size: 14px; }
+    .hero-meta div:first-child { padding-left: 0; }
+    .hero-meta div:last-child { border-right: 0; }
+    .hero-actions { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(105px, .75fr); }
+    .spot-button { min-height: 46px; padding: 0 12px; gap: 10px; font-size: 14px; }
+    .application-note { font-size: 14px; }
+    .signal-inner { grid-template-columns: 1fr; gap: 24px; }
+    .signal-tags { justify-content: start; }
+    .form-grid-primary,
+    .material-grid,
+    .stage-grid,
     .score-grid { grid-template-columns: 1fr; }
-    .faq-title { margin-bottom: 10px; }
+    .form-grid-primary article,
+    .stage-card,
+    .subjective-card { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .form-grid-primary article:last-child,
+    .stage-card:last-child { border-bottom: 0; }
+    .principle-strip { grid-template-columns: 1fr; }
+    .principle-strip article,
+    .principle-strip article:nth-child(3) { padding: 13px 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .26); }
+    .principle-strip article:first-child { border-top: 0; }
+    .material-grid { border: 1px solid var(--ink); border-bottom: 0; }
+    .material-grid article { border-right: 0; }
+    .stage-top i { transform: rotate(90deg); }
+    .support-note { grid-template-columns: 1fr; gap: 7px; }
+    .objective-card ul { grid-template-columns: 1fr; }
+    .outcome-note,
+    .faq-layout { grid-template-columns: 1fr; gap: 30px; }
+    .faq-list summary { font-size: 17px; }
+    .apply-inner h2 { font-size: clamp(3.25rem, 14vw, 5rem); }
   }
 
-  @media (max-width: 560px) {
-    .spotlight-container { width: calc(100% - 28px); }
-    .spot-section { padding: 60px 0; }
-    .section-head { margin-bottom: 34px; }
-    .section-sticker { width: 100%; margin: 18px 0 -8px; transform: none; }
-    .hero-copy h1 { letter-spacing: -.06em; }.hero-lede { font-size: 1rem; }.hero-actions { display: grid; }.spot-button { width: 100%; }.application-note { align-items: flex-start; }
-    .hero-meta { width: 100%; padding: 0 14px; }.hero-meta div { padding: 0 10px; font-size: 9px; }.hero-meta div:first-child, .hero-meta div:nth-child(3) { padding-left: 0; }
-    .console-body { padding: 16px; }.user-bubble { margin-left: 6%; }.agent-flow li { min-height: 38px; }
-    .signal-strip { padding: 30px 0; }.signal-tags { grid-template-columns: repeat(2,auto); }
-    .timeline-grid { grid-template-columns: 1fr; }.timeline-grid article { min-height: auto; padding: 18px 16px 22px 66px; border-right: 0; border-bottom: 1px solid var(--line); }.timeline-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }.timeline-grid article:last-child { border-bottom: 0; }.timeline-marker { position: absolute; left: 17px; top: 19px; }.timeline-grid time { margin-top: 0; }.timeline-grid h3 { font-size: 1.25rem; }
-    .material-grid, .support-grid { grid-template-columns: repeat(2,1fr); }
-    .form-grid-primary { grid-template-columns: 1fr; }.form-grid-primary article { min-height: 150px; padding: 18px; }
-    .principle-strip { grid-template-columns: 1fr; }.principle-strip article { padding: 4px 0; }
-    .material-grid article { min-height: 118px; padding: 13px; grid-template-columns: 24px 1fr; }.material-grid h4 { font-size: 14px; }
-    .support-grid article { min-height: 128px; padding: 14px; }.support-grid h3 { font-size: 16px; }
-    .support-note { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .score-card { padding: 22px 18px; }.objective-card ul { grid-template-columns: 1fr; }.score-header h3 { font-size: 19px; }
-    .outcome-note { padding: 20px; }
-    .apply-section { min-height: 500px; padding: 72px 0; }.apply-inner h2 { font-size: clamp(2.7rem,13vw,4.6rem); }.apply-actions { display: grid; width: 100%; }.apply-actions a { width: 100%; justify-content: space-between; }
+  @media (max-width: 520px) {
+    .spotlight-container { width: calc(100% - 24px); }
+    .apply-actions { display: grid; width: 100%; }
+    .apply-actions a { width: 100%; justify-content: space-between; }
+    .signal-tags { grid-template-columns: repeat(2, auto); }
+    .timeline-grid,
+    .support-grid { grid-template-columns: 1fr; }
+    .timeline-grid article { min-height: auto; border-right: 0; border-bottom: 1px solid var(--ink); }
+    .timeline-grid article:last-child { border-bottom: 0; }
+    .support-grid { border: 1px solid var(--ink); border-bottom: 0; }
+    .support-grid article { min-height: 150px; border-right: 0; }
+    .outcome-note { padding: 24px 20px; }
+  }
+
+  @media (max-height: 760px) and (min-width: 761px) {
+    .sz-hero { min-height: 680px; }
+    .hero-inner { padding-top: 126px; padding-bottom: 24px; }
+    .hero-copy h1 { font-size: clamp(3.7rem, 6vw, 5.8rem); }
+    .hero-slogan { margin-top: 16px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     :global(html) { scroll-behavior: auto; }
-    .hero-video, .hero-colorwash { display: none; }
-    .spot-button, .faq-list summary i { transition: none; }
-  }
-</style>
-
-<style>
-  :global(body) { background: #050505; }
-  :global(.monolith-page) {
-    --ink: #080808;
-    --paper: #f2f1ed;
-    --red: #ff2a0a;
-    --acid: #ff2a0a;
-    --violet: #deddd8;
-    --muted: #5f5f5b;
-    --line: rgba(8, 8, 8, .22);
-    background: #050505;
-    color: var(--ink);
-  }
-  :global(.btn.shenzhen-opening .btn-fill) { background: var(--red, #ff2a0a) !important; }
-  :global(.btn.shenzhen-opening .btn-content span) { color: #fff !important; }
-  :global(.footer--spotlight) { background: #050505 !important; border-top: 1px solid rgba(255,255,255,.2); }
-
-  .monolith-page .spotlight-container { width: min(1480px, calc(100% - 96px)); }
-  .monolith-page .spot-section { padding: 128px 0; overflow: hidden; }
-  .monolith-page .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--red); font-size: 11px; line-height: 1.35; letter-spacing: .16em; font-weight: 700; }
-  .monolith-page .eyebrow::before { content: ""; width: 16px; height: 8px; flex: 0 0 auto; background: var(--red); }
-  .monolith-page .eyebrow.light { color: #fff; }
-  .monolith-page .section-head { margin-bottom: 64px; }
-  .monolith-page .split-head { grid-template-columns: minmax(0, 1.3fr) minmax(340px, .7fr); gap: 6vw; align-items: end; }
-  .monolith-page .section-head h2 { max-width: 15ch; font-size: clamp(2.8rem, 4.15vw, 5.1rem); line-height: .98; letter-spacing: -.055em; font-weight: 700; text-transform: uppercase; }
-  .monolith-page .section-intro { font-size: clamp(1rem, 1.12vw, 1.18rem); line-height: 1.72; }
-  :global(html[lang="zh"]) .monolith-page .section-head h2 { max-width: none; line-height: 1.08; letter-spacing: -.04em; }
-
-  .monolith-page .sz-hero {
-    min-height: max(780px, 100svh);
-    padding: 122px 0 0;
-    isolation: isolate;
-    background: #050505 url("/images/shenzhen2026/shenzhen-hero-poster.jpg") center / cover no-repeat;
-  }
-  .monolith-page .hero-video { z-index: -4; filter: saturate(.92) contrast(1.08) brightness(.78); }
-  .monolith-page .hero-scrim {
-    z-index: -3;
-    background:
-      linear-gradient(90deg, rgba(3,3,3,.93) 0%, rgba(3,3,3,.78) 42%, rgba(3,3,3,.28) 72%, rgba(3,3,3,.08) 100%),
-      linear-gradient(0deg, rgba(3,3,3,.88) 0%, transparent 42%, rgba(3,3,3,.25) 100%);
-  }
-  .monolith-page .hero-grid {
-    z-index: -2;
-    opacity: .22;
-    background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
-    background-size: 82px 82px;
-    mask-image: linear-gradient(90deg, #000, rgba(0,0,0,.68) 48%, transparent 82%);
-  }
-  .monolith-page .hero-aura { display: block; z-index: -1; width: min(410px, 34vw); left: auto; right: 5.5vw; top: 50%; transform: translateY(-50%); border: clamp(18px, 2.2vw, 34px) solid rgba(255,42,10,.9); border-radius: 50%; box-shadow: none; }
-  .monolith-page .hero-aura::before, .monolith-page .hero-aura::after { display: none; }
-  .monolith-page .hero-inner { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .48fr); gap: 6vw; padding: 24px 0 52px; align-items: center; }
-  .monolith-page .hero-copy { position: relative; z-index: 2; text-align: left; }
-  .monolith-page .sz-hero .eyebrow.light { color: #fff; }
-  .monolith-page .hero-copy h1 { max-width: 10ch; margin: 24px 0 20px; color: #fff; font-size: clamp(4.5rem, 8vw, 9rem); line-height: .82; letter-spacing: -.075em; font-weight: 700; text-transform: uppercase; text-shadow: 0 3px 25px rgba(0,0,0,.5); }
-  .monolith-page .hero-copy h1 span { color: var(--red); -webkit-text-stroke: 0; }
-  .monolith-page .hero-statement { margin: 30px 0 0; color: #fff; font-size: clamp(1rem, 1.35vw, 1.35rem); line-height: 1.5; font-weight: 600; letter-spacing: -.02em; }
-  .monolith-page .hero-statement-source { margin-left: .45em; color: rgba(255,255,255,.58); font-weight: 400; font-style: normal; white-space: nowrap; }
-  .monolith-page .hero-lede { max-width: 650px; margin: 14px 0 0; color: rgba(255,255,255,.72); font-size: clamp(.98rem, 1.05vw, 1.14rem); line-height: 1.72; }
-  .monolith-page .hero-actions { justify-content: flex-start; margin-top: 28px; }
-  .monolith-page .spot-button { min-height: 52px; padding: 0 20px; border-radius: 0; gap: 48px; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
-  .monolith-page .hero-actions .spot-button[href^="https://shenzhen2026.gosim.org"] { color: #fff !important; background: var(--red) !important; border-color: var(--red) !important; }
-  .monolith-page .spot-button.ghost { color: #fff; border-color: rgba(255,255,255,.65); background: rgba(5,5,5,.38); backdrop-filter: blur(12px); }
-  .monolith-page .application-note { color: rgba(255,255,255,.58); font-size: 11px; }
-  .monolith-page .application-note span, .monolith-page .apply-inner small span { width: 9px; height: 9px; border-radius: 0; background: var(--red); box-shadow: none; }
-
-  .monolith-page .agent-console { position: relative; z-index: 3; border: 1px solid rgba(255,255,255,.8); border-radius: 0; transform: none; background: rgba(242,241,237,.94); box-shadow: 18px 18px 0 rgba(255,42,10,.86); backdrop-filter: blur(16px); }
-  .monolith-page .console-top { height: 48px; border-color: #151515; background: #0a0a0a; color: rgba(255,255,255,.7); font-size: 9px; }
-  .monolith-page .console-dots i { width: 12px; height: 6px; border-radius: 0; background: #fff; }
-  .monolith-page .console-dots i:first-child { background: var(--red); }
-  .monolith-page .user-bubble { margin-left: 0; border: 0; border-left: 8px solid var(--red); border-radius: 0; background: #101010; color: #fff; }
-  .monolith-page .agent-orb { border: 0; border-radius: 50%; background: var(--red); color: #fff; box-shadow: none; }
-  .monolith-page .agent-state small { color: #a9220c; font-size: 9px; font-weight: 800; }
-  .monolith-page .agent-state p { color: #111; font-size: 13px; }
-  .monolith-page .agent-flow li { min-height: 40px; border-radius: 0; border-color: rgba(8,8,8,.18); color: #66645f; font-size: 12px; }
-  .monolith-page .agent-flow li span { color: #77746f; }
-  .monolith-page .agent-flow li.done { color: #171717; }
-  .monolith-page .agent-flow li.done::after { color: #ba220b; }
-  .monolith-page .agent-flow li.active { border-color: var(--red); color: #080808; box-shadow: inset 8px 0 0 var(--red); }
-  .monolith-page .hero-meta { min-height: 68px; border-color: rgba(255,255,255,.32); background: rgba(5,5,5,.68); backdrop-filter: blur(12px); }
-  .monolith-page .hero-meta div { border-color: rgba(255,255,255,.22); color: rgba(255,255,255,.82); font-size: 10px; letter-spacing: .14em; }
-
-  .monolith-page .signal-strip { position: relative; padding: 48px 0; background: var(--red); border: 0; overflow: hidden; }
-  .monolith-page .signal-strip::after { content: ""; position: absolute; right: 4vw; top: -54px; width: 210px; height: 210px; border: 34px solid rgba(5,5,5,.12); border-radius: 50%; }
-  .monolith-page .signal-inner { position: relative; z-index: 1; align-items: end; }
-  .monolith-page .signal-inner .eyebrow { color: #090909; }
-  .monolith-page .signal-inner .eyebrow::before { background: #090909; }
-  .monolith-page .signal-inner h2 { max-width: 1040px; color: #090909; font-size: clamp(2rem, 3.5vw, 4.15rem); line-height: 1.02; font-weight: 700; letter-spacing: -.05em; text-transform: uppercase; }
-  .monolith-page .signal-tags { grid-template-columns: repeat(2, auto); }
-  .monolith-page .signal-tags span { border-radius: 0; border-color: rgba(5,5,5,.55); color: #090909; background: rgba(242,241,237,.12); padding: 10px 14px; font-size: 10px; font-weight: 700; }
-
-  .monolith-page .definition, .monolith-page .accelerate, .monolith-page .faq-section { background: var(--paper); }
-  .monolith-page .definition::before, .monolith-page .accelerate::before { content: ""; position: absolute; right: 0; top: 0; width: min(36vw, 500px); height: 34px; background: repeating-linear-gradient(90deg, #080808 0 18px, transparent 18px 30px); opacity: .92; }
-  .monolith-page .definition .section-head h2, .monolith-page .accelerate .section-head h2, .monolith-page .faq-title h2 { color: #090909; }
-  .monolith-page .definition .section-intro, .monolith-page .accelerate .section-intro { color: #565651; }
-  .monolith-page .timeline-grid { border-color: #101010; }
-  .monolith-page .timeline-grid::before { top: 34px; height: 2px; background: #101010; }
-  .monolith-page .timeline-grid article { min-height: 260px; padding: 18px 22px 28px; border-color: #101010; }
-  .monolith-page .timeline-marker span { width: 34px; height: 34px; border: 0; border-radius: 0; background: #0a0a0a; color: #fff; box-shadow: none; }
-  .monolith-page .timeline-grid article:last-child .timeline-marker span { background: var(--red); color: #fff; }
-  .monolith-page .timeline-grid time { color: #ba260f; }
-  .monolith-page .timeline-grid h3 { font-size: clamp(1.35rem, 1.65vw, 1.75rem); line-height: 1.22; font-weight: 700; }
-  .monolith-page .timeline-grid p { color: #595954; font-size: 14px; line-height: 1.62; }
-
-  .monolith-page .directions { background: #070707; }
-  .monolith-page .directions::before { content: ""; position: absolute; inset: 0 0 auto auto; width: 46%; height: 42%; background: repeating-linear-gradient(90deg, rgba(255,255,255,.13) 0 16px, transparent 16px 30px); mask-image: linear-gradient(140deg, #000, transparent 72%); }
-  .monolith-page .directions::after { content: ""; right: -5vw; top: 32%; width: 30vw; height: 30vw; border: 3.2vw solid rgba(255,42,10,.82); border-radius: 50%; color: transparent; }
-  .monolith-page .form-grid-primary { gap: 1px; background: rgba(255,255,255,.5); }
-  .monolith-page .form-grid-primary article { --form-metal: var(--red); --form-metal-rgb: 255, 42, 10; min-height: 238px; padding: 24px; border: 0; border-top: 7px solid var(--red); border-radius: 0; background: #101010; }
-  .monolith-page .form-grid-primary article:nth-child(1), .monolith-page .form-grid-primary article:nth-child(2), .monolith-page .form-grid-primary article:nth-child(3) { --form-metal: var(--red); --form-metal-rgb: 255, 42, 10; }
-  .monolith-page .form-grid-primary article:nth-child(2) { background: var(--paper); }
-  .monolith-page .form-grid-primary article:nth-child(2) :is(h3,p) { color: #090909; }
-  .monolith-page .form-grid-primary span { color: var(--red); border-color: var(--red); font-size: 11px; }
-  .monolith-page .form-grid-primary h3 { font-size: clamp(1.4rem, 1.75vw, 1.8rem); line-height: 1.2; font-weight: 700; }
-  .monolith-page .form-grid-primary p { color: rgba(255,255,255,.66); font-size: 14px; line-height: 1.62; }
-  .monolith-page .principles-compact { margin-top: 64px; border-color: rgba(255,255,255,.35); }
-  .monolith-page .principle-strip { gap: 0; }
-  .monolith-page .principle-strip article { padding: 16px 18px; border-left: 1px solid rgba(255,255,255,.28); }
-  .monolith-page .principle-strip span { border-radius: 0; color: #fff; background: var(--red); border-color: var(--red); }
-  .monolith-page .principle-strip h4 { font-size: 17px; line-height: 1.3; }
-  .monolith-page .principle-strip p { color: rgba(255,255,255,.62); font-size: 13px; line-height: 1.58; }
-
-  .monolith-page .submission { background: var(--paper); border-top: 12px solid var(--red); }
-  .monolith-page .submission .light-head h2, .monolith-page .submission .subheading { color: #090909; }
-  .monolith-page .submission .section-intro { color: #565651; }
-  .monolith-page .submission .eyebrow.light { color: #090909; }
-  .monolith-page .material-grid { gap: 1px; background: #0a0a0a; }
-  .monolith-page .material-grid article { min-height: 160px; border: 0; border-radius: 0; background: #fff; }
-  .monolith-page .material-grid article:nth-child(even) { background: #0a0a0a; }
-  .monolith-page .material-grid article > span { color: var(--red); font-size: 10px; }
-  .monolith-page .material-grid h4 { color: #090909; font-size: 18px; line-height: 1.3; }
-  .monolith-page .material-grid p { color: #5e5e59; font-size: 13px; line-height: 1.58; }
-  .monolith-page .material-grid article:nth-child(even) h4 { color: #fff; }
-  .monolith-page .material-grid article:nth-child(even) p { color: rgba(255,255,255,.64); }
-
-  .monolith-page .format { background: #070707; }
-  .monolith-page .format .center-head h2 { color: #fff; text-transform: uppercase; }
-  .monolith-page .center-head .section-intro { color: rgba(255,255,255,.64); }
-  .monolith-page .stage-grid { gap: 1px; background: rgba(255,255,255,.42); }
-  .monolith-page .stage-card, .monolith-page .stage-card:nth-child(2), .monolith-page .stage-card:nth-child(3) { min-height: 320px; padding: 26px; border-radius: 0; background: var(--paper); box-shadow: none; }
-  .monolith-page .stage-card:nth-child(2) { background: var(--red); }
-  .monolith-page .stage-card:nth-child(3) { background: #fff; }
-  .monolith-page .stage-card h3 { font-weight: 700; }
-  .monolith-page .stage-card:nth-child(2) :is(h3,strong,p,.stage-top) { color: #090909; }
-  .monolith-page .stage-top i { color: #090909; }
-  .monolith-page .stage-top { font-size: 11px; }
-  .monolith-page .stage-card strong { font-size: 15px; line-height: 1.5; }
-  .monolith-page .stage-card p { font-size: 14px; line-height: 1.6; }
-
-  .monolith-page .support-grid { gap: 1px; background: #111; }
-  .monolith-page .support-grid article { min-height: 180px; border: 0; border-radius: 0; background: #fff; }
-  .monolith-page .support-grid article:nth-child(3n + 2) { background: #0a0a0a; }
-  .monolith-page .support-grid article:nth-child(3n + 2) :is(h3,p) { color: #fff; }
-  .monolith-page .support-grid article:nth-child(3n + 2) p { color: rgba(255,255,255,.62); }
-  .monolith-page .support-note { margin-top: 1px; border-radius: 0; background: var(--red); }
-  .monolith-page .support-grid span { color: var(--red); font-size: 10px; }
-  .monolith-page .support-grid h3 { font-size: 20px; line-height: 1.3; }
-  .monolith-page .support-grid p { font-size: 13px; line-height: 1.58; }
-  .monolith-page .support-note :is(strong,p) { color: #090909; }
-  .monolith-page .support-note p { font-size: 14px; line-height: 1.65; }
-
-  .monolith-page .judging { background: var(--red); }
-  .monolith-page .judging .eyebrow { color: #090909; }
-  .monolith-page .judging .eyebrow::before { background: #090909; }
-  .monolith-page .judging .section-head h2 { color: #090909; }
-  .monolith-page .judging .section-intro { color: rgba(8,8,8,.72); }
-  .monolith-page .score-grid { gap: 1px; background: #080808; }
-  .monolith-page .score-card { min-height: 350px; border-radius: 0; }
-  .monolith-page .subjective-card { background: var(--paper); }
-  .monolith-page .objective-card { background: #090909; }
-  .monolith-page .ring-60 { background: conic-gradient(var(--red) 0 60%, #d5d3cd 60%); }
-  .monolith-page .ring-40 { background: conic-gradient(var(--red) 0 40%, rgba(255,255,255,.13) 40%); }
-  .monolith-page .outcome-note { margin-top: 1px; border: 0; border-radius: 0; background: #090909; }
-  .monolith-page .outcome-note .eyebrow { color: #fff; }
-  .monolith-page .outcome-note .eyebrow::before { background: var(--red); }
-  .monolith-page .score-lines div { font-size: 14px; }
-  .monolith-page .objective-card li { font-size: 13px; line-height: 1.55; }
-  .monolith-page .objective-card li::before { color: var(--red); }
-  .monolith-page .outcome-note h3 { font-size: 24px; line-height: 1.35; }
-  .monolith-page .outcome-note > p { font-size: 14px; line-height: 1.65; }
-
-  .monolith-page .faq-section { border-top: 12px solid #090909; }
-  .monolith-page .faq-list, .monolith-page .faq-list details { border-color: #171717; }
-  .monolith-page .faq-list summary { min-height: 84px; }
-  .monolith-page .faq-list summary i { border-radius: 0; border-color: #171717; }
-  .monolith-page .faq-list details[open] summary i { color: #fff; background: var(--red); border-color: var(--red); }
-  .monolith-page .faq-list details > p { font-size: 15px; line-height: 1.7; }
-
-  .monolith-page .apply-section { min-height: 680px; background: #050505; }
-  .monolith-page .apply-section::before { opacity: .28; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.52) 0 16px, transparent 16px 30px); background-size: auto; mask-image: linear-gradient(150deg, transparent 10%, #000 54%, transparent 86%); }
-  .monolith-page .apply-glow { width: min(560px, 70vw); border: clamp(28px, 4vw, 58px) solid var(--red); border-radius: 50%; background: transparent; filter: none; box-shadow: none; }
-  .monolith-page .apply-inner h2 { font-size: clamp(3.5rem, 7vw, 7.8rem); line-height: .84; letter-spacing: -.07em; font-weight: 700; color: #fff; text-transform: uppercase; }
-  .monolith-page .apply-inner > p { color: rgba(255,255,255,.68); font-size: 16px; line-height: 1.65; }
-  .monolith-page .apply-actions a { border-radius: 0; font-size: 11px; text-transform: uppercase; }
-  .monolith-page .apply-actions a.apply-primary { color: #fff; border-color: var(--red); background: var(--red); }
-  .monolith-page .apply-actions a.apply-primary:hover { background: #ff4c31; }
-
-  @media (max-width: 1050px) {
-    .monolith-page .spotlight-container { width: min(100% - 56px, 1480px); }
-    .monolith-page .hero-inner { grid-template-columns: minmax(0, 1fr) 300px; gap: 4vw; }
-    .monolith-page .hero-aura { right: -8vw; width: min(420px, 42vw); }
-  }
-
-  @media (max-width: 800px) {
-    .monolith-page .spotlight-container { width: min(100% - 36px, 1480px); }
-    .monolith-page .spot-section { padding: 92px 0; }
-    .monolith-page .hero-video { object-position: 62% center; }
-    .monolith-page .hero-scrim { background: linear-gradient(90deg, rgba(3,3,3,.9), rgba(3,3,3,.48)), linear-gradient(0deg, rgba(3,3,3,.92), transparent 58%); }
-    .monolith-page .hero-inner { grid-template-columns: 1fr; padding-bottom: 44px; }
-    .monolith-page .hero-copy h1 { max-width: 9ch; }
-    .monolith-page .hero-aura { right: -24vw; top: 24%; width: 66vw; opacity: .72; }
-    .monolith-page .agent-console { width: min(100%, 520px); margin: 34px 0 0; }
-    .monolith-page .split-head { grid-template-columns: 1fr; gap: 36px; }
-    .monolith-page .principle-strip article { border-left: 0; border-top: 1px solid rgba(255,255,255,.24); }
-  }
-
-  @media (max-width: 560px) {
-    .monolith-page .spotlight-container { width: calc(100% - 28px); }
-    .monolith-page .sz-hero { padding-top: 108px; min-height: auto; }
-    .monolith-page .hero-copy h1 { font-size: clamp(4rem, 19vw, 6rem); }
-    .monolith-page .hero-statement { margin-top: 26px; }
-    .monolith-page .hero-actions { display: grid; }
-    .monolith-page .spot-button { justify-content: space-between; }
-    .monolith-page .hero-meta { width: 100%; }
-    .monolith-page .signal-tags { grid-template-columns: repeat(2, auto); }
-    .monolith-page .signal-strip::after { right: -90px; }
-    .monolith-page .material-grid, .monolith-page .support-grid { grid-template-columns: 1fr; }
-    .monolith-page .stage-card { min-height: 240px; }
-    .monolith-page .support-grid article:nth-child(3n + 2) { background: #0a0a0a; }
-    .monolith-page .apply-inner h2 { font-size: clamp(3.4rem, 17vw, 5.6rem); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .monolith-page .hero-aura { transform: translateY(-50%); }
+    .hero-video { display: none; }
+    .spot-button,
+    .faq-list summary i { transition: none; }
   }
 </style>

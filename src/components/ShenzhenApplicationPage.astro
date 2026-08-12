@@ -1,6 +1,5 @@
 ---
 import Layout from "layouts/Layout.astro";
-import ShenzhenRibbonSculpture from "components/ShenzhenRibbonSculpture.astro";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -12,13 +11,13 @@ const { locale } = Astro.props;
 const content = {
   en: {
     metaTitle: "Apply — Spotlight Shenzhen 2026",
-    metaDesc: "Apply to GOSIM Spotlight Shenzhen 2026 with an AI-native product, prototype, and plan for the Shenzhen sprint.",
+    metaDesc: "Apply to Spotlight Shenzhen 2026 with an AI-native product, prototype, and plan for the Shenzhen sprint.",
     back: "Program details",
     eyebrow: "SPOTLIGHT SHENZHEN 2026 / APPLICATION",
     title: "DEFINE WHAT\nCOMES NEXT.",
     intro: "Tell us what category you are creating, why the Agent is essential, and what you have already made real. You can submit in English or Chinese.",
     open: "Applications are open",
-    timing: "The closing date will be announced on the program page. Earlier submissions may be reviewed on a rolling basis.",
+    timing: "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21; invitation materials can be issued then when needed.",
     time: "About 20–30 minutes",
     prepare: "Before you start",
     prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "Optional demo video and source repository links", "Your Shenzhen build goal and support needs"],
@@ -30,7 +29,7 @@ const content = {
     applicantName: "Primary contact name",
     applicantEmail: "Email",
     contactHandle: "Phone, WeChat, or other contact (optional)",
-    countryRegion: "Country / region",
+    countryRegion: "City, country / region",
     teamOrganization: "Team or organization (optional)",
     teamSize: "Team size",
     teamMembers: "Team members and roles",
@@ -95,14 +94,14 @@ const content = {
     returnProgram: "Return to program",
   },
   zh: {
-    metaTitle: "报名 — Spotlight 深圳 2026",
-    metaDesc: "提交 AI 原生产品、可验证原型与深圳加速计划，申请 GOSIM Spotlight 深圳 2026。",
+    metaTitle: "报名 — Spotlight Shenzhen 2026",
+    metaDesc: "提交 AI 原生产品、可验证原型与深圳加速计划，申请 Spotlight Shenzhen 2026。",
     back: "返回项目详情",
-    eyebrow: "SPOTLIGHT 深圳 2026 / 项目报名",
+    eyebrow: "Spotlight Shenzhen 2026 / 项目报名",
     title: "定义下一代\n产品。",
-    intro: "告诉我们你正在创建什么新品类、为什么 Agent 不可替代，以及哪些部分已经真实可用。可使用中文或英文提交。",
+    intro: "告诉我们产品给谁使用、解决什么问题、Agent 具体完成什么，以及哪些部分已经可以运行。可使用中文或英文提交。",
     open: "报名现已开放",
-    timing: "截止日期将在项目页面公布；较早提交的项目可能会滚动评审。",
+    timing: "首轮提交截止时间为 2026 年 9 月 13 日（周日）北京时间 23:59；9 月 21 日公布入选团队，并在需要时提供邀请材料。",
     time: "预计 20–30 分钟",
     prepare: "开始前请准备",
     prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "可选的演示视频与代码仓库链接", "深圳现场的开发目标与资源需求"],
@@ -114,13 +113,13 @@ const content = {
     applicantName: "主要联系人姓名",
     applicantEmail: "电子邮箱",
     contactHandle: "电话、微信或其他联系方式（选填）",
-    countryRegion: "国家 / 地区",
+    countryRegion: "城市、国家 / 地区",
     teamOrganization: "团队或机构名称（选填）",
     teamSize: "团队人数",
     teamMembers: "团队成员与分工",
     teamMembersHelp: "列出实际参与产品开发的成员，以及每个人负责的部分。",
     productTitle: "产品命题",
-    productIntro: "我们评选的是清晰的产品判断，而不是功能清单。请直接、具体地说明。",
+    productIntro: "请直接说明目标用户、使用场景、Agent 的工作和当前原型，不需要写抽象的行业愿景。",
     projectName: "项目名称",
     projectUrl: "项目官网（选填）",
     productForm: "产品形态",
@@ -129,10 +128,10 @@ const content = {
     oneLinerHelp: "说明它是什么、为谁服务、带来什么结果；最多 240 字符。",
     targetUsers: "目标用户与核心场景",
     problemStatement: "你正在解决什么重要问题？",
-    categoryThesis: "你要定义什么新品类或产品边界？",
-    categoryHelp: "说明为什么它必须在今天出现，以及为什么它不是现有 App 的普通功能改进。",
-    agentCore: "为什么 Agent 不可替代？",
-    agentHelp: "说明 Agent 感知、判断或执行什么；如果移除 Agent，产品的核心价值会失去什么。",
+    categoryThesis: "与现有产品相比，关键变化是什么？",
+    categoryHelp: "说明现有做法有哪些具体步骤或限制，你的产品如何减少步骤、改善结果，或让原本做不到的任务成为可能。",
+    agentCore: "Agent 在产品里具体做什么？",
+    agentHelp: "说明 Agent 接收哪些信息、作出哪些判断、调用哪些工具，以及最终替用户完成什么。",
     proofTitle: "原型与技术",
     proofIntro: "请提供评委可以实际验证的材料；所有链接需在评审期内保持可访问。",
     currentStage: "当前阶段",
@@ -180,13 +179,13 @@ const content = {
   },
   fr: {
     metaTitle: "Candidature — Spotlight Shenzhen 2026",
-    metaDesc: "Candidatez à GOSIM Spotlight Shenzhen 2026 avec un produit IA natif, un prototype et un plan pour l’accélération à Shenzhen.",
+    metaDesc: "Candidatez à Spotlight Shenzhen 2026 avec un produit IA natif, un prototype et un plan pour l’accélération à Shenzhen.",
     back: "Détails du programme",
     eyebrow: "SPOTLIGHT SHENZHEN 2026 / CANDIDATURE",
     title: "DÉFINISSEZ\nLA SUITE.",
     intro: "Présentez la catégorie que vous créez, pourquoi l’Agent est essentiel et ce qui existe déjà concrètement. La candidature peut être rédigée en français, anglais ou chinois.",
     open: "Les candidatures sont ouvertes",
-    timing: "La date de clôture sera annoncée sur la page du programme. Les premiers dossiers pourront être évalués au fil de l’eau.",
+    timing: "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre ; les documents d’invitation peuvent alors être fournis si nécessaire.",
     time: "Environ 20–30 minutes",
     prepare: "À préparer",
     prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Des liens facultatifs vers la démo vidéo et le dépôt", "Votre objectif à Shenzhen et vos besoins"],
@@ -198,7 +197,7 @@ const content = {
     applicantName: "Nom du contact principal",
     applicantEmail: "E-mail",
     contactHandle: "Téléphone, WeChat ou autre contact (facultatif)",
-    countryRegion: "Pays / région",
+    countryRegion: "Ville, pays / région",
     teamOrganization: "Équipe ou organisation (facultatif)",
     teamSize: "Taille de l’équipe",
     teamMembers: "Membres de l’équipe et rôles",
@@ -302,26 +301,32 @@ const summaryFields = [
   title={c.metaTitle}
   description={c.metaDesc}
   navDarkMode={true}
-  navBackground="application"
+  navBackground="header-home"
   pageTransitionName="Spotlight Shenzhen 2026 Application"
-  socialImage="/images/shenzhen2026/og-shenzhen.png"
+  socialImage="/images/shenzhen2026/og-shenzhen-film.png"
   locale={locale}
+  nativeScroll={true}
+  footerVariant="spotlight"
 >
   <div class="application-page monolith-application">
-    <section class="application-hero" data-theme-section="dark" aria-labelledby="application-title">
-      <div class="hero-grid"></div>
-      <ShenzhenRibbonSculpture variant="application" />
+    <section class="application-hero" data-theme-section="light" aria-labelledby="application-title">
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="application-container hero-content">
         <div class="hero-topline">
           <a class="back-link" href={programPath} aria-label={c.back}><span aria-hidden="true">←</span>{c.back}</a>
         </div>
-        <p class="eyebrow">{c.eyebrow}</p>
-        <h1 id="application-title">{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
-        <p class="hero-intro">{c.intro}</p>
-        <div class="hero-status">
-          <strong><span></span>{c.open}</strong>
-          <p>{c.timing}</p>
-          <small>{c.time}</small>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">{c.eyebrow}</p>
+            <h1 id="application-title">{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
+            <p class="hero-intro">{c.intro}</p>
+          </div>
+          <aside class="hero-status" aria-label={c.open}>
+            <span class="status-index">01 / APPLICATION</span>
+            <strong><span></span>{c.open}</strong>
+            <p>{c.timing}</p>
+            <small>{c.time}</small>
+          </aside>
         </div>
       </div>
     </section>
@@ -361,7 +366,7 @@ const summaryFields = [
               <label>{c.applicantName} *<input name="applicant_name" type="text" minlength="2" maxlength="120" autocomplete="name" required /></label>
               <label>{c.applicantEmail} *<input name="applicant_email" type="email" maxlength="320" autocomplete="email" required /></label>
               <label>{c.contactHandle}<input name="contact_handle" type="text" maxlength="200" autocomplete="tel" /></label>
-              <label>{c.countryRegion} *<input name="country_region" type="text" minlength="2" maxlength="120" autocomplete="country-name" required /></label>
+              <label>{c.countryRegion} *<input name="country_region" type="text" minlength="2" maxlength="120" required /></label>
               <label>{c.teamOrganization}<input name="team_organization" type="text" maxlength="200" autocomplete="organization" /></label>
               <label>{c.teamSize} *<input name="team_size" type="number" min="1" max="100" inputmode="numeric" required /></label>
             </div>
@@ -457,6 +462,28 @@ const summaryFields = [
   const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
   const summaryOutput = document.querySelector<HTMLDListElement>("#submission-summary");
   const startedAt = Date.now();
+
+  const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".application-guide nav a"));
+  const formSections = Array.from(document.querySelectorAll<HTMLElement>(".form-section[id]"));
+  const setActiveSection = (id: string) => {
+    sectionLinks.forEach((link) => {
+      const isActive = link.hash === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "step");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  if (formSections.length && sectionLinks.length) {
+    setActiveSection(formSections[0].id);
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActiveSection((visible[0].target as HTMLElement).id);
+    }, { rootMargin: "-110px 0px -64% 0px", threshold: 0 });
+    formSections.forEach((section) => sectionObserver.observe(section));
+  }
 
   const optionalTextFields = [
     "contact_handle", "team_organization", "project_url", "demo_video_url",
@@ -609,106 +636,165 @@ const summaryFields = [
 </script>
 
 <style>
-  :global(body) { background: #02060b; }
-  :global([data-bg-nav="application"] .main-nav-bar .nav-fill) { opacity: 1 !important; background: rgba(1, 5, 10, .88) !important; -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
-  :global([data-bg-nav="application"] .main-nav-bar .border-bottom) { opacity: 1 !important; background: rgba(137, 188, 239, .18) !important; }
-  :global([data-bg-nav="application"] .main-nav-bar .link .link-click > span) { color: #f2f7ff !important; text-shadow: 0 1px 12px rgba(0, 0, 0, .72); }
-  :global([data-bg-nav="application"] .main-nav-bar .logo svg path) { fill: #fff !important; }
-  :global([data-bg-nav="application"] .main-nav-bar .lang-current) { color: #fff !important; }
-  .application-page { --ink: #eef6ff; --muted: #a9bbce; --blue: #95caff; --blue-strong: #75b9ff; --line: rgba(137, 188, 239, .18); min-height: 100vh; color: var(--ink); background: #02060b; font-family: "Manrope", sans-serif; }
+  :global(body) { background: #f4f3ef; }
+  :global(body:has(.monolith-application) > main.main) { overflow: visible !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    isolation: isolate;
+    box-shadow: none !important;
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill) {
+    opacity: 1 !important;
+    overflow: hidden;
+    background:
+      linear-gradient(112deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .015) 34%, rgba(93, 131, 123, .11) 62%, rgba(7, 9, 8, .08) 100%),
+      rgba(12, 14, 13, .56) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
+    backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), inset 0 -1px 0 rgba(255, 255, 255, .06) !important;
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::before) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(75% 180% at 16% -95%, rgba(255, 255, 255, .3), transparent 58%),
+      radial-gradient(58% 150% at 82% 175%, rgba(101, 158, 146, .16), transparent 62%);
+  }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .border-bottom) { opacity: 1 !important; background: rgba(255, 255, 255, .14) !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .logo svg path) { fill: #fff !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .link .link-click > span),
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .lang-current) { color: #fff !important; text-shadow: none !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .has-sublinks svg) { stroke: #fff !important; }
+  :global(body[data-bg-nav="header-home"] .main-nav-bar .hamburger .bar) { background: #fff !important; }
+  :global(.btn.shenzhen-opening .btn-fill) { background: #ff431a !important; }
+  :global(.btn.shenzhen-opening .btn-content span) { color: #fff !important; }
+  :global(.footer--spotlight) { background: #181818 !important; border-top: 1px solid rgba(255, 255, 255, .18); }
+
+  .application-page {
+    --ink: #171918;
+    --paper: #f4f3ef;
+    --white: #fff;
+    --red: #ff431a;
+    --red-deep: #a53a22;
+    --mineral: #a9bbb5;
+    --mineral-deep: #365e5a;
+    --graphite: #1b1d1c;
+    --mist: #dfe6e2;
+    --muted: #5e625f;
+    --line: rgba(23, 25, 24, .25);
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
   .application-container { width: min(1480px, calc(100% - 96px)); margin: 0 auto; }
-  .application-hero { position: relative; min-height: min(820px, 100svh); overflow: hidden; display: flex; align-items: center; padding: 150px 0 86px; color: #edf6ff; isolation: isolate; border-bottom: 1px solid rgba(130, 184, 238, .2); background: radial-gradient(circle at 73% 48%, rgba(40, 103, 164, .3) 0, rgba(11, 29, 48, .44) 25%, rgba(3, 10, 18, .9) 54%, #010409 82%); }
-  .application-hero::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(1, 4, 9, .96) 0, rgba(1, 5, 10, .7) 42%, transparent 69%), linear-gradient(180deg, rgba(1, 4, 9, .34), transparent 26%, rgba(1, 4, 9, .22)); }
-  .hero-grid { position: absolute; inset: 0; z-index: 0; opacity: .38; pointer-events: none; background-image: linear-gradient(rgba(126, 177, 231, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(126, 177, 231, .08) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(circle at 64% 48%, #000 0, rgba(0,0,0,.72) 48%, transparent 88%); }
+  .application-hero { position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 124px 0 46px; color: #fff; isolation: isolate; border-bottom: 1px solid var(--ink); background: #101110; }
+  .application-hero::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("/images/shenzhen2026/application-hero-punch-card.jpg") center center / cover no-repeat; }
+  .application-hero::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(5, 6, 6, .7) 0%, rgba(5, 6, 6, .48) 34%, rgba(5, 6, 6, .08) 61%, rgba(5, 6, 6, .2) 100%), linear-gradient(180deg, rgba(5, 6, 6, .22) 0%, transparent 34%, rgba(5, 6, 6, .34) 100%); }
+  .hero-grid { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(5, 6, 6, .18) 0 30%, transparent 56%); }
   .hero-content { position: relative; z-index: 2; }
-  .hero-topline { display: flex; align-items: center; gap: 24px; margin-bottom: 58px; }
-  .back-link { position: relative; z-index: 3; min-height: 42px; display: inline-flex; align-items: center; gap: 12px; padding: 0 15px; border: 1px solid rgba(143, 196, 255, .3); color: #a9c8e8; background: rgba(15, 38, 63, .36); font-size: 10px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; pointer-events: auto; transition: color .2s ease, border-color .2s ease, background .2s ease; }
-  .back-link:hover, .back-link:focus-visible { border-color: rgba(169, 213, 255, .75); color: #fff; background: rgba(35, 72, 110, .56); }
-  .eyebrow { color: #8fc7ff; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
-  .application-hero h1 { max-width: 10ch; margin: 26px 0 30px; color: #f4f8ff; font-size: clamp(4rem, 8vw, 8.2rem); font-weight: 300; line-height: .79; letter-spacing: -.085em; text-transform: uppercase; text-shadow: 0 3px 34px rgba(0, 0, 0, .72); }
-  .hero-intro { max-width: 700px; color: #bdcee0; font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.8; text-shadow: 0 2px 18px rgba(0, 0, 0, .75); }
-  .hero-status { max-width: 1000px; display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; margin-top: 46px; padding-top: 22px; border-top: 1px solid rgba(144, 195, 250, .17); }
-  .hero-status strong { display: flex; gap: 9px; align-items: center; color: #eff7ff; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
-  .hero-status strong span { width: 7px; height: 7px; border-radius: 50%; background: #83c2ff; box-shadow: 0 0 14px #78baff; }
-  .hero-status p { color: #a9bdd2; font-size: 11px; line-height: 1.5; }
-  .hero-status small { color: #9fc0df; font-size: 11px; }
-  .application-layout { position: relative; display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 74px; padding: 92px 0 128px; align-items: start; }
-  .application-layout::before { content: ""; position: absolute; inset: 0 50% 0; z-index: -1; width: 100vw; transform: translateX(-50%); pointer-events: none; background-image: linear-gradient(rgba(112, 166, 220, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(112, 166, 220, .035) 1px, transparent 1px); background-size: 72px 72px; }
-  .application-guide { position: sticky; top: 94px; }
-  .guide-card { padding: 25px; border: 1px solid rgba(139, 184, 233, .24); background: linear-gradient(150deg, rgba(12, 29, 47, .98), rgba(4, 12, 22, .98)); box-shadow: 0 28px 90px rgba(0, 0, 0, .34); }
-  .guide-title { color: #e4f1ff; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+  .hero-topline { display: flex; align-items: center; margin-bottom: 28px; }
+  .back-link { min-height: 40px; display: inline-flex; align-items: center; gap: 12px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, .68); color: #fff; background: rgba(15, 17, 16, .34); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font-size: 14px; font-weight: 750; text-decoration: none; letter-spacing: .02em; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+  .back-link:hover, .back-link:focus-visible { color: #fff; border-color: var(--red); background: var(--red); }
+  .hero-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(340px, .65fr); gap: clamp(38px, 6vw, 92px); align-items: end; }
+  .eyebrow { display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .8); font-size: 14px; font-weight: 800; line-height: 1.35; letter-spacing: .13em; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 15px; height: 3px; flex: 0 0 auto; background: var(--red); }
+  .application-hero h1 { max-width: 11ch; margin: 12px 0 16px; color: #fff; font-size: clamp(2.8rem, 4.2vw, 4.6rem); font-weight: 650; line-height: .96; letter-spacing: -.055em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0, 0, 0, .38); }
+  :global(html[lang="zh"]) .application-hero h1 { line-height: 1.06; letter-spacing: -.04em; }
+  .hero-intro { max-width: 680px; color: rgba(255, 255, 255, .78); font-size: 16px; line-height: 1.65; text-shadow: 0 1px 8px rgba(0, 0, 0, .45); }
+  .hero-status { position: relative; display: flex; flex-direction: column; padding: 22px; color: #fff; background: rgba(24, 26, 25, .76); border: 1px solid rgba(255, 255, 255, .24); border-top: 6px solid var(--mineral); -webkit-backdrop-filter: blur(18px) saturate(1.06); backdrop-filter: blur(18px) saturate(1.06); }
+  .status-index { color: #b7cbc4; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+  .hero-status strong { display: flex; gap: 10px; align-items: center; margin-top: 22px; color: #fff; font-size: 17px; line-height: 1.4; }
+  .hero-status strong span { width: 9px; height: 9px; flex: 0 0 auto; background: var(--red); }
+  .hero-status p { margin-top: 12px; color: rgba(255, 255, 255, .72); font-size: 14px; line-height: 1.58; }
+  .hero-status small { margin-top: 14px; padding-top: 13px; border-top: 1px solid rgba(255, 255, 255, .26); color: #fff; font-size: 14px; font-weight: 700; }
+  .application-layout { position: relative; display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 74px; padding: 92px 0 128px; align-items: start; overflow: visible; }
+  .application-layout::before { content: ""; position: absolute; inset: 0 50% 0; z-index: -1; width: 100vw; transform: translateX(-50%); pointer-events: none; background-image: linear-gradient(rgba(23, 25, 24, .028) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 25, 24, .028) 1px, transparent 1px); background-size: 72px 72px; }
+  .application-guide { position: relative; align-self: stretch; height: 100%; }
+  .guide-card { padding: 25px; border: 1px solid var(--ink); border-top: 8px solid var(--mineral); background: var(--mist); }
+  .guide-title { color: var(--ink); font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
   .guide-card ul { display: grid; gap: 12px; margin: 18px 0 20px; }
-  .guide-card li { position: relative; padding-left: 18px; color: #b6c8da; font-size: 11px; line-height: 1.5; }
-  .guide-card li::before { content: "+"; position: absolute; left: 0; color: var(--blue); font-weight: 800; }
-  .file-note { margin: 0 0 18px; padding: 13px; color: #bfd2e5; border: 1px solid rgba(132, 181, 232, .18); background: rgba(92, 151, 211, .1); font-size: 10px; line-height: 1.55; }
-  .guide-card small { color: #91a8bf; font-size: 10px; }
-  .application-guide nav { margin-top: 22px; border-top: 1px solid var(--line); }
+  .guide-card li { position: relative; padding-left: 18px; color: #4f5753; font-size: 15px; line-height: 1.55; }
+  .guide-card li::before { content: "+"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+  .file-note { margin: 0 0 18px; padding: 14px; color: #48514d; border: 1px solid rgba(23, 25, 24, .3); background: rgba(255, 255, 255, .48); font-size: 14px; line-height: 1.6; }
+  .guide-card small { color: var(--muted); font-size: 14px; }
+  .application-guide nav { position: sticky; top: 104px; margin-top: 22px; border-top: 1px solid var(--line); }
   .application-guide nav li { border-bottom: 1px solid var(--line); }
-  .application-guide nav a { display: flex; gap: 12px; padding: 13px 3px; color: #a8bbce; font-size: 11px; font-weight: 700; text-decoration: none; }
-  .application-guide nav a:hover { color: #fff; }
-  .application-guide nav span { color: #6f91b2; font-variant-numeric: tabular-nums; }
+  .application-guide nav a { display: flex; gap: 12px; padding: 14px 8px 14px 3px; color: var(--ink); font-size: 14px; font-weight: 700; text-decoration: none; transition: color .18s ease, background .18s ease, padding .18s ease; }
+  .application-guide nav a:hover { color: var(--red-deep); }
+  .application-guide nav span { color: var(--red-deep); font-variant-numeric: tabular-nums; }
+  .application-guide nav a.is-active { padding-left: 12px; color: var(--red-deep); background: var(--mist); }
+  .application-guide nav a.is-active span { color: var(--red); }
   .form-column { min-width: 0; }
   #application-form { display: grid; gap: 28px; }
-  .form-section { scroll-margin-top: 90px; margin: 0; padding: 42px; border: 1px solid var(--line); border-top: 2px solid #91c6ff; background: linear-gradient(145deg, rgba(9, 22, 37, .98), rgba(4, 12, 22, .98)); box-shadow: 0 24px 80px rgba(0, 0, 0, .26); }
+  .form-section { scroll-margin-top: 90px; margin: 0; padding: 42px; border: 1px solid var(--ink); border-top: 7px solid var(--mineral); background: var(--white); }
+  .form-section.confirm-section { border-top-color: var(--red); }
   .form-section legend { display: flex; gap: 18px; align-items: baseline; width: 100%; padding: 0; color: var(--ink); font-size: clamp(1.65rem, 2.7vw, 2.7rem); font-weight: 700; letter-spacing: -.05em; }
-  .form-section legend span { color: #88bff5; font-size: 10px; letter-spacing: .12em; }
-  .section-intro { max-width: 680px; margin: 14px 0 34px; color: var(--muted); font-size: 12px; line-height: 1.7; }
-  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .form-section legend span { color: var(--red-deep); font-size: 14px; letter-spacing: .1em; }
+  .section-intro { max-width: 680px; margin: 14px 0 34px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
   .field-grid > label:first-child:nth-last-child(3) { grid-column: auto; }
-  label, .checkbox-title { display: grid; gap: 9px; color: #d9e6f3; font-size: 11px; font-weight: 700; line-height: 1.45; }
-  input, textarea, select { width: 100%; border: 1px solid #29435d; border-radius: 0; padding: 12px 13px; color: #edf6ff; background: #020914; font: inherit; font-size: 13px; font-weight: 500; line-height: 1.5; color-scheme: dark; transition: border-color .16s ease, box-shadow .16s ease, background .16s ease; }
-  input::placeholder, textarea::placeholder { color: #617990; opacity: 1; }
+  label, .checkbox-title { display: grid; gap: 9px; align-content: start; align-self: start; color: var(--ink); font-size: 15px; font-weight: 700; line-height: 1.45; }
+  input, textarea, select { width: 100%; border: 1px solid rgba(23, 25, 24, .38); border-radius: 0; padding: 13px 14px; color: var(--ink); background: #f8f8f5; font: inherit; font-size: 16px; font-weight: 500; line-height: 1.5; color-scheme: light; transition: border-color .16s ease, box-shadow .16s ease, background .16s ease; }
+  input::placeholder, textarea::placeholder { color: #888d89; opacity: 1; }
   input, select { min-height: 47px; }
   textarea { resize: vertical; min-height: 96px; }
-  input:focus, textarea:focus, select:focus { outline: 0; border-color: #74b8fb; box-shadow: 0 0 0 3px rgba(74, 143, 213, .18); background: #06111f; }
-  label small { color: #8fa4b9; font-size: 10px; font-weight: 500; line-height: 1.55; }
+  input:focus, textarea:focus, select:focus { outline: 0; border-color: var(--mineral-deep); box-shadow: 0 0 0 3px rgba(54, 94, 90, .14); background: #fff; }
+  label small { color: var(--muted); font-size: 14px; font-weight: 500; line-height: 1.55; }
   .field-full { margin-top: 22px; }
   .checkbox-group { display: grid; gap: 13px; }
   .checkbox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-  .checkbox-grid label, .consent { display: flex; align-items: flex-start; gap: 11px; padding: 13px; border: 1px solid #29435d; background: #040d18; font-weight: 600; cursor: pointer; }
-  .checkbox-grid label:hover, .consent:hover { border-color: #4e779f; background: #071421; }
-  .checkbox-grid input, .consent input { width: 17px; height: 17px; min-height: 0; margin: 1px 0 0; padding: 0; accent-color: #286eb5; flex: 0 0 auto; }
+  .checkbox-grid label, .consent { display: flex; align-items: flex-start; gap: 11px; padding: 13px; border: 1px solid rgba(23, 25, 24, .32); background: #f8f8f5; font-weight: 600; cursor: pointer; }
+  .checkbox-grid label:hover, .consent:hover { border-color: var(--mineral-deep); background: var(--mist); }
+  .checkbox-grid input, .consent input { width: 17px; height: 17px; min-height: 0; margin: 1px 0 0; padding: 0; accent-color: var(--red); flex: 0 0 auto; }
   .confirm-section .section-intro { margin-bottom: 24px; }
   .consent + .consent { margin-top: 10px; }
-  .consent span { color: #afc1d3; font-size: 11px; font-weight: 500; line-height: 1.6; }
-  .consent a { color: #8bc5ff; }
+  .consent span { color: #4f5753; font-size: 14px; font-weight: 500; line-height: 1.6; }
+  .consent a { color: var(--mineral-deep); }
   .submit-area { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
-  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 0; padding: 0 22px; color: #03101c; background: #91c7ff; font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; box-shadow: 0 0 32px rgba(80, 161, 238, .16); }
-  .submit-area button:hover { background: #b8ddff; }
+  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid var(--red); padding: 0 22px; color: #fff; background: var(--red); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
+  .submit-area button:hover { color: var(--ink); border-color: var(--ink); background: #fff; }
   .submit-area button:disabled { opacity: .58; cursor: wait; }
-  .submit-area > small { display: block; margin-top: 12px; color: #8fa4b8; font-size: 10px; }
-  .form-message { margin-top: 12px; color: #ff9696; font-size: 12px; line-height: 1.5; }
-  .success-panel { scroll-margin-top: 100px; padding: clamp(34px, 6vw, 70px); border: 1px solid #355a7e; background: linear-gradient(145deg, #0a1928, #040d17); box-shadow: 0 26px 90px rgba(0, 0, 0, .32); }
+  .submit-area > small { display: block; margin-top: 12px; color: var(--muted); font-size: 14px; }
+  .form-message { margin-top: 12px; color: #a52a19; font-size: 14px; line-height: 1.5; }
+  .success-panel { scroll-margin-top: 100px; padding: clamp(34px, 6vw, 70px); border: 1px solid var(--ink); border-top: 8px solid var(--mineral); background: var(--mist); }
   .success-panel h2 { max-width: 700px; margin: 18px 0; color: var(--ink); font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .98; letter-spacing: -.065em; }
   .success-panel > p:not(.eyebrow) { max-width: 610px; color: var(--muted); font-size: 14px; line-height: 1.7; }
-  .reference-card { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; border: 1px solid var(--line); background: #071522; }
-  .reference-card span { color: #93aac1; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+  .reference-card { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; color: #fff; border: 1px solid var(--graphite); background: var(--graphite); }
+  .reference-card span { color: #b7cbc4; font-size: 14px; text-transform: uppercase; letter-spacing: .1em; }
   .reference-card strong { font-size: 20px; letter-spacing: .08em; }
   .submission-summary { margin: 18px 0 32px; padding-top: 30px; border-top: 1px solid var(--line); }
   .submission-summary h3 { color: var(--ink); font-size: clamp(1.45rem, 2.6vw, 2.25rem); letter-spacing: -.04em; }
-  .submission-summary > p { margin: 8px 0 22px; color: var(--muted); font-size: 11px; }
+  .submission-summary > p { margin: 8px 0 22px; color: var(--muted); font-size: 14px; }
   .submission-summary dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
   .submission-summary dl > div { min-width: 0; padding: 16px 14px 18px 0; border-bottom: 1px solid var(--line); }
   .submission-summary dl > div:nth-child(odd) { padding-right: 24px; }
   .submission-summary dl > div:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
-  .submission-summary dt { margin-bottom: 7px; color: #8fa6bd; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; color: #dce9f6; font-size: 12px; line-height: 1.6; }
-  .submission-summary dd a { color: #8cc6ff; }
-  .success-panel > a { display: block; color: #8cc6ff; font-size: 12px; font-weight: 700; }
+  .submission-summary dt { margin-bottom: 7px; color: var(--mineral-deep); font-size: 14px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; color: var(--ink); font-size: 14px; line-height: 1.6; }
+  .submission-summary dd a { color: var(--mineral-deep); }
+  .success-panel > a { display: block; color: var(--mineral-deep); font-size: 14px; font-weight: 700; }
   .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
     .application-container { width: min(100% - 40px, 1240px); }
+    .hero-layout { grid-template-columns: 1fr; gap: 44px; }
+    .hero-copy { max-width: 820px; }
+    .hero-status { max-width: 720px; }
     .application-layout { grid-template-columns: 1fr; gap: 30px; padding-top: 40px; }
     .application-guide { position: static; }
     .application-guide nav { display: none; }
-    .hero-status { grid-template-columns: 1fr; gap: 10px; }
   }
   @media (max-width: 620px) {
+    :global(body[data-bg-nav="header-home"] .main-nav-bar) { padding-top: 10px; padding-bottom: 10px; }
     .application-container { width: calc(100% - 24px); }
-    .application-hero { padding: 126px 0 52px; }
-    .hero-topline { align-items: flex-start; margin-bottom: 38px; }
-    .application-hero h1 { font-size: clamp(3.5rem, 18vw, 5.4rem); }
+    .application-hero { padding: 108px 0 36px; }
+    .hero-topline { align-items: flex-start; margin-bottom: 26px; }
+    .application-hero h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
+    .hero-status { padding: 20px; }
     .form-section { padding: 28px 18px; }
     .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
     .submission-summary dl { grid-template-columns: 1fr; }

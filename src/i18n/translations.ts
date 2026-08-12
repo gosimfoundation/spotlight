@@ -13,12 +13,12 @@ const translations = {
   en: {
     // Header / Nav
     "nav.about": "About",
-    "nav.upcoming": "Upcoming Spotlight",
+    "nav.upcoming": "Upcoming: Spotlight Shenzhen 2026",
     "nav.previous": "Previous Spotlights",
     "nav.why": "Why Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",
     "nav.nominate": "View Shortlisted",
-    "nav.headerCta": "Shenzhen 2026",
+    "nav.headerCta": "Spotlight Shenzhen 2026",
 
     // Footer
     "footer.home": "Home",
@@ -49,7 +49,7 @@ const translations = {
     "home.meta.title": "GOSIM Spotlight",
     "home.meta.desc": "GOSIM Spotlight: Inspiring the Future Through Open Creation. An international showcase for exceptional open-source projects.",
     "home.hero.subtitle": "Inspiring the Future Through Open Creation",
-    "home.hero.announcement": "Next Spotlight · Shenzhen 2026: Next-Gen AI-Native Products",
+    "home.hero.announcement": "Upcoming: Spotlight Shenzhen 2026 · Next-Gen AI-Native Products",
     "home.hero.eyebrow": "Open creation. Center stage.",
     "home.hero.sceneLabel": "A sequence of spotlights reveals open technology before the GOSIM Spotlight title appears.",
     "home.hero.skip": "Skip intro",
@@ -237,12 +237,12 @@ const translations = {
   fr: {
     // Header / Nav
     "nav.about": "À propos",
-    "nav.upcoming": "Prochain Spotlight",
+    "nav.upcoming": "À venir : Spotlight Shenzhen 2026",
     "nav.previous": "Spotlights précédents",
     "nav.why": "Pourquoi Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",
     "nav.nominate": "Voir les présélectionnés",
-    "nav.headerCta": "Shenzhen 2026",
+    "nav.headerCta": "Spotlight Shenzhen 2026",
 
     // Footer
     "footer.home": "Accueil",
@@ -273,7 +273,7 @@ const translations = {
     "home.meta.title": "GOSIM Spotlight",
     "home.meta.desc": "GOSIM Spotlight : inspirer l’avenir par la création ouverte. Une vitrine internationale pour les projets open source exceptionnels.",
     "home.hero.subtitle": "Inspirer l’avenir par la création ouverte",
-    "home.hero.announcement": "Prochain Spotlight · Shenzhen 2026 : Produits natifs IA de nouvelle génération",
+    "home.hero.announcement": "À venir : Spotlight Shenzhen 2026 · Produits natifs IA de nouvelle génération",
     "home.hero.eyebrow": "Création ouverte. Pleins feux.",
     "home.hero.sceneLabel": "Une séquence de projecteurs révèle des technologies ouvertes avant l’apparition du titre GOSIM Spotlight.",
     "home.hero.skip": "Passer l’intro",
@@ -461,16 +461,16 @@ const translations = {
   zh: {
     // Header / Nav
     "nav.about": "关于",
-    "nav.upcoming": "即将举办",
+    "nav.upcoming": "即将举办：Spotlight Shenzhen 2026",
     "nav.previous": "往期活动",
     "nav.why": "为什么选择 Spotlight",
     "nav.paris2026": "GOSIM Paris 2026",
     "nav.nominate": "查看入围项目",
-    "nav.headerCta": "深圳 2026",
+    "nav.headerCta": "Spotlight Shenzhen 2026",
 
     // Footer
     "footer.home": "首页",
-    "footer.spotlight2026": "Spotlight 深圳 2026：下一代 AI 原生产品",
+    "footer.spotlight2026": "Spotlight Shenzhen 2026：下一代 AI 原生产品",
     "footer.spotlightParis2026": "Spotlight Paris 2026: Frontier Creators",
     "footer.spotlightHangzhou": "Spotlight Hangzhou 2025: AI for Humanity",
     "footer.spotlightParis": "Spotlight Paris 2025: AI",
@@ -497,7 +497,7 @@ const translations = {
     "home.meta.title": "GOSIM Spotlight",
     "home.meta.desc": "GOSIM Spotlight：通过开放创造，激发未来。面向卓越开源项目的国际展示平台。",
     "home.hero.subtitle": "通过开放创造，激发未来",
-    "home.hero.announcement": "下一届 Spotlight · 深圳 2026：下一代 AI 原生产品",
+    "home.hero.announcement": "即将举办：Spotlight Shenzhen 2026 · 下一代 AI 原生产品",
     "home.hero.eyebrow": "开放创造，聚光登场。",
     "home.hero.sceneLabel": "聚光灯依次照亮开放科技，最终呈现 GOSIM Spotlight 标题。",
     "home.hero.skip": "跳过开场",
@@ -509,7 +509,7 @@ const translations = {
     "home.hero.telescope": "探索发现",
     "home.intro.heading": "GOSIM Spotlight 是一个国际展示项目，旨在发掘卓越的开源项目，将它们带到全球社区的关注之中。",
     "home.intro.body": "GOSIM Spotlight 的每一期都与 GOSIM 大会紧密结合，入选项目将通过闪电演讲和展示展台进行展示。Spotlight 入围者将获得全球曝光、导师指导、差旅支持，以及与开源、AI 等领域领军人物交流的机会。",
-    "home.upcoming.title": "Spotlight 深圳 2026：下一代 AI 原生产品",
+    "home.upcoming.title": "Spotlight Shenzhen 2026：下一代 AI 原生产品",
     "home.upcoming.card.title": "打造下一代 AI 原生产品",
     "home.upcoming.card.desc": "围绕真实消费者需求，优先探索由 Agent 驱动的自创硬件形态，也欢迎整合或改造现有设备；当软件最适合承载核心体验时，也可以提交纯软件产品。线上提交可交互原型，入选团队将在深圳完成集中加速与最终展示。",
     "home.upcoming.button": "查看策划与参赛方式",
@@ -518,7 +518,7 @@ const translations = {
     "home.upcoming.colocated": "访问 GOSIM Shenzhen 2026",
 
     // ===================== SHENZHEN 2026 =====================
-    "shenzhen.meta.title": "Spotlight 深圳 2026：下一代 AI 原生产品",
+    "shenzhen.meta.title": "Spotlight Shenzhen 2026：下一代 AI 原生产品",
     "shenzhen.meta.desc": "下一届 GOSIM Spotlight 将在中国深圳举办，详情即将公布。",
     "shenzhen.hero.subtitle": "以开放创造，启迪未来",
     "shenzhen.hero.location": "中国深圳",
@@ -526,7 +526,7 @@ const translations = {
     "shenzhen.hero.colocated": "与 GOSIM Shenzhen 2026 同期举办",
     "shenzhen.intro": "敬请关注参与方式,更多信息即将公布。",
     "home.cta.title": "参与我们",
-    "home.cta.text": "GOSIM Spotlight 一直在寻找卓越的开源项目。查看 Spotlight 深圳 2026：下一代 AI 原生产品，或浏览往期 Spotlight 活动，了解我们关注的项目类型。",
+    "home.cta.text": "GOSIM Spotlight 一直在寻找卓越的开源项目。查看 Spotlight Shenzhen 2026：下一代 AI 原生产品，或浏览往期 Spotlight 活动，了解我们关注的项目类型。",
     "home.cta.button": "查看活动详情",
     "home.why.title": "为什么选择 GOSIM Spotlight？",
     "home.why.desc": "GOSIM Spotlight 是您走向世界的跳板。入选项目将获得国际认可，并接入由合作者、导师和机会组成的全球网络。",
@@ -634,7 +634,7 @@ const translations = {
     "paris2026.cta.text": "Spotlight Paris 2026: Frontier Creators 的入围项目已于2026年5月5-6日在 GOSIM Paris 2026 上进行了展示。",
     "paris2026.cta.bullet1": "Spotlight 展示和闪电演讲：2026年5月5-6日",
     "paris2026.cta.bullet2": "地点：法国巴黎",
-    "paris2026.cta.bullet3": "下一站：Spotlight 深圳 2026：下一代 AI 原生产品",
+    "paris2026.cta.bullet3": "下一站：Spotlight Shenzhen 2026：下一代 AI 原生产品",
 
     // ===================== PARIS 2025 =====================
     "paris2025.meta.title": "Spotlight Paris 2025: AI",
@@ -706,6 +706,8 @@ export function getLocaleFromUrl(url: URL): Locale {
 
 export function getLocalizedPath(path: string, locale: Locale): string {
   const cleanPath = path.replace(/^\/(fr|zh)/, "") || "/";
+  if (locale === "fr" && cleanPath.startsWith("/shenzhen2026/apply")) return `/en${cleanPath}`;
+  if (locale === "fr" && cleanPath.startsWith("/shenzhen2026")) return cleanPath;
   if (locale === "en") return cleanPath;
   return `/${locale}${cleanPath}`;
 }
