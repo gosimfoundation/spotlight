@@ -265,10 +265,6 @@ const content = {
 
 const c = content[locale] || content.en;
 const programPath = locale === "en" ? "/shenzhen2026/" : `/${locale}/shenzhen2026/`;
-const languageLinks = [
-  { locale: "zh", label: "中文", href: "/shenzhen2026/apply/" },
-  { locale: "en", label: "EN", href: "/en/shenzhen2026/apply/" },
-] as const;
 const summaryFields = [
   { name: "applicant_name", label: c.applicantName },
   { name: "applicant_email", label: c.applicantEmail },
@@ -312,19 +308,14 @@ const summaryFields = [
   nativeScroll={true}
 >
   <div class="application-page">
-    <header class="application-hero" data-theme-section="dark">
+    <section class="application-hero" data-theme-section="dark" aria-labelledby="application-title">
       <div class="hero-grid"></div>
       <div class="application-container hero-content">
         <div class="hero-topline">
-          <a class="back-link" href={programPath}>← {c.back}</a>
-          <nav class="application-language-switch" aria-label="Application language">
-            {languageLinks.map((item) => (
-              <a href={item.href} data-locale={item.locale} aria-current={locale === item.locale ? "page" : undefined}>{item.label}</a>
-            ))}
-          </nav>
+          <a class="back-link" href={programPath} aria-label={c.back}>← {c.back}</a>
         </div>
         <p class="eyebrow">{c.eyebrow}</p>
-        <h1>{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
+        <h1 id="application-title">{c.title.split("\n").map((line) => <>{line}<br /></>)}</h1>
         <p class="hero-intro">{c.intro}</p>
         <div class="hero-status">
           <strong><span></span>{c.open}</strong>
@@ -332,7 +323,7 @@ const summaryFields = [
           <small>{c.time}</small>
         </div>
       </div>
-    </header>
+    </section>
 
     <main class="application-container application-layout">
       <aside class="application-guide">
@@ -465,13 +456,6 @@ const summaryFields = [
   const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
   const summaryOutput = document.querySelector<HTMLDListElement>("#submission-summary");
   const startedAt = Date.now();
-
-  document.querySelectorAll<HTMLAnchorElement>(".application-language-switch a").forEach((link) => {
-    link.addEventListener("click", () => {
-      const selectedLocale = link.dataset.locale;
-      if (selectedLocale) document.cookie = `locale=${selectedLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
-    });
-  });
 
   const optionalTextFields = [
     "contact_handle", "team_organization", "project_url", "demo_video_url",
@@ -633,10 +617,6 @@ const summaryFields = [
   .hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 54px; }
   .back-link { display: inline-flex; color: #87a9cc; font-size: 12px; text-decoration: none; letter-spacing: .04em; }
   .back-link:hover { color: #fff; }
-  .application-language-switch { display: flex; align-items: center; gap: 6px; }
-  .application-language-switch a { min-width: 46px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(143, 196, 255, .28); color: #8eabc9; background: rgba(15, 38, 63, .45); font-size: 10px; font-weight: 700; text-decoration: none; letter-spacing: .06em; }
-  .application-language-switch a:hover { border-color: rgba(157, 208, 255, .64); color: #e8f5ff; }
-  .application-language-switch a[aria-current="page"] { border-color: #a9d5ff; color: #07101a; background: #a9d5ff; }
   .eyebrow { color: #80b7ef; font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
   .application-hero h1 { margin: 20px 0 28px; font-size: clamp(4rem, 8vw, 8.2rem); font-weight: 300; line-height: .79; letter-spacing: -.085em; text-transform: uppercase; }
   .hero-intro { max-width: 760px; color: rgba(214, 230, 247, .7); font-size: clamp(1rem, 1.4vw, 1.22rem); line-height: 1.75; }
@@ -718,8 +698,6 @@ const summaryFields = [
     .application-container { width: calc(100% - 24px); }
     .application-hero { padding: 126px 0 52px; }
     .hero-topline { align-items: flex-start; margin-bottom: 38px; }
-    .application-language-switch { gap: 4px; }
-    .application-language-switch a { min-width: 40px; min-height: 32px; }
     .application-hero h1 { font-size: clamp(3.5rem, 18vw, 5.4rem); }
     .form-section { padding: 28px 18px; }
     .field-grid, .checkbox-grid { grid-template-columns: 1fr; }

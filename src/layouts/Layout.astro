@@ -117,7 +117,7 @@ const {
         var lang = (navigator.language || '').toLowerCase();
         var path = window.location.pathname.replace(/\/$/, '') || '';
         if (lang.startsWith('zh')) window.location.replace('/zh' + path);
-        else if (lang.startsWith('fr')) window.location.replace('/fr' + path);
+        else if (lang.startsWith('fr') && !path.startsWith('/shenzhen2026')) window.location.replace('/fr' + path);
       })();
     </script>
   </body>

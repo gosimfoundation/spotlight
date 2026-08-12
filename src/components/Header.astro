@@ -17,18 +17,37 @@ const hasNotificationBar = false
 
 const slug = Astro.url.pathname
 const isShenzhenPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
+const isShenzhenApplicationPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026\/apply(?:\/|$)/.test(slug)
 const applyNowText: Record<Locale, string> = {
   en: "Apply Now",
   fr: "Candidater",
   zh: "立即报名",
 }
-const headerCtaText = isShenzhenPage ? applyNowText[locale] : t("nav.headerCta")
+const programDetailsText: Record<Locale, string> = {
+  en: "Program Details",
+  fr: "Programme",
+  zh: "项目详情",
+}
 const applicationPath: Record<Locale, string> = {
   en: "/en/shenzhen2026/apply/",
   fr: "/fr/shenzhen2026/apply/",
   zh: "/shenzhen2026/apply/",
 }
-const headerCtaLink = isShenzhenPage ? applicationPath[locale] : getLocalizedPath("/shenzhen2026", locale)
+const programPath: Record<Locale, string> = {
+  en: "/shenzhen2026/",
+  fr: "/fr/shenzhen2026/",
+  zh: "/zh/shenzhen2026/",
+}
+const headerCtaText = isShenzhenApplicationPage
+  ? programDetailsText[locale]
+  : isShenzhenPage
+    ? applyNowText[locale]
+    : t("nav.headerCta")
+const headerCtaLink = isShenzhenApplicationPage
+  ? programPath[locale]
+  : isShenzhenPage
+    ? applicationPath[locale]
+    : getLocalizedPath("/shenzhen2026", locale)
 
 const links = [
   {
