@@ -1,0 +1,274 @@
+---
+interface Props {
+  variant: "hero" | "application";
+  labels?: readonly string[];
+}
+
+const { variant, labels = [] } = Astro.props;
+---
+
+<div class={`time-tunnel ${variant}`} data-time-tunnel aria-hidden="true">
+  <div class="tunnel-halo"></div>
+  <canvas></canvas>
+  {labels.map((label, index) => <span class="tunnel-label" data-position={index}>{label}</span>)}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-time-tunnel]").forEach((root) => {
+    const canvas = root.querySelector<HTMLCanvasElement>("canvas");
+    const context = canvas?.getContext("2d");
+    if (!canvas || !context || canvas.dataset.tunnelReady) return;
+    canvas.dataset.tunnelReady = "true";
+
+    let width = 1;
+    let height = 1;
+    let pixelRatio = 1;
+    let frame = 0;
+    let pointerX = 0;
+    let pointerY = 0;
+    let targetPointerX = 0;
+    let targetPointerY = 0;
+    const applicationVariant = root.classList.contains("application");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    // Color wheel sampled from damonxart's "The Trajectory of Time":
+    // saturated sectors separated by silky pastel wedges.
+    const wheel: Array<[number, string]> = applicationVariant
+      ? [
+          [0, "#ff6a3d"], [.06, "#ffa22e"], [.12, "#ffd23f"], [.16, "#f9efc2"],
+          [.2, "#7de88f"], [.3, "#14b56a"], [.4, "#1f9fd8"], [.49, "#2f68f0"],
+          [.55, "#8fb3ff"], [.595, "#e9dcf7"], [.65, "#b666e6"], [.75, "#8f37dd"],
+          [.83, "#e055bb"], [.88, "#f7c3e0"], [.94, "#f2503f"], [1, "#ff6a3d"],
+        ]
+      : [
+          [0, "#f9451f"], [.06, "#ff8d0a"], [.12, "#ffc414"], [.16, "#f6edb9"],
+          [.2, "#4fd96e"], [.3, "#009c4e"], [.4, "#0084cf"], [.49, "#1747e6"],
+          [.55, "#6f9bf5"], [.595, "#e6d4f2"], [.65, "#a63fdb"], [.75, "#7712cd"],
+          [.83, "#d92ba4"], [.88, "#f4aed4"], [.94, "#e02e22"], [1, "#f9451f"],
+        ];
+
+    const resize = () => {
+      const bounds = root.getBoundingClientRect();
+      width = Math.max(1, bounds.width);
+      height = Math.max(1, bounds.height);
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+    };
+
+    const smoothstep = (edge0: number, edge1: number, value: number) => {
+      const t = Math.min(1, Math.max(0, (value - edge0) / (edge1 - edge0)));
+      return t * t * (3 - 2 * t);
+    };
+
+    const render = (time = 0) => {
+      pointerX += (targetPointerX - pointerX) * .04;
+      pointerY += (targetPointerY - pointerY) * .04;
+
+      const seconds = reduceMotion.matches ? 7.3 : time * .001;
+      const size = Math.min(width, height);
+      const maxRadius = size * .42;
+      const boxX = width * (.5 + pointerX * .015);
+      const boxY = height * (.5 + pointerY * .015);
+      const tilt = (applicationVariant ? -.42 : -.32) + pointerX * .03;
+      const squash = .8;
+      // Slow unfurl of the whole bloom + direction each new pleat rolls out toward.
+      const unfurl = seconds * .05;
+      const twistSpan = 1.25;
+      // Keep the disc centered in the box: the eye sits just inside the rim of
+      // the largest ring, opposite the direction the bloom unrolls toward.
+      const phiEnd = unfurl + twistSpan;
+      const rimX = Math.cos(phiEnd) * maxRadius * .87;
+      const rimY = Math.sin(phiEnd) * maxRadius * .87;
+      // Eye position in canvas space (offset pushed through tilt + squash),
+      // used as the center of the conic color sweeps.
+      const eyeX = boxX + (-rimX) * Math.cos(tilt) - (-rimY) * squash * Math.sin(tilt);
+      const eyeY = boxY + (-rimX) * Math.sin(tilt) + (-rimY) * squash * Math.cos(tilt);
+
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      context.clearRect(0, 0, width, height);
+      context.globalCompositeOperation = "source-over";
+
+      // Ring geometry: fine pleated rings, every one tangent to the vortex
+      // point, radius blooming outward from the eye. Each ring is born at the
+      // eye, accelerates outward, overshoots the rim and fades — the camera
+      // pushing into the tunnel.
+      const rings = 168;
+      const flow = seconds * .13;
+      const reach = maxRadius * 1.08;
+      const ringSet: Array<[number, number, number, number, number]> = [];
+      for (let ring = 0; ring < rings; ring += 1) {
+        const t = (ring / rings + flow) % 1;
+        const radius = reach * Math.pow(t, 2.1);
+        const phi = unfurl + t * twistSpan + Math.sin(t * 5.2 + seconds * .21) * .08;
+        const centerDistance = radius * .965;
+        // Local gap between successive rings sets the pleat width so the
+        // surface reads as near-solid silk with fine grooves.
+        const gap = (reach * 2.1 * Math.pow(Math.max(t, .012), 1.1)) / rings;
+        const fade = smoothstep(.012, .05, t) * (1 - smoothstep(.88, 1, t));
+        if (fade <= 0) continue;
+        // Banding that travels WITH the rings (anchored to the ring slot, not
+        // to depth): groups of rings read as distinct waves rolling outward —
+        // without this the uniform flow is invisible and only rotation shows.
+        const wave = .84 + .16 * Math.sin((ring / rings) * Math.PI * 2 * 9);
+        ringSet.push([Math.cos(phi) * centerDistance, Math.sin(phi) * centerDistance, radius, gap, fade * wave]);
+      }
+
+      const withBloomTransform = (draw: () => void) => {
+        context.save();
+        context.translate(boxX, boxY);
+        context.rotate(tilt);
+        context.scale(1, squash);
+        context.translate(-rimX, -rimY);
+        draw();
+        context.restore();
+      };
+
+      // Pass 1 — structure in white; only its alpha survives colorization.
+      withBloomTransform(() => {
+        for (const [cx, cy, radius, gap, fade] of ringSet) {
+          context.beginPath();
+          context.arc(cx, cy, radius, 0, Math.PI * 2);
+          context.strokeStyle = `rgba(255, 255, 255, ${fade.toFixed(3)})`;
+          // Rim-to-rim spacing of tangent rings is ~2x the radius step, so the
+          // stroke needs to cover most of it to read as solid silk.
+          context.lineWidth = Math.max(.6, gap * 1.75);
+          context.stroke();
+        }
+      });
+
+      // Pass 2 — the rainbow: conic sweep centered on the vortex, slowly
+      // rotating, masked onto the pleat structure. The full wheel is compressed
+      // into the arc that faces the viewer (the rest hides above the eye), so
+      // the whole spectrum reads across the bloom like the reference sculpture.
+      const visibleSpan = .62;
+      // Anchor the spectrum to the bloom's orientation: the face seen from the
+      // eye spans the directions around phiEnd, so the wheel rides along as the
+      // bloom slowly unfurls.
+      const hueSpin = phiEnd + tilt - visibleSpan * Math.PI + Math.sin(seconds * .06) * .2;
+      const rainbow = context.createConicGradient(hueSpin, eyeX, eyeY);
+      for (const [stop, color] of wheel) rainbow.addColorStop(stop * visibleSpan, color);
+      rainbow.addColorStop(Math.min(1, visibleSpan + .1), wheel[0][1]);
+      rainbow.addColorStop(1, wheel[0][1]);
+      context.globalCompositeOperation = "source-in";
+      context.fillStyle = rainbow;
+      context.fillRect(0, 0, width, height);
+
+      // Pass 3 — silky highlight wedges drifting around the bloom.
+      const sheenSweep = context.createConicGradient(seconds * .07, eyeX, eyeY);
+      const sheenPeak = applicationVariant ? .38 : .3;
+      sheenSweep.addColorStop(0, "rgba(255,255,255,0)");
+      sheenSweep.addColorStop(.16, `rgba(255,255,255,${sheenPeak})`);
+      sheenSweep.addColorStop(.3, "rgba(255,255,255,0)");
+      sheenSweep.addColorStop(.55, "rgba(255,255,255,0)");
+      sheenSweep.addColorStop(.68, `rgba(255,255,255,${sheenPeak * .7})`);
+      sheenSweep.addColorStop(.82, "rgba(255,255,255,0)");
+      sheenSweep.addColorStop(1, "rgba(255,255,255,0)");
+      context.globalCompositeOperation = "source-atop";
+      context.fillStyle = sheenSweep;
+      context.fillRect(0, 0, width, height);
+
+      // Pass 4 — glow at the mouth of the tunnel.
+      const core = context.createRadialGradient(eyeX, eyeY, 0, eyeX, eyeY, maxRadius * .22);
+      core.addColorStop(0, `rgba(255,255,255,${applicationVariant ? .85 : .92})`);
+      core.addColorStop(.35, "rgba(255,255,255,.22)");
+      core.addColorStop(1, "rgba(255,255,255,0)");
+      context.fillStyle = core;
+      context.fillRect(0, 0, width, height);
+      context.globalCompositeOperation = "source-over";
+
+      if (!reduceMotion.matches) frame = requestAnimationFrame(render);
+    };
+
+    window.addEventListener("pointermove", (event) => {
+      targetPointerX = (event.clientX / window.innerWidth - .5) * 2;
+      targetPointerY = (event.clientY / window.innerHeight - .5) * 2;
+    }, { passive: true });
+
+    const observer = new ResizeObserver(() => {
+      resize();
+      if (reduceMotion.matches) render();
+    });
+    observer.observe(root);
+    resize();
+    render();
+
+    reduceMotion.addEventListener("change", () => {
+      cancelAnimationFrame(frame);
+      render();
+    });
+  });
+</script>
+
+<style>
+  .time-tunnel {
+    position: absolute;
+    z-index: 1;
+    aspect-ratio: 1;
+    pointer-events: none;
+    isolation: isolate;
+  }
+  .time-tunnel.hero {
+    width: min(1000px, 76vw);
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .time-tunnel.application {
+    width: min(880px, 68vw);
+    right: -4%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .92;
+  }
+  .time-tunnel canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: saturate(1.16);
+  }
+  .time-tunnel.hero canvas {
+    mix-blend-mode: multiply;
+    /* Quiet the bloom under the hero copy so body text stays readable. */
+    -webkit-mask-image: radial-gradient(ellipse 54% 40% at 26% 63%, rgba(0, 0, 0, .34) 0, rgba(0, 0, 0, .48) 55%, #000 100%);
+    mask-image: radial-gradient(ellipse 54% 40% at 26% 63%, rgba(0, 0, 0, .34) 0, rgba(0, 0, 0, .48) 55%, #000 100%);
+  }
+  .time-tunnel.application canvas { mix-blend-mode: screen; filter: saturate(1.2) brightness(1.24); }
+  .tunnel-halo {
+    position: absolute;
+    inset: 16%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 253, 244, .8), rgba(232, 236, 231, .22) 46%, transparent 72%);
+    filter: blur(26px);
+  }
+  .application .tunnel-halo { background: radial-gradient(circle, rgba(121, 184, 247, .16), rgba(29, 78, 129, .05) 48%, transparent 74%); }
+  .tunnel-label {
+    position: absolute;
+    z-index: 2;
+    color: rgba(29, 50, 70, .52);
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-shadow: 0 1px 9px rgba(255, 255, 255, .72);
+  }
+  .tunnel-label[data-position="0"] { left: 2%; top: 49%; }
+  .tunnel-label[data-position="1"] { left: 48%; top: 2%; }
+  .tunnel-label[data-position="2"] { right: 2%; top: 49%; }
+  .tunnel-label[data-position="3"] { left: 47%; bottom: 2%; }
+
+  @media (max-width: 1050px) {
+    .time-tunnel.hero { left: 37%; }
+  }
+  @media (max-width: 900px) {
+    .time-tunnel.application { width: min(820px, 84vw); right: -22%; opacity: .74; }
+  }
+  @media (max-width: 800px) {
+    .time-tunnel.hero { width: min(940px, 114vw); left: 50%; top: 34%; opacity: .8; }
+  }
+  @media (max-width: 620px) {
+    .time-tunnel.application { width: 124vw; right: -66%; top: 42%; opacity: .55; }
+  }
+</style>
