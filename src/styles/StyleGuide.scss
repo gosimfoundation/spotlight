@@ -690,11 +690,11 @@ video.overlay {
 }
 
 .btn.shenzhen-opening .btn-fill {
-   background-color: #76f0c8 !important;
+   background-color: #ff431a !important;
 }
 
 .btn.shenzhen-opening .btn-content span {
-   color: #10201a !important;
+   color: var(--color-white) !important;
 }
 
 .spotlight-page .hero-actions .spot-button[href="#apply"],
