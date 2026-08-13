@@ -36,7 +36,7 @@ const { projects = projectsData.projects } = Astro.props
             <p>{project.content}</p>
             {project.url && (
               <a href={project.url} class="project-link" target="_blank" rel="noopener noreferrer">
-                Learn More →
+                <span>Learn More</span><span class="shape-icon shape-icon--arrow" aria-hidden="true"></span>
               </a>
             )}
           </div>

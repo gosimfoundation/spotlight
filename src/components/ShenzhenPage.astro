@@ -65,7 +65,7 @@ const content = {
     formsTitle: "产品形态不限",
     forms: [["自研智能硬件", "为特定场景设计新的设备，并把感知、交互和 Agent 能力做进同一产品"], ["现有设备与跨设备系统", "改造或连接手机、电脑、可穿戴、家居与空间设备，让 Agent 协同完成任务"], ["AI 原生软件", "不依赖新硬件，用 Agent 重新组织一个完整工作流，而不只是增加聊天入口"]],
     formatKicker: "04 / 比赛流程",
-    formatTitle: "线上评选 → 深圳共创 → 现场展示",
+    formatTitle: ["线上评选", "深圳共创", "现场展示"],
     formatText: "先通过线上材料和原型确认项目是否值得继续；入选团队在深圳用约两天解决最关键的工程、体验和演示问题；最后在 GOSIM 大会面对开发者、产业伙伴和开源社区现场展示。",
     stages: [
       ["01", "线上项目评选", "看清用户、场景和当前原型", "评委查看申请材料并实际体验团队提供的产品或演示"],
@@ -171,7 +171,7 @@ const content = {
     formsTitle: "Any product form",
     forms: [["Create a hardware form", "Design the form, interaction, and device itself using custom structures, 3D printing, or laser cutting"], ["Integrate or adapt a device", "Rework the capabilities or form of a phone, smartwatch, robot, or another existing device"], ["Build a software-only product", "When no new hardware is needed, use an app, web or desktop interface, or cross-device service"]],
     formatKicker: "04 / FORMAT",
-    formatTitle: "Global selection → Closed Shenzhen sprint → Global launch",
+    formatTitle: ["Global selection", "Closed Shenzhen sprint", "Global launch"],
     formatText: "Spotlight is not an idea contest. It is an acceleration path from product conviction to public release. The standard rises at every stage until only work that can be experienced and verified remains.",
     stages: [["01", "Online selection", "Validate value, experience, and feasibility", "Submit an interactive prototype, short video, and build plan"], ["02", "Shenzhen sprint", "About two focused days to build and refine", "Finish a working product with software, hardware, and mentor support"], ["03", "Final showcase", "Demo the next generation of AI products", "Conference exposure, promotion, and incubation opportunities"]],
     submitKicker: "03 / ONLINE SUBMISSION",
@@ -251,7 +251,7 @@ const content = {
     formsTitle: "Toutes les formes sont possibles",
     forms: [["Créer une forme matérielle", "Concevoir la forme, l’interaction et l’appareil à l’aide de structures sur mesure, d’impression 3D ou de découpe laser"], ["Intégrer ou adapter un appareil", "Repenser les capacités ou la forme d’un téléphone, d’une montre intelligente, d’un robot ou d’un autre appareil existant"], ["Créer un produit entièrement logiciel", "Lorsqu’aucun nouveau matériel n’est nécessaire, utiliser une application, une interface web ou desktop, ou un service multi-appareils"]],
     formatKicker: "04 / FORMAT",
-    formatTitle: "Sélection en ligne → Accélération à Shenzhen → Démonstration finale",
+    formatTitle: ["Sélection en ligne", "Accélération à Shenzhen", "Démonstration finale"],
     formatText: "La première étape valide l’idée, l’expérience et la capacité d’exécution à faible coût. La seconde concentre les ressources pour finaliser ou améliorer un prototype réel.",
     stages: [["01", "Sélection en ligne", "Valider valeur, expérience et faisabilité", "Prototype interactif, courte vidéo et plan de réalisation"], ["02", "Accélération à Shenzhen", "Environ deux jours pour construire et affiner", "Produit fonctionnel avec soutien logiciel, matériel et mentorat"], ["03", "Démonstration finale", "Présenter la prochaine génération de produits IA", "Visibilité, promotion et opportunités d’incubation"]],
     submitKicker: "03 / SOUMISSION EN LIGNE",
@@ -341,7 +341,7 @@ const applyPath = locale === "zh"
             {c.meta.map((item) => <div>{item}</div>)}
           </div>
           <div class="hero-actions">
-            <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span aria-hidden="true">↗</span></a>
+            <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
             <a class="spot-button ghost" href={applyPath} aria-describedby="application-note">{c.heroSecondary}</a>
           </div>
           <p class="application-note" id="application-note"><span></span>{c.heroNote}</p>
@@ -443,13 +443,15 @@ const applyPath = locale === "zh"
       <div class="spotlight-container">
         <div class="section-head center-head">
           <p class="eyebrow">{c.formatKicker}</p>
-          <h2>{c.formatTitle}</h2>
+          <h2 class="format-title">
+            {c.formatTitle.map((step, index) => <><span>{step}</span>{index < c.formatTitle.length - 1 && <span class="shape-icon shape-icon--arrow format-title-arrow" aria-hidden="true"></span>}</>)}
+          </h2>
           <p class="section-intro">{c.formatText}</p>
         </div>
         <div class="stage-grid">
           {c.stages.map((stage, index) => (
             <article class="stage-card">
-              <div class="stage-top"><span>{stage[0]}</span>{index < 2 && <i aria-hidden="true">→</i>}</div>
+              <div class="stage-top"><span>{stage[0]}</span>{index < 2 && <span class="shape-icon shape-icon--arrow stage-flow-icon" aria-hidden="true"></span>}</div>
               <h3>{stage[1]}</h3>
               <strong>{stage[2]}</strong>
               <p>{stage[3]}</p>
@@ -516,7 +518,7 @@ const applyPath = locale === "zh"
         <div class="faq-list">
           {c.faqs.map((faq) => (
             <details>
-              <summary><span>{faq[0]}</span><i aria-hidden="true">+</i></summary>
+              <summary><span>{faq[0]}</span><span class="faq-toggle" aria-hidden="true"><span class="shape-icon shape-icon--plus"></span></span></summary>
               <p>{faq[1]}</p>
             </details>
           ))}
@@ -530,8 +532,8 @@ const applyPath = locale === "zh"
         <h2>{sectionTitle(c.applyTitle).map((line) => <>{line}<br /></>)}</h2>
         <p>{c.applyText}</p>
         <div class="apply-actions">
-          <a class="apply-primary" href={applyPath}>{c.applyButton}<span aria-hidden="true">↗</span></a>
-          <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.conference}<span aria-hidden="true">↗</span></a>
+          <a class="apply-primary" href={applyPath}>{c.applyButton}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
+          <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.conference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
         </div>
         <small><span></span>{c.applyHint}</small>
       </div>
@@ -720,13 +722,13 @@ const applyPath = locale === "zh"
     text-decoration: none;
     transition: color .2s ease, background .2s ease;
   }
-  .spot-button:hover { color: #fff; border-color: var(--red); background: var(--red); }
+  .spot-button:hover { color: var(--ink); border-color: var(--red); background: var(--red); }
   .monolith-page .hero-actions .spot-button[href^="https://shenzhen2026.gosim.org"] {
     color: var(--ink) !important;
     background: rgba(247, 247, 244, .94) !important;
     border-color: rgba(247, 247, 244, .94) !important;
   }
-  .spot-button.ghost { color: #fff; border-color: var(--red); background: var(--red); }
+  .spot-button.ghost { color: var(--ink); border-color: var(--red); background: var(--red); }
   .spot-button.ghost:hover { color: var(--ink); border-color: #fff; background: #fff; }
   .application-note { grid-column: 1 / -1; margin-top: -2px; display: flex; align-items: center; gap: 9px; color: rgba(255, 255, 255, .7); font-size: 14px; line-height: 1.4; }
   .application-note span,
@@ -739,7 +741,7 @@ const applyPath = locale === "zh"
   :global(html[lang="zh"]) .signal-inner h2 { line-height: 1.18; letter-spacing: -.025em; }
   .signal-context > p { max-width: 660px; color: #4f5753; font-size: 17px; line-height: 1.72; }
   .signal-context blockquote { margin-top: 25px; padding-top: 18px; border-top: 1px solid rgba(24, 24, 24, .34); color: var(--ink); font-family: Georgia, serif; font-size: 18px; font-style: italic; line-height: 1.55; }
-  .signal-context blockquote span { margin-left: 10px; color: #6b7671; font-family: "Manrope", sans-serif; font-size: 14px; font-style: normal; letter-spacing: .06em; }
+  .signal-context blockquote span { margin-left: 10px; color: #535955; font-family: "Manrope", sans-serif; font-size: 14px; font-style: normal; letter-spacing: .06em; }
   .signal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
   .signal-tags span { padding: 9px 12px; border: 1px solid rgba(24, 24, 24, .45); color: var(--ink); font-size: 14px; line-height: 1.2; font-weight: 700; }
 
@@ -779,13 +781,15 @@ const applyPath = locale === "zh"
   .subheading { margin-bottom: 20px; font-size: 22px; line-height: 1.35; }
   .material-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
   .material-grid article { min-height: 164px; padding: 20px; display: grid; grid-template-columns: 34px 1fr; gap: 10px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-  .material-grid article > span { color: var(--red); font-size: 14px; font-weight: 800; letter-spacing: .08em; }
+  .material-grid article > span { color: var(--red-deep); font-size: 14px; font-weight: 800; letter-spacing: .08em; }
   .material-grid h4 { color: var(--ink); font-size: 18px; line-height: 1.35; }
   .material-grid p { margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.55; }
 
   .format { border-top: 1px solid var(--ink); }
   .center-head { max-width: 1040px; margin-left: auto; margin-right: auto; text-align: center; }
   .center-head h2 { max-width: none; }
+  .format-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .3em; }
+  .format-title-arrow { font-size: .52em; color: var(--red-deep); }
   .center-head .eyebrow { justify-content: center; }
   .center-head .section-intro { margin: 18px auto 0; }
   .stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
@@ -795,7 +799,7 @@ const applyPath = locale === "zh"
   .stage-top { display: flex; justify-content: space-between; color: #5b5954; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
   .stage-top span { color: #a53a22; }
   .stage-card:nth-child(2) .stage-top span { color: var(--ink); }
-  .stage-top i { font-style: normal; font-size: 20px; }
+  .stage-flow-icon { font-size: 20px; }
   .stage-card h3 { margin-top: auto; color: var(--ink); font-size: clamp(1.65rem, 2.1vw, 2.25rem); line-height: 1.18; }
   .stage-card strong { margin-top: 12px; color: var(--ink); font-size: 16px; line-height: 1.48; }
   .stage-card p { margin-top: 8px; color: #54524d; font-size: 15px; line-height: 1.55; }
@@ -803,7 +807,7 @@ const applyPath = locale === "zh"
   .accelerate { border-top: 1px solid var(--ink); }
   .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
   .support-grid article { min-height: 176px; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-  .support-grid span { color: var(--red); font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+  .support-grid span { color: var(--red-deep); font-size: 14px; font-weight: 800; letter-spacing: .1em; }
   .support-grid h3 { margin-top: auto; color: var(--ink); font-size: 20px; line-height: 1.3; }
   .support-grid p { margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.55; }
   .support-note { margin-top: 22px; padding: 22px; display: grid; grid-template-columns: auto 1fr; gap: 28px; border: 1px solid var(--ink); }
@@ -820,13 +824,17 @@ const applyPath = locale === "zh"
   .score-ring { display: flex; align-items: baseline; color: #a53a22; }
   .score-ring strong { font-size: clamp(3.8rem, 5vw, 5.6rem); line-height: .8; }
   .score-ring small { font-size: 16px; }
+  .objective-card .ring-40 strong,
+  .objective-card .ring-40 small { color: #f7f7f4; }
   .score-header h3 { color: var(--ink); font-size: 22px; }
   .objective-card .score-header h3 { color: #fff; }
   .score-lines { margin-top: 14px; }
   .score-lines div { min-height: 48px; display: flex; align-items: center; border-bottom: 1px solid var(--line); color: #4e4c47; font-size: 15px; }
   .objective-card ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin-top: 14px; }
   .objective-card li { min-height: 54px; padding: 13px 0 13px 22px; position: relative; border-bottom: 1px solid rgba(255, 255, 255, .22); color: rgba(255, 255, 255, .76); font-size: 15px; line-height: 1.45; }
-  .objective-card li::before { content: "+"; position: absolute; left: 0; color: var(--red); }
+  .objective-card li::before,
+  .objective-card li::after { content: ""; position: absolute; left: 0; top: 1.42em; width: 8px; height: 1px; background: var(--red); }
+  .objective-card li::after { transform: rotate(90deg); }
   .outcome-note { margin-top: 22px; padding: 30px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 6vw; align-items: end; color: #fff; background: var(--ink); border-left: 10px solid var(--mineral); }
   .outcome-note .eyebrow { color: #fff; }
   .outcome-note h3 { margin-top: 10px; color: #fff; font-size: clamp(1.65rem, 2.3vw, 2.35rem); line-height: 1.25; }
@@ -839,8 +847,8 @@ const applyPath = locale === "zh"
   .faq-list details { border-bottom: 1px solid var(--ink); }
   .faq-list summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
   .faq-list summary::-webkit-details-marker { display: none; }
-  .faq-list summary i { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid var(--ink); font-style: normal; transition: transform .2s ease, color .2s ease, background .2s ease; }
-  .faq-list details[open] summary i { transform: rotate(45deg); color: var(--ink); background: var(--mineral); }
+  .faq-list .faq-toggle { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid var(--ink); transition: transform .2s ease, color .2s ease, background .2s ease; }
+  .faq-list details[open] .faq-toggle { transform: rotate(45deg); color: var(--ink); background: var(--mineral); }
   .faq-list details > p { max-width: 760px; padding: 0 52px 24px 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
 
   .apply-section { padding: clamp(84px, 9vw, 130px) 0; color: var(--ink); background: #c8d7d1; border-top: 1px solid var(--ink); }
@@ -851,7 +859,7 @@ const applyPath = locale === "zh"
   .apply-inner > p { max-width: 760px; color: rgba(10, 10, 10, .75); font-size: 17px; line-height: 1.62; }
   .apply-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .apply-actions a { min-height: 52px; padding: 0 20px; display: inline-flex; align-items: center; gap: 34px; color: var(--ink); background: transparent; border: 1px solid var(--ink); font-size: 15px; font-weight: 750; text-decoration: none; }
-  .apply-actions a.apply-primary { color: #fff; background: var(--red); border-color: var(--red); }
+  .apply-actions a.apply-primary { color: var(--ink); background: var(--red); border-color: var(--red); }
   .apply-inner small { margin-top: 14px; display: flex; align-items: center; gap: 9px; color: rgba(10, 10, 10, .68); font-size: 14px; line-height: 1.4; }
   .apply-inner small span { background: var(--ink); }
 
@@ -917,7 +925,7 @@ const applyPath = locale === "zh"
     .principle-strip article:first-child { border-top: 0; }
     .material-grid { border: 1px solid var(--ink); border-bottom: 0; }
     .material-grid article { border-right: 0; }
-    .stage-top i { transform: rotate(90deg); }
+    .stage-flow-icon { transform: rotate(90deg); }
     .support-note { grid-template-columns: 1fr; gap: 7px; }
     .objective-card ul { grid-template-columns: 1fr; }
     .outcome-note,
@@ -950,6 +958,6 @@ const applyPath = locale === "zh"
   @media (prefers-reduced-motion: reduce) {
     :global(html) { scroll-behavior: auto; }
     .spot-button,
-    .faq-list summary i { transition: none; }
+    .faq-list .faq-toggle { transition: none; }
   }
 </style>

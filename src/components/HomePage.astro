@@ -131,10 +131,10 @@ const benefits = [
           </dl>
           <div class="event-links">
             <a href={getLocalizedPath("/shenzhen2026", locale)}>
-              <span>{t("home.upcoming.button")}</span><i aria-hidden="true">↗</i>
+              <span>{t("home.upcoming.button")}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right event-link-icon" aria-hidden="true"></span>
             </a>
             <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">
-              <span>{t("home.upcoming.colocated")}</span><i aria-hidden="true">↗</i>
+              <span>{t("home.upcoming.colocated")}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right event-link-icon" aria-hidden="true"></span>
             </a>
           </div>
         </div>
@@ -167,7 +167,7 @@ const benefits = [
             aria-controls="shenzhen-spotlight-video"
             hidden
           >
-            <span aria-hidden="true">▶</span>
+            <span class="shape-icon shape-icon--play" aria-hidden="true"></span>
             {t("home.upcoming.playVideo")}
           </button>
         </div>
@@ -202,7 +202,7 @@ const benefits = [
                 sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 42vw"
                 loading="lazy"
               />
-              <span aria-hidden="true">↗</span>
+              <span class="event-icon" aria-hidden="true"><span class="shape-icon shape-icon--arrow shape-icon--up-right"></span></span>
             </div>
             <div class="event-copy">
               <p class="event-date">{event.date}</p>
@@ -416,7 +416,7 @@ const benefits = [
   }
 
   .event-facts dt {
-    color: #ff431a;
+    color: #ff8068;
     font-size: 0.66rem;
     font-weight: 700;
   }
@@ -446,7 +446,7 @@ const benefits = [
     justify-content: center;
     padding: 0 1.25rem;
     border: 1px solid #ff431a;
-    color: #fff;
+    color: #171918;
     background: #ff431a;
     font-size: 0.94rem;
     font-weight: 750;
@@ -461,7 +461,7 @@ const benefits = [
     background: rgba(247, 247, 244, 0.94);
   }
 
-  .event-links i {
+  .event-links .event-link-icon {
     color: currentColor;
     font-style: normal;
   }
@@ -473,7 +473,7 @@ const benefits = [
   }
 
   .event-links a:last-child:hover {
-    color: #fff;
+    color: #171918;
     border-color: #ff431a;
     background: #ff431a;
   }
@@ -580,7 +580,7 @@ const benefits = [
     transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  .event-image > span {
+  .event-image > .event-icon {
     position: absolute;
     right: 1rem;
     bottom: 1rem;

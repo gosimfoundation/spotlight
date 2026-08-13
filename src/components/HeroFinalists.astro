@@ -18,6 +18,7 @@ interface Props {
     text: string
     link: string
     openInNewTab: boolean
+    iconDirection?: "right" | "up-right" | "down" | "left"
   }>
 }
 
@@ -103,6 +104,7 @@ const { date, location, city, year, category, tagline, heroImage, heroVideo, con
                 text={loop.text}
                 link={loop.link}
                 openInNewTab={loop?.openInNewTab}
+                iconDirection={loop.iconDirection}
                 class="btn light xl btn-hover fade-in-last"
               />
             ))

@@ -275,7 +275,7 @@ const summaryFields = [
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="application-container hero-content">
         <div class="hero-topline">
-          <a class="back-link" href={programPath} aria-label={c.back}><span aria-hidden="true">←</span>{c.back}</a>
+          <a class="back-link" href={programPath} aria-label={c.back}><span class="shape-icon shape-icon--arrow shape-icon--left" aria-hidden="true"></span>{c.back}</a>
         </div>
         <div class="hero-layout">
           <div class="hero-copy">
@@ -374,11 +374,11 @@ const summaryFields = [
           <fieldset class="form-section confirm-section" id="section-5">
             <legend><span>05</span>{c.confirmTitle}</legend>
             <p class="section-intro">{c.confirmIntro}</p>
-            <label class="consent"><input name="privacy_consent" type="checkbox" required /><span>{c.privacyConsent} <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy ↗</a></span></label>
-            <label class="consent"><input name="code_of_conduct_consent" type="checkbox" required /><span>{c.codeConsent} <a href="/code-of-conduct/" target="_blank" rel="noopener noreferrer">Code of Conduct ↗</a></span></label>
+            <label class="consent"><input name="privacy_consent" type="checkbox" required /><span>{c.privacyConsent} <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy <span class="shape-icon shape-icon--arrow shape-icon--up-right consent-link-icon" aria-hidden="true"></span></a></span></label>
+            <label class="consent"><input name="code_of_conduct_consent" type="checkbox" required /><span>{c.codeConsent} <a href="/code-of-conduct/" target="_blank" rel="noopener noreferrer">Code of Conduct <span class="shape-icon shape-icon--arrow shape-icon--up-right consent-link-icon" aria-hidden="true"></span></a></span></label>
             <label class="consent"><input name="submission_declaration" type="checkbox" required /><span>{c.declaration}</span></label>
             <div class="submit-area">
-              <button type="submit"><span>{c.submit}</span><b aria-hidden="true">↗</b></button>
+              <button type="submit"><span>{c.submit}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></button>
               <small>{c.submitNote}</small>
               <p class="form-message" role="alert" aria-live="polite"></p>
             </div>
@@ -403,7 +403,7 @@ const summaryFields = [
             <p>{c.summaryIntro}</p>
             <dl id="submission-summary"></dl>
           </section>
-          <a href={programPath}>{c.returnProgram} →</a>
+          <a href={programPath}><span>{c.returnProgram}</span><span class="shape-icon shape-icon--arrow" aria-hidden="true"></span></a>
         </section>
       </section>
     </main>
@@ -643,7 +643,7 @@ const summaryFields = [
   .hero-content { position: relative; z-index: 2; }
   .hero-topline { display: flex; align-items: center; margin-bottom: 28px; }
   .back-link { min-height: 40px; display: inline-flex; align-items: center; gap: 12px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, .68); color: #fff; background: rgba(15, 17, 16, .34); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font-size: 14px; font-weight: 750; text-decoration: none; letter-spacing: .02em; transition: color .2s ease, border-color .2s ease, background .2s ease; }
-  .back-link:hover, .back-link:focus-visible { color: #fff; border-color: var(--red); background: var(--red); }
+  .back-link:hover, .back-link:focus-visible { color: var(--ink); border-color: var(--red); background: var(--red); }
   .hero-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(340px, .65fr); gap: clamp(38px, 6vw, 92px); align-items: end; }
   .eyebrow { display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .8); font-size: 14px; font-weight: 800; line-height: 1.35; letter-spacing: .13em; text-transform: uppercase; }
   .eyebrow::before { content: ""; width: 15px; height: 3px; flex: 0 0 auto; background: var(--red); }
@@ -672,7 +672,7 @@ const summaryFields = [
   .application-guide nav a:hover { color: var(--red-deep); }
   .application-guide nav span { color: var(--red-deep); font-variant-numeric: tabular-nums; }
   .application-guide nav a.is-active { padding-left: 12px; color: var(--red-deep); background: var(--mist); }
-  .application-guide nav a.is-active span { color: var(--red); }
+  .application-guide nav a.is-active span { color: var(--red-deep); }
   .form-column { min-width: 0; }
   #application-form { display: grid; gap: 28px; }
   .form-section { scroll-margin-top: 90px; margin: 0; padding: 42px; border: 1px solid var(--ink); border-top: 7px solid var(--mineral); background: var(--white); }
@@ -698,9 +698,10 @@ const summaryFields = [
   .confirm-section .section-intro { margin-bottom: 24px; }
   .consent + .consent { margin-top: 10px; }
   .consent span { color: #4f5753; font-size: 14px; font-weight: 500; line-height: 1.6; }
-  .consent a { color: var(--mineral-deep); }
+  .consent a { display: inline-flex; align-items: center; gap: 4px; color: var(--mineral-deep); }
+  .consent-link-icon { font-size: .78em; }
   .submit-area { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
-  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid var(--red); padding: 0 22px; color: #fff; background: var(--red); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
+  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid var(--red); padding: 0 22px; color: var(--ink); background: var(--red); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
   .submit-area button:hover { color: var(--ink); border-color: var(--ink); background: #fff; }
   .submit-area button:disabled { opacity: .58; cursor: wait; }
   .submit-area > small { display: block; margin-top: 12px; color: var(--muted); font-size: 14px; }
@@ -721,7 +722,7 @@ const summaryFields = [
   .submission-summary dt { margin-bottom: 7px; color: var(--mineral-deep); font-size: 14px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
   .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; color: var(--ink); font-size: 14px; line-height: 1.6; }
   .submission-summary dd a { color: var(--mineral-deep); }
-  .success-panel > a { display: block; color: var(--mineral-deep); font-size: 14px; font-weight: 700; }
+  .success-panel > a { display: inline-flex; align-items: center; gap: 8px; color: var(--mineral-deep); font-size: 14px; font-weight: 700; }
   .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
   @media (max-width: 1050px) {

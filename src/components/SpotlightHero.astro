@@ -48,13 +48,13 @@ const {
       <a href={announcement.link} class="finale-announcement">
         <span class="announcement-pulse"></span>
         <span>{announcement.text}</span>
-        <i aria-hidden="true">↗</i>
+        <span class="shape-icon shape-icon--arrow shape-icon--up-right announcement-icon" aria-hidden="true"></span>
       </a>
     </div>
 
     <a class="explore-cue" href="#about">
       <span>{exploreLabel}</span>
-      <i aria-hidden="true">↓</i>
+      <span class="explore-icon" aria-hidden="true"><span class="shape-icon shape-icon--arrow shape-icon--down"></span></span>
     </a>
   </div>
 
@@ -276,7 +276,7 @@ const {
     background: #48d2a5;
     box-shadow: none;
   }
-  .finale-announcement i {
+  .finale-announcement .announcement-icon {
     flex: 0 0 auto;
     font-style: normal;
     font-size: 1rem;
@@ -299,7 +299,7 @@ const {
     text-transform: uppercase;
     pointer-events: auto;
   }
-  .explore-cue i {
+  .explore-cue .explore-icon {
     display: grid;
     width: 1.7rem;
     height: 1.7rem;
@@ -370,7 +370,7 @@ const {
       padding: .9rem 0;
     }
     .announcement-pulse { margin-top: .42rem; }
-    .finale-announcement i { margin-left: auto; }
+    .finale-announcement .announcement-icon { margin-left: auto; }
     .explore-cue { bottom: 1.35rem; }
   }
 
@@ -392,6 +392,6 @@ const {
       animation: none !important;
       pointer-events: auto;
     }
-    .explore-cue i { animation: none; }
+    .explore-cue .explore-icon { animation: none; }
   }
 </style>

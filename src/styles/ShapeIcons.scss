@@ -1,0 +1,93 @@
+/* Font-independent UI icons drawn with CSS geometry. */
+.shape-icon {
+  --shape-stroke: 1.5px;
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+  color: currentColor;
+  line-height: 1;
+}
+
+.shape-icon--arrow::before {
+  content: "";
+  position: absolute;
+  left: .08em;
+  right: .12em;
+  top: calc(50% - (var(--shape-stroke) / 2));
+  height: var(--shape-stroke);
+  background: currentColor;
+}
+
+.shape-icon--arrow::after {
+  content: "";
+  position: absolute;
+  right: .12em;
+  top: 50%;
+  width: .42em;
+  height: .42em;
+  border-top: var(--shape-stroke) solid currentColor;
+  border-right: var(--shape-stroke) solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+}
+
+.shape-icon--up-right { transform: rotate(-45deg); }
+.shape-icon--down { transform: rotate(90deg); }
+.shape-icon--left { transform: rotate(180deg); }
+
+.shape-icon--play::before {
+  content: "";
+  position: absolute;
+  left: 56%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: .34em solid transparent;
+  border-bottom: .34em solid transparent;
+  border-left: .52em solid currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.shape-icon--plus::before,
+.shape-icon--plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: .64em;
+  height: var(--shape-stroke);
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.shape-icon--plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.shape-icon--star::before {
+  content: "";
+  position: absolute;
+  inset: .08em;
+  background: currentColor;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 94%,
+    50% 72%,
+    21% 94%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.shape-icon--star {
+  width: .82em;
+  height: .82em;
+  flex-basis: .82em;
+  vertical-align: -.06em;
+}

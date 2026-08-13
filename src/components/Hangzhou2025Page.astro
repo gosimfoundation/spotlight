@@ -45,6 +45,7 @@ const categories = [...new Set(projects.map((p: any) => p.category).filter(Boole
         text: t("hangzhou2025.viewProjects"),
         link: "#projects",
         openInNewTab: false,
+        iconDirection: "down",
       },
     ]}
   />
@@ -80,7 +81,7 @@ const categories = [...new Set(projects.map((p: any) => p.category).filter(Boole
 
       <a href="/docs/gosim-spotlight-2025-ai-for-humanity-finalists.pdf" target="_blank" class="collection-banner">
         <img src="/images/homepage/hangzhou2025-collection-cover.jpg" alt="Spotlight Hangzhou 2025: AI for Humanity Collection" />
-        <span class="collection-cta">{t("hangzhou2025.viewCollection")}</span>
+        <span class="collection-cta"><span>{t("hangzhou2025.viewCollection")}</span><span class="shape-icon shape-icon--arrow" aria-hidden="true"></span></span>
       </a>
 
       <div class="filter-tags" id="filter-tags">
@@ -153,5 +154,5 @@ const categories = [...new Set(projects.map((p: any) => p.category).filter(Boole
   .collection-banner { display: block; position: relative; border-radius: var(--border-radius); overflow: hidden; margin-bottom: 2.5rem; text-decoration: none; transition: transform 0.2s ease; }
   .collection-banner:hover { transform: scale(1.005); }
   .collection-banner img { width: 100%; display: block; }
-  .collection-cta { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: white; padding: 0.75rem 2rem; border-radius: 999px; font-size: 1.1rem; font-weight: 500; white-space: nowrap; }
+  .collection-cta { position: absolute; bottom: 1.5rem; left: 50%; display: inline-flex; align-items: center; gap: .65rem; transform: translateX(-50%); background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: white; padding: 0.75rem 2rem; border-radius: 999px; font-size: 1.1rem; font-weight: 500; white-space: nowrap; }
 </style>

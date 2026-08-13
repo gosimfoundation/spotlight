@@ -4,9 +4,10 @@ interface Props {
     link: string,
     openInNewTab?: boolean,
     class?: string,
+    iconDirection?: "right" | "up-right" | "down" | "left",
 }
 
-const { text, link, openInNewTab, class: className } = Astro.props;
+const { text, link, openInNewTab, class: className, iconDirection } = Astro.props;
 ---
 
 <div class={className || 'btn outline btn-hover xl'}>
@@ -19,6 +20,7 @@ const { text, link, openInNewTab, class: className } = Astro.props;
         <div class="btn-content duplicate">
             <div class="btn-fill"></div>
             <span>{text}</span>
+            {iconDirection && <span class:list={["shape-icon", "shape-icon--arrow", `shape-icon--${iconDirection}`]} aria-hidden="true"></span>}
         </div>
 
         <div class="border-box"></div>
