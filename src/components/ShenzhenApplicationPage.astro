@@ -18,9 +18,9 @@ const content = {
     intro: "Tell us what category you are creating, why the Agent is essential, and what you have already made real. You can submit in English or Chinese.",
     open: "Applications are open",
     timing: "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21; invitation materials can be issued then when needed.",
-    time: "About 20–30 minutes",
+    time: "About 10–15 minutes",
     prepare: "Before you start",
-    prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "Optional demo video and source repository links", "Your Shenzhen build goal and support needs"],
+    prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "A required demo walkthrough of no more than one minute; a source repository link is optional", "Your Shenzhen build goal and support needs"],
     fileNote: "This form does not upload files. Prototype, video, and repository materials are submitted as accessible links, so there is no file-size limit here.",
     required: "Required fields are marked with *",
     sections: ["Contact & team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
@@ -30,37 +30,29 @@ const content = {
     applicantEmail: "Email",
     contactHandle: "Phone, WeChat, or other contact (optional)",
     countryRegion: "City, country / region",
-    teamOrganization: "Team or organization (optional)",
-    teamSize: "Team size",
-    teamMembers: "Team members and roles",
-    teamMembersHelp: "List the people actively building this product and what each person owns.",
+    teamMembers: "Team overview and roles",
+    teamMembersHelp: "Briefly introduce the team, including the number of members and what each person owns.",
     productTitle: "Product thesis",
     productIntro: "We are selecting a product judgment, not a feature list. Be direct and concrete.",
     projectName: "Project name",
-    projectUrl: "Project website (optional)",
     productForm: "Product form",
     productFormOptions: [["", "Select one"], ["new_hardware", "New hardware form"], ["adapted_device", "Adapted or integrated device"], ["software", "Software-only product"], ["cross_device", "Cross-device or ambient system"], ["other", "Other"]],
     oneLiner: "One-sentence product description",
     oneLinerHelp: "What it is, who it is for, and the result it creates — 240 characters maximum.",
-    targetUsers: "Target users and core scenario",
-    problemStatement: "What important problem are you solving?",
-    categoryThesis: "What new category or product boundary are you defining?",
-    categoryHelp: "Explain why this should exist now and why it is more than an improvement to an existing app.",
-    agentCore: "Why is the Agent essential?",
-    agentHelp: "Describe what the Agent perceives, decides, or does—and what breaks if it is removed.",
+    targetUsers: "Who are the users, when will they use it, and what important problem does it solve?",
+    agentCore: "What does the Agent do, and how is this product different?",
+    agentHelp: "Describe what the Agent perceives, decides, or does, then explain the key difference from existing products or workflows.",
     proofTitle: "Proof & technology",
     proofIntro: "Give reviewers something they can verify. Links must remain accessible through the selection period.",
     currentStage: "Current stage",
     currentStageOptions: [["", "Select one"], ["concept", "Concept with an interaction design"], ["prototype", "Working prototype"], ["pilot", "Pilot or private beta"], ["launched", "Publicly launched"]],
     prototypeUrl: "Prototype or primary review link",
     prototypeHelp: "Website, app, Figma prototype, simulator, device documentation, or another reviewer-accessible link.",
-    demoVideoUrl: "Demo video link (optional)",
-    demoVideoHelp: "A focused walkthrough of about one minute is recommended.",
+    demoVideoUrl: "Demo video link",
+    demoVideoHelp: "Required: provide a focused video walkthrough of no more than one minute.",
     repositoryUrl: "Source repository (optional)",
     technologySummary: "How does the product work?",
     technologyHelp: "Summarize models, tools, system architecture, interfaces, and hardware where relevant.",
-    traction: "Evidence, testing, or traction (optional)",
-    tractionHelp: "User tests, deployments, usage, partnerships, revenue, research results, or the strongest evidence you have.",
     shenzhenTitle: "Shenzhen & open source",
     shenzhenIntro: "Tell us what you can deliver during the acceleration sprint and what would unlock the largest leap.",
     attendance: "Can at least one team member join the Shenzhen sprint and showcase in person?",
@@ -68,10 +60,8 @@ const content = {
     sprintGoal: "What will you build or improve in Shenzhen?",
     supportNeeds: "What support would help? (select all that apply)",
     supportOptions: [["product", "Product review"], ["ai_engineering", "AI / software engineering"], ["hardware", "Hardware integration"], ["fabrication", "Fabrication / 3D printing"], ["demo_story", "Demo and product story"], ["travel", "Travel or visa coordination"], ["other", "Other"]],
-    supportDetails: "Support details (optional)",
     openSourceStatus: "Open-source plan",
     openSourceOptions: [["", "Select one"], ["already_open", "Core work is already open source"], ["planning_core", "We plan to open the core work if selected"], ["planning_partial", "We plan a partial open release"], ["request_exemption", "We would request a justified exemption"]],
-    licenseName: "Current or planned license (optional)",
     confirmTitle: "Confirm & submit",
     confirmIntro: "We collect only what the selection team needs. Do not include passwords, private keys, identity documents, or confidential customer data in your answers or links.",
     privacyConsent: "I agree that GOSIM may store and use this submission to review the project and contact the team, as described in the Privacy Policy.",
@@ -102,9 +92,9 @@ const content = {
     intro: "告诉我们产品给谁使用、解决什么问题、Agent 具体完成什么，以及哪些部分已经可以运行。可使用中文或英文提交。",
     open: "报名现已开放",
     timing: "首轮提交截止时间为 2026 年 9 月 13 日（周日）北京时间 23:59；9 月 21 日公布入选团队，并在需要时提供邀请材料。",
-    time: "预计 20–30 分钟",
+    time: "预计 10–15 分钟",
     prepare: "开始前请准备",
-    prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "可选的演示视频与代码仓库链接", "深圳现场的开发目标与资源需求"],
+    prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "一个不超过 1 分钟的必填演示视频；代码仓库链接可选", "深圳现场的开发目标与资源需求"],
     fileNote: "本问卷不直接上传文件。原型、视频和代码材料均填写可访问链接，因此这里没有文件大小限制。",
     required: "标有 * 的项目为必填",
     sections: ["联系人和团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
@@ -114,37 +104,29 @@ const content = {
     applicantEmail: "电子邮箱",
     contactHandle: "电话、微信或其他联系方式（选填）",
     countryRegion: "城市、国家 / 地区",
-    teamOrganization: "团队或机构名称（选填）",
-    teamSize: "团队人数",
-    teamMembers: "团队成员与分工",
-    teamMembersHelp: "列出实际参与产品开发的成员，以及每个人负责的部分。",
+    teamMembers: "团队简介与分工",
+    teamMembersHelp: "简要介绍团队，包括团队人数、实际参与开发的成员及各自分工。",
     productTitle: "产品命题",
     productIntro: "请直接说明目标用户、使用场景、Agent 的工作和当前原型，不需要写抽象的行业愿景。",
     projectName: "项目名称",
-    projectUrl: "项目官网（选填）",
     productForm: "产品形态",
     productFormOptions: [["", "请选择"], ["new_hardware", "全新硬件形态"], ["adapted_device", "改造或整合现有设备"], ["software", "纯软件产品"], ["cross_device", "跨设备或环境智能系统"], ["other", "其他"]],
     oneLiner: "一句话产品介绍",
     oneLinerHelp: "说明它是什么、为谁服务、带来什么结果；最多 240 字符。",
-    targetUsers: "目标用户与核心场景",
-    problemStatement: "你正在解决什么重要问题？",
-    categoryThesis: "与现有产品相比，关键变化是什么？",
-    categoryHelp: "说明现有做法有哪些具体步骤或限制，你的产品如何减少步骤、改善结果，或让原本做不到的任务成为可能。",
-    agentCore: "Agent 在产品里具体做什么？",
-    agentHelp: "说明 Agent 接收哪些信息、作出哪些判断、调用哪些工具，以及最终替用户完成什么。",
+    targetUsers: "谁会在什么场景使用它？它解决什么重要问题？",
+    agentCore: "Agent 具体做什么？产品与现有方案有何不同？",
+    agentHelp: "说明 Agent 接收哪些信息、作出哪些判断、调用哪些工具并完成什么，同时说明它与现有产品或流程的关键差异。",
     proofTitle: "原型与技术",
     proofIntro: "请提供评委可以实际验证的材料；所有链接需在评审期内保持可访问。",
     currentStage: "当前阶段",
     currentStageOptions: [["", "请选择"], ["concept", "已有交互设计的概念"], ["prototype", "可运行原型"], ["pilot", "试点或内测"], ["launched", "已公开发布"]],
     prototypeUrl: "原型或主要评审链接",
     prototypeHelp: "可填写网站、App、Figma 原型、模拟器、设备说明或其他评委可访问链接。",
-    demoVideoUrl: "演示视频链接（选填）",
-    demoVideoHelp: "建议用约一分钟集中展示核心体验。",
+    demoVideoUrl: "演示视频链接",
+    demoVideoHelp: "必填：请提供不超过 1 分钟的视频讲解，集中展示核心体验。",
     repositoryUrl: "代码仓库（选填）",
     technologySummary: "产品如何工作？",
     technologyHelp: "简述模型、工具、系统架构、交互界面，以及相关硬件。",
-    traction: "验证、测试或进展（选填）",
-    tractionHelp: "例如用户测试、部署、使用量、合作、收入、研究结果，或你目前最有力的证据。",
     shenzhenTitle: "深圳与开源",
     shenzhenIntro: "告诉我们你能在现场加速阶段交付什么，以及哪些支持能带来最大提升。",
     attendance: "能否至少有一位团队成员到深圳参加加速与现场展示？",
@@ -152,10 +134,8 @@ const content = {
     sprintGoal: "你计划在深圳完成或提升什么？",
     supportNeeds: "希望获得哪些支持？（可多选）",
     supportOptions: [["product", "产品评审"], ["ai_engineering", "AI / 软件工程"], ["hardware", "硬件整合"], ["fabrication", "制作 / 3D 打印"], ["demo_story", "演示与产品叙事"], ["travel", "差旅或签证协调"], ["other", "其他"]],
-    supportDetails: "资源需求说明（选填）",
     openSourceStatus: "开源计划",
     openSourceOptions: [["", "请选择"], ["already_open", "核心成果已经开源"], ["planning_core", "入选后计划开放核心成果"], ["planning_partial", "计划部分开放"], ["request_exemption", "需要申请合理豁免"]],
-    licenseName: "当前或计划使用的许可证（选填）",
     confirmTitle: "确认并提交",
     confirmIntro: "我们只收集评审所需信息。请勿在回答或链接中提供密码、密钥、身份证件或客户机密数据。",
     privacyConsent: "我同意 GOSIM 按照隐私政策存储并使用本次提交内容，用于项目评审及与团队联系。",
@@ -186,9 +166,9 @@ const content = {
     intro: "Présentez la catégorie que vous créez, pourquoi l’Agent est essentiel et ce qui existe déjà concrètement. La candidature peut être rédigée en français, anglais ou chinois.",
     open: "Les candidatures sont ouvertes",
     timing: "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre ; les documents d’invitation peuvent alors être fournis si nécessaire.",
-    time: "Environ 20–30 minutes",
+    time: "Environ 10–15 minutes",
     prepare: "À préparer",
-    prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Des liens facultatifs vers la démo vidéo et le dépôt", "Votre objectif à Shenzhen et vos besoins"],
+    prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Une vidéo de démonstration obligatoire d’une minute maximum ; le lien du dépôt reste facultatif", "Votre objectif à Shenzhen et vos besoins"],
     fileNote: "Ce formulaire ne téléverse aucun fichier. Les prototypes, vidéos et dépôts sont transmis par lien accessible ; il n’y a donc pas de limite de taille de fichier ici.",
     required: "Les champs obligatoires portent un *",
     sections: ["Contact et équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
@@ -198,37 +178,29 @@ const content = {
     applicantEmail: "E-mail",
     contactHandle: "Téléphone, WeChat ou autre contact (facultatif)",
     countryRegion: "Ville, pays / région",
-    teamOrganization: "Équipe ou organisation (facultatif)",
-    teamSize: "Taille de l’équipe",
-    teamMembers: "Membres de l’équipe et rôles",
-    teamMembersHelp: "Indiquez les personnes qui construisent activement le produit et leur responsabilité.",
+    teamMembers: "Présentation de l’équipe et rôles",
+    teamMembersHelp: "Présentez brièvement l’équipe, son nombre de membres et la responsabilité de chacun.",
     productTitle: "Thèse produit",
     productIntro: "Nous sélectionnons un jugement produit, pas une liste de fonctions. Soyez direct et concret.",
     projectName: "Nom du projet",
-    projectUrl: "Site du projet (facultatif)",
     productForm: "Forme du produit",
     productFormOptions: [["", "Sélectionner"], ["new_hardware", "Nouvelle forme matérielle"], ["adapted_device", "Appareil adapté ou intégré"], ["software", "Produit entièrement logiciel"], ["cross_device", "Système multi-appareils ou ambiant"], ["other", "Autre"]],
     oneLiner: "Description du produit en une phrase",
     oneLinerHelp: "Ce que c’est, pour qui et le résultat produit — 240 caractères maximum.",
-    targetUsers: "Utilisateurs cibles et scénario principal",
-    problemStatement: "Quel problème important résolvez-vous ?",
-    categoryThesis: "Quelle nouvelle catégorie ou frontière produit définissez-vous ?",
-    categoryHelp: "Expliquez pourquoi elle doit exister maintenant et pourquoi ce n’est pas une simple amélioration d’une app existante.",
-    agentCore: "Pourquoi l’Agent est-il essentiel ?",
-    agentHelp: "Décrivez ce que l’Agent perçoit, décide ou accomplit — et ce qui disparaît si on le retire.",
+    targetUsers: "Qui sont les utilisateurs, dans quel contexte et quel problème important résolvez-vous ?",
+    agentCore: "Que fait l’Agent et en quoi ce produit est-il différent ?",
+    agentHelp: "Décrivez ce que l’Agent perçoit, décide ou accomplit, puis la différence essentielle avec les produits ou processus existants.",
     proofTitle: "Preuves et technologie",
     proofIntro: "Donnez au jury un élément vérifiable. Les liens doivent rester accessibles pendant la sélection.",
     currentStage: "Stade actuel",
     currentStageOptions: [["", "Sélectionner"], ["concept", "Concept avec design d’interaction"], ["prototype", "Prototype fonctionnel"], ["pilot", "Pilote ou bêta privée"], ["launched", "Produit lancé publiquement"]],
     prototypeUrl: "Prototype ou lien principal d’évaluation",
     prototypeHelp: "Site, app, prototype Figma, simulateur, documentation d’un appareil ou autre lien accessible au jury.",
-    demoVideoUrl: "Lien de démo vidéo (facultatif)",
-    demoVideoHelp: "Une présentation ciblée d’environ une minute est recommandée.",
+    demoVideoUrl: "Lien de démo vidéo",
+    demoVideoHelp: "Obligatoire : fournissez une présentation vidéo ciblée d’une minute maximum.",
     repositoryUrl: "Dépôt source (facultatif)",
     technologySummary: "Comment fonctionne le produit ?",
     technologyHelp: "Résumez les modèles, outils, architecture, interfaces et matériel, le cas échéant.",
-    traction: "Tests, preuves ou traction (facultatif)",
-    tractionHelp: "Tests utilisateurs, déploiements, usage, partenariats, revenus, résultats de recherche ou votre meilleure preuve actuelle.",
     shenzhenTitle: "Shenzhen et open source",
     shenzhenIntro: "Dites-nous ce que vous pouvez livrer pendant l’accélération et quel soutien créerait le plus grand progrès.",
     attendance: "Au moins un membre peut-il participer à l’accélération et à la présentation à Shenzhen ?",
@@ -236,10 +208,8 @@ const content = {
     sprintGoal: "Que construirez-vous ou améliorerez-vous à Shenzhen ?",
     supportNeeds: "Quel soutien serait utile ? (plusieurs choix possibles)",
     supportOptions: [["product", "Revue produit"], ["ai_engineering", "Ingénierie IA / logiciel"], ["hardware", "Intégration matérielle"], ["fabrication", "Fabrication / impression 3D"], ["demo_story", "Démo et récit produit"], ["travel", "Coordination voyage ou visa"], ["other", "Autre"]],
-    supportDetails: "Précisions sur les besoins (facultatif)",
     openSourceStatus: "Plan open source",
     openSourceOptions: [["", "Sélectionner"], ["already_open", "Le cœur est déjà open source"], ["planning_core", "Nous ouvrirons le cœur si nous sommes retenus"], ["planning_partial", "Nous prévoyons une ouverture partielle"], ["request_exemption", "Nous demanderions une exemption justifiée"]],
-    licenseName: "Licence actuelle ou prévue (facultatif)",
     confirmTitle: "Confirmer et envoyer",
     confirmIntro: "Nous ne collectons que les éléments utiles à la sélection. N’incluez aucun mot de passe, clé privée, document d’identité ou donnée client confidentielle.",
     privacyConsent: "J’accepte que GOSIM conserve et utilise ce dossier pour évaluer le projet et contacter l’équipe, conformément à la Politique de confidentialité.",
@@ -270,29 +240,21 @@ const summaryFields = [
   { name: "applicant_email", label: c.applicantEmail },
   { name: "contact_handle", label: c.contactHandle },
   { name: "country_region", label: c.countryRegion },
-  { name: "team_organization", label: c.teamOrganization },
-  { name: "team_size", label: c.teamSize },
   { name: "team_members_and_roles", label: c.teamMembers },
   { name: "project_name", label: c.projectName },
-  { name: "project_url", label: c.projectUrl, type: "url" },
   { name: "product_form", label: c.productForm, type: "select" },
   { name: "one_liner", label: c.oneLiner },
   { name: "target_users", label: c.targetUsers },
-  { name: "problem_statement", label: c.problemStatement },
-  { name: "category_thesis", label: c.categoryThesis },
   { name: "agent_core", label: c.agentCore },
   { name: "current_stage", label: c.currentStage, type: "select" },
   { name: "prototype_url", label: c.prototypeUrl, type: "url" },
   { name: "demo_video_url", label: c.demoVideoUrl, type: "url" },
   { name: "repository_url", label: c.repositoryUrl, type: "url" },
   { name: "technology_summary", label: c.technologySummary },
-  { name: "traction", label: c.traction },
   { name: "shenzhen_attendance", label: c.attendance, type: "select" },
   { name: "open_source_status", label: c.openSourceStatus, type: "select" },
-  { name: "license_name", label: c.licenseName },
   { name: "sprint_goal", label: c.sprintGoal },
   { name: "support_needs", label: c.supportNeeds, type: "checkboxes" },
-  { name: "support_details", label: c.supportDetails },
   { name: "consents", label: c.summaryConsent, type: "consent" },
 ];
 ---
@@ -367,8 +329,6 @@ const summaryFields = [
               <label>{c.applicantEmail} *<input name="applicant_email" type="email" maxlength="320" autocomplete="email" required /></label>
               <label>{c.contactHandle}<input name="contact_handle" type="text" maxlength="200" autocomplete="tel" /></label>
               <label>{c.countryRegion} *<input name="country_region" type="text" minlength="2" maxlength="120" required /></label>
-              <label>{c.teamOrganization}<input name="team_organization" type="text" maxlength="200" autocomplete="organization" /></label>
-              <label>{c.teamSize} *<input name="team_size" type="number" min="1" max="100" inputmode="numeric" required /></label>
             </div>
             <label class="field-full">{c.teamMembers} *<textarea name="team_members_and_roles" minlength="5" maxlength="2000" rows="4" required></textarea><small>{c.teamMembersHelp}</small></label>
           </fieldset>
@@ -378,14 +338,11 @@ const summaryFields = [
             <p class="section-intro">{c.productIntro}</p>
             <div class="field-grid">
               <label>{c.projectName} *<input name="project_name" type="text" minlength="2" maxlength="160" required /></label>
-              <label>{c.projectUrl}<input name="project_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /></label>
               <label>{c.productForm} *<select name="product_form" required>{c.productFormOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
             </div>
             <label class="field-full">{c.oneLiner} *<textarea name="one_liner" minlength="10" maxlength="240" rows="2" required></textarea><small>{c.oneLinerHelp}</small></label>
-            <label class="field-full">{c.targetUsers} *<textarea name="target_users" minlength="20" maxlength="1500" rows="4" required></textarea></label>
-            <label class="field-full">{c.problemStatement} *<textarea name="problem_statement" minlength="30" maxlength="2500" rows="5" required></textarea></label>
-            <label class="field-full">{c.categoryThesis} *<textarea name="category_thesis" minlength="30" maxlength="2500" rows="5" required></textarea><small>{c.categoryHelp}</small></label>
-            <label class="field-full">{c.agentCore} *<textarea name="agent_core" minlength="30" maxlength="3000" rows="6" required></textarea><small>{c.agentHelp}</small></label>
+            <label class="field-full">{c.targetUsers} *<textarea name="target_users" minlength="30" maxlength="2500" rows="5" required></textarea></label>
+            <label class="field-full">{c.agentCore} *<textarea name="agent_core" minlength="30" maxlength="3000" rows="5" required></textarea><small>{c.agentHelp}</small></label>
           </fieldset>
 
           <fieldset class="form-section" id="section-3">
@@ -394,11 +351,10 @@ const summaryFields = [
             <div class="field-grid">
               <label>{c.currentStage} *<select name="current_stage" required>{c.currentStageOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
               <label>{c.prototypeUrl} *<input name="prototype_url" type="url" maxlength="500" inputmode="url" placeholder="https://" required /><small>{c.prototypeHelp}</small></label>
-              <label>{c.demoVideoUrl}<input name="demo_video_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /><small>{c.demoVideoHelp}</small></label>
+              <label>{c.demoVideoUrl} *<input name="demo_video_url" type="url" maxlength="500" inputmode="url" placeholder="https://" required /><small>{c.demoVideoHelp}</small></label>
               <label>{c.repositoryUrl}<input name="repository_url" type="url" maxlength="500" inputmode="url" placeholder="https://" /></label>
             </div>
             <label class="field-full">{c.technologySummary} *<textarea name="technology_summary" minlength="20" maxlength="3000" rows="6" required></textarea><small>{c.technologyHelp}</small></label>
-            <label class="field-full">{c.traction}<textarea name="traction" maxlength="2000" rows="4"></textarea><small>{c.tractionHelp}</small></label>
           </fieldset>
 
           <fieldset class="form-section" id="section-4">
@@ -407,14 +363,12 @@ const summaryFields = [
             <div class="field-grid">
               <label>{c.attendance} *<select name="shenzhen_attendance" required>{c.attendanceOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
               <label>{c.openSourceStatus} *<select name="open_source_status" required>{c.openSourceOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
-              <label>{c.licenseName}<input name="license_name" type="text" maxlength="120" placeholder="Apache-2.0, MIT…" /></label>
             </div>
             <label class="field-full">{c.sprintGoal} *<textarea name="sprint_goal" minlength="20" maxlength="2500" rows="5" required></textarea></label>
             <div class="field-full checkbox-group">
               <span class="checkbox-title">{c.supportNeeds}</span>
               <div class="checkbox-grid">{c.supportOptions.map((option) => <label><input type="checkbox" name="support_needs" value={option[0]} /><span>{option[1]}</span></label>)}</div>
             </div>
-            <label class="field-full">{c.supportDetails}<textarea name="support_details" maxlength="2000" rows="4"></textarea></label>
           </fieldset>
 
           <fieldset class="form-section confirm-section" id="section-5">
@@ -486,8 +440,7 @@ const summaryFields = [
   }
 
   const optionalTextFields = [
-    "contact_handle", "team_organization", "project_url", "demo_video_url",
-    "repository_url", "traction", "license_name", "support_details",
+    "contact_handle", "repository_url",
   ];
 
   const createReference = () => {
@@ -570,29 +523,23 @@ const summaryFields = [
       applicant_email: String(values.get("applicant_email") || "").trim().toLowerCase(),
       contact_handle: String(values.get("contact_handle") || "").trim(),
       country_region: String(values.get("country_region") || "").trim(),
-      team_organization: String(values.get("team_organization") || "").trim(),
-      team_size: Number(values.get("team_size")),
       team_members_and_roles: String(values.get("team_members_and_roles") || "").trim(),
       project_name: String(values.get("project_name") || "").trim(),
-      project_url: String(values.get("project_url") || "").trim(),
       product_form: String(values.get("product_form") || ""),
       one_liner: String(values.get("one_liner") || "").trim(),
       target_users: String(values.get("target_users") || "").trim(),
-      problem_statement: String(values.get("problem_statement") || "").trim(),
-      category_thesis: String(values.get("category_thesis") || "").trim(),
+      problem_statement: String(values.get("target_users") || "").trim(),
+      category_thesis: String(values.get("agent_core") || "").trim(),
       agent_core: String(values.get("agent_core") || "").trim(),
       current_stage: String(values.get("current_stage") || ""),
       prototype_url: String(values.get("prototype_url") || "").trim(),
       demo_video_url: String(values.get("demo_video_url") || "").trim(),
       repository_url: String(values.get("repository_url") || "").trim(),
       technology_summary: String(values.get("technology_summary") || "").trim(),
-      traction: String(values.get("traction") || "").trim(),
       open_source_status: String(values.get("open_source_status") || ""),
-      license_name: String(values.get("license_name") || "").trim(),
       shenzhen_attendance: String(values.get("shenzhen_attendance") || ""),
       sprint_goal: String(values.get("sprint_goal") || "").trim(),
       support_needs: values.getAll("support_needs").map(String),
-      support_details: String(values.get("support_details") || "").trim(),
       privacy_consent: values.get("privacy_consent") === "on",
       code_of_conduct_consent: values.get("code_of_conduct_consent") === "on",
       submission_declaration: values.get("submission_declaration") === "on",
