@@ -68,6 +68,7 @@ const translations = {
     "home.upcoming.date": "October 16-17, 2026",
     "home.upcoming.location": "SHENZHEN, CHINA",
     "home.upcoming.colocated": "Visit GOSIM Shenzhen 2026",
+    "home.upcoming.playVideo": "Play video",
     "home.cta.title": "Get Involved",
     "home.cta.text": "GOSIM Spotlight is always looking for exceptional open-source projects. Explore Spotlight Shenzhen 2026: Next-Gen AI-Native Products, or browse previous Spotlight events to see what kind of projects we celebrate.",
     "home.cta.button": "Spotlight Details",
@@ -292,6 +293,7 @@ const translations = {
     "home.upcoming.date": "16-17 octobre 2026",
     "home.upcoming.location": "Shenzhen, Chine",
     "home.upcoming.colocated": "Visiter GOSIM Shenzhen 2026",
+    "home.upcoming.playVideo": "Lire la vidéo",
 
     // ===================== SHENZHEN 2026 =====================
     "shenzhen.meta.title": "Spotlight Shenzhen 2026: Next-Gen AI-Native Products",
@@ -516,6 +518,7 @@ const translations = {
     "home.upcoming.date": "2026年10月16日至17日",
     "home.upcoming.location": "中国深圳",
     "home.upcoming.colocated": "访问 GOSIM Shenzhen 2026",
+    "home.upcoming.playVideo": "播放视频",
 
     // ===================== SHENZHEN 2026 =====================
     "shenzhen.meta.title": "Spotlight Shenzhen 2026：下一代 AI 原生产品",

@@ -141,16 +141,33 @@ const benefits = [
 
         <div class="current-media">
           <video
+            id="shenzhen-spotlight-video"
             class="current-video"
             data-shenzhen-video
             autoplay
             muted
             loop
             playsinline
+            webkit-playsinline="true"
             preload="metadata"
+            poster="/images/shenzhen2026/shenzhen-video-poster.jpg"
           >
+            <source
+              src="/videos/shenzhen-spotlight-soundless-mobile.mp4"
+              type="video/mp4"
+              media="(max-width: 760px)"
+            />
             <source src="/videos/shenzhen-spotlight-soundless.mp4" type="video/mp4" />
           </video>
+          <button
+            class="video-play-button"
+            type="button"
+            data-shenzhen-video-play
+            aria-controls="shenzhen-spotlight-video"
+          >
+            <span aria-hidden="true">▶</span>
+            {t("home.upcoming.playVideo")}
+          </button>
         </div>
       </div>
     </div>
@@ -226,23 +243,53 @@ const benefits = [
 
 <script>
   const shenzhenVideo = document.querySelector("[data-shenzhen-video]");
+  const shenzhenVideoPlay = document.querySelector<HTMLButtonElement>("[data-shenzhen-video-play]");
 
   if (shenzhenVideo instanceof HTMLVideoElement) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let videoIsVisible = true;
+
+    shenzhenVideo.muted = true;
+    shenzhenVideo.defaultMuted = true;
+    shenzhenVideo.playsInline = true;
+
+    const showPlayButton = () => {
+      if (shenzhenVideoPlay) shenzhenVideoPlay.hidden = false;
+    };
+
+    const hidePlayButton = () => {
+      if (shenzhenVideoPlay) shenzhenVideoPlay.hidden = true;
+    };
+
+    const playVideo = () => {
+      if (!videoIsVisible) return;
+      const playAttempt = shenzhenVideo.play();
+      if (playAttempt) playAttempt.then(hidePlayButton).catch(showPlayButton);
+    };
+
+    shenzhenVideo.addEventListener("playing", hidePlayButton);
+    shenzhenVideo.addEventListener("error", showPlayButton);
+    shenzhenVideoPlay?.addEventListener("click", playVideo);
 
     if (reducedMotion.matches) {
       shenzhenVideo.pause();
+      showPlayButton();
     } else if ("IntersectionObserver" in window) {
       const videoObserver = new IntersectionObserver(([entry]) => {
-        if (entry?.isIntersecting) {
-          shenzhenVideo.play().catch(() => {});
+        videoIsVisible = Boolean(entry?.isIntersecting);
+        if (videoIsVisible) {
+          playVideo();
         } else {
           shenzhenVideo.pause();
         }
       }, { rootMargin: "15% 0px", threshold: 0.01 });
 
       videoObserver.observe(shenzhenVideo);
+    } else {
+      playVideo();
     }
+
+    if (!shenzhenVideo.paused) hidePlayButton();
   }
 </script>
 
@@ -497,6 +544,31 @@ const benefits = [
     background: #090909;
     filter: none;
   }
+
+  .video-play-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 3rem;
+    padding: 0 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: #fff;
+    background: rgba(9, 9, 9, 0.72);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 750;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  .video-play-button[hidden] { display: none; }
+  .video-play-button span { font-size: 0.74rem; }
 
   .previous-section {
     background: var(--home-paper);
