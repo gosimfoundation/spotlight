@@ -309,16 +309,24 @@ const applyPath = locale === "zh"
   <div class="spotlight-page monolith-page">
     <section class="sz-hero" id="top" data-theme-section="light">
       <video
+        id="shenzhen-hero-video"
         class="hero-video"
+        data-autoplay-video
         autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        webkit-playsinline="true"
+        preload="auto"
         poster="/images/shenzhen2026/shenzhen-hero-poster.jpg"
         aria-hidden="true"
         tabindex="-1"
       >
+        <source
+          src="/videos/shenzhen-spotlight-soundless-mobile.mp4"
+          type="video/mp4"
+          media="(max-width: 760px)"
+        />
         <source src="/videos/shenzhen-spotlight-soundless.mp4" type="video/mp4" />
       </video>
       <div class="hero-wash" aria-hidden="true"></div>
@@ -941,7 +949,6 @@ const applyPath = locale === "zh"
 
   @media (prefers-reduced-motion: reduce) {
     :global(html) { scroll-behavior: auto; }
-    .hero-video { display: none; }
     .spot-button,
     .faq-list summary i { transition: none; }
   }

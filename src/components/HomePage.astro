@@ -144,12 +144,13 @@ const benefits = [
             id="shenzhen-spotlight-video"
             class="current-video"
             data-shenzhen-video
+            data-autoplay-video
             autoplay
             muted
             loop
             playsinline
             webkit-playsinline="true"
-            preload="metadata"
+            preload="auto"
             poster="/images/shenzhen2026/shenzhen-video-poster.jpg"
           >
             <source
@@ -162,8 +163,9 @@ const benefits = [
           <button
             class="video-play-button"
             type="button"
-            data-shenzhen-video-play
+            data-autoplay-fallback-for="shenzhen-spotlight-video"
             aria-controls="shenzhen-spotlight-video"
+            hidden
           >
             <span aria-hidden="true">▶</span>
             {t("home.upcoming.playVideo")}
@@ -240,58 +242,6 @@ const benefits = [
     </div>
   </section>
 </Layout>
-
-<script>
-  const shenzhenVideo = document.querySelector("[data-shenzhen-video]");
-  const shenzhenVideoPlay = document.querySelector<HTMLButtonElement>("[data-shenzhen-video-play]");
-
-  if (shenzhenVideo instanceof HTMLVideoElement) {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let videoIsVisible = true;
-
-    shenzhenVideo.muted = true;
-    shenzhenVideo.defaultMuted = true;
-    shenzhenVideo.playsInline = true;
-
-    const showPlayButton = () => {
-      if (shenzhenVideoPlay) shenzhenVideoPlay.hidden = false;
-    };
-
-    const hidePlayButton = () => {
-      if (shenzhenVideoPlay) shenzhenVideoPlay.hidden = true;
-    };
-
-    const playVideo = () => {
-      if (!videoIsVisible) return;
-      const playAttempt = shenzhenVideo.play();
-      if (playAttempt) playAttempt.then(hidePlayButton).catch(showPlayButton);
-    };
-
-    shenzhenVideo.addEventListener("playing", hidePlayButton);
-    shenzhenVideo.addEventListener("error", showPlayButton);
-    shenzhenVideoPlay?.addEventListener("click", playVideo);
-
-    if (reducedMotion.matches) {
-      shenzhenVideo.pause();
-      showPlayButton();
-    } else if ("IntersectionObserver" in window) {
-      const videoObserver = new IntersectionObserver(([entry]) => {
-        videoIsVisible = Boolean(entry?.isIntersecting);
-        if (videoIsVisible) {
-          playVideo();
-        } else {
-          shenzhenVideo.pause();
-        }
-      }, { rootMargin: "15% 0px", threshold: 0.01 });
-
-      videoObserver.observe(shenzhenVideo);
-    } else {
-      playVideo();
-    }
-
-    if (!shenzhenVideo.paused) hidePlayButton();
-  }
-</script>
 
 <style>
   :global(body[data-bg-nav="header-home"]) {
