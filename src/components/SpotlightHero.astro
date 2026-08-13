@@ -43,7 +43,14 @@ const {
           height="72"
         />
       </a>
-      <h1>Spotlight</h1>
+      <h1 class="finale-wordmark">
+        <img
+          src="/images/spotlight-navbar-logo.svg"
+          alt="Spotlight"
+          width="124"
+          height="35"
+        />
+      </h1>
       <p class="finale-subtitle">{subtitle}</p>
       <a href={announcement.link} class="finale-announcement">
         <span class="announcement-pulse"></span>
@@ -209,14 +216,15 @@ const {
     background: var(--mint);
     box-shadow: none;
   }
-  .finale-copy h1 {
+  .finale-wordmark {
     margin-top: clamp(1.15rem, 2vw, 1.75rem);
-    color: var(--ink);
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(4.2rem, 10vw, 9rem);
-    font-weight: 600;
-    line-height: .92;
-    letter-spacing: -.055em;
+    line-height: 0;
+  }
+  .finale-wordmark img {
+    display: block;
+    width: clamp(19rem, 38vw, 39rem);
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(25%) saturate(1227%) hue-rotate(139deg) brightness(91%) contrast(99%);
   }
 
   .finale-logo {
@@ -362,7 +370,7 @@ const {
       font-size: .72rem;
       letter-spacing: .1em;
     }
-    .finale-copy h1 { font-size: clamp(3.45rem, 17vw, 6rem); }
+    .finale-wordmark img { width: min(80vw, 28rem); }
     .finale-logo { width: 7.5rem; }
     .finale-subtitle { font-size: 1rem; }
     .finale-announcement {
@@ -376,7 +384,7 @@ const {
 
   @media (max-height: 700px) and (min-width: 721px) {
     .finale-copy { padding-top: 6rem; }
-    .finale-copy h1 { font-size: clamp(4rem, 12vh, 7rem); }
+    .finale-wordmark img { width: min(34rem, 43vw); }
     .finale-subtitle { margin-top: 1.3rem; }
     .finale-announcement { margin-top: 1rem; }
   }
