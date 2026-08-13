@@ -76,9 +76,34 @@ const {
       document.body.dataset.spotlightIntro = "playing";
 
       let completionTimer;
+      let alignmentObserver;
+      const wordmark = hero.querySelector(".finale-wordmark img");
+
+      const alignSpotlightToWordmark = () => {
+        if (!(wordmark instanceof HTMLImageElement)) return;
+
+        const heroBounds = hero.getBoundingClientRect();
+        const wordmarkBounds = wordmark.getBoundingClientRect();
+        if (!heroBounds.width || !heroBounds.height || !wordmarkBounds.width || !wordmarkBounds.height) return;
+
+        const focusX = ((wordmarkBounds.left + wordmarkBounds.width / 2 - heroBounds.left) / heroBounds.width) * 100;
+        const focusY = ((wordmarkBounds.top + wordmarkBounds.height / 2 - heroBounds.top) / heroBounds.height) * 100;
+        hero.style.setProperty("--focus-x", `${focusX}%`);
+        hero.style.setProperty("--focus-y", `${focusY}%`);
+      };
+
+      alignSpotlightToWordmark();
+      window.requestAnimationFrame(alignSpotlightToWordmark);
+
+      if ("ResizeObserver" in window && wordmark instanceof HTMLImageElement) {
+        alignmentObserver = new ResizeObserver(alignSpotlightToWordmark);
+        alignmentObserver.observe(hero);
+        alignmentObserver.observe(wordmark);
+      }
 
       const completeIntro = () => {
         window.clearTimeout(completionTimer);
+        alignmentObserver?.disconnect();
         hero.classList.remove("is-playing");
         hero.classList.add("is-complete");
         document.body.dataset.spotlightIntro = "complete";
@@ -121,7 +146,7 @@ const {
   .spotlight-hero {
     --ink: #062e37;
     --mint: #64e6bd;
-    --focus-x: 28%;
+    --focus-x: 35%;
     --focus-y: 52%;
     --focus-radius: min(34vw, 26rem);
     position: relative;
@@ -357,8 +382,8 @@ const {
 
   @media (max-width: 720px) {
     .spotlight-hero {
-      --focus-x: 39%;
-      --focus-y: 51%;
+      --focus-x: 46%;
+      --focus-y: 50%;
       --focus-radius: min(45vw, 12rem);
       min-height: max(100svh, 40rem);
     }
