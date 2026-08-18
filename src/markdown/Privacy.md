@@ -90,7 +90,7 @@ The Company may use Personal Data for the following purposes:
 *   **To contact You:** By email, telephone calls, SMS, or other equivalent forms of electronic communication.
 *   **To provide You** with news, special offers and general information about other goods, services and events.
 *   **To manage Your requests:** To attend and manage Your requests to Us.
-*   **To evaluate Spotlight applications:** To review submitted projects, coordinate selection, contact applicants, plan program support, and administer participation in GOSIM Spotlight events.
+*   **To manage and evaluate Spotlight applications:** To record started applications, review submitted projects, coordinate selection, contact applicants, plan program support, and administer participation in GOSIM Spotlight events.
 *   **For business transfers:** We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition.
 *   **For other purposes**: Such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns.
 

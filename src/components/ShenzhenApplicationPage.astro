@@ -23,9 +23,17 @@ const content = {
     prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "A required demo walkthrough of no more than one minute; a source repository link is optional", "Your Shenzhen build goal and support needs"],
     fileNote: "This form does not upload files. Prototype, video, and repository materials are submitted as accessible links, so there is no file-size limit here.",
     required: "Required fields are marked with *",
-    sections: ["Contact & team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
-    contactTitle: "Contact & team",
-    contactIntro: "One primary contact is enough. We will use these details only to review the application and coordinate the program.",
+    sections: ["Registration", "Team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
+    registrationTitle: "Register your interest",
+    registrationIntro: "Start with your primary contact details. We will save this first so the team knows you are preparing an application; the project questionnaire opens immediately afterward.",
+    registrationConsent: "I agree that GOSIM may store these contact details and contact me about this application, as described in the Privacy Policy.",
+    registrationAction: "Register & continue",
+    registering: "Registering…",
+    registrationCompleteTitle: "Registration saved",
+    registrationCompleteText: "We have recorded your interest. Continue below to complete the project questionnaire.",
+    registrationError: "We could not save your registration. Check your contact details and try again. If the problem continues, email spotlight@gosim.org.",
+    contactTitle: "Team",
+    contactIntro: "Briefly introduce the people who will actually build the project.",
     applicantName: "Primary contact name",
     applicantEmail: "Email",
     contactHandle: "Phone, WeChat, or other contact (optional)",
@@ -97,9 +105,17 @@ const content = {
     prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "一个不超过 1 分钟的必填演示视频；代码仓库链接可选", "深圳现场的开发目标与资源需求"],
     fileNote: "本问卷不直接上传文件。原型、视频和代码材料均填写可访问链接，因此这里没有文件大小限制。",
     required: "标有 * 的项目为必填",
-    sections: ["联系人和团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
-    contactTitle: "联系人和团队",
-    contactIntro: "只需一位主要联系人。以下信息仅用于项目评审和活动协调。",
+    sections: ["报名登记", "团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
+    registrationTitle: "先登记报名",
+    registrationIntro: "先填写主要联系人信息，我们会立即记录你正在准备申请；登记成功后，其余项目问卷会直接展开。",
+    registrationConsent: "我同意 GOSIM 按照隐私政策存储这些联系信息，并就本次申请与我联系。",
+    registrationAction: "登记并继续",
+    registering: "正在登记…",
+    registrationCompleteTitle: "报名登记成功",
+    registrationCompleteText: "我们已经记录了你的报名意向。请继续填写下面的项目问卷。",
+    registrationError: "登记失败。请检查联系人信息后重试；如问题持续，请邮件联系 spotlight@gosim.org。",
+    contactTitle: "团队",
+    contactIntro: "请简要介绍实际参与项目开发的成员和分工。",
     applicantName: "主要联系人姓名",
     applicantEmail: "电子邮箱",
     contactHandle: "电话、微信或其他联系方式（选填）",
@@ -171,9 +187,17 @@ const content = {
     prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Une vidéo de démonstration obligatoire d’une minute maximum ; le lien du dépôt reste facultatif", "Votre objectif à Shenzhen et vos besoins"],
     fileNote: "Ce formulaire ne téléverse aucun fichier. Les prototypes, vidéos et dépôts sont transmis par lien accessible ; il n’y a donc pas de limite de taille de fichier ici.",
     required: "Les champs obligatoires portent un *",
-    sections: ["Contact et équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
-    contactTitle: "Contact et équipe",
-    contactIntro: "Un contact principal suffit. Ces informations servent uniquement à l’évaluation et à la coordination du programme.",
+    sections: ["Inscription", "Équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
+    registrationTitle: "Enregistrer votre intérêt",
+    registrationIntro: "Commencez par les coordonnées du contact principal. Nous enregistrons d’abord votre intérêt, puis le questionnaire projet s’ouvre immédiatement.",
+    registrationConsent: "J’accepte que GOSIM conserve ces coordonnées et me contacte au sujet de cette candidature, conformément à la Politique de confidentialité.",
+    registrationAction: "S’inscrire et continuer",
+    registering: "Inscription…",
+    registrationCompleteTitle: "Inscription enregistrée",
+    registrationCompleteText: "Votre intérêt a été enregistré. Vous pouvez maintenant compléter le questionnaire projet.",
+    registrationError: "L’inscription n’a pas pu être enregistrée. Vérifiez vos coordonnées et réessayez. Si le problème persiste : spotlight@gosim.org.",
+    contactTitle: "Équipe",
+    contactIntro: "Présentez brièvement les personnes qui construiront réellement le projet.",
     applicantName: "Nom du contact principal",
     applicantEmail: "E-mail",
     contactHandle: "Téléphone, WeChat ou autre contact (facultatif)",
@@ -302,19 +326,22 @@ const summaryFields = [
           <small>{c.required}</small>
         </div>
         <nav aria-label="Application sections">
-          <ol>{c.sections.map((section, index) => <li><a href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2, "0")}</span>{section}</a></li>)}</ol>
+          <ol>{c.sections.map((section, index) => <li data-registration-gated={index > 0 ? "true" : undefined} hidden={index > 0}><a href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2, "0")}</span>{section}</a></li>)}</ol>
         </nav>
       </aside>
 
       <section class="form-column">
         <form
           id="application-form"
+          novalidate
           data-language={locale}
           data-project-url="https://rotznvannxypesxaeyda.supabase.co"
           data-api-key="sb_publishable_CpwHPombYza4gK9F6f_WwQ_gwfDsXPz"
           data-error-message={c.error}
+          data-registration-error-message={c.registrationError}
           data-too-fast-message={c.tooFast}
           data-submitting-label={c.submitting}
+          data-registering-label={c.registering}
         >
           <div class="honeypot" aria-hidden="true">
             <label for="company_website">Company website</label>
@@ -322,19 +349,34 @@ const summaryFields = [
           </div>
 
           <fieldset class="form-section" id="section-1">
-            <legend><span>01</span>{c.contactTitle}</legend>
-            <p class="section-intro">{c.contactIntro}</p>
+            <legend><span>01</span>{c.registrationTitle}</legend>
+            <p class="section-intro">{c.registrationIntro}</p>
             <div class="field-grid">
               <label>{c.applicantName} *<input name="applicant_name" type="text" minlength="2" maxlength="120" autocomplete="name" required /></label>
               <label>{c.applicantEmail} *<input name="applicant_email" type="email" maxlength="320" autocomplete="email" required /></label>
               <label>{c.contactHandle}<input name="contact_handle" type="text" maxlength="200" autocomplete="tel" /></label>
               <label>{c.countryRegion} *<input name="country_region" type="text" minlength="2" maxlength="120" required /></label>
             </div>
-            <label class="field-full">{c.teamMembers} *<textarea name="team_members_and_roles" minlength="5" maxlength="2000" rows="4" required></textarea><small>{c.teamMembersHelp}</small></label>
+            <label class="consent registration-consent"><input name="registration_privacy_consent" type="checkbox" required /><span>{c.registrationConsent} <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy <span class="shape-icon shape-icon--arrow shape-icon--up-right consent-link-icon" aria-hidden="true"></span></a></span></label>
+            <div class="registration-action">
+              <button type="button" id="registration-button"><span>{c.registrationAction}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></button>
+              <p class="registration-message form-message" role="alert" aria-live="polite"></p>
+            </div>
+            <div class="registration-complete" id="registration-complete" role="status" aria-live="polite" hidden>
+              <strong>{c.registrationCompleteTitle}</strong>
+              <p>{c.registrationCompleteText}</p>
+            </div>
           </fieldset>
 
+          <div class="application-questionnaire" id="application-questionnaire" hidden>
           <fieldset class="form-section" id="section-2">
-            <legend><span>02</span>{c.productTitle}</legend>
+            <legend><span>02</span>{c.contactTitle}</legend>
+            <p class="section-intro">{c.contactIntro}</p>
+            <label>{c.teamMembers} *<textarea name="team_members_and_roles" minlength="5" maxlength="2000" rows="4" required></textarea><small>{c.teamMembersHelp}</small></label>
+          </fieldset>
+
+          <fieldset class="form-section" id="section-3">
+            <legend><span>03</span>{c.productTitle}</legend>
             <p class="section-intro">{c.productIntro}</p>
             <div class="field-grid">
               <label>{c.projectName} *<input name="project_name" type="text" minlength="2" maxlength="160" required /></label>
@@ -345,8 +387,8 @@ const summaryFields = [
             <label class="field-full">{c.agentCore} *<textarea name="agent_core" minlength="30" maxlength="3000" rows="5" required></textarea><small>{c.agentHelp}</small></label>
           </fieldset>
 
-          <fieldset class="form-section" id="section-3">
-            <legend><span>03</span>{c.proofTitle}</legend>
+          <fieldset class="form-section" id="section-4">
+            <legend><span>04</span>{c.proofTitle}</legend>
             <p class="section-intro">{c.proofIntro}</p>
             <div class="field-grid">
               <label>{c.currentStage} *<select name="current_stage" required>{c.currentStageOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
@@ -357,8 +399,8 @@ const summaryFields = [
             <label class="field-full">{c.technologySummary} *<textarea name="technology_summary" minlength="20" maxlength="3000" rows="6" required></textarea><small>{c.technologyHelp}</small></label>
           </fieldset>
 
-          <fieldset class="form-section" id="section-4">
-            <legend><span>04</span>{c.shenzhenTitle}</legend>
+          <fieldset class="form-section" id="section-5">
+            <legend><span>05</span>{c.shenzhenTitle}</legend>
             <p class="section-intro">{c.shenzhenIntro}</p>
             <div class="field-grid">
               <label>{c.attendance} *<select name="shenzhen_attendance" required>{c.attendanceOptions.map((option) => <option value={option[0]} disabled={option[0] === ""} selected={option[0] === ""}>{option[1]}</option>)}</select></label>
@@ -371,8 +413,8 @@ const summaryFields = [
             </div>
           </fieldset>
 
-          <fieldset class="form-section confirm-section" id="section-5">
-            <legend><span>05</span>{c.confirmTitle}</legend>
+          <fieldset class="form-section confirm-section" id="section-6">
+            <legend><span>06</span>{c.confirmTitle}</legend>
             <p class="section-intro">{c.confirmIntro}</p>
             <label class="consent"><input name="privacy_consent" type="checkbox" required /><span>{c.privacyConsent} <a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy <span class="shape-icon shape-icon--arrow shape-icon--up-right consent-link-icon" aria-hidden="true"></span></a></span></label>
             <label class="consent"><input name="code_of_conduct_consent" type="checkbox" required /><span>{c.codeConsent} <a href="/code-of-conduct/" target="_blank" rel="noopener noreferrer">Code of Conduct <span class="shape-icon shape-icon--arrow shape-icon--up-right consent-link-icon" aria-hidden="true"></span></a></span></label>
@@ -383,6 +425,7 @@ const summaryFields = [
               <p class="form-message" role="alert" aria-live="polite"></p>
             </div>
           </fieldset>
+          </div>
         </form>
 
         <section
@@ -415,7 +458,23 @@ const summaryFields = [
   const successPanel = document.querySelector<HTMLElement>("#success-panel");
   const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
   const summaryOutput = document.querySelector<HTMLDListElement>("#submission-summary");
+  const registrationButton = document.querySelector<HTMLButtonElement>("#registration-button");
+  const registrationComplete = document.querySelector<HTMLElement>("#registration-complete");
+  const questionnaire = document.querySelector<HTMLElement>("#application-questionnaire");
+  const gatedNavigationItems = Array.from(document.querySelectorAll<HTMLElement>("[data-registration-gated]"));
   const startedAt = Date.now();
+  const registrationStorageKey = "spotlight-sz26-registration-v2";
+
+  type RegistrationState = {
+    publicReference: string;
+    applicantName: string;
+    applicantEmail: string;
+    contactHandle: string;
+    countryRegion: string;
+    registeredAt: string;
+  };
+
+  let registrationState: RegistrationState | null = null;
 
   const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".application-guide nav a"));
   const formSections = Array.from(document.querySelectorAll<HTMLElement>(".form-section[id]"));
@@ -448,6 +507,126 @@ const summaryFields = [
     crypto.getRandomValues(bytes);
     return `SZ26-${Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
   };
+
+  const registrationFieldNames = [
+    "applicant_name",
+    "applicant_email",
+    "contact_handle",
+    "country_region",
+    "registration_privacy_consent",
+  ];
+
+  const getRegistrationControls = () => registrationFieldNames
+    .map((name) => form?.elements.namedItem(name))
+    .filter((control): control is HTMLInputElement => control instanceof HTMLInputElement);
+
+  const validateRegistration = () => {
+    for (const control of getRegistrationControls()) {
+      if (!control.checkValidity()) {
+        control.reportValidity();
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const showQuestionnaire = (state: RegistrationState, shouldScroll = true) => {
+    registrationState = state;
+    const values: Record<string, string> = {
+      applicant_name: state.applicantName,
+      applicant_email: state.applicantEmail,
+      contact_handle: state.contactHandle,
+      country_region: state.countryRegion,
+    };
+
+    Object.entries(values).forEach(([name, value]) => {
+      const input = form?.elements.namedItem(name);
+      if (input instanceof HTMLInputElement) {
+        input.value = value;
+        input.readOnly = true;
+      }
+    });
+
+    const consent = form?.elements.namedItem("registration_privacy_consent");
+    if (consent instanceof HTMLInputElement) {
+      consent.checked = true;
+      consent.disabled = true;
+    }
+
+    if (registrationButton) registrationButton.hidden = true;
+    if (registrationComplete) registrationComplete.hidden = false;
+    gatedNavigationItems.forEach((item) => { item.hidden = false; });
+    if (questionnaire) {
+      questionnaire.hidden = false;
+      questionnaire.removeAttribute("inert");
+      if (shouldScroll) document.querySelector("#section-2")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  try {
+    const savedRegistration = localStorage.getItem(registrationStorageKey);
+    if (savedRegistration) {
+      const parsed = JSON.parse(savedRegistration) as RegistrationState;
+      if (parsed.publicReference && parsed.applicantEmail) showQuestionnaire(parsed, false);
+    }
+  } catch (error) {
+    console.warn("Could not restore the saved registration.", error);
+  }
+
+  const registerInterest = async () => {
+    if (!form || !validateRegistration()) return;
+    const values = new FormData(form);
+    if (String(values.get("company_website") || "").trim()) return;
+
+    const message = form.querySelector<HTMLElement>(".registration-message");
+    const label = registrationButton?.querySelector<HTMLElement>("span");
+    const originalLabel = label?.textContent || "Register & continue";
+    const state: RegistrationState = {
+      publicReference: createReference(),
+      applicantName: String(values.get("applicant_name") || "").trim(),
+      applicantEmail: String(values.get("applicant_email") || "").trim().toLowerCase(),
+      contactHandle: String(values.get("contact_handle") || "").trim(),
+      countryRegion: String(values.get("country_region") || "").trim(),
+      registeredAt: new Date().toISOString(),
+    };
+    const payload = {
+      public_reference: state.publicReference,
+      application_language: form.dataset.language || "en",
+      applicant_name: state.applicantName,
+      applicant_email: state.applicantEmail,
+      contact_handle: state.contactHandle || null,
+      country_region: state.countryRegion,
+      privacy_consent: values.get("registration_privacy_consent") === "on",
+      source_path: window.location.pathname,
+    };
+
+    if (registrationButton) registrationButton.disabled = true;
+    if (label) label.textContent = form.dataset.registeringLabel || "Registering…";
+    if (message) message.textContent = "";
+
+    try {
+      const response = await fetch(`${form.dataset.projectUrl}/rest/v1/spotlight_shenzhen_2026_registrations`, {
+        method: "POST",
+        headers: {
+          apikey: form.dataset.apiKey || "",
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`Registration failed: ${response.status}`);
+
+      try { localStorage.setItem(registrationStorageKey, JSON.stringify(state)); } catch {}
+      showQuestionnaire(state);
+    } catch (error) {
+      console.error(error);
+      if (message) message.textContent = form.dataset.registrationErrorMessage || "Registration failed. Please try again.";
+      if (registrationButton) registrationButton.disabled = false;
+      if (label) label.textContent = originalLabel;
+    }
+  };
+
+  registrationButton?.addEventListener("click", registerInterest);
 
   type SummaryField = {
     name: string;
@@ -501,9 +680,13 @@ const summaryFields = [
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!registrationState) {
+      await registerInterest();
+      return;
+    }
     if (!form.reportValidity()) return;
 
-    const message = form.querySelector<HTMLElement>(".form-message");
+    const message = form.querySelector<HTMLElement>(".submit-area .form-message");
     const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     const submitLabel = submitButton?.querySelector<HTMLElement>("span");
     const originalLabel = submitLabel?.textContent || "Submit";
@@ -515,7 +698,7 @@ const summaryFields = [
       return;
     }
 
-    const reference = createReference();
+    const reference = registrationState.publicReference;
     const payload: Record<string, string | number | boolean | string[] | null> = {
       public_reference: reference,
       application_language: form.dataset.language || "en",
@@ -566,6 +749,7 @@ const summaryFields = [
       });
 
       if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+      try { localStorage.removeItem(registrationStorageKey); } catch {}
       renderSubmissionSummary(payload);
       form.hidden = true;
       if (referenceOutput) referenceOutput.textContent = reference;
@@ -675,6 +859,8 @@ const summaryFields = [
   .application-guide nav a.is-active span { color: var(--red-deep); }
   .form-column { min-width: 0; }
   #application-form { display: grid; gap: 28px; }
+  .application-questionnaire { display: grid; gap: 28px; }
+  .application-questionnaire[hidden], .registration-complete[hidden], #registration-button[hidden], [data-registration-gated][hidden] { display: none !important; }
   .form-section { scroll-margin-top: 90px; margin: 0; padding: 42px; border: 1px solid var(--ink); border-top: 7px solid var(--mineral); background: var(--white); }
   .form-section.confirm-section { border-top-color: var(--red); }
   .form-section legend { display: flex; gap: 18px; align-items: baseline; width: 100%; padding: 0; color: var(--ink); font-size: clamp(1.65rem, 2.7vw, 2.7rem); font-weight: 700; letter-spacing: -.05em; }
@@ -700,12 +886,17 @@ const summaryFields = [
   .consent span { color: #4f5753; font-size: 14px; font-weight: 500; line-height: 1.6; }
   .consent a { display: inline-flex; align-items: center; gap: 4px; color: var(--mineral-deep); }
   .consent-link-icon { font-size: .78em; }
+  .registration-consent { margin-top: 24px; }
+  .registration-action { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
   .submit-area { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
-  .submit-area button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid var(--red); padding: 0 22px; color: var(--ink); background: var(--red); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
-  .submit-area button:hover { color: var(--ink); border-color: var(--ink); background: #fff; }
-  .submit-area button:disabled { opacity: .58; cursor: wait; }
+  .submit-area button, .registration-action button { min-height: 58px; min-width: min(100%, 310px); display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; border: 1px solid var(--red); padding: 0 22px; color: var(--ink); background: var(--red); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
+  .submit-area button:hover, .registration-action button:hover { color: var(--ink); border-color: var(--ink); background: #fff; }
+  .submit-area button:disabled, .registration-action button:disabled { opacity: .58; cursor: wait; }
   .submit-area > small { display: block; margin-top: 12px; color: var(--muted); font-size: 14px; }
   .form-message { margin-top: 12px; color: #a52a19; font-size: 14px; line-height: 1.5; }
+  .registration-complete { margin-top: 22px; padding: 18px; color: var(--ink); border: 1px solid var(--mineral-deep); border-left: 7px solid var(--mineral-deep); background: var(--mist); }
+  .registration-complete strong { display: block; font-size: 17px; }
+  .registration-complete p { margin-top: 5px; color: var(--muted); font-size: 14px; line-height: 1.6; }
   .success-panel { scroll-margin-top: 100px; padding: clamp(34px, 6vw, 70px); border: 1px solid var(--ink); border-top: 8px solid var(--mineral); background: var(--mist); }
   .success-panel h2 { max-width: 700px; margin: 18px 0; color: var(--ink); font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .98; letter-spacing: -.065em; }
   .success-panel > p:not(.eyebrow) { max-width: 610px; color: var(--muted); font-size: 14px; line-height: 1.7; }
@@ -745,6 +936,6 @@ const summaryFields = [
     .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
     .submission-summary dl { grid-template-columns: 1fr; }
     .submission-summary dl > div:nth-child(odd), .submission-summary dl > div:nth-child(even) { padding: 15px 0 17px; border-left: 0; }
-    .submit-area button { width: 100%; }
+    .submit-area button, .registration-action button { width: 100%; }
   }
 </style>
