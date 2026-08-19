@@ -25,7 +25,7 @@ const content = {
     required: "Required fields are marked with *",
     sections: ["Registration", "Team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
     registrationTitle: "Create your Spotlight account",
-    registrationIntro: "Create an email account first. After confirming your email, you can sign in from any device, save a draft, and continue this questionnaire later.",
+    registrationIntro: "Create an email and password account first. You will be signed in immediately, and can later sign in from any device to continue your saved questionnaire.",
     registrationConsent: "I agree that GOSIM may create my Spotlight account, store these contact details, and contact me about this application, as described in the Privacy Policy.",
     createAccountTab: "Create account",
     loginTab: "Sign in",
@@ -40,8 +40,8 @@ const content = {
     newPassword: "New password",
     updatePassword: "Update password",
     passwordUpdated: "Password updated. You can continue your application.",
-    accountCreatedTitle: "Account created — confirm your email",
-    accountCreatedText: "Open the confirmation email we just sent. After confirmation, return here and sign in. Later, use the same email and password on any device to continue your saved application.",
+    accountCreatedTitle: "Account created",
+    accountCreatedText: "Sign in with the same email and password on any device to continue your saved application.",
     registrationCompleteTitle: "You are signed in",
     registrationCompleteText: "Your account is registered for Spotlight Shenzhen 2026. Your answers save automatically, so you can sign in later and continue.",
     signedInAs: "Signed in as",
@@ -51,7 +51,11 @@ const content = {
     draftRestored: "Saved draft restored",
     submittedAlready: "This account has already submitted an application.",
     registrationError: "We could not create the account. Check the details and try again. If the problem continues, email spotlight@gosim.org.",
-    loginError: "We could not sign you in. Check the email and password, and make sure your email has been confirmed.",
+    registrationInvalidEmail: "This email address cannot be used. Check it and try again with a valid address.",
+    registrationRateLimit: "Too many account requests were made in a short period. Wait a few minutes and try again, or email spotlight@gosim.org.",
+    registrationExistingAccount: "An account already exists for this email. Choose “Sign in” to continue your application.",
+    resetError: "We could not send a password reset email. Please email spotlight@gosim.org for help regaining access.",
+    loginError: "We could not sign you in. Check the email and password, then try again.",
     contactTitle: "Team",
     contactIntro: "Briefly introduce the people who will actually build the project.",
     applicantName: "Primary contact name",
@@ -128,7 +132,7 @@ const content = {
     required: "标有 * 的项目为必填",
     sections: ["报名登记", "团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
     registrationTitle: "创建 Spotlight 报名账号",
-    registrationIntro: "先用邮箱创建账号。确认邮箱后，你可以在任何设备上登录、自动保存草稿，并随时回来继续填写。",
+    registrationIntro: "先用邮箱和密码创建账号。注册后会直接登录；以后可以在任何设备上使用同一账号继续填写已保存的问卷。",
     registrationConsent: "我同意 GOSIM 为我创建 Spotlight 报名账号，按照隐私政策存储这些联系信息，并就本次申请与我联系。",
     createAccountTab: "注册账号",
     loginTab: "登录已有账号",
@@ -143,8 +147,8 @@ const content = {
     newPassword: "新密码",
     updatePassword: "更新密码",
     passwordUpdated: "密码已更新，你可以继续填写报名问卷。",
-    accountCreatedTitle: "账号已创建，请确认邮箱",
-    accountCreatedText: "我们刚刚发送了确认邮件。确认后回到此页面登录；以后在任何设备上使用同一邮箱和密码，都可以继续填写已保存的问卷。",
+    accountCreatedTitle: "账号已创建",
+    accountCreatedText: "以后在任何设备上使用同一邮箱和密码登录，都可以继续填写已保存的问卷。",
     registrationCompleteTitle: "你已登录",
     registrationCompleteText: "这个账号已注册 Spotlight Shenzhen 2026。问卷会自动保存，你以后可以重新登录继续填写。",
     signedInAs: "当前账号",
@@ -154,7 +158,11 @@ const content = {
     draftRestored: "已恢复上次保存的草稿",
     submittedAlready: "这个账号已经提交过报名问卷。",
     registrationError: "账号注册失败。请检查填写信息后重试；如问题持续，请邮件联系 spotlight@gosim.org。",
-    loginError: "登录失败。请检查邮箱和密码，并确认你已经完成邮箱验证。",
+    registrationInvalidEmail: "这个邮箱地址无法用于注册，请检查后使用有效邮箱重试。",
+    registrationRateLimit: "短时间内注册请求过多，请等待几分钟后重试；如仍失败，请邮件联系 spotlight@gosim.org。",
+    registrationExistingAccount: "这个邮箱已经注册过账号，请切换到“登录已有账号”继续填写。",
+    resetError: "暂时无法发送密码重置邮件，请联系 spotlight@gosim.org 协助恢复账号。",
+    loginError: "登录失败，请检查邮箱和密码后重试。",
     contactTitle: "团队",
     contactIntro: "请简要介绍实际参与项目开发的成员和分工。",
     applicantName: "主要联系人姓名",
@@ -231,7 +239,7 @@ const content = {
     required: "Les champs obligatoires portent un *",
     sections: ["Inscription", "Équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
     registrationTitle: "Créer votre compte Spotlight",
-    registrationIntro: "Créez d’abord un compte e-mail. Après confirmation, vous pourrez vous connecter depuis n’importe quel appareil et reprendre votre brouillon.",
+    registrationIntro: "Créez d’abord un compte avec votre e-mail et un mot de passe. Vous serez connecté immédiatement et pourrez reprendre votre brouillon sur tout appareil.",
     registrationConsent: "J’accepte que GOSIM crée mon compte Spotlight, conserve ces coordonnées et me contacte au sujet de cette candidature, conformément à la Politique de confidentialité.",
     createAccountTab: "Créer un compte",
     loginTab: "Se connecter",
@@ -246,8 +254,8 @@ const content = {
     newPassword: "Nouveau mot de passe",
     updatePassword: "Mettre à jour le mot de passe",
     passwordUpdated: "Mot de passe mis à jour. Vous pouvez continuer votre candidature.",
-    accountCreatedTitle: "Compte créé — confirmez votre e-mail",
-    accountCreatedText: "Ouvrez l’e-mail de confirmation, puis revenez vous connecter. Vous pourrez ensuite reprendre votre dossier sur tout appareil avec le même e-mail et mot de passe.",
+    accountCreatedTitle: "Compte créé",
+    accountCreatedText: "Connectez-vous avec le même e-mail et mot de passe sur tout appareil pour reprendre votre dossier.",
     registrationCompleteTitle: "Vous êtes connecté",
     registrationCompleteText: "Ce compte est inscrit à Spotlight Shenzhen 2026. Vos réponses sont enregistrées automatiquement.",
     signedInAs: "Connecté en tant que",
@@ -257,7 +265,11 @@ const content = {
     draftRestored: "Brouillon restauré",
     submittedAlready: "Ce compte a déjà envoyé une candidature.",
     registrationError: "Le compte n’a pas pu être créé. Vérifiez les informations et réessayez. Si le problème persiste : spotlight@gosim.org.",
-    loginError: "Connexion impossible. Vérifiez l’e-mail et le mot de passe, et confirmez votre adresse e-mail.",
+    registrationInvalidEmail: "Cette adresse e-mail ne peut pas être utilisée. Vérifiez-la puis réessayez.",
+    registrationRateLimit: "Trop de demandes ont été effectuées. Attendez quelques minutes puis réessayez, ou contactez spotlight@gosim.org.",
+    registrationExistingAccount: "Un compte existe déjà pour cet e-mail. Choisissez « Se connecter » pour continuer.",
+    resetError: "Impossible d’envoyer l’e-mail de réinitialisation. Contactez spotlight@gosim.org pour récupérer l’accès.",
+    loginError: "Connexion impossible. Vérifiez l’e-mail et le mot de passe puis réessayez.",
     contactTitle: "Équipe",
     contactIntro: "Présentez brièvement les personnes qui construiront réellement le projet.",
     applicantName: "Nom du contact principal",
@@ -409,7 +421,11 @@ const summaryFields = [
           data-registration-action={c.registrationAction}
           data-login-action={c.loginAction}
           data-registration-error-message={c.registrationError}
+          data-registration-invalid-email-message={c.registrationInvalidEmail}
+          data-registration-rate-limit-message={c.registrationRateLimit}
+          data-registration-existing-account-message={c.registrationExistingAccount}
           data-login-error-message={c.loginError}
+          data-reset-error-message={c.resetError}
           data-reset-sent-message={c.resetSent}
           data-password-updated-message={c.passwordUpdated}
           data-draft-saving-message={c.draftSaving}
@@ -900,7 +916,17 @@ const summaryFields = [
     setAuthBusy(false);
     if (error) {
       console.error(error);
-      if (registrationMessage) registrationMessage.textContent = form.dataset.registrationErrorMessage || "Account creation failed.";
+      if (registrationMessage) {
+        if (error.code === "email_address_invalid") {
+          registrationMessage.textContent = form.dataset.registrationInvalidEmailMessage || form.dataset.registrationErrorMessage || "Account creation failed.";
+        } else if (error.code === "over_email_send_rate_limit" || error.status === 429) {
+          registrationMessage.textContent = form.dataset.registrationRateLimitMessage || form.dataset.registrationErrorMessage || "Account creation failed.";
+        } else if (error.code === "user_already_exists" || error.code === "email_exists") {
+          registrationMessage.textContent = form.dataset.registrationExistingAccountMessage || form.dataset.registrationErrorMessage || "Account creation failed.";
+        } else {
+          registrationMessage.textContent = form.dataset.registrationErrorMessage || "Account creation failed.";
+        }
+      }
       return;
     }
     getInput("account_password")!.value = "";
@@ -949,7 +975,7 @@ const summaryFields = [
     });
     if (error) {
       console.error(error);
-      if (registrationMessage) registrationMessage.textContent = form?.dataset.loginErrorMessage || "Could not send reset email.";
+      if (registrationMessage) registrationMessage.textContent = form?.dataset.resetErrorMessage || "Could not send reset email.";
       return;
     }
     if (registrationMessage) registrationMessage.textContent = form?.dataset.resetSentMessage || "Password reset email sent.";
