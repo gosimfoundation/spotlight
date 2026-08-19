@@ -18,6 +18,8 @@ const hasNotificationBar = false
 const slug = Astro.url.pathname
 const isShenzhenPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
 const isShenzhenApplicationPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026\/apply(?:\/|$)/.test(slug)
+const isHomePage = /^\/(?:(?:en|fr|zh)\/?)?$/.test(slug)
+const emphasizeShenzhen = isShenzhenPage || isHomePage
 const applyNowText: Record<Locale, string> = {
   en: "Apply Now",
   fr: "Candidater",
@@ -91,7 +93,7 @@ const links = [
     <Button
       text={headerCtaText}
       link={headerCtaLink}
-      class={`btn primary btn-floating btn-hover ${isShenzhenPage ? "shenzhen-opening" : ""}`}
+      class={`btn primary btn-floating btn-hover ${emphasizeShenzhen ? "shenzhen-opening" : ""}`}
     />
   </div>
 
@@ -155,7 +157,7 @@ const links = [
         <Button
           text={headerCtaText}
           link={headerCtaLink}
-          class={`btn primary xl btn-hover ${isShenzhenPage ? "shenzhen-opening" : ""}`}
+          class={`btn primary xl btn-hover ${emphasizeShenzhen ? "shenzhen-opening" : ""}`}
         />
       </div>
     </div>
@@ -250,7 +252,7 @@ const links = [
         <Button
           text={headerCtaText}
           link={headerCtaLink}
-          class={`btn ${isShenzhenPage ? "shenzhen-opening" : "dark"} btn-hover`}
+          class={`btn ${emphasizeShenzhen ? "shenzhen-opening" : "dark"} btn-hover`}
         />
       </div>
       <div class="hamburger outline" data-navigation-toggle="toggle">

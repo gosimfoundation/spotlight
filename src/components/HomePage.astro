@@ -79,7 +79,8 @@ const benefits = [
     sceneLabel={t("home.hero.sceneLabel")}
     exploreLabel={t("home.hero.explore")}
     announcement={{
-      text: t("home.hero.announcement"),
+      label: t("home.hero.announcementLabel"),
+      title: t("home.hero.announcement"),
       link: getLocalizedPath("/shenzhen2026", locale),
     }}
   />
@@ -116,8 +117,8 @@ const benefits = [
 
       <div class="current-layout">
         <div class="current-copy">
-          <h2>{t("home.upcoming.card.title")}</h2>
-          <p class="current-slogan">NEXT IS NOT GIVEN.</p>
+          <h2>{t("home.upcoming.eventName")}</h2>
+          <p class="current-slogan">{t("home.upcoming.card.title")}</p>
           <p class="current-description">{t("home.upcoming.card.desc")}</p>
           <dl class="event-facts">
             <div>
@@ -366,7 +367,7 @@ const benefits = [
   .current-copy { max-width: 39rem; }
 
   .current-copy h2 {
-    max-width: 10ch;
+    max-width: 12ch;
     margin: 0;
     color: #fff;
     font-family: "Manrope", sans-serif;
@@ -378,17 +379,20 @@ const benefits = [
   }
 
   :global(html[lang="zh"]) .current-copy h2 {
-    max-width: 9ch;
+    max-width: 11ch;
     line-height: 1.18;
     letter-spacing: -0.025em;
   }
 
   .current-slogan {
+    max-width: 30rem;
     margin: 1.35rem 0 0;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.86rem;
+    color: var(--home-mint);
+    font-size: clamp(1.15rem, 1.65vw, 1.5rem);
     font-weight: 700;
-    letter-spacing: 0.14em;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
 
   .current-description {
