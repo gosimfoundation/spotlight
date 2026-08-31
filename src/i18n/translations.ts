@@ -26,7 +26,7 @@ const translations = {
     "footer.spotlightParis2026": "Spotlight Paris 2026: Frontier Creators",
     "footer.spotlightHangzhou": "Spotlight Hangzhou 2025: AI for Humanity",
     "footer.spotlightParis": "Spotlight Paris 2025: AI",
-    "footer.spotlightDelft": "Spotlight Delft 2025: Rust",
+    "footer.spotlightDelft": "Spotlight Utrecht 2025: Rust",
     "footer.codeOfConduct": "Code of Conduct",
     "footer.privacy": "Privacy",
 
@@ -38,8 +38,8 @@ const translations = {
     "previous.paris.title": "Spotlight Paris 2025: AI",
     "previous.paris.date": "Paris, France - May 6-7, 2025",
     "previous.paris.desc": "Propelling Open-Source AI Forward: Innovative open AI models and robotics projects.",
-    "previous.delft.title": "Spotlight Delft 2025: Rust",
-    "previous.delft.date": "Delft, Netherlands - May 13-14, 2025",
+    "previous.delft.title": "Spotlight Utrecht 2025: Rust",
+    "previous.delft.date": "Utrecht, Netherlands - May 13-14, 2025",
     "previous.delft.desc": "Celebrating the brilliance and creativity of open-source projects developed with Rust.",
     "previous.paris2026.title": "Spotlight Paris 2026: Frontier Creators",
     "previous.paris2026.date": "Paris, France - May 5-6, 2026",
@@ -206,8 +206,8 @@ const translations = {
     "paris2025.finalists.desc": "Witness the future of technology first-hand through the GOSIM Spotlight initiative, highlighting exceptional innovations aligned with each conference track. This program showcases pioneering open-source projects that push boundaries, inspire creativity, and demonstrate real-world impact.",
 
     // ===================== DELFT 2025 =====================
-    "delft2025.meta.title": "Spotlight Delft 2025: Rust",
-    "delft2025.meta.desc": "Spotlight Delft 2025: Rust — where exceptional Rust projects are showcased to the world.",
+    "delft2025.meta.title": "Spotlight Utrecht 2025: Rust",
+    "delft2025.meta.desc": "Spotlight Utrecht 2025: Rust — where exceptional Rust projects are showcased to the world.",
     "delft2025.hero.date": "May 13-14, 2025",
     "delft2025.hero.location": "Utrecht, The Netherlands",
     "delft2025.congrats": "Congratulations to the {count} projects selected!",
@@ -215,7 +215,7 @@ const translations = {
     "delft2025.conference": "RustWeek 2025",
     "delft2025.talks": "Conference attendees can also listen to their lightning talks on",
     "delft2025.talksDates": "May 13-14",
-    "delft2025.finalists.title": "Spotlight Delft 2025: Rust Finalists",
+    "delft2025.finalists.title": "Spotlight Utrecht 2025: Rust Finalists",
     "delft2025.finalists.desc": "Witness the future of technology first-hand through the GOSIM Spotlight initiative, highlighting exceptional innovations aligned with each conference track. This program showcases pioneering open-source projects that push boundaries, inspire creativity, and demonstrate real-world impact.",
 
     // ===================== HANGZHOU 2025 =====================
@@ -253,7 +253,7 @@ const translations = {
     "footer.spotlightParis2026": "Spotlight Paris 2026: Frontier Creators",
     "footer.spotlightHangzhou": "Spotlight Hangzhou 2025: AI for Humanity",
     "footer.spotlightParis": "Spotlight Paris 2025: AI",
-    "footer.spotlightDelft": "Spotlight Delft 2025: Rust",
+    "footer.spotlightDelft": "Spotlight Utrecht 2025: Rust",
     "footer.codeOfConduct": "Code de conduite",
     "footer.privacy": "Confidentialité",
 
@@ -265,8 +265,8 @@ const translations = {
     "previous.paris.title": "Spotlight Paris 2025: AI",
     "previous.paris.date": "Paris, France - 6-7 mai 2025",
     "previous.paris.desc": "Propulser l'IA open source : modèles d'IA ouverts et projets de robotique innovants.",
-    "previous.delft.title": "Spotlight Delft 2025: Rust",
-    "previous.delft.date": "Delft, Pays-Bas - 13-14 mai 2025",
+    "previous.delft.title": "Spotlight Utrecht 2025: Rust",
+    "previous.delft.date": "Utrecht, Pays-Bas - 13-14 mai 2025",
     "previous.delft.desc": "Célébrer la brillance et la créativité des projets open source développés avec Rust.",
     "previous.paris2026.title": "Spotlight Paris 2026: Frontier Creators",
     "previous.paris2026.date": "Paris, France - 5-6 mai 2026",
@@ -433,8 +433,8 @@ const translations = {
     "paris2025.finalists.desc": "Découvrez l'avenir de la technologie grâce à l'initiative GOSIM Spotlight, mettant en lumière des innovations exceptionnelles. Ce programme présente des projets open source pionniers qui repoussent les limites, inspirent la créativité et démontrent un impact concret.",
 
     // ===================== DELFT 2025 =====================
-    "delft2025.meta.title": "Spotlight Delft 2025: Rust",
-    "delft2025.meta.desc": "Spotlight Delft 2025: Rust — où des projets Rust exceptionnels sont présentés au monde.",
+    "delft2025.meta.title": "Spotlight Utrecht 2025: Rust",
+    "delft2025.meta.desc": "Spotlight Utrecht 2025: Rust — où des projets Rust exceptionnels sont présentés au monde.",
     "delft2025.hero.date": "13-14 mai 2025",
     "delft2025.hero.location": "Utrecht, Pays-Bas",
     "delft2025.congrats": "Félicitations aux {count} projets sélectionnés !",
@@ -442,7 +442,7 @@ const translations = {
     "delft2025.conference": "RustWeek 2025",
     "delft2025.talks": "Les participants à la conférence peuvent également écouter leurs présentations éclair les",
     "delft2025.talksDates": "13-14 mai",
-    "delft2025.finalists.title": "Spotlight Delft 2025: Rust — Finalistes",
+    "delft2025.finalists.title": "Spotlight Utrecht 2025: Rust — Finalistes",
     "delft2025.finalists.desc": "Découvrez l'avenir de la technologie grâce à l'initiative GOSIM Spotlight, mettant en lumière des innovations exceptionnelles. Ce programme présente des projets open source pionniers qui repoussent les limites, inspirent la créativité et démontrent un impact concret.",
 
     // ===================== HANGZHOU 2025 =====================
@@ -480,7 +480,7 @@ const translations = {
     "footer.spotlightParis2026": "Spotlight Paris 2026: Frontier Creators",
     "footer.spotlightHangzhou": "Spotlight Hangzhou 2025: AI for Humanity",
     "footer.spotlightParis": "Spotlight Paris 2025: AI",
-    "footer.spotlightDelft": "Spotlight Delft 2025: Rust",
+    "footer.spotlightDelft": "Spotlight Utrecht 2025: Rust",
     "footer.codeOfConduct": "行为准则",
     "footer.privacy": "隐私政策",
 
@@ -492,8 +492,8 @@ const translations = {
     "previous.paris.title": "Spotlight Paris 2025: AI",
     "previous.paris.date": "法国巴黎 - 2025年5月6-7日",
     "previous.paris.desc": "推动开源 AI 前进：创新的开放 AI 模型和机器人项目。",
-    "previous.delft.title": "Spotlight Delft 2025: Rust",
-    "previous.delft.date": "荷兰代尔夫特 - 2025年5月13-14日",
+    "previous.delft.title": "Spotlight Utrecht 2025: Rust",
+    "previous.delft.date": "荷兰乌特勒支 - 2025年5月13-14日",
     "previous.delft.desc": "庆祝使用 Rust 开发的开源项目的卓越创意。",
     "previous.paris2026.title": "Spotlight Paris 2026: Frontier Creators",
     "previous.paris2026.date": "法国巴黎 - 2026年5月5-6日",
@@ -660,8 +660,8 @@ const translations = {
     "paris2025.finalists.desc": "通过 GOSIM Spotlight 计划亲身体验技术的未来，展示与各会议方向一致的卓越创新。该项目展示了突破边界、激发创造力并展现实际影响力的开创性开源项目。",
 
     // ===================== DELFT 2025 =====================
-    "delft2025.meta.title": "Spotlight Delft 2025: Rust",
-    "delft2025.meta.desc": "Spotlight Delft 2025: Rust — 向世界展示卓越的 Rust 项目。",
+    "delft2025.meta.title": "Spotlight Utrecht 2025: Rust",
+    "delft2025.meta.desc": "Spotlight Utrecht 2025: Rust — 向世界展示卓越的 Rust 项目。",
     "delft2025.hero.date": "2025年5月13-14日",
     "delft2025.hero.location": "荷兰乌特勒支",
     "delft2025.congrats": "祝贺入选的 {count} 个项目！",
@@ -669,7 +669,7 @@ const translations = {
     "delft2025.conference": "RustWeek 2025",
     "delft2025.talks": "与会者还可以在以下日期聆听他们的闪电演讲：",
     "delft2025.talksDates": "5月13-14日",
-    "delft2025.finalists.title": "Spotlight Delft 2025: Rust — 入围项目",
+    "delft2025.finalists.title": "Spotlight Utrecht 2025: Rust — 入围项目",
     "delft2025.finalists.desc": "通过 GOSIM Spotlight 计划亲身体验技术的未来，展示与各会议方向一致的卓越创新。该项目展示了突破边界、激发创造力并展现实际影响力的开创性开源项目。",
 
     // ===================== HANGZHOU 2025 =====================
