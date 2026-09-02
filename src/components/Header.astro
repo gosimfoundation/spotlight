@@ -20,6 +20,7 @@ const isShenzhenPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026(?:\/|$)/.test(slug)
 const isShenzhenApplicationPage = /^\/(?:(?:en|fr|zh)\/)?shenzhen2026\/apply(?:\/|$)/.test(slug)
 const isHomePage = /^\/(?:(?:en|fr|zh)\/?)?$/.test(slug)
 const emphasizeShenzhen = isShenzhenPage || isHomePage
+const showFloatingHeaderCta = !isShenzhenPage || isShenzhenApplicationPage
 const applyNowText: Record<Locale, string> = {
   en: "Apply Now",
   fr: "Candidater",
@@ -89,13 +90,15 @@ const links = [
     )
   }
 
-  <div class="floating-ticket-button">
-    <Button
-      text={headerCtaText}
-      link={headerCtaLink}
-      class={`btn primary btn-floating btn-hover ${emphasizeShenzhen ? "shenzhen-opening" : ""}`}
-    />
-  </div>
+  {showFloatingHeaderCta && (
+    <div class="floating-ticket-button">
+      <Button
+        text={headerCtaText}
+        link={headerCtaLink}
+        class={`btn primary btn-floating btn-hover ${emphasizeShenzhen ? "shenzhen-opening" : ""}`}
+      />
+    </div>
+  )}
 
   <div class="mobile-nav">
     <div class="overlay overlay-dark" data-navigation-toggle="close"></div>
