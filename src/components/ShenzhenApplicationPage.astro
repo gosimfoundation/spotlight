@@ -23,6 +23,9 @@ const content = {
     prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "A required demo walkthrough of no more than one minute; a source repository link is optional", "Your Shenzhen build goal and support needs"],
     fileNote: "This form does not upload files. Prototype, video, and repository materials are submitted as accessible links, so there is no file-size limit here.",
     required: "Required fields are marked with *",
+    wechatGroupTitle: "WeChat Group (微信群)",
+    wechatGroupLink: "Open the QR code",
+    wechatGroupAlt: "QR code for the GOSIM Spotlight WeChat Group (微信群)",
     sections: ["Registration", "Team", "Product thesis", "Proof & technology", "Shenzhen & open source", "Confirm & submit"],
     registrationTitle: "Create your Spotlight account",
     registrationIntro: "Create an email and password account first. You will be signed in immediately, and can later sign in from any device to continue your saved questionnaire.",
@@ -130,6 +133,9 @@ const content = {
     prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "一个不超过 1 分钟的必填演示视频；代码仓库链接可选", "深圳现场的开发目标与资源需求"],
     fileNote: "本问卷不直接上传文件。原型、视频和代码材料均填写可访问链接，因此这里没有文件大小限制。",
     required: "标有 * 的项目为必填",
+    wechatGroupTitle: "WeChat Group（微信群）",
+    wechatGroupLink: "打开二维码大图",
+    wechatGroupAlt: "GOSIM Spotlight WeChat Group（微信群）二维码",
     sections: ["报名登记", "团队", "产品命题", "原型与技术", "深圳与开源", "确认并提交"],
     registrationTitle: "创建 Spotlight 报名账号",
     registrationIntro: "先用邮箱和密码创建账号。注册后会直接登录；以后可以在任何设备上使用同一账号继续填写已保存的问卷。",
@@ -237,6 +243,9 @@ const content = {
     prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Une vidéo de démonstration obligatoire d’une minute maximum ; le lien du dépôt reste facultatif", "Votre objectif à Shenzhen et vos besoins"],
     fileNote: "Ce formulaire ne téléverse aucun fichier. Les prototypes, vidéos et dépôts sont transmis par lien accessible ; il n’y a donc pas de limite de taille de fichier ici.",
     required: "Les champs obligatoires portent un *",
+    wechatGroupTitle: "Groupe WeChat（微信群）",
+    wechatGroupLink: "Ouvrir le code QR",
+    wechatGroupAlt: "Code QR du groupe WeChat（微信群）de GOSIM Spotlight",
     sections: ["Inscription", "Équipe", "Thèse produit", "Preuves et technologie", "Shenzhen et open source", "Confirmation"],
     registrationTitle: "Créer votre compte Spotlight",
     registrationIntro: "Créez d’abord un compte avec votre e-mail et un mot de passe. Vous serez connecté immédiatement et pourrez reprendre votre brouillon sur tout appareil.",
@@ -401,6 +410,21 @@ const summaryFields = [
           <p class="file-note">{c.fileNote}</p>
           <small>{c.required}</small>
         </div>
+        <aside class="wechat-group-card" aria-labelledby="wechat-group-title">
+          <p class="wechat-group-title" id="wechat-group-title">{c.wechatGroupTitle}</p>
+          <a
+            href="/images/shenzhen2026/spotlight-qa-wechat-group.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/images/shenzhen2026/spotlight-qa-wechat-group.png"
+              alt={c.wechatGroupAlt}
+              loading="lazy"
+            />
+            <span>{c.wechatGroupLink}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></span>
+          </a>
+        </aside>
         <nav aria-label="Application sections">
           <ol>{c.sections.map((section, index) => <li data-registration-gated={index > 0 ? "true" : undefined} hidden={index > 0}><a href={`#section-${index + 1}`}><span>{String(index + 1).padStart(2, "0")}</span>{section}</a></li>)}</ol>
         </nav>
@@ -1233,6 +1257,13 @@ const summaryFields = [
   .guide-card li::before { content: "+"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
   .file-note { margin: 0 0 18px; padding: 14px; color: #48514d; border: 1px solid rgba(23, 25, 24, .3); background: rgba(255, 255, 255, .48); font-size: 14px; line-height: 1.6; }
   .guide-card small { color: var(--muted); font-size: 14px; }
+  .wechat-group-card { margin-top: 22px; padding: 20px; border: 1px solid var(--ink); border-top: 8px solid var(--red); background: #fff; }
+  .wechat-group-title { color: var(--ink); font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+  .wechat-group-card > a { margin-top: 16px; display: grid; gap: 12px; color: var(--ink); font-size: 14px; font-weight: 750; text-decoration: none; }
+  .wechat-group-card img { width: 100%; display: block; border: 1px solid var(--line); background: var(--paper); }
+  .wechat-group-card a > span { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); }
+  .wechat-group-card a:hover > span { color: var(--red-deep); border-color: var(--red-deep); }
+  .wechat-group-card .shape-icon { width: 12px; height: 12px; }
   .application-guide nav { position: sticky; top: 104px; margin-top: 22px; border-top: 1px solid var(--line); }
   .application-guide nav li { border-bottom: 1px solid var(--line); }
   .application-guide nav a { display: flex; gap: 12px; padding: 14px 8px 14px 3px; color: var(--ink); font-size: 14px; font-weight: 700; text-decoration: none; transition: color .18s ease, background .18s ease, padding .18s ease; }

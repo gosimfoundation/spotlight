@@ -105,6 +105,8 @@ const content = {
     openNote: "入围项目应提供公开仓库、技术说明或可访问产品；涉及商业代码、硬件设计或隐私时可申请合理豁免。",
     faqKicker: "07 / FAQ",
     faqTitle: "常见问题",
+    qaGroupLink: "扫描二维码加入 WeChat Group（微信群）",
+    qaGroupAlt: "GOSIM Spotlight WeChat Group（微信群）二维码",
     faqs: [
       ["一定要做硬件吗？", "不强制。自研硬件、改造现有设备、纯软件或跨设备系统都可以。只要能说明具体用户场景，展示 Agent 实际完成任务，并提供可体验原型。"],
       ["只有概念可以申请吗？", "不可以。申请至少需要能验证关键体验的交互原型；最终入选项目必须在深圳交付稳定、可运行、可公开演示的产品。"],
@@ -189,6 +191,8 @@ const content = {
     openNote: "Finalists should provide a public repository, technical note, or accessible product. Reasonable exemptions are available for commercial code, hardware designs, or private data.",
     faqKicker: "07 / FAQ",
     faqTitle: "Frequently asked questions",
+    qaGroupLink: "Scan to join the WeChat Group (微信群)",
+    qaGroupAlt: "QR code for the GOSIM Spotlight WeChat Group (微信群)",
     faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
@@ -268,6 +272,8 @@ const content = {
     openNote: "Les finalistes doivent fournir un dépôt public, une note technique ou un produit accessible. Des dérogations sont possibles pour code commercial, design matériel ou données privées.",
     faqKicker: "07 / FAQ",
     faqTitle: "Questions fréquentes",
+    qaGroupLink: "Scanner pour rejoindre le groupe WeChat（微信群）",
+    qaGroupAlt: "Code QR du groupe WeChat（微信群）de GOSIM Spotlight",
     faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
@@ -487,7 +493,25 @@ const applyPath = locale === "zh"
 
     <section class="spot-section faq-section" id="faq">
       <div class="spotlight-container faq-layout">
-        <div class="faq-title"><p class="eyebrow">{c.faqKicker}</p><h2>{c.faqTitle}</h2></div>
+        <div class="faq-title">
+          <p class="eyebrow">{c.faqKicker}</p>
+          <h2>{c.faqTitle}</h2>
+          <a
+            class="qa-group-link"
+            href="/images/shenzhen2026/spotlight-qa-wechat-group.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {c.qaGroupLink}
+            <span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
+          </a>
+          <img
+            class="qa-group-qr"
+            src="/images/shenzhen2026/spotlight-qa-wechat-group.png"
+            alt={c.qaGroupAlt}
+            loading="lazy"
+          />
+        </div>
         <div class="faq-list">
           {c.faqs.map((faq) => (
             <details>
@@ -942,6 +966,29 @@ const applyPath = locale === "zh"
   .faq-section { border-top: 1px solid var(--ink); }
   .faq-layout { display: grid; grid-template-columns: minmax(250px, .55fr) minmax(0, 1.45fr); gap: 8vw; align-items: start; }
   .faq-title h2 { max-width: none; }
+  .qa-group-link {
+    width: fit-content;
+    margin-top: 24px;
+    padding-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .qa-group-link:hover { color: #a53a22; border-color: #a53a22; }
+  .qa-group-link .shape-icon { width: 12px; height: 12px; }
+  .qa-group-qr {
+    width: min(240px, 100%);
+    margin-top: 22px;
+    display: block;
+    border: 1px solid var(--ink);
+    background: #fff;
+  }
   .faq-list { border-top: 1px solid var(--ink); }
   .faq-list details { border-bottom: 1px solid var(--ink); }
   .faq-list summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
