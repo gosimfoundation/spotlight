@@ -1,0 +1,37 @@
+---
+import type { Locale } from "../i18n/translations";
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy = {
+  en: { region: "Region", deadline: "Deadline", results: "Results", label: "Application schedule", dates: ["Sep 13", "Sep 18", "Oct 4", "Oct 9"], zone: "2026 · Deadlines: 23:59 Beijing time (UTC+8)" },
+  zh: { region: "地区", deadline: "截止日期", results: "公布结果", label: "报名与结果时间", dates: ["9月13日", "9月18日", "10月4日", "10月9日"], zone: "2026 年 · 截止时间：北京时间 23:59（UTC+8）" },
+  fr: { region: "Région", deadline: "Clôture", results: "Résultats", label: "Calendrier des candidatures", dates: ["13 sept.", "18 sept.", "4 oct.", "9 oct."], zone: "2026 · Clôture à 23 h 59, heure de Pékin (UTC+8)" },
+}[locale];
+---
+<div class="deadlines">
+  <div class="schedule-scroll" tabindex="0" role="region" aria-label={copy.label}>
+    <table aria-label={copy.label}>
+      <thead><tr><th scope="col">{copy.region}</th><th scope="col">{copy.deadline}</th><th scope="col">{copy.results}</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">International</th><td><time datetime="2026-09-13T23:59:00+08:00">{copy.dates[0]}</time></td><td><time datetime="2026-09-18">{copy.dates[1]}</time></td></tr>
+        <tr><th scope="row">China</th><td><time datetime="2026-10-04T23:59:00+08:00">{copy.dates[2]}</time></td><td><time datetime="2026-10-09">{copy.dates[3]}</time></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="deadlines-zone">{copy.zone}</p>
+</div>
+<style>
+  .deadlines { width: 100%; min-width: 0; color: #fff; text-align: left; }
+  .schedule-scroll { overflow-x: auto; padding: 4px 0; }
+  .schedule-scroll:focus-visible { outline: 2px solid #ff6a43; outline-offset: 3px; }
+  .deadlines table { width: 100%; min-width: 360px; border-collapse: collapse; font-size: 1.125rem; line-height: 1.5; text-align: left; }
+  .deadlines table th, .deadlines table td { padding: 14px 16px; text-align: left; vertical-align: middle; }
+  .deadlines table th:first-child { padding-left: 8px; padding-right: 24px; }
+  .deadlines table th:last-child, .deadlines table td:last-child { padding-right: 8px; }
+  .deadlines thead { border-bottom: 1px solid rgba(255,255,255,.4); }
+  .deadlines thead th { color: #e0e8e2; font-weight: 500; }
+  .deadlines tbody th { font-weight: 600; }
+  .deadlines tbody td { font-weight: 700; white-space: nowrap; }
+  .deadlines tbody tr + tr { border-top: 1px solid rgba(255,255,255,.18); }
+  .deadlines .deadlines-zone { margin: 12px 0 0; padding-left: 8px; color: #e0e8e2; font-size: 1.125rem; line-height: 1.6; text-align: left; }
+</style>

@@ -1,5 +1,6 @@
 ---
 import Layout from "layouts/Layout.astro";
+import ShenzhenDeadlines from "./ShenzhenDeadlines.astro";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -17,7 +18,7 @@ const content = {
     title: "NEXT GEN\nAI NATIVE PRODUCTS",
     intro: "Tell us what category you are creating, why the Agent is essential, and what you have already made real. You can submit in English or Chinese.",
     open: "Applications are open",
-    timing: "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21; invitation materials can be issued then when needed.",
+    timing: "Invitation materials available on request.",
     time: "About 10–15 minutes",
     prepare: "Before you start",
     prepareItems: ["A public or reviewer-accessible prototype link", "A concise description of the Agent experience", "A required demo walkthrough of no more than one minute; a source repository link is optional", "Your Shenzhen build goal and support needs"],
@@ -127,7 +128,7 @@ const content = {
     title: "下一代 AI\n原生产品",
     intro: "告诉我们产品给谁使用、解决什么问题、Agent 具体完成什么，以及哪些部分已经可以运行。可使用中文或英文提交。",
     open: "报名现已开放",
-    timing: "首轮提交截止时间为 2026 年 9 月 13 日（周日）北京时间 23:59；9 月 21 日公布入选团队，并在需要时提供邀请材料。",
+    timing: "可按需提供邀请材料。",
     time: "预计 10–15 分钟",
     prepare: "开始前请准备",
     prepareItems: ["一个公开或评委可访问的原型链接", "对 Agent 核心体验的简明说明", "一个不超过 1 分钟的必填演示视频；代码仓库链接可选", "深圳现场的开发目标与资源需求"],
@@ -237,7 +238,7 @@ const content = {
     title: "DÉFINISSEZ\nLA SUITE.",
     intro: "Présentez la catégorie que vous créez, pourquoi l’Agent est essentiel et ce qui existe déjà concrètement. La candidature peut être rédigée en français, anglais ou chinois.",
     open: "Les candidatures sont ouvertes",
-    timing: "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre ; les documents d’invitation peuvent alors être fournis si nécessaire.",
+    timing: "Documents d’invitation sur demande.",
     time: "Environ 10–15 minutes",
     prepare: "À préparer",
     prepareItems: ["Un lien de prototype public ou accessible au jury", "Une description concise de l’expérience Agent", "Une vidéo de démonstration obligatoire d’une minute maximum ; le lien du dépôt reste facultatif", "Votre objectif à Shenzhen et vos besoins"],
@@ -395,6 +396,7 @@ const summaryFields = [
           <aside class="hero-status" aria-label={c.open}>
             <span class="status-index">01 / APPLICATION</span>
             <strong><span></span>{c.open}</strong>
+            <ShenzhenDeadlines locale={locale} />
             <p>{c.timing}</p>
             <small>{c.time}</small>
           </aside>
@@ -1243,9 +1245,10 @@ const summaryFields = [
   .hero-intro { max-width: 680px; color: rgba(255, 255, 255, .78); font-size: 16px; line-height: 1.65; text-shadow: 0 1px 8px rgba(0, 0, 0, .45); }
   .hero-status { position: relative; display: flex; flex-direction: column; padding: 22px; color: #fff; background: rgba(24, 26, 25, .76); border: 1px solid rgba(255, 255, 255, .24); border-top: 6px solid var(--mineral); -webkit-backdrop-filter: blur(18px) saturate(1.06); backdrop-filter: blur(18px) saturate(1.06); }
   .status-index { color: #b7cbc4; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
-  .hero-status strong { display: flex; gap: 10px; align-items: center; margin-top: 22px; color: #fff; font-size: 17px; line-height: 1.4; }
+  .hero-status strong { display: flex; gap: 10px; align-items: center; margin-top: 22px; color: #fff; font-size: 1.25rem; line-height: 1.4; }
   .hero-status strong span { width: 9px; height: 9px; flex: 0 0 auto; background: var(--red); }
-  .hero-status p { margin-top: 12px; color: rgba(255, 255, 255, .72); font-size: 14px; line-height: 1.58; }
+  .hero-status :global(.deadlines) { margin-top: 20px; }
+  .hero-status p { margin-top: 12px; color: #e0e8e2; font-size: 1rem; line-height: 1.58; }
   .hero-status small { margin-top: 14px; padding-top: 13px; border-top: 1px solid rgba(255, 255, 255, .26); color: #fff; font-size: 14px; font-weight: 700; }
   .application-layout { position: relative; display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 74px; padding: 92px 0 128px; align-items: start; overflow: visible; }
   .application-layout::before { content: ""; position: absolute; inset: 0 50% 0; z-index: -1; width: 100vw; transform: translateX(-50%); pointer-events: none; background-image: linear-gradient(rgba(23, 25, 24, .028) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 25, 24, .028) 1px, transparent 1px); background-size: 72px 72px; }

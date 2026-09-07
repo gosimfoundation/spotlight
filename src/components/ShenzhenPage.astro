@@ -1,5 +1,6 @@
 ---
 import Layout from "layouts/Layout.astro";
+import ShenzhenDeadlines from "./ShenzhenDeadlines.astro";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -21,9 +22,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "与 GOSIM Shenzhen 2026 同期举办",
     heroSecondary: "立即报名",
-    heroNote: "报名现已开放；首轮提交截止 9 月 13 日（周日）北京时间 23:59",
     ribbonStatus: "报名中",
-    ribbonDeadline: "首轮截止：9 月 13 日（周日）23:59（北京时间）",
+    ribbonDeadline: "报名截止：海外 9 月 13 日 · 中国国内 10 月 4 日 · 北京时间 23:59",
     ribbonCta: "立即报名",
     meta: ["2026.10.16—17", "中国 · 深圳", "全球项目征集"],
     benefitsKicker: "02 / 入围项目将获得",
@@ -111,7 +111,7 @@ const content = {
       ["一定要做硬件吗？", "不强制。自研硬件、改造现有设备、纯软件或跨设备系统都可以。只要能说明具体用户场景，展示 Agent 实际完成任务，并提供可体验原型。"],
       ["只有概念可以申请吗？", "不可以。申请至少需要能验证关键体验的交互原型；最终入选项目必须在深圳交付稳定、可运行、可公开演示的产品。"],
       ["早期团队可以参加吗？", "可以。你需要有清楚的目标用户和核心场景、能验证主要流程的原型，以及在有限时间内继续开发和交付的能力。"],
-      ["报名什么时候截止？", "首轮提交截止时间为 2026 年 9 月 13 日（周日）北京时间 23:59，9 月 21 日公布入选团队。"],
+      ["报名什么时候截止？", "海外申请者截止时间为 2026 年 9 月 13 日（周日）；中国国内申请者截止时间延长至 2026 年 10 月 4 日（周日）。两者均为北京时间 23:59（UTC+8）。入选结果公布：海外 9 月 18 日，中国国内 10 月 9 日。"],
     ],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
@@ -132,9 +132,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Co-located with GOSIM Shenzhen 2026",
     heroSecondary: "Apply now",
-    heroNote: "Applications close Sunday, Sep 13, 2026 at 23:59 Beijing time",
     ribbonStatus: "Applications open",
-    ribbonDeadline: "First round closes Sep 13, 2026 · 23:59 Beijing time",
+    ribbonDeadline: "Deadlines: International · Sep 13 / China · Oct 4 · 23:59 Beijing time",
     ribbonCta: "Apply now",
     meta: ["OCT 16—17, 2026", "SHENZHEN, CHINA", "GLOBAL OPEN CALL"],
     benefitsKicker: "02 / WHAT FINALISTS RECEIVE",
@@ -193,7 +192,7 @@ const content = {
     faqTitle: "Frequently asked questions",
     qaGroupLink: "Scan to join the WeChat Group (微信群)",
     qaGroupAlt: "QR code for the GOSIM Spotlight WeChat Group (微信群)",
-    faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "First-round applications close Sunday, Sep 13, 2026 at 23:59 Beijing time (UTC+8). Selected teams are announced Sep 21."]],
+    faqs: [["Do I have to build hardware?", "Hardware is not required, but it is strongly encouraged. Designing a new hardware form or adapting an existing device can explore Agent-native interaction more fully; software-only projects remain eligible when software is the right medium for the core experience."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "International: Sep 13. China: Oct 4. Both deadlines are in 2026 at 23:59 Beijing time (UTC+8). Results: International · Sep 18; China · Oct 9."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
     applyText: "Submit your category thesis, system prototype, and first-release plan for Spotlight Shenzhen 2026.",
@@ -213,9 +212,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Colocalisé avec GOSIM Shenzhen 2026",
     heroSecondary: "Candidater",
-    heroNote: "Clôture : dimanche 13 sept. 2026 à 23 h 59, heure de Pékin",
     ribbonStatus: "Candidatures ouvertes",
-    ribbonDeadline: "Clôture du premier tour : 13 sept. 2026 · 23 h 59, heure de Pékin",
+    ribbonDeadline: "Clôture : hors de Chine · 13 sept. / en Chine · 4 oct. · 23 h 59, heure de Pékin",
     ribbonCta: "Candidater",
     meta: ["16—17 OCT. 2026", "SHENZHEN, CHINE", "APPEL MONDIAL"],
     benefitsKicker: "02 / CE QUE REÇOIVENT LES FINALISTES",
@@ -274,7 +272,7 @@ const content = {
     faqTitle: "Questions fréquentes",
     qaGroupLink: "Scanner pour rejoindre le groupe WeChat（微信群）",
     qaGroupAlt: "Code QR du groupe WeChat（微信群）de GOSIM Spotlight",
-    faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Le premier tour ferme le dimanche 13 septembre 2026 à 23 h 59, heure de Pékin (UTC+8). Les résultats sont annoncés le 21 septembre."]],
+    faqs: [["Faut-il construire du matériel ?", "Ce n’est pas obligatoire, mais c’est vivement encouragé. Concevoir une nouvelle forme matérielle ou adapter un appareil existant permet d’explorer plus pleinement l’interaction native Agent ; un projet entièrement logiciel reste admissible lorsque le logiciel est le meilleur support de l’expérience centrale."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Pour les candidatures provenant de l’extérieur de la Chine, la clôture est fixée au dimanche 13 septembre 2026. Pour celles provenant de Chine, elle est prolongée au dimanche 4 octobre 2026. Dans les deux cas, la clôture est à 23 h 59, heure de Pékin (UTC+8). Résultats : international · 18 septembre ; Chine · 9 octobre."]],
     applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
     applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
     applyText: "Présentez votre thèse de catégorie, votre prototype système et votre plan de première version pour Spotlight Shenzhen 2026.",
@@ -354,11 +352,13 @@ const applyPath = locale === "zh"
           <div class="hero-meta">
             {c.meta.map((item) => <div>{item}</div>)}
           </div>
+          <div class="hero-registration">
           <div class="hero-actions">
             <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
             <a class="spot-button ghost" href={applyPath} aria-describedby="application-note">{c.heroSecondary}</a>
           </div>
-          <p class="application-note" id="application-note"><span></span>{c.heroNote}</p>
+          <div class="application-note" id="application-note"><ShenzhenDeadlines locale={locale} /></div>
+          </div>
         </div>
       </div>
     </section>
@@ -622,7 +622,7 @@ const applyPath = locale === "zh"
     background: var(--ribbon-bg);
     border-top: 1px solid var(--ink);
     border-bottom: 1px solid var(--ink);
-    font-size: 13px;
+    font-size: 1.125rem;
     line-height: 1;
     font-weight: 800;
     letter-spacing: .04em;
@@ -754,17 +754,17 @@ const applyPath = locale === "zh"
     letter-spacing: -.06em;
     font-weight: 650;
   }
-  .hero-slogan { margin-top: 24px; color: rgba(255, 255, 255, .82); font-size: 15px; line-height: 1.45; letter-spacing: .12em; font-weight: 650; }
+  .hero-slogan { margin-top: 24px; color: rgba(255, 255, 255, .82); font-size: 1.125rem; line-height: 1.45; letter-spacing: .12em; font-weight: 650; }
   .hero-footer {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 16px 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
+    gap: 24px 40px;
     align-items: center;
     padding-top: 22px;
     border-top: 1px solid rgba(255, 255, 255, .48);
   }
-  .hero-meta { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); }
-  .hero-meta div { min-height: 42px; display: flex; align-items: center; padding: 7px 24px; border-right: 1px solid rgba(255, 255, 255, .28); color: rgba(255, 255, 255, .88); font-size: 14px; line-height: 1.4; font-weight: 650; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+  .hero-meta div { min-height: 42px; display: flex; align-items: center; padding: 0; border: 0; color: #fff; font-size: 1.25rem; line-height: 1.4; font-weight: 650; }
   .hero-meta div:first-child { padding-left: 0; }
   .hero-meta div:last-child { border-right: 0; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -778,7 +778,7 @@ const applyPath = locale === "zh"
     border: 1px solid rgba(247, 247, 244, .94);
     color: var(--ink);
     background: rgba(247, 247, 244, .94);
-    font-size: 14px;
+    font-size: 1.125rem;
     line-height: 1.2;
     font-weight: 750;
     text-decoration: none;
@@ -792,8 +792,8 @@ const applyPath = locale === "zh"
   }
   .spot-button.ghost { color: var(--ink); border-color: var(--red); background: var(--red); }
   .spot-button.ghost:hover { color: var(--ink); border-color: #fff; background: #fff; }
-  .application-note { grid-column: 1 / -1; margin-top: -2px; display: flex; align-items: center; gap: 9px; color: rgba(255, 255, 255, .7); font-size: 14px; line-height: 1.4; }
-  .application-note span,
+  .hero-registration { min-width: 0; }
+  .application-note { margin-top: 14px; }
   .apply-inner small span { width: 8px; height: 8px; flex: 0 0 auto; background: var(--red); }
 
   .benefits { background: linear-gradient(180deg, var(--paper) 0%, #edf3f1 100%); border-bottom: 1px solid var(--ink); }
@@ -1014,8 +1014,7 @@ const applyPath = locale === "zh"
     .hero-copy { width: min(660px, 72vw); }
     .hero-copy h1 { font-size: clamp(4rem, 8vw, 6rem); }
     .hero-footer { grid-template-columns: 1fr; gap: 15px; }
-    .hero-actions { grid-row: 2; }
-    .application-note { grid-row: 3; margin-top: 0; }
+    .hero-registration { width: min(100%, 460px); }
     .split-head { grid-template-columns: 1fr; gap: 24px; }
     .section-head h2 { max-width: 19ch; }
     .benefit-grid { grid-template-columns: 1fr; }
@@ -1025,7 +1024,7 @@ const applyPath = locale === "zh"
 
   @media (max-width: 760px) {
     :global(body[data-bg-nav="header-home"] .main-nav-bar) { padding-top: 10px; padding-bottom: 10px; }
-    .application-ribbon { top: 66px; height: 42px; grid-template-columns: auto minmax(0, 1fr); font-size: 11px; }
+    .application-ribbon { top: 66px; height: 42px; grid-template-columns: auto minmax(0, 1fr); font-size: 1rem; }
     .application-ribbon__status { gap: 7px; padding: 0 13px; }
     .application-ribbon__status > span { width: 7px; height: 7px; box-shadow: 0 0 0 3px rgba(23, 25, 24, .14); }
     .application-ribbon__item { gap: 28px; padding-left: 28px; }
@@ -1045,16 +1044,15 @@ const applyPath = locale === "zh"
     .hero-inner { padding: 132px 0 20px; }
     .hero-copy { width: 100%; }
     .hero-copy h1 { max-width: 8.2ch; margin-top: 16px; font-size: clamp(3.2rem, 15vw, 4.6rem); line-height: .96; }
-    .hero-slogan { max-width: 30ch; margin-top: 15px; font-size: 14px; line-height: 1.55; }
+    .hero-slogan { max-width: 30ch; margin-top: 15px; font-size: 1.125rem; line-height: 1.55; }
     .hero-footer { gap: 12px; padding-top: 15px; }
-    .hero-meta { grid-template-columns: repeat(3, 1fr); }
+    .hero-meta { gap: 10px 20px; }
     .hero-meta div,
-    .hero-meta div:first-child { min-height: 40px; padding: 6px 8px; border-right: 1px solid rgba(255, 255, 255, .28); border-bottom: 0; font-size: 14px; }
+    .hero-meta div:first-child { min-height: auto; padding: 0; border: 0; font-size: 1.25rem; }
     .hero-meta div:first-child { padding-left: 0; }
     .hero-meta div:last-child { border-right: 0; }
     .hero-actions { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(105px, .75fr); }
     .spot-button { min-height: 46px; padding: 0 12px; gap: 10px; font-size: 14px; }
-    .application-note { font-size: 14px; }
     .form-grid-primary,
     .stage-grid,
     .score-grid { grid-template-columns: 1fr; }
