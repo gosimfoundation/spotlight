@@ -1676,12 +1676,12 @@ const summaryFields = [
   .summary-table-head span { padding: 9px 14px; font-size: 12px; font-weight: 800; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; }
   .summary-table-head span + span { border-left: 1px solid rgba(255, 255, 255, .22); }
   .submission-summary dl { display: grid; grid-template-columns: 1fr; border: 1px solid var(--line); border-top: 0; }
-  .submission-summary dl > div { min-width: 0; display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
-  .submission-summary dl > div:last-child { border-bottom: 0; }
-  .submission-summary dl > div:nth-child(even) { background: rgba(255, 255, 255, .34); }
-  .submission-summary dt { margin: 0; padding: 11px 14px; color: var(--mineral-deep); border-right: 1px solid var(--line); font-size: 12px; font-weight: 800; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
-  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; margin: 0; padding: 11px 14px; color: var(--ink); font-size: 14px; line-height: 1.48; }
-  .submission-summary dd a { color: var(--mineral-deep); }
+  :global(#submission-summary > div) { min-width: 0; display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+  :global(#submission-summary > div:last-child) { border-bottom: 0; }
+  :global(#submission-summary > div:nth-child(even)) { background: rgba(255, 255, 255, .34); }
+  :global(#submission-summary dt) { margin: 0; padding: 11px 14px; color: var(--mineral-deep); border-right: 1px solid var(--line); font-size: 12px; font-weight: 800; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+  :global(#submission-summary dd) { overflow-wrap: anywhere; white-space: pre-wrap; margin: 0; padding: 11px 14px; color: var(--ink); font-size: 14px; line-height: 1.48; }
+  :global(#submission-summary dd a) { color: var(--mineral-deep); }
   .success-panel > a { display: inline-flex; align-items: center; gap: 8px; color: var(--mineral-deep); font-size: 14px; font-weight: 700; }
   .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
@@ -1710,9 +1710,9 @@ const summaryFields = [
     .submission-actions p { grid-column: auto; }
     .summary-table-head { display: none; }
     .submission-summary dl { border-top: 1px solid var(--line); }
-    .submission-summary dl > div { grid-template-columns: 1fr; }
-    .submission-summary dt { padding: 10px 12px 5px; border-right: 0; }
-    .submission-summary dd { padding: 0 12px 11px; }
+    :global(#submission-summary > div) { grid-template-columns: 1fr; }
+    :global(#submission-summary dt) { padding: 10px 12px 5px; border-right: 0; }
+    :global(#submission-summary dd) { padding: 0 12px 11px; }
     .submission-actions { align-items: stretch; }
     .submission-actions button { width: 100%; }
     .submit-area button, #registration-button { width: 100%; }
