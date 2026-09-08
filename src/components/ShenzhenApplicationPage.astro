@@ -122,6 +122,8 @@ const content = {
     reference: "Reference",
     summaryTitle: "Submitted information",
     summaryIntro: "This is the information sent with this application.",
+    summaryQuestion: "Question",
+    summaryAnswer: "Answer",
     summaryEmpty: "Not provided",
     summaryConfirmed: "Confirmed",
     summaryConsent: "Required confirmations",
@@ -240,6 +242,8 @@ const content = {
     reference: "报名编号",
     summaryTitle: "本次提交内容",
     summaryIntro: "以下是本次报名实际发送到评审数据库的信息。",
+    summaryQuestion: "问题",
+    summaryAnswer: "回答",
     summaryEmpty: "未填写",
     summaryConfirmed: "已全部确认",
     summaryConsent: "隐私、行为准则与材料授权",
@@ -358,6 +362,8 @@ const content = {
     reference: "Référence",
     summaryTitle: "Informations envoyées",
     summaryIntro: "Voici les informations transmises avec cette candidature.",
+    summaryQuestion: "Question",
+    summaryAnswer: "Réponse",
     summaryEmpty: "Non renseigné",
     summaryConfirmed: "Confirmé",
     summaryConsent: "Confirmations obligatoires",
@@ -626,6 +632,7 @@ const summaryFields = [
           <section class="submission-summary" aria-labelledby="submission-summary-title">
             <h3 id="submission-summary-title">{c.summaryTitle}</h3>
             <p>{c.summaryIntro}</p>
+            <div class="summary-table-head" aria-hidden="true"><span>{c.summaryQuestion}</span><span>{c.summaryAnswer}</span></div>
             <dl id="submission-summary"></dl>
           </section>
           <a href={programPath}><span>{c.returnProgram}</span><span class="shape-icon shape-icon--arrow" aria-hidden="true"></span></a>
@@ -1665,12 +1672,15 @@ const summaryFields = [
   .submission-summary { margin: 28px 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
   .submission-summary h3 { color: var(--ink); font-size: clamp(1.55rem, 2vw, 1.85rem); line-height: 1.15; letter-spacing: -.035em; }
   .submission-summary > p { margin: 6px 0 14px; color: var(--muted); font-size: 14px; }
-  .submission-summary dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-  .submission-summary dl > div { min-width: 0; padding: 11px 12px 12px 0; border-bottom: 1px solid var(--line); }
-  .submission-summary dl > div:nth-child(odd) { padding-right: 20px; }
-  .submission-summary dl > div:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
-  .submission-summary dt { margin-bottom: 4px; color: var(--mineral-deep); font-size: 12px; font-weight: 800; line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; }
-  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; color: var(--ink); font-size: 14px; line-height: 1.48; }
+  .summary-table-head { display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); color: #fff; background: var(--graphite); border: 1px solid var(--graphite); }
+  .summary-table-head span { padding: 9px 14px; font-size: 12px; font-weight: 800; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; }
+  .summary-table-head span + span { border-left: 1px solid rgba(255, 255, 255, .22); }
+  .submission-summary dl { display: grid; grid-template-columns: 1fr; border: 1px solid var(--line); border-top: 0; }
+  .submission-summary dl > div { min-width: 0; display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+  .submission-summary dl > div:last-child { border-bottom: 0; }
+  .submission-summary dl > div:nth-child(even) { background: rgba(255, 255, 255, .34); }
+  .submission-summary dt { margin: 0; padding: 11px 14px; color: var(--mineral-deep); border-right: 1px solid var(--line); font-size: 12px; font-weight: 800; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+  .submission-summary dd { overflow-wrap: anywhere; white-space: pre-wrap; margin: 0; padding: 11px 14px; color: var(--ink); font-size: 14px; line-height: 1.48; }
   .submission-summary dd a { color: var(--mineral-deep); }
   .success-panel > a { display: inline-flex; align-items: center; gap: 8px; color: var(--mineral-deep); font-size: 14px; font-weight: 700; }
   .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
@@ -1698,8 +1708,11 @@ const summaryFields = [
     .success-panel h2 { font-size: clamp(2.2rem, 10vw, 3rem); }
     .submission-actions { grid-template-columns: 1fr; }
     .submission-actions p { grid-column: auto; }
-    .submission-summary dl { grid-template-columns: 1fr; }
-    .submission-summary dl > div:nth-child(odd), .submission-summary dl > div:nth-child(even) { padding: 15px 0 17px; border-left: 0; }
+    .summary-table-head { display: none; }
+    .submission-summary dl { border-top: 1px solid var(--line); }
+    .submission-summary dl > div { grid-template-columns: 1fr; }
+    .submission-summary dt { padding: 10px 12px 5px; border-right: 0; }
+    .submission-summary dd { padding: 0 12px 11px; }
     .submission-actions { align-items: stretch; }
     .submission-actions button { width: 100%; }
     .submit-area button, #registration-button { width: 100%; }
