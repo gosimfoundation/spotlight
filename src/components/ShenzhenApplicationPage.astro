@@ -1255,7 +1255,7 @@ const summaryFields = [
         description: string;
         inputSchema: object;
         annotations: { readOnlyHint: boolean; untrustedContentHint: boolean };
-        execute: () => Promise<Record<string, string>>;
+        execute: (input: unknown) => Promise<Record<string, string>>;
       }, options?: { signal?: AbortSignal }) => void | Promise<void>;
     };
     const context = (document as Document & { modelContext?: ApplicationModelContext }).modelContext;
@@ -1268,7 +1268,10 @@ const summaryFields = [
         description: "Open the existing submitted application in edit mode while preserving its current answers.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false },
         annotations: { readOnlyHint: true, untrustedContentHint: false },
-        async execute() {
+        async execute(input) {
+          if (!input || typeof input !== "object" || Array.isArray(input) || Object.keys(input).length > 0) {
+            throw new Error("This action does not accept input fields.");
+          }
           if (!registrationState?.submittedAt || !existingApplication) {
             throw new Error("No submitted application is available to edit.");
           }
