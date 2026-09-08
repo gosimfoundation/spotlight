@@ -53,6 +53,14 @@ const content = {
     draftSaved: "Draft saved",
     draftRestored: "Saved draft restored",
     submittedAlready: "This account has already submitted an application.",
+    editSubmission: "Edit submitted application",
+    startNewVersion: "Start again",
+    replaceNote: "When you submit your changes, they will replace the current application without creating a duplicate.",
+    updateSubmit: "Save & replace application",
+    updating: "Saving changes…",
+    updateSuccessEyebrow: "APPLICATION UPDATED",
+    updateSuccessTitle: "Your changes have been saved.",
+    updateSuccessText: "The updated information has replaced your previous application. Your reference remains the same.",
     registrationError: "We could not create the account. Check the details and try again. If the problem continues, email spotlight@gosim.org.",
     registrationInvalidEmail: "This email address cannot be used. Check it and try again with a valid address.",
     registrationRateLimit: "Too many account requests were made in a short period. Wait a few minutes and try again, or email spotlight@gosim.org.",
@@ -162,6 +170,14 @@ const content = {
     draftSaved: "草稿已保存",
     draftRestored: "已恢复上次保存的草稿",
     submittedAlready: "这个账号已经提交过报名问卷。",
+    editSubmission: "修改已提交内容",
+    startNewVersion: "重新填写一份",
+    replaceNote: "修改后再次提交会覆盖原报名，不会产生重复记录，报名编号保持不变。",
+    updateSubmit: "保存并覆盖原申请",
+    updating: "正在保存修改…",
+    updateSuccessEyebrow: "报名已更新",
+    updateSuccessTitle: "修改已保存，项目继续进入评审。",
+    updateSuccessText: "本次更新已覆盖原申请，报名编号保持不变。",
     registrationError: "账号注册失败。请检查填写信息后重试；如问题持续，请邮件联系 spotlight@gosim.org。",
     registrationInvalidEmail: "这个邮箱地址无法用于注册，请检查后使用有效邮箱重试。",
     registrationRateLimit: "短时间内注册请求过多，请等待几分钟后重试；如仍失败，请邮件联系 spotlight@gosim.org。",
@@ -271,6 +287,14 @@ const content = {
     draftSaved: "Brouillon enregistré",
     draftRestored: "Brouillon restauré",
     submittedAlready: "Ce compte a déjà envoyé une candidature.",
+    editSubmission: "Modifier la candidature envoyée",
+    startNewVersion: "Recommencer",
+    replaceNote: "Vos modifications remplaceront la candidature actuelle sans créer de doublon. La référence restera inchangée.",
+    updateSubmit: "Enregistrer et remplacer",
+    updating: "Enregistrement des modifications…",
+    updateSuccessEyebrow: "CANDIDATURE MISE À JOUR",
+    updateSuccessTitle: "Vos modifications ont été enregistrées.",
+    updateSuccessText: "Les nouvelles informations remplacent la candidature précédente. Votre référence reste inchangée.",
     registrationError: "Le compte n’a pas pu être créé. Vérifiez les informations et réessayez. Si le problème persiste : spotlight@gosim.org.",
     registrationInvalidEmail: "Cette adresse e-mail ne peut pas être utilisée. Vérifiez-la puis réessayez.",
     registrationRateLimit: "Trop de demandes ont été effectuées. Attendez quelques minutes puis réessayez, ou contactez spotlight@gosim.org.",
@@ -454,6 +478,8 @@ const summaryFields = [
           data-draft-saved-message={c.draftSaved}
           data-draft-restored-message={c.draftRestored}
           data-submitted-already-message={c.submittedAlready}
+          data-update-submit-label={c.updateSubmit}
+          data-updating-label={c.updating}
         >
           <div class="honeypot" aria-hidden="true">
             <label for="company_website">Company website</label>
@@ -564,13 +590,24 @@ const summaryFields = [
           data-summary-fields={JSON.stringify(summaryFields)}
           data-summary-empty={c.summaryEmpty}
           data-summary-confirmed={c.summaryConfirmed}
+          data-success-eyebrow={c.successEyebrow}
+          data-success-title={c.successTitle}
+          data-success-text={c.successText}
+          data-update-success-eyebrow={c.updateSuccessEyebrow}
+          data-update-success-title={c.updateSuccessTitle}
+          data-update-success-text={c.updateSuccessText}
           aria-live="polite"
           hidden
         >
-          <p class="eyebrow">{c.successEyebrow}</p>
-          <h2>{c.successTitle}</h2>
-          <p>{c.successText}</p>
+          <p class="eyebrow" id="success-eyebrow">{c.successEyebrow}</p>
+          <h2 id="success-title">{c.successTitle}</h2>
+          <p id="success-text">{c.successText}</p>
           <div class="reference-card"><span>{c.reference}</span><strong id="submission-reference"></strong></div>
+          <div class="submission-actions" id="submission-actions">
+            <button type="button" id="edit-submission-button"><span>{c.editSubmission}</span><span class="shape-icon shape-icon--arrow" aria-hidden="true"></span></button>
+            <button type="button" id="restart-submission-button">{c.startNewVersion}</button>
+            <p>{c.replaceNote}</p>
+          </div>
           <section class="submission-summary" aria-labelledby="submission-summary-title">
             <h3 id="submission-summary-title">{c.summaryTitle}</h3>
             <p>{c.summaryIntro}</p>
@@ -590,6 +627,12 @@ const summaryFields = [
   const successPanel = document.querySelector<HTMLElement>("#success-panel");
   const referenceOutput = document.querySelector<HTMLElement>("#submission-reference");
   const summaryOutput = document.querySelector<HTMLDListElement>("#submission-summary");
+  const successEyebrow = document.querySelector<HTMLElement>("#success-eyebrow");
+  const successTitle = document.querySelector<HTMLElement>("#success-title");
+  const successText = document.querySelector<HTMLElement>("#success-text");
+  const editSubmissionButton = document.querySelector<HTMLButtonElement>("#edit-submission-button");
+  const restartSubmissionButton = document.querySelector<HTMLButtonElement>("#restart-submission-button");
+  const submissionActions = document.querySelector<HTMLElement>("#submission-actions");
   const questionnaire = document.querySelector<HTMLElement>("#application-questionnaire");
   const registrationButton = document.querySelector<HTMLButtonElement>("#registration-button");
   const registrationComplete = document.querySelector<HTMLElement>("#registration-complete");
@@ -632,6 +675,7 @@ const summaryFields = [
     submittedAt: string | null;
   };
   type DraftData = Record<string, string | boolean | string[]>;
+  type ApplicationData = Record<string, string | number | boolean | string[] | null>;
   type SummaryField = {
     name: string;
     label: string;
@@ -644,6 +688,8 @@ const summaryFields = [
   let activeUserId = "";
   let draftSaveTimer: number | undefined;
   let draftSaveInFlight = false;
+  let existingApplication: ApplicationData | null = null;
+  let isEditingSubmission = false;
 
   const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".application-guide nav a"));
   const formSections = Array.from(document.querySelectorAll<HTMLElement>(".form-section[id]"));
@@ -677,6 +723,29 @@ const summaryFields = [
     "sprint_goal", "privacy_consent", "code_of_conduct_consent", "submission_declaration",
   ];
   const meaningfulDraftFields = draftFieldNames.filter((name) => !name.endsWith("_consent") && name !== "submission_declaration");
+  const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const submitLabel = submitButton?.querySelector<HTMLElement>("span");
+  const initialSubmitLabel = submitLabel?.textContent || "Submit application";
+
+  const setSubmitMode = (editing: boolean) => {
+    isEditingSubmission = editing;
+    if (submitLabel) submitLabel.textContent = editing
+      ? form?.dataset.updateSubmitLabel || "Save & replace application"
+      : initialSubmitLabel;
+  };
+
+  const setSuccessCopy = (updated: boolean) => {
+    if (!successPanel) return;
+    if (successEyebrow) successEyebrow.textContent = updated
+      ? successPanel.dataset.updateSuccessEyebrow || "Application updated"
+      : successPanel.dataset.successEyebrow || "Application received";
+    if (successTitle) successTitle.textContent = updated
+      ? successPanel.dataset.updateSuccessTitle || "Your changes have been saved."
+      : successPanel.dataset.successTitle || "Thank you. Your project is in review.";
+    if (successText) successText.textContent = updated
+      ? successPanel.dataset.updateSuccessText || "Your updated application has replaced the previous version."
+      : successPanel.dataset.successText || "We will contact you if the selection team needs anything else.";
+  };
 
   const setAuthMode = (mode: AuthMode) => {
     authMode = mode;
@@ -735,6 +804,10 @@ const summaryFields = [
     currentUser = null;
     activeUserId = "";
     registrationState = null;
+    existingApplication = null;
+    setSubmitMode(false);
+    summaryOutput?.replaceChildren();
+    if (referenceOutput) referenceOutput.textContent = "";
     authModeTabs?.removeAttribute("hidden");
     authFields?.removeAttribute("hidden");
     registrationAction?.removeAttribute("hidden");
@@ -754,8 +827,11 @@ const summaryFields = [
     setAuthMode("login");
   };
 
-  const displaySubmitted = (reference: string, shouldScroll = false) => {
+  const displaySubmitted = (reference: string, shouldScroll = false, updated = false) => {
     if (questionnaire) questionnaire.hidden = true;
+    setSubmitMode(false);
+    setSuccessCopy(updated);
+    if (submissionActions) submissionActions.hidden = !existingApplication;
     if (referenceOutput) referenceOutput.textContent = reference;
     const summary = successPanel?.querySelector<HTMLElement>(".submission-summary");
     if (summary && !summaryOutput?.children.length) summary.hidden = true;
@@ -822,7 +898,7 @@ const summaryFields = [
     return draft;
   };
 
-  const applyDraft = (draft: DraftData) => {
+  const applyDraft = (draft: ApplicationData) => {
     Object.entries(draft).forEach(([name, value]) => {
       if (name === "support_needs" && Array.isArray(value)) {
         form?.querySelectorAll<HTMLInputElement>('input[name="support_needs"]').forEach((input) => { input.checked = value.includes(input.value); });
@@ -830,8 +906,25 @@ const summaryFields = [
       }
       const control = form?.elements.namedItem(name);
       if (control instanceof HTMLInputElement && control.type === "checkbox") control.checked = Boolean(value);
-      else if ((control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) && typeof value === "string") control.value = value;
+      else if (
+        (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement)
+        && (typeof value === "string" || typeof value === "number")
+      ) control.value = String(value);
     });
+  };
+
+  const applyApplication = (application: ApplicationData) => {
+    applyDraft(application);
+  };
+
+  const clearQuestionnaire = () => {
+    draftFieldNames.forEach((name) => {
+      const control = form?.elements.namedItem(name);
+      if (control instanceof HTMLInputElement && control.type === "checkbox") control.checked = false;
+      else if (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) control.value = "";
+    });
+    form?.querySelectorAll<HTMLInputElement>('input[name="support_needs"]').forEach((input) => { input.checked = false; });
+    if (draftStatus) draftStatus.textContent = "";
   };
 
   const hasMeaningfulDraft = (draft: DraftData) => meaningfulDraftFields.some((name) => {
@@ -840,7 +933,7 @@ const summaryFields = [
   }) || (Array.isArray(draft.support_needs) && draft.support_needs.length > 0);
 
   const saveDraft = async () => {
-    if (!currentUser || !registrationState || registrationState.submittedAt || draftSaveInFlight) return;
+    if (!currentUser || !registrationState || (registrationState.submittedAt && !isEditingSubmission) || draftSaveInFlight) return;
     const draft = collectDraft();
     if (!hasMeaningfulDraft(draft)) return;
     draftSaveInFlight = true;
@@ -883,9 +976,27 @@ const summaryFields = [
     }
   };
 
+  const loadSubmittedApplication = async (userId: string) => {
+    const { data, error } = await supabase
+      .from("spotlight_shenzhen_2026_applications")
+      .select("id, user_id, public_reference, created_at, updated_at, application_language, applicant_name, applicant_email, contact_handle, country_region, team_size, team_members_and_roles, project_name, product_form, one_liner, target_users, problem_statement, category_thesis, agent_core, current_stage, prototype_url, demo_video_url, repository_url, technology_summary, open_source_status, shenzhen_attendance, sprint_goal, support_needs, privacy_consent, code_of_conduct_consent, submission_declaration, source_path")
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (error) {
+      console.error(error);
+      return;
+    }
+    if (!data) return;
+    existingApplication = data as ApplicationData;
+    applyApplication(existingApplication);
+    renderSubmissionSummary(existingApplication);
+  };
+
   const loadAccount = async (user: User, shouldScroll = false) => {
     if (activeUserId === user.id && registrationState) return;
     currentUser = user;
+    existingApplication = null;
+    summaryOutput?.replaceChildren();
     const { data, error } = await supabase
       .from("spotlight_shenzhen_2026_accounts")
       .select("user_id, public_reference, created_at, submitted_at, applicant_name, applicant_email, contact_handle, country_region")
@@ -907,8 +1018,9 @@ const summaryFields = [
       registeredAt: data.created_at,
       submittedAt: data.submitted_at,
     };
+    if (state.submittedAt) await loadSubmittedApplication(user.id);
     showQuestionnaire(state, shouldScroll);
-    if (!state.submittedAt) await loadDraft(user.id);
+    await loadDraft(user.id);
   };
 
   const registerAccount = async () => {
@@ -1078,6 +1190,26 @@ const summaryFields = [
     if (summary) summary.hidden = false;
   };
 
+  const beginSubmissionEdit = async (restart = false) => {
+    if (!registrationState?.submittedAt || !currentUser || !existingApplication) return;
+    if (restart) {
+      clearQuestionnaire();
+      const { error } = await supabase
+        .from("spotlight_shenzhen_2026_drafts")
+        .delete()
+        .eq("user_id", currentUser.id);
+      if (error) console.error(error);
+    }
+    setSubmitMode(true);
+    if (successPanel) successPanel.hidden = true;
+    if (questionnaire) questionnaire.hidden = false;
+    gatedNavigationItems.forEach((item) => { item.hidden = false; });
+    document.querySelector("#section-2")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  editSubmissionButton?.addEventListener("click", () => { void beginSubmissionEdit(); });
+  restartSubmissionButton?.addEventListener("click", () => { void beginSubmissionEdit(true); });
+
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!registrationState || !currentUser) {
@@ -1085,14 +1217,12 @@ const summaryFields = [
       document.querySelector("#section-1")?.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-    if (registrationState.submittedAt) {
+    if (registrationState.submittedAt && !isEditingSubmission) {
       displaySubmitted(registrationState.publicReference, true);
       return;
     }
     if (!form.reportValidity()) return;
     const message = form.querySelector<HTMLElement>(".submit-area .form-message");
-    const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-    const submitLabel = submitButton?.querySelector<HTMLElement>("span");
     const originalLabel = submitLabel?.textContent || "Submit";
     const values = new FormData(form);
     if (String(values.get("company_website") || "").trim()) return;
@@ -1136,9 +1266,34 @@ const summaryFields = [
       source_path: window.location.pathname,
     };
     if (submitButton) submitButton.disabled = true;
-    if (submitLabel) submitLabel.textContent = form.dataset.submittingLabel || "Submitting…";
+    const isUpdate = Boolean(registrationState.submittedAt);
+    if (submitLabel) submitLabel.textContent = isUpdate
+      ? form.dataset.updatingLabel || "Saving changes…"
+      : form.dataset.submittingLabel || "Submitting…";
     if (message) message.textContent = "";
-    const { error } = await supabase.from("spotlight_shenzhen_2026_applications").insert(payload);
+    let error = null;
+    if (isUpdate) {
+      const {
+        user_id: _userId,
+        public_reference: _publicReference,
+        applicant_name: _applicantName,
+        applicant_email: _applicantEmail,
+        contact_handle: _contactHandle,
+        country_region: _countryRegion,
+        ...editablePayload
+      } = payload;
+      const result = await supabase
+        .from("spotlight_shenzhen_2026_applications")
+        .update(editablePayload)
+        .eq("user_id", currentUser.id)
+        .eq("public_reference", registrationState.publicReference)
+        .select("id")
+        .single();
+      error = result.error;
+    } else {
+      const result = await supabase.from("spotlight_shenzhen_2026_applications").insert(payload);
+      error = result.error;
+    }
     if (error) {
       console.error(error);
       if (message) message.textContent = form.dataset.errorMessage || "Submission failed. Please try again.";
@@ -1146,10 +1301,18 @@ const summaryFields = [
       if (submitLabel) submitLabel.textContent = originalLabel;
       return;
     }
-    registrationState.submittedAt = new Date().toISOString();
+    registrationState.submittedAt ||= new Date().toISOString();
+    existingApplication = payload;
+    if (isUpdate) {
+      const { error: draftDeleteError } = await supabase
+        .from("spotlight_shenzhen_2026_drafts")
+        .delete()
+        .eq("user_id", currentUser.id);
+      if (draftDeleteError) console.error(draftDeleteError);
+    }
     renderSubmissionSummary(payload);
     gatedNavigationItems.forEach((item) => { item.hidden = true; });
-    displaySubmitted(registrationState.publicReference, true);
+    displaySubmitted(registrationState.publicReference, true, isUpdate);
   });
 
   supabase.auth.onAuthStateChange((event, session) => {
@@ -1327,6 +1490,12 @@ const summaryFields = [
   .reference-card { display: inline-grid; gap: 8px; margin: 30px 0; padding: 16px 20px; color: #fff; border: 1px solid var(--graphite); background: var(--graphite); }
   .reference-card span { color: #b7cbc4; font-size: 14px; text-transform: uppercase; letter-spacing: .1em; }
   .reference-card strong { font-size: 20px; letter-spacing: .08em; }
+  .submission-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 34px; }
+  .submission-actions[hidden] { display: none; }
+  .submission-actions button { min-height: 50px; border: 1px solid var(--ink); padding: 0 18px; color: var(--ink); background: transparent; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: color .18s ease, background .18s ease; }
+  .submission-actions #edit-submission-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 34px; border-color: var(--red); background: var(--red); }
+  .submission-actions button:hover { color: #fff; background: var(--ink); }
+  .submission-actions p { flex-basis: 100%; max-width: 680px; margin: 2px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
   .submission-summary { margin: 18px 0 32px; padding-top: 30px; border-top: 1px solid var(--line); }
   .submission-summary h3 { color: var(--ink); font-size: clamp(1.45rem, 2.6vw, 2.25rem); letter-spacing: -.04em; }
   .submission-summary > p { margin: 8px 0 22px; color: var(--muted); font-size: 14px; }
@@ -1360,6 +1529,8 @@ const summaryFields = [
     .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
     .submission-summary dl { grid-template-columns: 1fr; }
     .submission-summary dl > div:nth-child(odd), .submission-summary dl > div:nth-child(even) { padding: 15px 0 17px; border-left: 0; }
+    .submission-actions { align-items: stretch; }
+    .submission-actions button { width: 100%; }
     .submit-area button, #registration-button { width: 100%; }
     .auth-mode-tabs { grid-template-columns: 1fr; }
     .auth-mode-tabs button + button { border-top: 1px solid var(--ink); border-left: 0; }
