@@ -1476,7 +1476,10 @@ const summaryFields = [
 
 <style>
   :global(body) { background: #f4f3ef; }
-  :global(body:has(.monolith-application)) { --btn-height: 2.35em; }
+  :global(body:has(.monolith-application)) {
+    --btn-height: 2.35em;
+    font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
   :global(body:has(.monolith-application) > main.main) { overflow: visible !important; }
   :global(body[data-bg-nav="header-home"] .main-nav-bar) {
     padding-top: 7px;
