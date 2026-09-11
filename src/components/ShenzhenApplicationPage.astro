@@ -36,6 +36,8 @@ const content = {
     passwordHelp: "Use at least 8 characters.",
     registrationAction: "Create account",
     loginAction: "Sign in & continue",
+    authAutofillError: "An autofilled hidden field blocked registration. It has been cleared; please click Create account again.",
+    authSlow: "This is taking longer than expected. Check your connection. If it still does not finish, refresh and try signing in with the same email.",
     registering: "Creating account…",
     loggingIn: "Signing in…",
     forgotPassword: "Forgot password?",
@@ -156,6 +158,8 @@ const content = {
     passwordHelp: "至少 8 个字符。",
     registrationAction: "注册账号",
     loginAction: "登录并继续填写",
+    authAutofillError: "浏览器自动填充了隐藏字段，导致注册被拦截。已清除此字段，请再次点击注册账号。",
+    authSlow: "连接耗时较长，请检查网络。如果仍未完成，请刷新页面，尝试用同一邮箱登录。",
     registering: "正在创建账号…",
     loggingIn: "正在登录…",
     forgotPassword: "忘记密码？",
@@ -276,6 +280,8 @@ const content = {
     passwordHelp: "Utilisez au moins 8 caractères.",
     registrationAction: "Créer le compte",
     loginAction: "Se connecter et continuer",
+    authAutofillError: "Un champ masqué rempli automatiquement a bloqué l’inscription. Il a été effacé ; cliquez à nouveau sur Créer le compte.",
+    authSlow: "La connexion prend plus de temps que prévu. Vérifiez votre réseau. Si nécessaire, actualisez la page et essayez de vous connecter avec le même e-mail.",
     registering: "Création du compte…",
     loggingIn: "Connexion…",
     forgotPassword: "Mot de passe oublié ?",
@@ -471,6 +477,8 @@ const summaryFields = [
           data-error-message={c.error}
           data-too-fast-message={c.tooFast}
           data-submitting-label={c.submitting}
+          data-auth-autofill-error={c.authAutofillError}
+          data-auth-slow={c.authSlow}
           data-registering-label={c.registering}
           data-logging-in-label={c.loggingIn}
           data-registration-action={c.registrationAction}
@@ -799,6 +807,7 @@ const summaryFields = [
     for (const name of names) {
       const control = getInput(name);
       if (control && !control.checkValidity()) {
+        if (registrationMessage) registrationMessage.textContent = control.validationMessage;
         control.reportValidity();
         return false;
       }
@@ -808,6 +817,9 @@ const summaryFields = [
 
   const setAuthBusy = (busy: boolean) => {
     if (registrationButton) registrationButton.disabled = busy;
+    if (registerTab) registerTab.disabled = busy;
+    if (loginTab) loginTab.disabled = busy;
+    registrationAction?.setAttribute("aria-busy", String(busy));
     const label = registrationButton?.querySelector<HTMLElement>("span");
     if (label) {
       label.textContent = busy
@@ -1059,8 +1071,11 @@ const summaryFields = [
   const registerAccount = async () => {
     if (!form || !validateAuth()) return;
     const values = new FormData(form);
-    if (String(values.get("company_website") || "").trim()) return;
-    setAuthBusy(true);
+    if (String(values.get("company_website") || "").trim()) {
+      getInput("company_website")!.value = "";
+      if (registrationMessage) registrationMessage.textContent = form.dataset.authAutofillError || "Please try again.";
+      return;
+    }
     if (registrationMessage) registrationMessage.textContent = "";
     const email = String(values.get("applicant_email") || "").trim().toLowerCase();
     const password = String(values.get("account_password") || "");
@@ -1080,7 +1095,6 @@ const summaryFields = [
         },
       },
     });
-    setAuthBusy(false);
     if (error) {
       console.error(error);
       if (registrationMessage) {
@@ -1107,13 +1121,11 @@ const summaryFields = [
   const signIn = async () => {
     if (!form || !validateAuth()) return;
     const values = new FormData(form);
-    setAuthBusy(true);
     if (registrationMessage) registrationMessage.textContent = "";
     const { data, error } = await supabase.auth.signInWithPassword({
       email: String(values.get("applicant_email") || "").trim().toLowerCase(),
       password: String(values.get("account_password") || ""),
     });
-    setAuthBusy(false);
     if (error || !data.user) {
       console.error(error);
       if (registrationMessage) registrationMessage.textContent = form.dataset.loginErrorMessage || "Sign in failed.";
@@ -1123,10 +1135,27 @@ const summaryFields = [
     await loadAccount(data.user, true);
   };
 
-  registrationButton?.addEventListener("click", () => {
-    if (authMode === "register") void registerAccount();
-    else void signIn();
-  });
+  const runAuth = async () => {
+    if (registrationButton?.disabled) return;
+    setAuthBusy(true);
+    const slowTimer = window.setTimeout(() => {
+      if (registrationMessage) registrationMessage.textContent = form?.dataset.authSlow || "Please check your connection.";
+    }, 15000);
+    try {
+      if (authMode === "register") await registerAccount();
+      else await signIn();
+    } catch (error) {
+      console.error("Spotlight authentication failed", error);
+      if (registrationMessage) registrationMessage.textContent = (authMode === "register"
+        ? form?.dataset.registrationErrorMessage
+        : form?.dataset.loginErrorMessage) || "Please try again.";
+    } finally {
+      window.clearTimeout(slowTimer);
+      setAuthBusy(false);
+    }
+  };
+
+  registrationButton?.addEventListener("click", () => { void runAuth(); });
   registerTab?.addEventListener("click", () => setAuthMode("register"));
   loginTab?.addEventListener("click", () => setAuthMode("login"));
 
