@@ -21,6 +21,8 @@ const previousEvents = [
     date: t("previous.paris2026.date"),
     description: t("previous.paris2026.desc"),
     image: GosimParis2026,
+    badge: "/images/homepage/spotlight-badge-paris2026.png",
+    badgeBounds: [500, 500, 83, 415, 333],
     link: getLocalizedPath("/paris2026", locale),
   },
   {
@@ -28,6 +30,8 @@ const previousEvents = [
     date: t("previous.hangzhou.date"),
     description: t("previous.hangzhou.desc"),
     image: GosimHangzhou,
+    badge: "/images/homepage/spotlight-badge-aigc2025.svg",
+    badgeBounds: [500, 500, 33, 451, 435],
     link: getLocalizedPath("/hangzhou2025", locale),
   },
   {
@@ -35,6 +39,8 @@ const previousEvents = [
     date: t("previous.paris.date"),
     description: t("previous.paris.desc"),
     image: GosimParis2,
+    badge: "/images/homepage/spotlight-badge-ai2025.png",
+    badgeBounds: [500, 500, 83, 415, 333],
     link: getLocalizedPath("/paris2025", locale),
   },
   {
@@ -42,9 +48,15 @@ const previousEvents = [
     date: t("previous.delft.date"),
     description: t("previous.delft.desc"),
     image: GosimDelft,
+    badge: "/images/homepage/spotlight-badge-rust2025.png",
+    badgeBounds: [500, 500, 68, 415, 364],
     link: getLocalizedPath("/utrecht2025", locale),
   },
 ];
+
+// Normalize the visible artwork width and baseline, excluding transparent padding.
+const badgeCropStyle = ([width, height, left, bottom, visibleWidth]: number[]) =>
+  `--badge-image-width: ${width / visibleWidth * 100}%; --badge-image-left: ${-left / visibleWidth * 100}%; --badge-image-bottom: ${-(height - bottom) / visibleWidth * 100}%;`;
 
 const benefits = [
   { title: t("home.why.showcase.title"), description: t("home.why.showcase.desc") },
@@ -140,7 +152,8 @@ const benefits = [
           </div>
         </div>
 
-        <div class="current-media">
+        <div class="current-media-shell">
+          <div class="current-media">
           <video
             id="shenzhen-spotlight-video"
             class="current-video"
@@ -171,6 +184,17 @@ const benefits = [
             <span class="shape-icon shape-icon--play" aria-hidden="true"></span>
             {t("home.upcoming.playVideo")}
           </button>
+          </div>
+          <a class="current-edition" href={`${getLocalizedPath("/shenzhen2026", locale)}#edition-badge`} style="display: flex; align-items: center; gap: 24px; max-width: 100%;">
+            <svg class="current-edition-badge" viewBox="209 198 832 839" width="120" height="121" style="width: 120px; max-width: 120px; height: auto; flex: 0 0 120px;" aria-hidden="true">
+              <image href="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" width="1250" height="1250" />
+            </svg>
+            <span class="current-edition-copy">
+              <span class="current-edition-label">SHENZHEN 2026</span>
+              <strong>{locale === "zh" ? "本届勋章 · 开荒牛" : locale === "fr" ? "L’insigne · Le bœuf pionnier" : "The edition badge · Pioneering ox"}</strong>
+              <span class="current-edition-link">{locale === "zh" ? "了解勋章背后的故事" : locale === "fr" ? "Découvrir son histoire" : "Discover the story behind the badge"} <span aria-hidden="true">↗</span></span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -192,8 +216,8 @@ const benefits = [
       </div>
 
       <div class="events-grid">
-        {previousEvents.map((event, index) => (
-          <a class:list={["event-card", `event-card--${index + 1}`]} href={event.link}>
+        {previousEvents.map((event) => (
+          <a class="event-card" href={event.link}>
             <div class="event-image">
               <Picture
                 src={event.image}
@@ -203,6 +227,9 @@ const benefits = [
                 sizes="(max-width: 700px) 92vw, (max-width: 1100px) 46vw, 42vw"
                 loading="lazy"
               />
+              <span class="event-badge" style={badgeCropStyle(event.badgeBounds)} aria-hidden="true">
+                <img src={event.badge} alt="" width="500" height="500" loading="lazy" decoding="async" />
+              </span>
               <span class="event-icon" aria-hidden="true"><span class="shape-icon shape-icon--arrow shape-icon--up-right"></span></span>
             </div>
             <div class="event-copy">
@@ -482,6 +509,41 @@ const benefits = [
     background: #ff431a;
   }
 
+  .current-media-shell {
+    position: relative;
+    min-width: 0;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .current-edition {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3vw, 36px);
+    margin-top: 28px;
+    padding: 24px clamp(16px, 3vw, 32px);
+    border-top: 1px solid rgba(255, 255, 255, .18);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .current-edition-badge {
+    display: block;
+    flex: 0 0 auto;
+    width: 120px;
+    max-width: 120px;
+    height: auto;
+    overflow: visible;
+    filter: drop-shadow(0 2px 0 #81909c) drop-shadow(0 8px 10px rgba(0, 0, 0, .3));
+  }
+
+  .current-edition-copy { display: grid; gap: 10px; min-width: 0; }
+  .current-edition-label { font-size: 11px; letter-spacing: .14em; color: #b9cec9; }
+  .current-edition-copy strong { font-size: clamp(16px, 1.4vw, 21px); line-height: 1.5; }
+  .current-edition-link { font-size: 13px; line-height: 1.6; color: #b9cec9; }
+  .current-edition:hover .current-edition-link { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+  .current-edition:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
   .current-media {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -543,43 +605,35 @@ const benefits = [
 
   .events-grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
   }
 
   .event-card {
-    grid-column: span 6;
+    min-width: 0;
     color: var(--home-ink);
     text-decoration: none;
-  }
-
-  .event-card--1 {
-    grid-column: span 7;
-  }
-
-  .event-card--2 {
-    grid-column: span 5;
   }
 
   .event-image {
     position: relative;
     aspect-ratio: 16 / 10;
-    overflow: hidden;
+    overflow: visible;
     background: #dfe8e4;
   }
 
-  .event-card--2 .event-image {
-    aspect-ratio: 5 / 4;
-  }
-
-  .event-image :global(picture),
-  .event-image :global(img) {
+  .event-image > :global(picture),
+  .event-image > :global(picture) :global(img) {
     display: block;
     width: 100%;
     height: 100%;
   }
 
-  .event-image :global(img) {
+  .event-image > :global(picture) {
+    overflow: hidden;
+  }
+
+  .event-image > :global(picture) :global(img) {
     object-fit: cover;
     transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
@@ -587,7 +641,7 @@ const benefits = [
   .event-image > .event-icon {
     position: absolute;
     right: 1rem;
-    bottom: 1rem;
+    top: 1rem;
     display: grid;
     width: 2.6rem;
     height: 2.6rem;
@@ -598,13 +652,37 @@ const benefits = [
     font-size: 1rem;
   }
 
-  .event-card:hover .event-image :global(img) {
+  .event-card:hover .event-image > :global(picture) :global(img) {
     transform: scale(1.025);
+  }
+
+  .event-badge {
+    position: absolute;
+    z-index: 1;
+    right: -8px;
+    bottom: -22px;
+    width: clamp(100px, 14vw, 180px);
+    aspect-ratio: 1;
+    filter: drop-shadow(0 6px 3px rgba(15, 35, 47, .25)) drop-shadow(0 16px 12px rgba(15, 35, 47, .3));
+    pointer-events: none;
+  }
+
+  .event-badge img {
+    position: absolute;
+    left: var(--badge-image-left);
+    bottom: var(--badge-image-bottom);
+    display: block;
+    width: var(--badge-image-width);
+    max-width: none;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 0 #fff) drop-shadow(0 2px 0 #81909c);
   }
 
   .event-copy {
     border-top: 1px solid var(--home-rule);
-    margin-top: 1rem;
+    margin-top: 2.75rem;
     padding-top: 1.25rem;
   }
 
@@ -722,16 +800,6 @@ const benefits = [
 
     .event-links {
       justify-content: flex-start;
-    }
-
-    .event-card,
-    .event-card--1,
-    .event-card--2 {
-      grid-column: span 6;
-    }
-
-    .event-card--2 .event-image {
-      aspect-ratio: 16 / 10;
     }
 
     .benefits-grid {
