@@ -1,6 +1,7 @@
 ---
 import Layout from "layouts/Layout.astro";
 import ShenzhenDeadlines from "./ShenzhenDeadlines.astro";
+import ShenzhenBadge from "./ShenzhenBadge.astro";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -522,6 +523,8 @@ const applyPath = locale === "zh"
         </div>
       </div>
     </section>
+
+    <ShenzhenBadge locale={locale} />
 
     <section class="apply-section" id="apply" data-theme-section="light">
       <div class="spotlight-container apply-inner">

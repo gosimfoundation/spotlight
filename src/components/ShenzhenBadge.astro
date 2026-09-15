@@ -1,0 +1,75 @@
+---
+import type { Locale } from "../i18n/translations";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = {
+  zh: {
+    label: "深圳 2026 · 本届勋章",
+    title: "“牛来”，一起开拓下一程",
+    intro: "每一届 Spotlight，都有一枚属于自己的勋章。2026 年，我们相聚深圳，让一头蓄势向前的金色开荒牛，成为这一届的印记。",
+    story: "在深圳，牛有着特别的意义。城市的“开荒牛”形象，承载着敢于开拓、勇于创新、脚踏实地的精神。勋章上的开荒牛呼应这份力量，也寄托着 Spotlight 对创造者的期待：敢想，敢试，把想法做成真正可用的产品。",
+    closing: "带着你的作品来深圳，让下一步从这里发生。",
+    source: "城市故事：深圳与开荒牛",
+    alt: "Spotlight 深圳 2026 勋章：红白盾形边框、深蓝底色与金色开荒牛",
+  },
+  en: {
+    label: "SHENZHEN 2026 · THE EDITION BADGE",
+    title: "A pioneering spirit. A new chapter.",
+    intro: "Every Spotlight edition has its own badge. In 2026, we gather in Shenzhen, with a golden pioneering ox poised to move forward as the emblem of this edition.",
+    story: "The pioneering ox holds a special place in Shenzhen’s story, representing the city’s drive to explore, innovate, and build through hands-on work. Our pioneering ox echoes that spirit and our invitation to creators: imagine boldly, experiment, and turn ideas into products people can use.",
+    closing: "Bring what you’re building to Shenzhen. Take the next step together.",
+    source: "City story: Shenzhen and the pioneering ox",
+    alt: "Spotlight Shenzhen 2026 badge with a golden pioneering ox, navy field, and red and white shield",
+  },
+  fr: {
+    label: "SHENZHEN 2026 · L’INSIGNE DE CETTE ÉDITION",
+    title: "L’esprit pionnier. Un nouveau chapitre.",
+    intro: "Chaque édition de Spotlight possède son propre insigne. En 2026, nous nous retrouvons à Shenzhen, avec pour emblème un bœuf pionnier doré prêt à s’élancer.",
+    story: "Le bœuf pionnier occupe une place particulière dans l’histoire de Shenzhen : il incarne l’audace d’explorer, d’innover et de bâtir par un travail concret. Notre bœuf pionnier fait écho à cet esprit et à notre invitation aux créateurs : oser imaginer, expérimenter et transformer les idées en produits utiles.",
+    closing: "Venez à Shenzhen avec votre projet. Faisons ensemble le prochain pas.",
+    source: "Histoire de la ville : Shenzhen et le bœuf pionnier",
+    alt: "Insigne Spotlight Shenzhen 2026 : bœuf pionnier doré sur fond bleu marine et écusson rouge et blanc",
+  },
+};
+const c = content[locale] || content.en;
+---
+
+<section class="edition-badge" id="edition-badge" aria-labelledby="edition-badge-title" data-theme-section="light">
+  <div class="badge-layout">
+    <div class="badge-art">
+      <img src="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" alt={c.alt} width="1250" height="1250" loading="lazy" decoding="async" />
+      <span>SPOTLIGHT / SHENZHEN / 2026</span>
+    </div>
+    <div class="badge-story">
+      <p class="badge-label">{c.label}</p>
+      <h2 id="edition-badge-title">{c.title}</h2>
+      <p>{c.intro}</p>
+      <p>{c.story}</p>
+      <p class="badge-closing">{c.closing}</p>
+      <a href="https://www.sz.gov.cn/szstory/202301/content/post_10363985.html" target="_blank" rel="noopener noreferrer">{c.source} <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .edition-badge { padding: clamp(64px, 7vw, 104px) 0; background: #e7ece7; color: #171918; border-top: 1px solid rgba(23, 25, 24, .22); }
+  .badge-layout { width: min(1440px, calc(100% - 96px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(32px, 6vw, 96px); }
+  .badge-art { text-align: center; }
+  .badge-art img { display: block; width: 100%; max-width: 510px; height: auto; margin: -30px auto -20px; }
+  .badge-art span { font-size: 11px; font-weight: 700; letter-spacing: .17em; color: #4b5c54; }
+  .badge-story .badge-label { margin: 0 0 20px; color: #835f21; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+  h2 { margin: 0 0 28px; font-size: clamp(2rem, 3.4vw, 3.6rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; text-wrap: balance; }
+  .badge-story p { margin: 0 0 18px; max-width: 660px; font-size: 17px; line-height: 1.85; color: #434d46; }
+  .badge-story .badge-closing { color: #171918; font-weight: 700; }
+  a { display: inline-block; margin-top: 8px; color: #47594e; font-size: 13px; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; }
+  a:hover { color: #171918; }
+  a:focus-visible { outline: 2px solid #174943; outline-offset: 6px; }
+  @media (max-width: 1000px) { .badge-layout { width: calc(100% - 56px); gap: 32px; } }
+  @media (max-width: 700px) {
+    .badge-layout { width: calc(100% - 32px); grid-template-columns: 1fr; gap: 36px; }
+    .badge-art img { max-width: 360px; }
+    .badge-story p { font-size: 16px; }
+    h2 { font-size: 2rem; }
+  }
+</style>
