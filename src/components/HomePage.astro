@@ -127,10 +127,18 @@ const benefits = [
         <span>{t("nav.upcoming")}</span>
       </div>
 
+      <div class="current-heading" style="display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; width: 100%; gap: clamp(18px, 4vw, 56px); margin-bottom: clamp(24px, 3vw, 36px);">
+        <svg class="current-heading-badge" viewBox="209 198 832 839" width="220" height="222" style="width: clamp(88px, 18vw, 220px); max-width: 220px; height: auto; flex-shrink: 0;" aria-hidden="true">
+          <image href="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" width="1250" height="1250" />
+        </svg>
+        <h2 style="width: 100%; min-width: 0; max-width: none; margin: 0; color: #fff; font-size: clamp(24px, 4.2vw, 68px); font-weight: 620; line-height: 1.15; letter-spacing: -0.04em;">
+          <span>{t("home.upcoming.eventName")}</span>
+          <span class="current-competition-title" style="display: block; margin-top: 14px; font-size: clamp(22px, 3.2vw, 48px); line-height: 1.25;">{t("home.upcoming.card.title")}</span>
+        </h2>
+      </div>
+
       <div class="current-layout">
         <div class="current-copy">
-          <h2>{t("home.upcoming.eventName")}</h2>
-          <p class="current-slogan">{t("home.upcoming.card.title")}</p>
           <p class="current-description">{t("home.upcoming.card.desc")}</p>
           <dl class="event-facts">
             <div>
@@ -185,16 +193,6 @@ const benefits = [
             {t("home.upcoming.playVideo")}
           </button>
           </div>
-          <a class="current-edition" href={`${getLocalizedPath("/shenzhen2026", locale)}#edition-badge`} style="display: flex; align-items: center; gap: 24px; max-width: 100%;">
-            <svg class="current-edition-badge" viewBox="209 198 832 839" width="120" height="121" style="width: 120px; max-width: 120px; height: auto; flex: 0 0 120px;" aria-hidden="true">
-              <image href="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" width="1250" height="1250" />
-            </svg>
-            <span class="current-edition-copy">
-              <span class="current-edition-label">SHENZHEN 2026</span>
-              <strong>{locale === "zh" ? "本届勋章 · 开荒牛" : locale === "fr" ? "L’insigne · Le bœuf pionnier" : "The edition badge · Pioneering ox"}</strong>
-              <span class="current-edition-link">{locale === "zh" ? "了解勋章背后的故事" : locale === "fr" ? "Découvrir son histoire" : "Discover the story behind the badge"} <span aria-hidden="true">↗</span></span>
-            </span>
-          </a>
         </div>
       </div>
     </div>
@@ -373,13 +371,13 @@ const benefits = [
     background: #062e37;
   }
 
-  .current-content {
-    padding-top: clamp(5.5rem, 8vw, 7.5rem);
+  .home-shell.current-content {
+    padding-top: clamp(3rem, 5vw, 5rem);
     padding-bottom: clamp(5.5rem, 8vw, 7.5rem);
   }
 
   .current-content > .section-label {
-    margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+    margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
     letter-spacing: 0.06em;
     text-transform: none;
   }
@@ -393,38 +391,51 @@ const benefits = [
 
   .current-copy { max-width: 39rem; }
 
-  .current-copy h2 {
-    max-width: 12ch;
+  .current-heading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+    align-items: center;
+    gap: clamp(18px, 4vw, 56px);
+    margin-bottom: clamp(24px, 3vw, 36px);
+    min-width: 0;
+  }
+
+  .current-heading-badge {
+    display: block;
+    filter: drop-shadow(0 2px 0 #81909c) drop-shadow(0 8px 10px rgba(0, 0, 0, .25));
+  }
+
+  .current-heading h2 {
+    min-width: 0;
+    max-width: none;
     margin: 0;
     color: #fff;
     font-family: "Manrope", sans-serif;
-    font-size: clamp(3.25rem, 4.6vw, 5.2rem);
+    font-size: clamp(24px, 4.2vw, 68px);
     font-weight: 620;
     line-height: 1.08;
     letter-spacing: -0.04em;
     text-wrap: balance;
   }
 
-  :global(html[lang="zh"]) .current-copy h2 {
-    max-width: 11ch;
+  :global(html[lang="zh"]) .current-heading h2 {
+    max-width: none;
     line-height: 1.18;
     letter-spacing: -0.025em;
   }
 
-  .current-slogan {
-    max-width: 30rem;
-    margin: 1.35rem 0 0;
-    color: var(--home-mint);
-    font-size: clamp(1.15rem, 1.65vw, 1.5rem);
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
+  .current-competition-title {
+    display: block;
+    margin-top: 14px;
+    font-size: clamp(22px, 3.2vw, 48px);
+    line-height: 1.25;
+    letter-spacing: -.025em;
   }
 
   .current-description {
     max-width: 36rem;
-    margin: 1.25rem 0 0;
+    margin: 0;
     color: rgba(255, 255, 255, 0.72);
     font-size: clamp(0.95rem, 1.1vw, 1.05rem);
     font-weight: 540;
@@ -515,34 +526,6 @@ const benefits = [
     overflow: visible;
     width: 100%;
   }
-
-  .current-edition {
-    display: flex;
-    align-items: center;
-    gap: clamp(20px, 3vw, 36px);
-    margin-top: 28px;
-    padding: 24px clamp(16px, 3vw, 32px);
-    border-top: 1px solid rgba(255, 255, 255, .18);
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .current-edition-badge {
-    display: block;
-    flex: 0 0 auto;
-    width: 120px;
-    max-width: 120px;
-    height: auto;
-    overflow: visible;
-    filter: drop-shadow(0 2px 0 #81909c) drop-shadow(0 8px 10px rgba(0, 0, 0, .3));
-  }
-
-  .current-edition-copy { display: grid; gap: 10px; min-width: 0; }
-  .current-edition-label { font-size: 11px; letter-spacing: .14em; color: #b9cec9; }
-  .current-edition-copy strong { font-size: clamp(16px, 1.4vw, 21px); line-height: 1.5; }
-  .current-edition-link { font-size: 13px; line-height: 1.6; color: #b9cec9; }
-  .current-edition:hover .current-edition-link { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
-  .current-edition:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 
   .current-media {
     position: relative;
@@ -824,8 +807,8 @@ const benefits = [
       line-height: 1.16;
     }
 
-    .current-copy h2 {
-      font-size: clamp(3rem, 12vw, 4.5rem);
+    .current-heading h2 {
+      font-size: clamp(1.5rem, 5.5vw, 2.5rem);
       line-height: 1.1;
     }
 
