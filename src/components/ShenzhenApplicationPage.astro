@@ -82,7 +82,7 @@ const content = {
     productIntro: "We are selecting a product judgment, not a feature list. Be direct and concrete.",
     projectName: "Project name",
     productForm: "Product form",
-    productFormOptions: [["", "Select one"], ["new_hardware", "New hardware form"], ["adapted_device", "Adapted or integrated device"], ["software", "Software-only product"], ["cross_device", "Cross-device or ambient system"], ["other", "Other"]],
+    productFormOptions: [["", "Select one"], ["new_hardware", "New hardware form"], ["adapted_device", "Adapted or integrated devices / cross-device systems"]],
     oneLiner: "One-sentence product description",
     oneLinerHelp: "What it is, who it is for, and the result it creates — 240 characters maximum.",
     targetUsers: "Who are the users, when will they use it, and what important problem does it solve?",
@@ -204,7 +204,7 @@ const content = {
     productIntro: "请直接说明目标用户、使用场景、Agent 的工作和当前原型，不需要写抽象的行业愿景。",
     projectName: "项目名称",
     productForm: "产品形态",
-    productFormOptions: [["", "请选择"], ["new_hardware", "全新硬件形态"], ["adapted_device", "改造或整合现有设备"], ["software", "纯软件产品"], ["cross_device", "跨设备或环境智能系统"], ["other", "其他"]],
+    productFormOptions: [["", "请选择"], ["new_hardware", "全新硬件形态"], ["adapted_device", "改造或整合现有设备（含跨设备系统）"]],
     oneLiner: "一句话产品介绍",
     oneLinerHelp: "说明它是什么、为谁服务、带来什么结果；最多 240 字符。",
     targetUsers: "谁会在什么场景使用它？它解决什么重要问题？",
@@ -326,7 +326,7 @@ const content = {
     productIntro: "Nous sélectionnons un jugement produit, pas une liste de fonctions. Soyez direct et concret.",
     projectName: "Nom du projet",
     productForm: "Forme du produit",
-    productFormOptions: [["", "Sélectionner"], ["new_hardware", "Nouvelle forme matérielle"], ["adapted_device", "Appareil adapté ou intégré"], ["software", "Produit entièrement logiciel"], ["cross_device", "Système multi-appareils ou ambiant"], ["other", "Autre"]],
+    productFormOptions: [["", "Sélectionner"], ["new_hardware", "Nouvelle forme matérielle"], ["adapted_device", "Appareils adaptés ou intégrés / systèmes multi-appareils"]],
     oneLiner: "Description du produit en une phrase",
     oneLinerHelp: "Ce que c’est, pour qui et le résultat produit — 240 caractères maximum.",
     targetUsers: "Qui sont les utilisateurs, dans quel contexte et quel problème important résolvez-vous ?",
@@ -1471,7 +1471,7 @@ const summaryFields = [
           ? "林然负责产品与交互，周宁负责 Agent 系统，陈一负责硬件原型。"
           : "Lin leads product and interaction, Zhou builds the agent system, and Chen owns the hardware prototype.",
         project_name: "Context Relay",
-        product_form: "cross_device",
+        product_form: "adapted_device",
         one_liner: isChinese
           ? "一个连接手机、开源手表与智能眼镜的出行 Agent，在行程变化时主动重排下一步。"
           : "A travel agent across phone, open-source watch, and smart glasses that replans the next step when a trip changes.",
