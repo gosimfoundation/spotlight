@@ -446,8 +446,8 @@ const applyPath = locale === "zh"
             <p>{c.openCallText}</p>
           </div>
           <div class="open-call-actions">
-            <a class="open-call-primary" href={applyPath}>{c.ribbonCta}<span aria-hidden="true">↗</span></a>
-            <a href="#about">{c.inspirationLink}<span aria-hidden="true">↓</span></a>
+            <a class="open-call-primary" href={applyPath}>{c.ribbonCta}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
+            <a href="#about">{c.inspirationLink}<span class="shape-icon shape-icon--arrow shape-icon--down" aria-hidden="true"></span></a>
           </div>
         </div>
       </div>
@@ -935,9 +935,9 @@ const applyPath = locale === "zh"
   .selected-project-info { flex: 1; min-height: 190px; padding: 22px; border-top: 1px solid var(--ink); display: flex; flex-direction: column; }
   .selected-project-info h3 { overflow-wrap: anywhere; color: var(--ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); line-height: 1.18; letter-spacing: -.035em; }
   .selected-project-info p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
-  .selected-project-info a { width: fit-content; margin-top: auto; padding-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 800; text-decoration: none; }
+  .selected-project-info a { width: max-content; white-space: nowrap; flex-shrink: 0; margin-top: auto; padding-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 800; text-decoration: none; }
   .selected-project-info a:hover { color: #a53a22; border-color: #a53a22; }
-  .selected-project-info a .shape-icon { width: 11px; height: 11px; }
+  .selected-project-info a .shape-icon { width: 11px; height: 11px; flex-shrink: 0; }
 
   .submission, .format, .judging, .faq-section { background: var(--paper); }
 
