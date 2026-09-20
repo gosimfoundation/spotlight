@@ -53,22 +53,22 @@ const c = content[locale] || content.en;
 </section>
 
 <style>
-  .edition-badge { padding: clamp(64px, 7vw, 104px) 0; background: #e7ece7; color: #171918; border-top: 1px solid rgba(23, 25, 24, .22); }
+  .edition-badge { padding: clamp(36px, 4vw, 64px) 0; background: #e7edf1; color: #171918; border-top: 1px solid rgba(23, 25, 24, .22); }
   .badge-layout { width: min(1440px, calc(100% - 96px)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(32px, 6vw, 96px); }
   .badge-art { text-align: center; }
-  .badge-art img { display: block; width: 100%; max-width: 510px; height: auto; margin: -30px auto -20px; }
-  .badge-art span { font-size: 11px; font-weight: 700; letter-spacing: .17em; color: #4b5c54; }
+  .badge-art img { display: block; width: 100%; max-width: 360px; height: auto; margin: -30px auto -20px; }
+  .badge-art span { font-size: 11px; font-weight: 700; letter-spacing: .17em; color: #4b5965; }
   .badge-story .badge-label { margin: 0 0 20px; color: #835f21; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
-  h2 { margin: 0 0 28px; font-size: clamp(2rem, 3.4vw, 3.6rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; text-wrap: balance; }
-  .badge-story p { margin: 0 0 18px; max-width: 660px; font-size: 17px; line-height: 1.85; color: #434d46; }
+  h2 { margin: 0 0 18px; font-size: clamp(2rem, 3.4vw, 3.6rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; text-wrap: balance; }
+  .badge-story p { margin: 0 0 18px; max-width: 660px; font-size: 16px; line-height: 1.65; color: #434b52; }
   .badge-story .badge-closing { color: #171918; font-weight: 700; }
-  a { display: inline-block; margin-top: 8px; color: #47594e; font-size: 13px; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; }
+  a { display: inline-block; margin-top: 8px; color: #40596d; font-size: 13px; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; }
   a:hover { color: #171918; }
-  a:focus-visible { outline: 2px solid #174943; outline-offset: 6px; }
+  a:focus-visible { outline: 2px solid #40596d; outline-offset: 6px; }
   @media (max-width: 1000px) { .badge-layout { width: calc(100% - 56px); gap: 32px; } }
   @media (max-width: 700px) {
     .badge-layout { width: calc(100% - 32px); grid-template-columns: 1fr; gap: 36px; }
-    .badge-art img { max-width: 360px; }
+    .badge-art img { max-width: 240px; }
     .badge-story p { font-size: 16px; }
     h2 { font-size: 2rem; }
   }

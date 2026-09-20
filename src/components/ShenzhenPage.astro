@@ -23,8 +23,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "与 GOSIM Shenzhen 2026 同期举办",
     heroSecondary: "立即报名",
-    ribbonStatus: "报名中",
-    ribbonDeadline: "报名截止：海外 9 月 13 日 · 中国国内 10 月 4 日 · 北京时间 23:59",
+    ribbonStatus: "国内征集中",
+    ribbonDeadline: "中国国内申请截至 10 月 4 日 · 北京时间 23:59 · 海外征集已结束",
     ribbonCta: "立即报名",
     meta: ["2026.10.16—17", "中国 · 深圳", "全球项目征集"],
     benefitsKicker: "02 / 入围项目将获得",
@@ -35,6 +35,20 @@ const content = {
       ["建立联系", "CONNECTIONS", "在共创和大会现场认识企业团队、创客团队及其他入围项目，围绕技术协作、产品试用和后续合作继续聊下去。", "不是只交换名片，而是带着可体验的产品开始对话。", "/icons/networking.svg"],
       ["差旅支持", "TRAVEL", "组委会为入围项目提供前往深圳的差旅支持。团队可线下参加 GOSIM Shenzhen 2026，并观看 10 月 16—17 日的全部大会演讲。", "不让差旅成本成为好项目来到现场的门槛。", "/icons/travel-support.svg"],
     ],
+    selectedKicker: "首批入选 / FIRST SELECTION",
+    selectedTitle: "恭喜首批项目入选 Spotlight！",
+    selectedText: "这些项目已率先加入深圳 Spotlight。从机器人到日常设备，看看它们如何将 AI 带入真实场景，也为你的项目寻找灵感。",
+    selectedNote: "首批入选项目 · 名单持续更新",
+    openCallTitle: "下一个，会是你的项目吗？",
+    openCallText: "中国国内项目仍在征集中，截止时间为 2026 年 10 月 4 日北京时间 23:59。以上项目是灵感参考；欢迎用不同的产品形态，回应真实的用户需求。",
+    inspirationLink: "了解我们在寻找什么",
+    selectedProjects: [
+      { name: "Fugleramme", description: "一块使用本地分类模型聆听户外鸟鸣，并以自然史画作呈现鸟类的电子墨水相框。", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
+      { name: "Tiny Engineer", description: "一个开源桌面机器人，用动作、手势和声音让 AI 编程 Agent 的工作状态一目了然。", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
+      { name: "XLeRobot", description: "一台完全开源、低成本的双臂移动操作机器人，面向家庭用户和具身智能开发者。", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
+      { name: "很 Local 实时翻译", description: "本次 GOSIM 大会的实时翻译由 很 Local 提供。系统经 Apple MLX 优化，利用 Apple Silicon 设备的端侧算力，将现场演讲持续转换为双语字幕。", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
+    ],
+    selectedLink: "查看项目",
     signalLabel: "我们在寻找什么",
     signalTitle: "一个能把真实任务做完、现在就能试的 AI 原生产品",
     signalTags: ["真实用户问题", "Agent 完成任务", "可交互原型", "全球使用场景"],
@@ -133,8 +147,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Co-located with GOSIM Shenzhen 2026",
     heroSecondary: "Apply now",
-    ribbonStatus: "Applications open",
-    ribbonDeadline: "Deadlines: International · Sep 13 / China · Oct 4 · 23:59 Beijing time",
+    ribbonStatus: "China applications open",
+    ribbonDeadline: "China deadline · Oct 4 · 23:59 Beijing time / International applications closed",
     ribbonCta: "Apply now",
     meta: ["OCT 16—17, 2026", "SHENZHEN, CHINA", "GLOBAL OPEN CALL"],
     benefitsKicker: "02 / WHAT FINALISTS RECEIVE",
@@ -145,6 +159,20 @@ const content = {
       ["Real connections", "CONNECTIONS", "Meet company teams, maker groups, and other selected projects during the sprint and conference, with a working product as the starting point for collaboration.", "Go beyond collecting contacts: start a useful product conversation.", "/icons/networking.svg"],
       ["Travel support", "TRAVEL", "Finalist projects receive travel support to come to Shenzhen. Teams can attend GOSIM Shenzhen 2026 in person and watch the full conference program on October 16–17.", "Travel cost should not keep a strong project away from the room.", "/icons/travel-support.svg"],
     ],
+    selectedKicker: "FIRST SELECTION / SHENZHEN 2026",
+    selectedTitle: "Congratulations to our first selected projects!",
+    selectedText: "Meet the first projects joining Spotlight Shenzhen. From robots to everyday devices, explore how they bring AI into real-world settings—and find inspiration for your own project.",
+    selectedNote: "First selected projects · More to come",
+    openCallTitle: "Could your project be next?",
+    openCallText: "Applications from China remain open until October 4, 2026, at 23:59 Beijing time. Take inspiration from these projects and bring your own approach to a real user need.",
+    inspirationLink: "Explore what we’re looking for",
+    selectedProjects: [
+      { name: "Fugleramme", description: "An e-ink picture frame that listens for birds locally and renders them as natural-history plates.", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
+      { name: "Tiny Engineer", description: "An open-source desk robot that makes AI coding-agent activity visible through movement, gestures, and sound.", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
+      { name: "XLeRobot", description: "An open-source, low-cost, dual-arm mobile manipulator for homes and embodied-AI builders.", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
+      { name: "Hen Local Translator", description: "Hen Local provides live translation for this GOSIM conference. Optimized for Apple MLX, it uses Apple Silicon compute to turn talks into bilingual captions.", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
+    ],
+    selectedLink: "View project",
     signalLabel: "WHAT WE ARE LOOKING FOR",
     signalTitle: "An AI-native product that completes a real task—and can be tried now",
     signalTags: ["Category thesis", "Agent-native", "System complete", "Global potential"],
@@ -213,8 +241,8 @@ const content = {
     heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
     heroConference: "Colocalisé avec GOSIM Shenzhen 2026",
     heroSecondary: "Candidater",
-    ribbonStatus: "Candidatures ouvertes",
-    ribbonDeadline: "Clôture : hors de Chine · 13 sept. / en Chine · 4 oct. · 23 h 59, heure de Pékin",
+    ribbonStatus: "Candidatures en Chine ouvertes",
+    ribbonDeadline: "En Chine : 4 oct. · 23 h 59, heure de Pékin / Candidatures internationales closes",
     ribbonCta: "Candidater",
     meta: ["16—17 OCT. 2026", "SHENZHEN, CHINE", "APPEL MONDIAL"],
     benefitsKicker: "02 / CE QUE REÇOIVENT LES FINALISTES",
@@ -225,6 +253,20 @@ const content = {
       ["Connexions concrètes", "CONNEXIONS", "Rencontrez entreprises, collectifs de créateurs et autres projets retenus pendant le sprint et la conférence, avec un produit fonctionnel comme point de départ.", "Allez au-delà de l’échange de contacts : engagez une vraie conversation produit.", "/icons/networking.svg"],
       ["Soutien au voyage", "VOYAGE", "Les projets finalistes reçoivent un soutien au voyage pour venir à Shenzhen. Les équipes peuvent participer à GOSIM Shenzhen 2026 et assister à l’ensemble des conférences des 16–17 octobre.", "Le coût du voyage ne doit pas empêcher un bon projet d’être présent.", "/icons/travel-support.svg"],
     ],
+    selectedKicker: "PREMIÈRE SÉLECTION / SHENZHEN 2026",
+    selectedTitle: "Félicitations aux premiers projets sélectionnés !",
+    selectedText: "Découvrez les premiers projets qui rejoignent Spotlight Shenzhen. Des robots aux objets du quotidien, ils intègrent l’IA dans des usages concrets : de quoi inspirer votre propre projet.",
+    selectedNote: "Premiers projets sélectionnés · Liste évolutive",
+    openCallTitle: "Et si votre projet était le prochain ?",
+    openCallText: "Les candidatures provenant de Chine restent ouvertes jusqu’au 4 octobre 2026 à 23 h 59, heure de Pékin. Inspirez-vous de ces projets et proposez votre propre réponse à un besoin réel.",
+    inspirationLink: "Découvrir les projets recherchés",
+    selectedProjects: [
+      { name: "Fugleramme", description: "Un cadre e-ink qui reconnaît les oiseaux localement et les présente comme des planches d’histoire naturelle.", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
+      { name: "Tiny Engineer", description: "Un robot de bureau open source qui rend le travail des agents de programmation IA visible par le mouvement et le son.", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
+      { name: "XLeRobot", description: "Un robot mobile à deux bras, open source et abordable, pour la maison et les créateurs d’IA incarnée.", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
+      { name: "Hen Local Translator", description: "Hen Local fournit la traduction en direct de cette conférence GOSIM. Optimisé pour Apple MLX, il utilise la puissance d’Apple Silicon pour créer des sous-titres bilingues.", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
+    ],
+    selectedLink: "Voir le projet",
     signalLabel: "CE QUE NOUS RECHERCHONS",
     signalTitle: "Un produit natif IA qui accomplit une tâche réelle — et que l’on peut déjà essayer",
     signalTags: ["Thèse de catégorie", "Natif Agent", "Système complet", "Potentiel mondial"],
@@ -364,6 +406,53 @@ const applyPath = locale === "zh"
       </div>
     </section>
 
+    <section class="spot-section selected-projects" id="selected-projects" data-theme-section="light">
+      <div class="selected-projects-confetti" aria-hidden="true">
+        <video autoplay muted loop playsinline webkit-playsinline preload="metadata">
+          <source src="/videos/confetti.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="spotlight-container">
+        <div class="section-head selected-projects-head">
+          <div class="selected-badge">
+            <img src="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" alt="Spotlight Shenzhen 2026" width="1250" height="1250" loading="lazy" />
+          </div>
+          <div class="selected-projects-copy">
+            <p class="eyebrow">{c.selectedKicker}</p>
+            <h2>{c.selectedTitle}</h2>
+            <p class="section-intro">{c.selectedText}</p>
+          </div>
+        </div>
+        <p class="selected-projects-note">{c.selectedNote}</p>
+        <div class="selected-project-grid">
+          {c.selectedProjects.map((project, index) => (
+            <article class="selected-project-card">
+              <div class:list={["selected-project-placeholder", { "selected-project-placeholder--xlerobot": project.name === "XLeRobot" }]} aria-hidden="true">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <img src={project.image} alt="" loading="lazy" />
+              </div>
+              <div class="selected-project-info">
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                <a href={project.url} target="_blank" rel="noopener noreferrer">{c.selectedLink}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="open-call">
+          <div>
+            <p class="eyebrow">{c.ribbonStatus}</p>
+            <h3>{c.openCallTitle}</h3>
+            <p>{c.openCallText}</p>
+          </div>
+          <div class="open-call-actions">
+            <a class="open-call-primary" href={applyPath}>{c.ribbonCta}<span aria-hidden="true">↗</span></a>
+            <a href="#about">{c.inspirationLink}<span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="spot-section directions" id="about" data-theme-section="light">
       <div class="spotlight-container">
         <div class="section-head split-head">
@@ -438,7 +527,7 @@ const applyPath = locale === "zh"
         <div class="section-head center-head">
           <p class="eyebrow">{c.formatKicker}</p>
           <h2 class="format-title">
-            {c.formatTitle.map((step, index) => <><span>{step}</span>{index < c.formatTitle.length - 1 && <span class="shape-icon shape-icon--arrow format-title-arrow" aria-hidden="true"></span>}</>)}
+            {c.formatTitle.map((step, index) => <span class="format-title-step"><span>{step}</span>{index < c.formatTitle.length - 1 && <span class="shape-icon shape-icon--arrow format-title-arrow" aria-hidden="true"></span>}</span>)}
           </h2>
           <p class="section-intro">{c.formatText}</p>
         </div>
@@ -550,10 +639,13 @@ const applyPath = locale === "zh"
     --paper: #f4f3ef;
     --white: #fff;
     --red: #ff431a;
-    --mineral: #94b8ad;
-    --mineral-deep: #174943;
+    --salmon: #edc5b2;
+    --salmon-light: #f3ddd0;
+    --red-deep: #a53a22;
+    --mineral: #c6d2dc;
+    --mineral-deep: #40596d;
     --graphite: #1b1d1c;
-    --mist: #dbe7e3;
+    --mist: #e7edf1;
     --muted: #5e625f;
     --line: rgba(23, 25, 24, .22);
     background: var(--paper);
@@ -572,7 +664,7 @@ const applyPath = locale === "zh"
     opacity: 1 !important;
     overflow: hidden;
     background:
-      linear-gradient(112deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .015) 34%, rgba(93, 131, 123, .11) 62%, rgba(7, 9, 8, .08) 100%),
+      linear-gradient(112deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .015) 34%, rgba(93, 113, 131, .11) 62%, rgba(7, 9, 8, .08) 100%),
       rgba(12, 14, 13, .56) !important;
     -webkit-backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
     backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
@@ -585,7 +677,7 @@ const applyPath = locale === "zh"
     pointer-events: none;
     background:
       radial-gradient(75% 180% at 16% -95%, rgba(255, 255, 255, .3), transparent 58%),
-      radial-gradient(58% 150% at 82% 175%, rgba(101, 158, 146, .16), transparent 62%);
+      radial-gradient(58% 150% at 82% 175%, rgba(101, 133, 158, .16), transparent 62%);
   }
   :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::after) {
     content: "";
@@ -675,7 +767,7 @@ const applyPath = locale === "zh"
   }
 
   .spotlight-container { width: min(1440px, calc(100% - 96px)); margin: 0 auto; }
-  .spot-section { position: relative; padding: clamp(80px, 8vw, 118px) 0; }
+  .spot-section { position: relative; padding: clamp(40px, 4vw, 64px) 0; }
   .eyebrow {
     display: flex;
     align-items: center;
@@ -688,21 +780,21 @@ const applyPath = locale === "zh"
     font-weight: 800;
   }
   .eyebrow::before { content: ""; width: 15px; height: 3px; flex: 0 0 auto; background: var(--red); }
-  .section-head { margin-bottom: 52px; }
+  .section-head { margin-bottom: 28px; }
   .split-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 7vw; align-items: end; }
   .section-head h2,
   .faq-title h2 {
     max-width: 17ch;
-    margin-top: 15px;
+    margin-top: 10px;
     color: var(--ink);
-    font-size: clamp(2.5rem, 3.4vw, 3.85rem);
+    font-size: clamp(2rem, 2.8vw, 3rem);
     line-height: 1.05;
     letter-spacing: -.045em;
     font-weight: 700;
   }
   :global(html[lang="zh"]) .section-head h2,
   :global(html[lang="zh"]) .faq-title h2 { max-width: none; line-height: 1.2; letter-spacing: -.025em; }
-  .section-intro { max-width: 700px; color: var(--muted); font-size: clamp(1.05rem, 1.15vw, 1.2rem); line-height: 1.72; }
+  .section-intro { max-width: 700px; color: var(--muted); font-size: clamp(1rem, 1.1vw, 1.1rem); line-height: 1.6; }
 
   .sz-hero {
     position: relative;
@@ -716,7 +808,7 @@ const applyPath = locale === "zh"
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     background: #111;
     filter: none;
@@ -799,103 +891,102 @@ const applyPath = locale === "zh"
   .application-note { margin-top: 14px; }
   .apply-inner small span { width: 8px; height: 8px; flex: 0 0 auto; background: var(--red); }
 
-  .benefits { background: linear-gradient(180deg, var(--paper) 0%, #edf3f1 100%); border-bottom: 1px solid var(--ink); }
+  .benefits { background: var(--paper); border-bottom: 1px solid var(--ink); }
   .benefits-head { align-items: start; }
   .benefits .eyebrow { color: var(--mineral-deep); }
-  .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); box-shadow: 12px 12px 0 rgba(23, 25, 24, .12); }
-  .benefit-grid article { min-height: 410px; padding: 26px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
+  .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); box-shadow: none; }
+  .benefit-grid article { min-height: 0; padding: 22px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
   .benefit-grid article:last-child { border-right: 0; }
-  .benefit-grid article:first-child { background: var(--red); }
+  .benefit-grid article:first-child { background: var(--salmon); }
   .benefit-grid article:nth-child(2) { background: var(--mineral); }
   .benefit-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
   .benefit-top > span { color: #5a443e; font-size: 13px; line-height: 1.35; font-weight: 800; letter-spacing: .1em; }
   .benefit-top img { width: 52px; height: 52px; object-fit: contain; }
-  .benefit-grid h3 { margin-top: auto; color: var(--ink); font-size: clamp(2rem, 2.5vw, 2.8rem); line-height: 1.05; letter-spacing: -.035em; }
+  .benefit-grid h3 { margin-top: 24px; color: var(--ink); font-size: clamp(2rem, 2.5vw, 2.8rem); line-height: 1.05; letter-spacing: -.035em; }
   :global(html[lang="zh"]) .benefit-grid h3 { letter-spacing: -.015em; }
-  .benefit-grid p { margin-top: 18px; color: #474946; font-size: 16px; line-height: 1.68; }
+  .benefit-grid p { margin-top: 12px; color: #474946; font-size: 16px; line-height: 1.68; }
   .benefit-grid article:first-child p { color: rgba(23, 25, 24, .84); }
-  .benefit-grid strong { margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(23, 25, 24, .35); color: var(--ink); font-size: 14px; line-height: 1.55; }
+  .benefit-grid strong { margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(23, 25, 24, .35); color: var(--ink); font-size: 14px; line-height: 1.55; }
+
+  .spot-section.selected-projects { padding-block: clamp(60px, 5.5vw, 84px); }
+  .selected-projects { isolation: isolate; overflow: hidden; background: #fffdf8; border-bottom: 1px solid var(--ink); }
+  .selected-projects > .spotlight-container { position: relative; z-index: 1; }
+  .selected-projects-confetti { position: absolute; z-index: 0; inset: 0; overflow: hidden; opacity: .65; pointer-events: none; mix-blend-mode: multiply; }
+  .selected-projects-confetti::after { content: ""; position: absolute; inset: 0; background: rgba(255, 253, 248, .22); }
+  .selected-projects-confetti video { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
+  .selected-projects .selected-projects-head { margin-bottom: clamp(36px, 3.5vw, 52px); }
+  .selected-projects-head { display: grid; grid-template-columns: clamp(150px, 15vw, 220px) minmax(0, 1fr); gap: clamp(24px, 3vw, 40px); align-items: center; }
+  .selected-badge { width: 100%; max-width: 220px; aspect-ratio: 1; position: relative; }
+  .selected-badge img { position: absolute; width: 145%; max-width: none; height: 145%; left: -22.5%; top: -22.5%; object-fit: contain; }
+  .selected-projects-copy .section-intro { max-width: 900px; margin-top: 16px; }
+  .selected-projects .eyebrow { color: var(--mineral-deep); }
+
+  .selected-project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--ink); }
+  .selected-project-card { display: flex; flex-direction: column; min-width: 0; background: var(--paper); border-right: 1px solid var(--ink); }
+  .selected-project-card:last-child { border-right: 0; }
+  .selected-project-placeholder { flex-shrink: 0; position: relative; aspect-ratio: 1.35; overflow: hidden; padding: 18px; display: flex; align-items: flex-end; color: var(--ink); background: #e8e7e2; }
+  .selected-project-placeholder::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .5)); }
+  .selected-project-placeholder img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .selected-project-placeholder--xlerobot img { filter: brightness(1.28) contrast(.92); }
+  .selected-project-placeholder--xlerobot::after { background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, .22)); }
+  .selected-project-placeholder img[src$="hen-local.png"] { object-position: center 44%; }
+  .selected-project-placeholder img[src$="fugleramme.png"] { object-position: center 60%; }
+  .selected-project-placeholder span { position: relative; z-index: 1; color: #fff; text-shadow: 0 1px 7px rgba(0, 0, 0, .6); font-size: clamp(2.4rem, 4vw, 4.8rem); line-height: .8; letter-spacing: -.07em; font-weight: 800; }
+  .selected-project-info { flex: 1; min-height: 190px; padding: 22px; border-top: 1px solid var(--ink); display: flex; flex-direction: column; }
+  .selected-project-info h3 { overflow-wrap: anywhere; color: var(--ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); line-height: 1.18; letter-spacing: -.035em; }
+  .selected-project-info p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+  .selected-project-info a { width: fit-content; margin-top: auto; padding-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 800; text-decoration: none; }
+  .selected-project-info a:hover { color: #a53a22; border-color: #a53a22; }
+  .selected-project-info a .shape-icon { width: 11px; height: 11px; }
 
   .submission, .format, .judging, .faq-section { background: var(--paper); }
 
   .directions {
     overflow: hidden;
-    background:
-      radial-gradient(circle at 88% 12%, rgba(255, 67, 26, .94) 0 9%, transparent 9.2%),
-      linear-gradient(126deg, #eff9f5 0%, #c8dfd8 58%, #e5ece9 100%);
-    border-top: 10px solid var(--mineral-deep);
-    border-bottom: 1px solid var(--ink);
+    background: var(--mist);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-  .directions::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: .26;
-    background-image: radial-gradient(ellipse 29% 43% at center, rgba(23, 73, 67, .5) 0 68%, transparent 72%);
-    background-size: 34px 26px;
-    background-position: 0 0;
-    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .35) 42%, #000 100%);
-  }
-  .directions::after,
-  .submission::before,
-  .judging::before,
-  .apply-section::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 34px;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 29% 43% at center, var(--paper) 0 67%, transparent 72%) 0 0 / 34px 24px,
-      var(--mineral-deep);
-  }
-  .directions::after { bottom: 0; }
-  .submission::before,
-  .judging::before,
-  .apply-section::before { top: 0; }
   .directions .spotlight-container { position: relative; z-index: 1; }
-  .directions .section-head { margin-bottom: 38px; align-items: center; }
+  .directions .section-head { margin-bottom: 24px; align-items: center; }
   .directions .section-head h2 {
     max-width: none;
     color: var(--ink);
-    font-size: clamp(3.4rem, 5.4vw, 6.2rem);
+    font-size: clamp(2.4rem, 3.7vw, 4rem);
     line-height: .94;
   }
   .directions-title-line { display: block; }
   :global(html[lang="zh"]) .directions .section-head h2 { max-width: none; line-height: 1.05; }
   :global(html[lang="zh"]) .directions-title-line { white-space: nowrap; }
   .directions .head-side {
-    padding: 28px 30px;
+    padding: 20px 24px;
     background: rgba(255, 255, 255, .88);
     border: 1px solid var(--ink);
-    border-left: 8px solid var(--red);
-    box-shadow: 10px 10px 0 rgba(23, 25, 24, .12);
+    border-left: 5px solid var(--red);
+    box-shadow: none;
   }
   .directions .section-intro { color: #343735; font-weight: 600; }
   .directions .eyebrow { color: var(--mineral-deep); }
   .directions .eyebrow::before { background: var(--ink); }
-  .form-grid-primary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--ink); box-shadow: 12px 12px 0 rgba(23, 25, 24, .14); }
-  .form-grid-primary article { min-height: 280px; padding: 26px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
-  .form-grid-primary article:first-child { color: #fff; background: var(--mineral-deep); }
+  .form-grid-primary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--ink); box-shadow: none; }
+  .form-grid-primary article { min-height: 0; padding: 22px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
+  .form-grid-primary article:first-child { background: var(--salmon-light); }
   .form-grid-primary article:nth-child(2) { background: var(--mineral); }
   .form-grid-primary article:last-child { border-right: 0; }
   .form-grid-primary span { color: #5a443e; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
-  .form-grid-primary h3 { margin-top: auto; color: var(--ink); font-size: clamp(1.5rem, 1.8vw, 1.9rem); line-height: 1.25; }
+  .form-grid-primary h3 { margin-top: 24px; color: var(--ink); font-size: clamp(1.5rem, 1.8vw, 1.9rem); line-height: 1.25; }
   .form-grid-primary p { margin-top: 10px; color: #454846; font-size: 15px; line-height: 1.58; }
-  .form-grid-primary article:first-child span { color: #c4ded6; }
-  .form-grid-primary article:first-child h3 { color: #fff; }
-  .form-grid-primary article:first-child p { color: rgba(255, 255, 255, .76); }
-  .submission { background: linear-gradient(90deg, var(--paper) 0%, var(--paper) 66%, #edf3f1 100%); border-top: 0; }
+  .form-grid-primary article:first-child span { color: var(--muted); }
+  .form-grid-primary article:first-child h3 { color: var(--ink); }
+  .form-grid-primary article:first-child p { color: var(--muted); }
+  .submission { background: var(--paper); border-top: 0; }
   .submission .light-head h2,
   .submission .subheading { color: var(--ink); }
   .submission .light-head .section-intro { color: var(--muted); }
   .submission .eyebrow.light { color: #a53a22; }
   .subheading { margin-bottom: 20px; font-size: 22px; line-height: 1.35; }
   .requirement-list { max-width: 920px; border-top: 1px solid var(--ink); }
-  .requirement-list li { position: relative; padding: 18px 20px 18px 30px; border-bottom: 1px solid var(--ink); color: var(--ink); font-size: 17px; line-height: 1.45; font-weight: 650; }
+  .requirement-list li { position: relative; padding: 12px 16px 12px 26px; border-bottom: 1px solid var(--ink); color: var(--ink); font-size: 17px; line-height: 1.45; font-weight: 650; }
   .requirement-list li::before { content: ""; position: absolute; top: 1.6em; left: 4px; width: 8px; height: 8px; background: var(--red); }
   .submission-action { margin-top: 28px; }
   .submission-action a {
@@ -916,24 +1007,25 @@ const applyPath = locale === "zh"
   .submission-action a:hover { color: #fff; background: var(--ink); border-color: var(--ink); }
 
   .format { border-top: 1px solid var(--ink); }
-  .center-head { max-width: 1040px; margin-left: auto; margin-right: auto; text-align: center; }
-  .center-head h2 { max-width: none; }
-  .format-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .3em; }
+  .center-head { max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
+  .format .section-head h2 { max-width: none; font-size: clamp(1.5rem, 2.25vw, 2.4rem); line-height: 1.2; }
+  .format-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5em; }
+  .format-title-step { display: inline-flex; align-items: center; gap: .5em; }
   .format-title-arrow { font-size: .52em; color: var(--red-deep); }
   .center-head .eyebrow { justify-content: center; }
-  .center-head .section-intro { margin: 18px auto 0; }
+  .center-head .section-intro { max-width: 1000px; margin: 12px auto 0; }
   .stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
-  .stage-card { min-height: 290px; padding: 24px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
+  .stage-card { min-height: 0; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
   .stage-card:last-child { border-right: 0; }
   .stage-card:nth-child(2) { background: var(--mineral); }
   .stage-top { display: flex; justify-content: space-between; color: #5b5954; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
   .stage-top span { color: #a53a22; }
   .stage-card:nth-child(2) .stage-top span { color: var(--ink); }
   .stage-flow-icon { font-size: 20px; }
-  .stage-card h3 { margin-top: 64px; color: var(--ink); font-size: clamp(1.65rem, 2.1vw, 2.25rem); line-height: 1.18; }
+  .stage-card h3 { margin-top: 22px; color: var(--ink); font-size: clamp(1.45rem, 1.8vw, 1.85rem); line-height: 1.18; }
   .stage-card strong { margin-top: 12px; color: var(--ink); font-size: 16px; line-height: 1.48; }
   .stage-card p { margin-top: 8px; color: #54524d; font-size: 15px; line-height: 1.55; }
-  .stage-support { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(23, 25, 24, .34); }
+  .stage-support { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(23, 25, 24, .34); }
   .stage-support > span { display: block; color: var(--ink); font-size: 12px; line-height: 1.35; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
   .stage-support ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin-top: 11px; }
   .stage-support li { position: relative; padding-left: 12px; color: #4f514e; font-size: 13px; line-height: 1.45; }
@@ -941,7 +1033,7 @@ const applyPath = locale === "zh"
 
   .judging { border-top: 0; }
   .score-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--ink); }
-  .score-card { min-height: 330px; padding: 28px; }
+  .score-card { min-height: 0; padding: 22px; }
   .subjective-card { border-right: 1px solid var(--ink); }
   .objective-card { color: #fff; background: var(--ink); }
   .score-header { display: flex; align-items: baseline; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
@@ -960,7 +1052,7 @@ const applyPath = locale === "zh"
   .objective-card li::before,
   .objective-card li::after { content: ""; position: absolute; left: 0; top: 1.42em; width: 8px; height: 1px; background: var(--red); }
   .objective-card li::after { transform: rotate(90deg); }
-  .outcome-note { margin-top: 22px; padding: 30px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 6vw; align-items: end; color: #fff; background: var(--ink); border-left: 10px solid var(--mineral); }
+  .outcome-note { margin-top: 18px; padding: 22px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 6vw; align-items: end; color: #fff; background: var(--ink); border-left: 10px solid var(--mineral); }
   .outcome-note .eyebrow { color: #fff; }
   .outcome-note h3 { margin-top: 10px; color: #fff; font-size: clamp(1.65rem, 2.3vw, 2.35rem); line-height: 1.25; }
   .outcome-note > p { color: rgba(255, 255, 255, .7); font-size: 15px; line-height: 1.62; }
@@ -993,23 +1085,50 @@ const applyPath = locale === "zh"
   }
   .faq-list { border-top: 1px solid var(--ink); }
   .faq-list details { border-bottom: 1px solid var(--ink); }
-  .faq-list summary { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
+  .faq-list summary { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
   .faq-list summary::-webkit-details-marker { display: none; }
   .faq-list .faq-toggle { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid var(--ink); transition: transform .2s ease, color .2s ease, background .2s ease; }
   .faq-list details[open] .faq-toggle { transform: rotate(45deg); color: var(--ink); background: var(--mineral); }
   .faq-list details > p { max-width: 760px; padding: 0 52px 24px 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
 
-  .apply-section { position: relative; padding: clamp(84px, 9vw, 130px) 0; color: var(--ink); background: var(--mineral); border-top: 1px solid var(--ink); }
+  .apply-section { position: relative; padding: clamp(40px, 4vw, 64px) 0; color: var(--ink); background: var(--salmon-light); border-top: 1px solid var(--ink); }
   .apply-inner { display: flex; flex-direction: column; align-items: flex-start; }
   .apply-inner .eyebrow.light { color: var(--ink); }
   .apply-inner .eyebrow::before { background: var(--ink); }
-  .apply-inner h2 { max-width: 12ch; margin: 18px 0 22px; color: var(--ink); font-size: clamp(3.2rem, 5.5vw, 5.8rem); line-height: .9; letter-spacing: -.055em; }
+  .apply-inner h2 { max-width: 12ch; margin: 18px 0 22px; color: var(--ink); font-size: clamp(2.8rem, 4.4vw, 4.5rem); line-height: .9; letter-spacing: -.055em; }
   .apply-inner > p { max-width: 760px; color: rgba(10, 10, 10, .75); font-size: 17px; line-height: 1.62; }
   .apply-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .apply-actions a { min-height: 52px; padding: 0 20px; display: inline-flex; align-items: center; gap: 34px; color: var(--ink); background: transparent; border: 1px solid var(--ink); font-size: 15px; font-weight: 750; text-decoration: none; }
   .apply-actions a.apply-primary { color: var(--ink); background: var(--red); border-color: var(--red); }
+  .apply-actions a.apply-primary:hover { background: #ff6a43; border-color: #ff6a43; }
   .apply-inner small { margin-top: 14px; display: flex; align-items: center; gap: 9px; color: rgba(10, 10, 10, .68); font-size: 14px; line-height: 1.4; }
   .apply-inner small span { background: var(--ink); }
+
+  .selected-projects-note { margin-bottom: 18px; color: var(--muted); font-size: 14px; }
+  .selected-projects-head h2 { max-width: 20ch; font-size: clamp(2.2rem, 3.4vw, 3.5rem); }
+  .selected-project-card { background: #fff; }
+  .open-call { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+  .open-call h3 { margin: 12px 0; color: var(--ink); font-size: clamp(1.6rem, 2.4vw, 2.4rem); line-height: 1.25; }
+  .open-call p:not(.eyebrow) { max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+  .open-call-actions { display: flex; flex-direction: column; gap: 12px; }
+  .open-call-actions a { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 20px; color: var(--ink); font-size: 15px; text-decoration: none; border: 1px solid var(--line); }
+  .open-call-actions a.open-call-primary { color: var(--ink); background: var(--red); border-color: var(--red); }
+  .open-call-actions a:hover { background: var(--mineral); color: var(--ink); }
+  .spotlight-page a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  #about, #selected-projects { scroll-margin-top: 130px; }
+  @media (max-width: 760px) {
+    .open-call { grid-template-columns: 1fr; }
+    .spot-section.selected-projects { padding-block: 48px; }
+    .selected-projects .selected-projects-head { margin-bottom: 32px; }
+    .selected-project-info { min-height: 0; padding: 20px; }
+    .selected-projects-head { grid-template-columns: 1fr; gap: 24px; }
+    .selected-badge { width: 150px; }
+    .selected-projects-copy .section-intro { margin-top: 18px; }
+    .selected-projects-head h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .selected-projects-confetti { display: none; }
+  }
 
   @media (max-width: 1100px) {
     .spotlight-container { width: min(100% - 56px, 1440px); }
@@ -1020,8 +1139,11 @@ const applyPath = locale === "zh"
     .split-head { grid-template-columns: 1fr; gap: 24px; }
     .section-head h2 { max-width: 19ch; }
     .benefit-grid { grid-template-columns: 1fr; }
-    .benefit-grid article { min-height: 330px; border-right: 0; border-bottom: 1px solid var(--ink); }
+    .benefit-grid article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--ink); }
     .benefit-grid article:last-child { border-bottom: 0; }
+    .selected-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .selected-project-card:nth-child(2) { border-right: 0; }
+    .selected-project-card:nth-child(-n + 2) { border-bottom: 1px solid var(--ink); }
   }
 
   @media (max-width: 760px) {
@@ -1032,10 +1154,10 @@ const applyPath = locale === "zh"
     .application-ribbon__item { gap: 28px; padding-left: 28px; }
     :global(body[data-scrolling-started="true"][data-scrolling-direction="down"]) .application-ribbon { transform: translateY(-66px); }
     .spotlight-container { width: calc(100% - 32px); }
-    .spot-section { padding: 72px 0; }
-    .section-head { margin-bottom: 38px; }
+    .spot-section { padding: 36px 0; }
+    .section-head { margin-bottom: 24px; }
     .section-head h2,
-    .faq-title h2 { font-size: clamp(2.35rem, 9vw, 3.45rem); }
+    .faq-title h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
     .sz-hero { min-height: 100svh; }
     .hero-video { object-fit: cover; }
     .hero-wash {
@@ -1058,21 +1180,26 @@ const applyPath = locale === "zh"
     .form-grid-primary,
     .stage-grid,
     .score-grid { grid-template-columns: 1fr; }
+    .selected-project-grid { grid-template-columns: 1fr; }
+    .selected-project-card,
+    .selected-project-card:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .selected-project-card:last-child { border-bottom: 0; }
+    .selected-project-placeholder { aspect-ratio: 1.7; }
     .form-grid-primary article,
     .stage-card,
     .subjective-card { border-right: 0; border-bottom: 1px solid var(--ink); }
     .form-grid-primary article:last-child,
     .stage-card:last-child { border-bottom: 0; }
-    .directions .section-head h2 { font-size: clamp(2.65rem, 13vw, 4.5rem); }
-    .directions .head-side { padding: 23px 22px; box-shadow: 7px 7px 0 rgba(23, 25, 24, .12); }
-    .form-grid-primary { box-shadow: 8px 8px 0 rgba(23, 25, 24, .14); }
-    .form-grid-primary article { min-height: 240px; }
+    .directions .section-head h2 { font-size: clamp(2rem, 9vw, 3rem); }
+    .directions .head-side { padding: 23px 22px; box-shadow: none; }
+    .form-grid-primary { box-shadow: none; }
+    .form-grid-primary article { min-height: 0; }
     .stage-flow-icon { transform: rotate(90deg); }
     .objective-card ul { grid-template-columns: 1fr; }
     .outcome-note,
     .faq-layout { grid-template-columns: 1fr; gap: 30px; }
     .faq-list summary { font-size: 17px; }
-    .apply-inner h2 { font-size: clamp(3.25rem, 14vw, 5rem); }
+    .apply-inner h2 { font-size: clamp(2.6rem, 11vw, 3.5rem); }
   }
 
   @media (max-width: 520px) {
