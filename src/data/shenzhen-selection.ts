@@ -3,13 +3,18 @@ import type { Locale } from "../i18n/translations";
 interface SelectedProject {
   name: string;
   url: string;
+  image?: string;
+  imagePosition?: string;
   description: Record<Locale, string>;
 }
 
 // Published selection, in announcement order. Numbers do not indicate ranking.
+// Add each project’s image and optional imagePosition here when its photo is ready.
 export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Fugleramme",
+    image: "/images/shenzhen2026/projects/fugleramme.png",
+    imagePosition: "center 60%",
     url: "https://github.com/arnegiacomo/fugleramme",
     description: {
       zh: "在本地识别鸟鸣，并在电子墨水相框上呈现对应鸟类的自然史插画。",
@@ -19,6 +24,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Tiny Engineer",
+    image: "/images/shenzhen2026/projects/tiny-engineer.png",
+    imagePosition: "center",
     url: "https://github.com/jamro/tiny-engineer",
     description: {
       zh: "把 AI 编程 Agent 的工作状态，转成桌面机器人的动作、表情、灯光和声音。",
@@ -28,6 +35,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "XLeRobot",
+    image: "/images/shenzhen2026/projects/xlerobot.png",
+    imagePosition: "center",
     url: "https://xlerobot.readthedocs.io/en/latest/",
     description: {
       zh: "低成本开源双臂移动机器人，通过语音与视觉 Agent 执行导航、抓取和整理任务。",
@@ -37,6 +46,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "很 Local 实时翻译",
+    image: "/images/shenzhen2026/projects/hen-local.png",
+    imagePosition: "center 44%",
     url: "https://henlocal.com/",
     description: {
       zh: "利用 Apple Silicon 端侧算力，将现场演讲持续转换为双语字幕，为本次 GOSIM 提供实时翻译。",

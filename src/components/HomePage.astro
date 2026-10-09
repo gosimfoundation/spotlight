@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets"
 import Layout from "layouts/Layout.astro"
+import SpotlightHero from "components/SpotlightHero.astro"
 import ShenzhenSelectedProjects from "./ShenzhenSelectedProjects.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
@@ -72,6 +73,7 @@ const benefits = [
   title={t("home.meta.title")}
   description={t("home.meta.desc")}
   navDarkMode={false}
+  spotlightIntro={true}
   navBackground="header-home"
   pageTransitionName="Home"
   locale={locale}
@@ -84,6 +86,18 @@ const benefits = [
     buttonLink: `${getLocalizedPath("/shenzhen2026", locale)}#selected-projects`,
   }}
 >
+  <SpotlightHero
+    subtitle={t("home.hero.subtitle")}
+    eyebrow={t("home.hero.eyebrow")}
+    sceneLabel={t("home.hero.sceneLabel")}
+    exploreLabel={t("home.hero.explore")}
+    announcement={{
+      label: t("home.hero.announcementLabel"),
+      title: t("home.hero.announcement"),
+      link: `${getLocalizedPath("/shenzhen2026", locale)}#selected-projects`,
+    }}
+  />
+
   <ShenzhenSelectedProjects locale={locale} />
 
   <section
@@ -99,7 +113,7 @@ const benefits = [
       </div>
 
       <div class="current-heading" style="display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; width: 100%; gap: clamp(18px, 4vw, 56px); margin-bottom: clamp(24px, 3vw, 36px);">
-        <svg class="current-heading-badge" viewBox="209 198 832 839" width="220" height="222" style="width: clamp(88px, 18vw, 220px); max-width: 220px; height: auto; flex-shrink: 0;" aria-hidden="true">
+        <svg class="current-heading-badge" viewBox="209 198 832 839" width="280" height="282" style="width: clamp(150px, 22vw, 280px); max-width: 280px; height: auto; flex-shrink: 0;" aria-hidden="true">
           <image href="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" width="1250" height="1250" />
         </svg>
         <h2 style="width: 100%; min-width: 0; max-width: none; margin: 0; color: #fff; font-size: clamp(24px, 4.2vw, 68px); font-weight: 620; line-height: 1.15; letter-spacing: -0.04em;">
@@ -131,7 +145,40 @@ const benefits = [
           </div>
         </div>
 
-
+        <div class="current-media-shell">
+          <div class="current-media">
+          <video
+            id="shenzhen-spotlight-video"
+            class="current-video"
+            data-shenzhen-video
+            data-autoplay-video
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline="true"
+            preload="auto"
+            poster="/images/shenzhen2026/shenzhen-video-poster.jpg"
+          >
+            <source
+              src="/videos/shenzhen-spotlight-soundless-mobile.mp4"
+              type="video/mp4"
+              media="(max-width: 760px)"
+            />
+            <source src="/videos/shenzhen-spotlight-soundless.mp4" type="video/mp4" />
+          </video>
+          <button
+            class="video-play-button"
+            type="button"
+            data-autoplay-fallback-for="shenzhen-spotlight-video"
+            aria-controls="shenzhen-spotlight-video"
+            hidden
+          >
+            <span class="shape-icon shape-icon--play" aria-hidden="true"></span>
+            {t("home.upcoming.playVideo")}
+          </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -226,17 +273,6 @@ const benefits = [
 </Layout>
 
 <style>
-  .current-spotlight .home-shell, .home-about .home-shell { padding-block: 44px; }
-  .current-spotlight .section-label, .home-about .section-label { margin-bottom: 24px; }
-  .current-spotlight .current-media-shell { display: none; }
-  .current-spotlight .current-layout { display: block; }
-  .current-spotlight .current-description { max-width: 880px; }
-  .current-spotlight .current-heading-badge { display: none; }
-  .current-spotlight .current-heading { grid-template-columns: 1fr !important; }
-  .current-spotlight .current-heading h2 { font-size: clamp(24px, 3vw, 40px) !important; }
-  .current-spotlight .current-competition-title { font-size: 24px !important; margin-top: 8px !important; }
-  .home-about .about-grid h2 { font-size: clamp(22px, 2.5vw, 32px); }
-
   :global(body[data-bg-nav="header-home"]) {
     --home-ink: #062e37;
     --home-blue: #043e5d;
