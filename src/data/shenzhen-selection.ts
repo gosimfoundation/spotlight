@@ -5,6 +5,7 @@ interface SelectedProject {
   url: string;
   image?: string;
   imagePosition?: string;
+  imageFit?: "cover" | "contain";
   description: Record<Locale, string>;
 }
 
@@ -57,6 +58,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "VibeKeys",
+    image: "/images/shenzhen2026/projects/vibekeys-yellow.jpg",
     url: "https://vibekeys.dev",
     description: {
       zh: "AI 编程助手的实体遥控器：通过按键、旋钮、语音和状态屏，随时查看进展并回应 Agent。",
@@ -66,6 +68,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "事务官座机",
+    image: "/images/shenzhen2026/projects/shiwuguanzuoji.webp",
+    imagePosition: "70% center",
     url: "https://www.aibooo.cn/",
     description: {
       zh: "连接电脑、手机与实体听筒，为独立工作者安排 AI 分工、跟进进展，并通过电话补充任务。",
@@ -84,6 +88,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "橘一下 reset",
+    image: "/images/shenzhen2026/projects/cat-idle.jpg",
+    imageFit: "contain",
     url: "https://www.resetcat.xyz/#real-demo",
     description: {
       zh: "通过语音、视觉和实体交互，把用户的注意力从屏幕带回身体与现实世界的 Transition Agent。",
@@ -93,6 +99,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "虾盘 Xiapan USB",
+    image: "/images/shenzhen2026/projects/usb.jpg",
+    imageFit: "contain",
     url: "https://usb.u-claw.org.cn/",
     description: {
       zh: "把 AI 维护员装进 U 盘，读取电脑真实状态、调用维护工具，并让对话、报告和设置随盘带走。",
@@ -120,6 +128,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Ingora · Qrio",
+    image: "/images/shenzhen2026/projects/ingora.jpeg",
+    imageFit: "contain",
     url: "https://www.alipan.com/s/NUPgSx13cmG",
     description: {
       zh: "面向 6–12 岁儿童的语音优先 AI 口语学伴，根据语言水平、兴趣和学习状态提供个性化练习。",
@@ -129,6 +139,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "PoopSense 便知",
+    image: "/images/shenzhen2026/projects/poopsense.webp",
+    imageFit: "contain",
     url: "https://poopsense.org/",
     description: {
       zh: "面向家庭的马桶侧传感设备与 AI Agent，减少手动记录负担，将排便特征转化为直观记录和长期回看。",
@@ -147,6 +159,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Octos Learn",
+    image: "/images/shenzhen2026/projects/octoslearn.png",
+    imageFit: "contain",
     url: "https://learn.pitun.cc",
     description: {
       zh: "结合语音提问、手写与摄像头输入的 AI 数学白板，将讲解转成可探索的交互式可视化。",
@@ -156,6 +170,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Agentero",
+    image: "/images/shenzhen2026/projects/agentero.png",
+    imageFit: "contain",
     url: "https://agentero.app",
     description: {
       zh: "面向科研阅读的 Agent 友好文献阅读器，让 AI Agent 参与文献阅读的完整流程。",

@@ -5,8 +5,6 @@ import type { Locale } from "../i18n/translations";
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const c = shenzhenSelectionCopy[locale];
-// Enable the photo layout when the updated project photos are ready.
-const showProjectPhotos = false;
 ---
 
 <section class="selected-projects" id="selected-projects" data-theme-section="light" data-bg-section="light" aria-labelledby="selection-title">
@@ -35,17 +33,15 @@ const showProjectPhotos = false;
       {shenzhenSelectedProjects.map((project, index) => (
         <li>
           <article class="selection-card selected-project-card">
-            {showProjectPhotos && <div class:list={["selected-project-media", { "selected-project-media--empty": !project.image, "selected-project-media--xlerobot": project.name === "XLeRobot" }]}>
-              {project.image
-                ? <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}`} />
-                : <span class="project-media-label" aria-hidden="true">SPOTLIGHT / SHENZHEN 2026</span>}
+            {project.image && <div class:list={["selected-project-media", { "selected-project-media--contain": project.imageFit === "contain", "selected-project-media--xlerobot": project.name === "XLeRobot" }]}>
+              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}; object-fit: ${project.imageFit || "cover"}`} />
               <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
             </div>}
             <div class="selected-project-info">
               <h3>{project.name}</h3>
               <p>{project.description[locale]}</p>
               <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.projectLink} · ${project.name}`}>
-                {c.projectLink}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
+                <span class="project-link-label">{c.projectLink}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
               </a>
             </div>
           </article>
@@ -92,17 +88,15 @@ const showProjectPhotos = false;
   .selected-project-media--xlerobot img { filter: brightness(1.28) contrast(.92); }
   .selected-project-media--xlerobot::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.22)); }
   .project-number { position: relative; z-index: 1; margin-top: auto; color: #fff; text-shadow: 0 1px 7px rgba(0,0,0,.6); font-size: clamp(2.8rem, 4vw, 4.8rem); font-weight: 800; line-height: .85; letter-spacing: -.07em; }
-  .project-media-label { color: #40596d; font-size: 10px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; }
-  .selected-project-media--empty::after { inset: auto 18px 18px auto; width: 32%; height: 32%; border: 1px solid rgba(23,25,24,.18); border-radius: 50%; background: none; }
-  .selected-project-media--empty .project-number { color: #40596d; text-shadow: none; }
-  .selected-project-grid > li:nth-child(4n + 2) .selected-project-media--empty { background: #edc5b2; }
-  .selected-project-grid > li:nth-child(4n + 3) .selected-project-media--empty { background: #c6d2dc; }
-  .selected-project-grid > li:nth-child(4n + 4) .selected-project-media--empty { background: #e7edf1; }
+  .selected-project-media--contain { background: #fffdf8; }
+  .selected-project-media--contain::after { display: none; }
+  .selected-project-media--contain .project-number { padding: 4px 6px; background: rgba(23,25,24,.8); font-size: 20px; line-height: 1; text-shadow: none; letter-spacing: 0; }
   .selected-project-info { flex: 1; min-height: 218px; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; }
   .selected-project-media + .selected-project-info { border-top: 1px solid var(--selection-ink); }
   .selected-project-info h3 { margin: 0; color: var(--selection-ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
   .selected-project-info p { margin: 12px 0 0; color: var(--selection-muted); font-size: 14px; line-height: 1.6; }
-  .selected-project-info a { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 20px; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; }
+  .selected-project-info a { display: inline-flex; width: max-content; max-width: 100%; flex: 0 0 auto; align-items: center; gap: 8px; margin-top: auto; padding-top: 20px; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; white-space: nowrap; }
+  .project-link-label, .selected-project-info a .shape-icon { flex: 0 0 auto; white-space: nowrap; }
   .selection-footer { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(23,25,24,.22); }
   .selection-footer > a { display: inline-flex; align-items: center; gap: 24px; padding: 14px 20px; border: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 15px; font-weight: 750; text-decoration: none; }
   .selected-projects a:hover { color: #a53a22; border-color: #a53a22; }
