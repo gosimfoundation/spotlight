@@ -1,1229 +1,161 @@
 ---
 import Layout from "layouts/Layout.astro";
+import ShenzhenSelectedProjects from "./ShenzhenSelectedProjects.astro";
 import ShenzhenDeadlines from "./ShenzhenDeadlines.astro";
-import ShenzhenBadge from "./ShenzhenBadge.astro";
+import { shenzhenSelectionCopy } from "../data/shenzhen-selection";
 import type { Locale } from "../i18n/translations";
 
-interface Props {
-  locale: Locale;
-}
-
+interface Props { locale: Locale; }
 const { locale } = Astro.props;
-
+const selection = shenzhenSelectionCopy[locale];
 const content = {
   zh: {
-    metaTitle: "Spotlight Shenzhen 2026：下一代 AI 原生产品",
-    metaDesc: "面向全球产品团队的 AI 原生产品选拔与加速计划。入选项目将获得深圳差旅支持，在数千名 GOSIM 参会者面前展示产品，并连接企业、创客团队与投资人。",
-    eyebrow: "Spotlight Shenzhen 2026",
-    heroProgramTitle: "下一代 AI\n原生产品",
-    heroTitle: "NEXT IS NOT",
-    heroAccent: "GIVEN.",
-    heroStatement: '"The best way to predict the future is to invent it."',
-    heroText: "我们寻找围绕真实用户需求设计的产品：Agent 能理解情境、调用工具并完成任务，而不是只在现有应用里增加一个聊天框。仅接受自研智能硬件或改造、整合现有设备的项目（含跨设备系统），申请时需要提供可交互原型。",
-    heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
-    heroConference: "与 GOSIM Shenzhen 2026 同期举办",
-    heroSecondary: "立即报名",
-    ribbonStatus: "国内征集中",
-    ribbonDeadline: "中国国内申请截至 10 月 4 日 · 北京时间 23:59 · 海外征集已结束",
-    ribbonCta: "立即报名",
-    meta: ["2026.10.16—17", "中国 · 深圳", "全球项目征集"],
-    benefitsKicker: "02 / 入围项目将获得",
-    benefitsTitle: "让产品被看见，\n让下一步发生",
-    benefitsText: "入围 Spotlight 后，项目会进入真实的开发者与产业现场：先在数千名参会者面前获得曝光，再与企业、创客团队和其他项目建立联系；组委会也会提供差旅支持，让团队来到深圳。",
-    benefits: [
-      ["项目曝光", "EXPOSURE", "在数千名现场参会者面前展示产品；观众包括来自各大公司的工程师、产品负责人、开源社区成员和投资人。", "让真实使用者、潜在合作方和投资者直接看到产品。", "/icons/global-visibility.svg"],
-      ["建立联系", "CONNECTIONS", "在共创和大会现场认识企业团队、创客团队及其他入围项目，围绕技术协作、产品试用和后续合作继续聊下去。", "不是只交换名片，而是带着可体验的产品开始对话。", "/icons/networking.svg"],
-      ["差旅支持", "TRAVEL", "组委会为入围项目提供前往深圳的差旅支持。团队可线下参加 GOSIM Shenzhen 2026，并观看 10 月 16—17 日的全部大会演讲。", "不让差旅成本成为好项目来到现场的门槛。", "/icons/travel-support.svg"],
-    ],
-    selectedKicker: "首批入选 / FIRST SELECTION",
-    selectedTitle: "恭喜首批项目入选 Spotlight！",
-    selectedText: "这些项目已率先加入深圳 Spotlight。从机器人到日常设备，看看它们如何将 AI 带入真实场景，也为你的项目寻找灵感。",
-    selectedNote: "首批入选项目 · 名单持续更新",
-    openCallTitle: "下一个，会是你的项目吗？",
-    openCallText: "中国国内项目仍在征集中，截止时间为 2026 年 10 月 4 日北京时间 23:59。以上项目是灵感参考；欢迎用不同的产品形态，回应真实的用户需求。",
-    inspirationLink: "了解我们在寻找什么",
-    selectedProjects: [
-      { name: "Fugleramme", description: "一块使用本地分类模型聆听户外鸟鸣，并以自然史画作呈现鸟类的电子墨水相框。", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
-      { name: "Tiny Engineer", description: "一个开源桌面机器人，用动作、手势和声音让 AI 编程 Agent 的工作状态一目了然。", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
-      { name: "XLeRobot", description: "一台完全开源、低成本的双臂移动操作机器人，面向家庭用户和具身智能开发者。", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
-      { name: "很 Local 实时翻译", description: "本次 GOSIM 大会的实时翻译由 很 Local 提供。系统经 Apple MLX 优化，利用 Apple Silicon 设备的端侧算力，将现场演讲持续转换为双语字幕。", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
-    ],
-    selectedLink: "查看项目",
-    signalLabel: "我们在寻找什么",
-    signalTitle: "一个能把真实任务做完、现在就能试的 AI 原生产品",
-    signalTags: ["真实用户问题", "Agent 完成任务", "可交互原型", "全球使用场景"],
-    agentLabel: "SPOTLIGHT / SELECTION DIRECTIVE",
-    agentContext: "MISSION 2026",
-    agentPrompt: "做一个能替用户完成完整任务，而不只是回答问题的产品。",
-    agentStatus: "目标：解决真实用户在具体场景中的问题",
-    agentSteps: ["明确用户与场景", "展示 Agent 完整工作", "交付可运行原型", "准备深圳现场目标"],
-    pillars: [
-      ["Agent OS", "推荐的软件与交互基础"],
-      ["AI Agent", "产品的智能核心"],
-      ["软件界面", "表达体验的基础载体"],
-      ["硬件设备", "提高完成度的产品形态"],
-      ["产品体验", "比赛最主要的评选对象"],
-    ],
-    shiftTitle: "从功能叠加，到品类重构",
-    before: ["AI 是一个独立应用", "用户主动打开 ChatGPT", "每个任务进入不同应用", "固定菜单和页面", "软件与设备彼此割裂", "比拼硬件和模型参数"],
-    after: ["AI 成为产品和系统的核心", "Agent 主动理解并完成任务", "Agent 统一调度服务、工具与设备", "根据用户意图动态生成交互", "Agent 能力在不同设备间迁移", "比拼产品价值、体验与实现能力"],
-    beforeLabel: "今天",
-    afterLabel: "Spotlight",
-    directionsKicker: "01 / 我们在寻找什么",
-    directionsTitle: "新颖的 Agentic\n用户体验（UX）",
-    directionsText: "Agent 能理解情境、调用工具并完成任务，而不是只在现有产品里增加一个聊天框。仅接受自研智能硬件或改造、整合现有设备的项目（含跨设备系统）。",
-    principlesTitle: "无论哪种形态，我们都看这四件事",
-    principles: [
-      ["用户需求", "明确说明谁在什么场景遇到什么问题，以及现有产品为什么不够好"],
-      ["Agent 的工作", "展示 Agent 如何理解情境、调用工具并完成一段多步骤任务"],
-      ["可体验程度", "提供能点击、运行或现场操作的原型，让评委看到完整流程"],
-      ["做成产品的能力", "团队能够继续开发、稳定交付，并把产品带给更多用户"],
-    ],
-    formsTitle: "两类硬件产品方向",
-    optionLabel: "选项",
-    forms: [["自研智能硬件", "例如用 3D 打印或 CNC 制作设备外形，再把摄像头、麦克风、传感器与 Agent 做进同一套交互，创造新的 Agentic 用户体验。"], ["现有设备与跨设备系统", "例如连接开源手表、智能眼镜、手机与电脑，让 Agent 跨设备接续任务。"]],
-    formatKicker: "04 / 比赛流程",
-    formatTitle: ["线上评选", "深圳共创", "现场展示"],
-    formatText: "先通过线上材料和原型确认项目是否值得继续；入选团队在深圳用约两天解决最关键的工程、体验和演示问题；最后在 GOSIM 大会面对开发者、产业伙伴和开源社区现场展示。",
-    stages: [
-      ["01", "线上项目评选", "看清用户、场景和当前原型", "评委查看申请材料并实际体验团队提供的产品或演示"],
-      ["02", "深圳集中共创", "把最关键的使用流程做完整、做稳定", "产品、软件、硬件和演示导师围绕明确目标提供支持"],
-      ["03", "GOSIM 现场展示", "现场展位 + 大会主舞台演讲", "组委会为项目提供现场展位，供团队持续展示和交流；同时安排专门的演讲时段，让团队登上大会主舞台，在大会场内面向现场观众进行产品演讲与演示。"],
-    ],
-    sprintSupportTitle: "现场可获得",
-    sprintSupport: ["产品与体验评审", "AI 工程与系统辅导", "3D 打印及基础制作支持", "开发场地与演示排练"],
-    submitKicker: "03 / 报名表会问什么",
-    submitTitle: "准备好这些，\n即可开始报名",
-    submitText: "填写预计需要 10—15 分钟；原型和演示链接需在评审期间保持可访问。",
-    materialsTitle: "报名表需要",
-    materials: [
-      "团队与项目简介",
-      "目标用户、使用场景与问题",
-      "Agent 的核心工作与差异",
-      "可访问原型与一分钟演示",
-      "深圳目标、支持需求与开源计划",
-    ],
-    judgingKicker: "05 / 评审机制",
-    judgingTitle: "评审机制",
+    topicLabel: "本届主题 / TOPIC",
+    topicTitle: "下一代 AI 原生产品",
+    topicText: "围绕真实用户需求，探索新颖的 Agentic 用户体验：让 Agent 理解情境、调用工具并完成任务。",
+    tags: ["真实用户问题", "Agent 完成任务", "可交互原型", "产品体验"],
+    directionsTitle: "原征集方向",
+    forms: [["自研智能硬件", "将摄像头、麦克风、传感器与 Agent 融入同一套交互，创造新的产品体验。"], ["现有设备与跨设备系统", "改造、整合现有设备，连接手表、智能眼镜、手机与电脑，让 Agent 跨设备接续任务。"]],
+    materialsTitle: "原报名材料与时间",
+    materials: ["团队与项目简介", "目标用户、使用场景与问题", "Agent 的核心工作与差异", "可访问原型与一分钟演示", "深圳目标、支持需求与开源计划"],
+    formatTitle: "计划流程与项目支持",
+    stages: [["线上项目评选", "通过申请材料和可体验原型了解用户、场景及产品实现。"], ["深圳集中共创", "围绕关键流程，提供产品、软件、硬件和演示辅导。"], ["GOSIM 现场展示", "通过项目展位、大会演讲与演示，连接开发者、产业伙伴和开源社区。"]],
+    support: "入选项目可获得项目曝光、交流合作机会和前往深圳的差旅支持。",
+    judgingTitle: "原评审与开源要求",
     judgingText: "60% 看产品价值和 AI 用户体验，40% 看原型是否真实、稳定、可验证。",
-    subjective: "产品价值与体验",
-    objective: "实现与完成度",
-    subjectiveItems: [["用户问题是否重要", ""], ["AI 用户体验是否成立", ""], ["产品是否有创新与潜力", ""]],
-    objectiveItems: ["原型可以实际体验", "系统实现稳定可信", "团队能完成现场版本"],
-    openKicker: "06 / 成果与开源",
-    openTitle: "留下可公开查看的成果",
-    openStages: [
-      ["线上海选", "不强制开源，但必须提供可验证原型"],
-      ["入选之后", "原则上开放核心代码、原型或主要成果"],
-      ["最终展示", "提交公开仓库、项目说明或明确的成果公开方式"],
-    ],
-    openNote: "入围项目应提供公开仓库、技术说明或可访问产品；涉及商业代码、硬件设计或隐私时可申请合理豁免。",
-    faqKicker: "07 / FAQ",
-    faqTitle: "常见问题",
-    qaGroupLink: "扫描二维码加入 WeChat Group（微信群）",
-    qaGroupAlt: "GOSIM Spotlight WeChat Group（微信群）二维码",
-    faqs: [
-      ["一定要做硬件吗？", "是的。我们仅接受自研智能硬件，或改造、整合现有设备的项目（含跨设备系统）。请说明具体用户场景，展示 Agent 实际完成任务，并提供可体验原型。"],
-      ["只有概念可以申请吗？", "不可以。申请至少需要能验证关键体验的交互原型；最终入选项目必须在深圳交付稳定、可运行、可公开演示的产品。"],
-      ["早期团队可以参加吗？", "可以。你需要有清楚的目标用户和核心场景、能验证主要流程的原型，以及在有限时间内继续开发和交付的能力。"],
-      ["报名什么时候截止？", "海外申请者截止时间为 2026 年 9 月 13 日（周日）；中国国内申请者截止时间延长至 2026 年 10 月 4 日（周日）。两者均为北京时间 23:59（UTC+8）。入选结果公布：海外 9 月 18 日，中国国内 10 月 9 日。"],
-    ],
-    applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
-    applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
-    applyText: "提交项目介绍和原型链接，并说明你希望在深圳完成的版本，申请进入 Spotlight Shenzhen 2026。",
-    applyButton: "开始填写问卷",
-    applyHint: "预计用时 10–15 分钟；可使用中文或英文提交",
-    conference: "访问 GOSIM Shenzhen 2026",
+    openText: "线上海选不强制开源，但必须提供可验证原型；入选后原则上开放核心代码、原型或主要成果。涉及商业代码、硬件设计或隐私时可申请合理豁免。",
+    faqTitle: "原征集常见问题",
+    faqs: [["一定要做硬件吗？", "原征集要求为自研智能硬件，或改造、整合现有设备的项目（含跨设备系统），并提供可体验原型。"], ["只有概念可以申请吗？", "原申请要求至少提供能验证关键体验的交互原型。"], ["报名什么时候截止？", "海外申请已于 2026 年 9 月 13 日截止；中国国内申请已于 2026 年 10 月 4 日截止。两者均为北京时间 23:59（UTC+8）。现已停止提交。"]],
   },
   en: {
-    metaTitle: "Spotlight Shenzhen 2026: Define the Next AI Product Paradigm",
-    metaDesc: "An AI-native product selection and acceleration program. Selected projects receive travel support to Shenzhen, exposure to thousands of GOSIM attendees, and direct connections with builders, companies, and investors.",
-    eyebrow: "Spotlight Shenzhen 2026",
-    heroProgramTitle: "Next Gen\nAI native products",
-    heroTitle: "NEXT IS NOT",
-    heroAccent: "GIVEN.",
-    heroStatement: '"The best way to predict the future is to invent it."',
-    heroText: "We are not looking for another application with a model attached. We are looking for AI-native products with the ambition to create a category, rewrite interaction, and reach a global market.",
-    heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
-    heroConference: "Co-located with GOSIM Shenzhen 2026",
-    heroSecondary: "Apply now",
-    ribbonStatus: "China applications open",
-    ribbonDeadline: "China deadline · Oct 4 · 23:59 Beijing time / International applications closed",
-    ribbonCta: "Apply now",
-    meta: ["OCT 16—17, 2026", "SHENZHEN, CHINA", "GLOBAL OPEN CALL"],
-    benefitsKicker: "02 / WHAT FINALISTS RECEIVE",
-    benefitsTitle: "Get the product seen.\nMake the next step happen.",
-    benefitsText: "Finalists enter a real developer and industry setting: first gaining exposure to thousands of attendees, then meeting companies, maker teams, and fellow projects. We also provide travel support so selected teams can get to Shenzhen.",
-    benefits: [
-      ["Project exposure", "EXPOSURE", "Show your product to thousands of attendees, including engineers and product leaders from major companies, open-source contributors, and investors.", "Put the product directly in front of users, partners, and potential backers.", "/icons/global-visibility.svg"],
-      ["Real connections", "CONNECTIONS", "Meet company teams, maker groups, and other selected projects during the sprint and conference, with a working product as the starting point for collaboration.", "Go beyond collecting contacts: start a useful product conversation.", "/icons/networking.svg"],
-      ["Travel support", "TRAVEL", "Finalist projects receive travel support to come to Shenzhen. Teams can attend GOSIM Shenzhen 2026 in person and watch the full conference program on October 16–17.", "Travel cost should not keep a strong project away from the room.", "/icons/travel-support.svg"],
-    ],
-    selectedKicker: "FIRST SELECTION / SHENZHEN 2026",
-    selectedTitle: "Congratulations to our first selected projects!",
-    selectedText: "Meet the first projects joining Spotlight Shenzhen. From robots to everyday devices, explore how they bring AI into real-world settings—and find inspiration for your own project.",
-    selectedNote: "First selected projects · More to come",
-    openCallTitle: "Could your project be next?",
-    openCallText: "Applications from China remain open until October 4, 2026, at 23:59 Beijing time. Take inspiration from these projects and bring your own approach to a real user need.",
-    inspirationLink: "Explore what we’re looking for",
-    selectedProjects: [
-      { name: "Fugleramme", description: "An e-ink picture frame that listens for birds locally and renders them as natural-history plates.", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
-      { name: "Tiny Engineer", description: "An open-source desk robot that makes AI coding-agent activity visible through movement, gestures, and sound.", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
-      { name: "XLeRobot", description: "An open-source, low-cost, dual-arm mobile manipulator for homes and embodied-AI builders.", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
-      { name: "Hen Local Translator", description: "Hen Local provides live translation for this GOSIM conference. Optimized for Apple MLX, it uses Apple Silicon compute to turn talks into bilingual captions.", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
-    ],
-    selectedLink: "View project",
-    signalLabel: "WHAT WE ARE LOOKING FOR",
-    signalTitle: "An AI-native product that completes a real task—and can be tried now",
-    signalTags: ["Category thesis", "Agent-native", "System complete", "Global potential"],
-    agentLabel: "SPOTLIGHT / SELECTION DIRECTIVE",
-    agentContext: "MISSION 2026",
-    agentPrompt: "Build the product that makes today’s app paradigm feel obsolete.",
-    agentStatus: "Objective: define the default interface for the next era of personal computing",
-    agentSteps: ["State the category thesis", "Build the system core", "Deliver a working product", "Prove global relevance"],
-    pillars: [["Agent OS", "Recommended software and interaction layer"], ["AI Agent", "The intelligent core of the product"], ["Software UI", "The base canvas for the experience"], ["Hardware", "A form factor that raises fidelity"], ["Product experience", "The primary object of judging"]],
-    shiftTitle: "The product shift we want to accelerate",
-    before: ["AI is a standalone app", "Users open ChatGPT themselves", "Every task means another app", "Fixed menus and pages", "Software and devices are fragmented", "Competing on hardware and model specs"],
-    after: ["AI becomes the product and system core", "Agents understand and complete tasks proactively", "One Agent orchestrates services, tools, and devices", "Interfaces adapt dynamically to intent", "Capabilities move across devices", "Competing on value, experience, and execution"],
-    beforeLabel: "Today",
-    afterLabel: "Spotlight",
-    directionsKicker: "01 / WHAT WE ARE LOOKING FOR",
-    directionsTitle: "Novel agentic\nuser experience (UX)",
-    directionsText: "The Agent understands context, calls tools, and completes the task—not just another chat box inside an existing product. Projects must build original smart hardware or adapt and integrate existing devices, including cross-device systems.",
-    principlesTitle: "Across every form, we look for four things",
-    principles: [["Category thesis", "Redefine a product boundary instead of optimizing a feature"], ["Agent-native", "Remove the Agent and the central value no longer exists"], ["System complete", "Hardware, software, models, and interaction express one conviction"], ["Global potential", "Address an important problem with a market that can scale"]],
-    formsTitle: "Two hardware product directions",
-    optionLabel: "OPTION",
-    forms: [["Build original smart hardware", "Use 3D printing or CNC to shape a device, then bring cameras, microphones, sensors, and the Agent into one interaction to create a new agentic experience."], ["Connect existing and cross-device systems", "Connect open-source watches, smart glasses, phones, and computers so the Agent can continue tasks across devices."]],
-    formatKicker: "04 / FORMAT",
-    formatTitle: ["Global selection", "Closed Shenzhen sprint", "Global launch"],
-    formatText: "Spotlight is not an idea contest. It is an acceleration path from product conviction to public release. The standard rises at every stage until only work that can be experienced and verified remains.",
-    stages: [["01", "Online selection", "Validate value, experience, and feasibility", "Submit an interactive prototype, short video, and build plan"], ["02", "Shenzhen sprint", "About two focused days to build and refine", "Finish a working product with software, hardware, and mentor support"], ["03", "GOSIM live showcase", "Exhibition booth + main-stage talk", "Each project receives an on-site booth for ongoing demos and conversations, plus a dedicated slot on the conference main stage to present the product and give a live demonstration to the full audience."]],
-    sprintSupportTitle: "On-site support",
-    sprintSupport: ["Product and UX review", "AI engineering and systems guidance", "3D printing and basic fabrication", "Workspace and demo rehearsal"],
-    submitKicker: "03 / WHAT THE FORM ASKS",
-    submitTitle: "Prepare these,\nthen apply",
-    submitText: "The form takes about 10–15 minutes. Prototype and demo links must remain accessible during review.",
-    materialsTitle: "The form requires",
-    materials: ["Team and project overview", "Target users, use case, and problem", "The Agent’s core work and difference", "Accessible prototype and one-minute demo", "Shenzhen goal, support needs, and open-source plan"],
-    judgingKicker: "05 / JUDGING",
-    judgingTitle: "Evaluation",
-    judgingText: "60% evaluates product value and AI UX; 40% evaluates whether the prototype is real, stable, and verifiable.",
-    subjective: "Product value and UX",
-    objective: "Execution and completion",
-    subjectiveItems: [["An important user problem", ""], ["A convincing AI user experience", ""], ["Innovation and potential", ""]],
-    objectiveItems: ["A prototype reviewers can use", "A stable, credible implementation", "A team that can deliver the showcase build"],
-    openKicker: "06 / OUTCOMES & OPEN SOURCE",
-    openTitle: "Leave a public outcome",
-    openStages: [["Online selection", "Open source is optional, but the prototype must be verifiable"], ["After selection", "Core code, prototype, or primary outcome should generally be opened"], ["Final showcase", "Submit a public repository, project page, or a clear publication method"]],
-    openNote: "Finalists should provide a public repository, technical note, or accessible product. Reasonable exemptions are available for commercial code, hardware designs, or private data.",
-    faqKicker: "07 / FAQ",
-    faqTitle: "Frequently asked questions",
-    qaGroupLink: "Scan to join the WeChat Group (微信群)",
-    qaGroupAlt: "QR code for the GOSIM Spotlight WeChat Group (微信群)",
-    faqs: [["Do I have to build hardware?", "Yes. Projects must build original smart hardware or adapt and integrate existing devices, including cross-device systems. Show a concrete user scenario, the Agent completing a real task, and an interactive prototype."], ["How complete should the prototype be?", "The core experience only needs to be clear and verifiable. A website, Figma flow, app, simulator, or device demo can all be a starting point."], ["Can a team with limited engineering ability join?", "Yes. Projects with strong design and a clear core experience may receive software-factory, TA, and engineering support on site, while remaining responsible for the result."], ["When do applications close?", "International: Sep 13. China: Oct 4. Both deadlines are in 2026 at 23:59 Beijing time (UTC+8). Results: International · Sep 18; China · Oct 9."]],
-    applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
-    applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
-    applyText: "Submit your category thesis, system prototype, and first-release plan for Spotlight Shenzhen 2026.",
-    applyButton: "Start application",
-    applyHint: "Allow 10–15 minutes; submissions are accepted in English or Chinese",
-    conference: "Visit GOSIM Shenzhen 2026",
+    topicLabel: "THIS EDITION / TOPIC",
+    topicTitle: "Next-generation AI-native products",
+    topicText: "Explore new agentic user experiences around real needs: agents that understand context, use tools, and complete tasks.",
+    tags: ["Real user needs", "Agents completing tasks", "Interactive prototypes", "Product experience"],
+    directionsTitle: "Original project directions",
+    forms: [["New intelligent hardware", "Bring cameras, microphones, sensors, and agents into one interaction to create new product experiences."], ["Existing devices and cross-device systems", "Adapt and integrate devices such as watches, smart glasses, phones, and computers so agents can continue tasks across them."]],
+    materialsTitle: "Original application materials & schedule",
+    materials: ["Team and project introduction", "Target users, context, and problem", "Core agent work and differentiation", "Accessible prototype and one-minute demo", "Shenzhen goals, support needs, and open-source plans"],
+    formatTitle: "Program format & project support",
+    stages: [["Online project selection", "Review application materials and interactive prototypes to understand users, context, and implementation."], ["Shenzhen sprint", "Product, software, hardware, and demo guidance focused on the essential user journey."], ["GOSIM showcase", "Project booths, conference talks, and demos connect teams with developers, industry partners, and open-source communities."]],
+    support: "Selected projects receive visibility, collaboration opportunities, and travel support to Shenzhen.",
+    judgingTitle: "Original judging & open-source requirements",
+    judgingText: "60% evaluates product value and AI user experience; 40% evaluates whether the prototype is real, stable, and verifiable.",
+    openText: "Online selection required a verifiable prototype without mandatory open-sourcing. Selected projects are expected to open their core code, prototype, or main results, with reasonable exemptions for commercial code, hardware designs, or privacy.",
+    faqTitle: "Original open-call FAQ",
+    faqs: [["Was hardware required?", "The original call required new intelligent hardware or adapted and integrated existing devices, including cross-device systems, with an interactive prototype."], ["Were concepts alone eligible?", "The original application required an interactive prototype demonstrating the essential experience."], ["When did applications close?", "International applications closed on September 13, 2026; China applications closed on October 4, 2026, both at 23:59 Beijing time (UTC+8). Submissions are now closed."]],
   },
   fr: {
-    metaTitle: "Spotlight Shenzhen 2026 : définir le prochain paradigme produit IA",
-    metaDesc: "Un programme de sélection et d’accélération de produits natifs IA. Les projets retenus bénéficient d’un soutien au voyage, d’une visibilité auprès de milliers de participants GOSIM et de connexions directes avec entreprises, créateurs et investisseurs.",
-    eyebrow: "Spotlight Shenzhen 2026",
-    heroProgramTitle: "La prochaine génération\nde produits natifs IA",
-    heroTitle: "NEXT IS NOT",
-    heroAccent: "GIVEN.",
-    heroStatement: "Ne suivez pas la prochaine ère. Définissez-la.",
-    heroText: "Nous ne cherchons pas une application de plus enrichie par un modèle, mais des produits natifs IA capables de créer une catégorie, de réécrire l’interaction et d’atteindre un marché mondial.",
-    heroOrbit: ["DEFINE", "BUILD", "PROVE", "LAUNCH"],
-    heroConference: "Colocalisé avec GOSIM Shenzhen 2026",
-    heroSecondary: "Candidater",
-    ribbonStatus: "Candidatures en Chine ouvertes",
-    ribbonDeadline: "En Chine : 4 oct. · 23 h 59, heure de Pékin / Candidatures internationales closes",
-    ribbonCta: "Candidater",
-    meta: ["16—17 OCT. 2026", "SHENZHEN, CHINE", "APPEL MONDIAL"],
-    benefitsKicker: "02 / CE QUE REÇOIVENT LES FINALISTES",
-    benefitsTitle: "Faites voir le produit.\nFaites avancer la suite.",
-    benefitsText: "Les finalistes entrent dans un contexte réel de développeurs et d’industrie : d’abord une visibilité auprès de milliers de participants, puis des rencontres avec entreprises, collectifs de créateurs et autres projets. Un soutien au voyage permet aussi aux équipes de venir à Shenzhen.",
-    benefits: [
-      ["Visibilité du projet", "EXPOSITION", "Présentez votre produit à des milliers de participants, dont des ingénieurs et responsables produit de grandes entreprises, des contributeurs open source et des investisseurs.", "Mettez le produit directement devant utilisateurs, partenaires et financeurs potentiels.", "/icons/global-visibility.svg"],
-      ["Connexions concrètes", "CONNEXIONS", "Rencontrez entreprises, collectifs de créateurs et autres projets retenus pendant le sprint et la conférence, avec un produit fonctionnel comme point de départ.", "Allez au-delà de l’échange de contacts : engagez une vraie conversation produit.", "/icons/networking.svg"],
-      ["Soutien au voyage", "VOYAGE", "Les projets finalistes reçoivent un soutien au voyage pour venir à Shenzhen. Les équipes peuvent participer à GOSIM Shenzhen 2026 et assister à l’ensemble des conférences des 16–17 octobre.", "Le coût du voyage ne doit pas empêcher un bon projet d’être présent.", "/icons/travel-support.svg"],
-    ],
-    selectedKicker: "PREMIÈRE SÉLECTION / SHENZHEN 2026",
-    selectedTitle: "Félicitations aux premiers projets sélectionnés !",
-    selectedText: "Découvrez les premiers projets qui rejoignent Spotlight Shenzhen. Des robots aux objets du quotidien, ils intègrent l’IA dans des usages concrets : de quoi inspirer votre propre projet.",
-    selectedNote: "Premiers projets sélectionnés · Liste évolutive",
-    openCallTitle: "Et si votre projet était le prochain ?",
-    openCallText: "Les candidatures provenant de Chine restent ouvertes jusqu’au 4 octobre 2026 à 23 h 59, heure de Pékin. Inspirez-vous de ces projets et proposez votre propre réponse à un besoin réel.",
-    inspirationLink: "Découvrir les projets recherchés",
-    selectedProjects: [
-      { name: "Fugleramme", description: "Un cadre e-ink qui reconnaît les oiseaux localement et les présente comme des planches d’histoire naturelle.", url: "https://github.com/arnegiacomo/fugleramme", image: "/images/shenzhen2026/projects/fugleramme.png" },
-      { name: "Tiny Engineer", description: "Un robot de bureau open source qui rend le travail des agents de programmation IA visible par le mouvement et le son.", url: "https://github.com/jamro/tiny-engineer", image: "/images/shenzhen2026/projects/tiny-engineer.png" },
-      { name: "XLeRobot", description: "Un robot mobile à deux bras, open source et abordable, pour la maison et les créateurs d’IA incarnée.", url: "https://xlerobot.readthedocs.io/en/latest/", image: "/images/shenzhen2026/projects/xlerobot.png" },
-      { name: "Hen Local Translator", description: "Hen Local fournit la traduction en direct de cette conférence GOSIM. Optimisé pour Apple MLX, il utilise la puissance d’Apple Silicon pour créer des sous-titres bilingues.", url: "https://henlocal.com/", image: "/images/shenzhen2026/projects/hen-local.png" },
-    ],
-    selectedLink: "Voir le projet",
-    signalLabel: "CE QUE NOUS RECHERCHONS",
-    signalTitle: "Un produit natif IA qui accomplit une tâche réelle — et que l’on peut déjà essayer",
-    signalTags: ["Thèse de catégorie", "Natif Agent", "Système complet", "Potentiel mondial"],
-    agentLabel: "SPOTLIGHT / DIRECTIVE DE SÉLECTION",
-    agentContext: "MISSION 2026",
-    agentPrompt: "Créez le produit qui rendra obsolète le paradigme actuel des applications.",
-    agentStatus: "Objectif : définir l’interface par défaut de la prochaine ère informatique",
-    agentSteps: ["Formuler la thèse", "Bâtir le système", "Livrer un produit", "Prouver sa portée mondiale"],
-    pillars: [["Agent OS", "Socle logiciel et interaction recommandé"], ["Agent IA", "Cœur intelligent du produit"], ["Interface", "Support de base de l’expérience"], ["Matériel", "Forme qui augmente la fidélité"], ["Expérience produit", "Objet principal de l’évaluation"]],
-    shiftTitle: "Le changement de paradigme recherché",
-    before: ["L’IA est une application isolée", "L’utilisateur ouvre lui-même ChatGPT", "Chaque tâche mène à une autre application", "Menus et pages fixes", "Logiciels et appareils fragmentés", "Compétition sur les spécifications"],
-    after: ["L’IA devient le cœur du produit et du système", "L’Agent comprend et accomplit les tâches", "Un Agent orchestre services, outils et appareils", "L’interface s’adapte à l’intention", "Les capacités passent d’un appareil à l’autre", "Compétition sur la valeur, l’expérience et l’exécution"],
-    beforeLabel: "Aujourd’hui",
-    afterLabel: "Spotlight",
-    directionsKicker: "01 / CE QUE NOUS RECHERCHONS",
-    directionsTitle: "Une expérience utilisateur\nagentique (UX) inédite",
-    directionsText: "L’Agent comprend le contexte, appelle des outils et accomplit la tâche, au lieu d’ajouter un chat à un produit existant. Les projets doivent créer du matériel intelligent original ou adapter et intégrer des appareils existants, y compris des systèmes multi-appareils.",
-    principlesTitle: "Quelle que soit la forme, quatre éléments comptent",
-    principles: [["Thèse de catégorie", "Redéfinir une frontière produit plutôt qu’optimiser une fonction"], ["Natif Agent", "Sans l’Agent, la valeur centrale disparaît"], ["Système complet", "Matériel, logiciel, modèles et interaction expriment une même conviction"], ["Potentiel mondial", "Résoudre un problème important sur un marché extensible"]],
-    formsTitle: "Deux orientations matérielles",
-    optionLabel: "OPTION",
-    forms: [["Créer un matériel intelligent original", "Façonnez un appareil par impression 3D ou CNC, puis réunissez caméra, microphones, capteurs et Agent dans une même interaction pour créer une nouvelle expérience agentique."], ["Connecter des systèmes multi-appareils", "Reliez montres open source, lunettes intelligentes, téléphones et ordinateurs pour poursuivre une tâche entre appareils."]],
-    formatKicker: "04 / FORMAT",
-    formatTitle: ["Sélection en ligne", "Accélération à Shenzhen", "Démonstration finale"],
-    formatText: "La première étape valide l’idée, l’expérience et la capacité d’exécution à faible coût. La seconde concentre les ressources pour finaliser ou améliorer un prototype réel.",
-    stages: [["01", "Sélection en ligne", "Valider valeur, expérience et faisabilité", "Prototype interactif, courte vidéo et plan de réalisation"], ["02", "Accélération à Shenzhen", "Environ deux jours pour construire et affiner", "Produit fonctionnel avec soutien logiciel, matériel et mentorat"], ["03", "Présentation GOSIM", "Stand d’exposition + intervention sur la scène principale", "Chaque projet dispose d’un stand pour les démonstrations et les échanges, ainsi que d’un créneau dédié sur la scène principale de la conférence pour présenter le produit et réaliser une démonstration en direct devant l’ensemble du public."]],
-    sprintSupportTitle: "Soutien sur place",
-    sprintSupport: ["Revue produit et UX", "Conseil IA, ingénierie et systèmes", "Impression 3D et fabrication de base", "Espace de travail et répétition de la démo"],
-    submitKicker: "03 / CE QUE DEMANDE LE FORMULAIRE",
-    submitTitle: "Préparez ces éléments,\npuis candidatez",
-    submitText: "Le formulaire prend environ 10–15 minutes. Les liens du prototype et de la démo doivent rester accessibles pendant l’évaluation.",
-    materialsTitle: "Le formulaire exige",
-    materials: ["Présentation de l’équipe et du projet", "Utilisateurs, contexte et problème", "Travail central de l’Agent et différence", "Prototype accessible et démo d’une minute", "Objectif à Shenzhen, besoins et plan open source"],
-    judgingKicker: "05 / ÉVALUATION",
-    judgingTitle: "Évaluation",
-    judgingText: "60 % évaluent la valeur produit et l’UX IA ; 40 % vérifient que le prototype est réel, stable et vérifiable.",
-    subjective: "Valeur produit et UX",
-    objective: "Réalisation et complétude",
-    subjectiveItems: [["Un problème utilisateur important", ""], ["Une expérience utilisateur IA convaincante", ""], ["Innovation et potentiel", ""]],
-    objectiveItems: ["Un prototype réellement testable", "Une réalisation stable et crédible", "Une équipe capable de livrer la version finale"],
-    openKicker: "06 / RÉSULTATS & OPEN SOURCE",
-    openTitle: "Laisser un résultat public",
-    openStages: [["Sélection en ligne", "Open source facultatif, mais prototype vérifiable"], ["Après sélection", "Code central, prototype ou résultat principal à ouvrir en principe"], ["Démonstration finale", "Dépôt public, page projet ou méthode de publication claire"]],
-    openNote: "Les finalistes doivent fournir un dépôt public, une note technique ou un produit accessible. Des dérogations sont possibles pour code commercial, design matériel ou données privées.",
-    faqKicker: "07 / FAQ",
-    faqTitle: "Questions fréquentes",
-    qaGroupLink: "Scanner pour rejoindre le groupe WeChat（微信群）",
-    qaGroupAlt: "Code QR du groupe WeChat（微信群）de GOSIM Spotlight",
-    faqs: [["Faut-il construire du matériel ?", "Oui. Les projets doivent créer du matériel intelligent original ou adapter et intégrer des appareils existants, y compris des systèmes multi-appareils. Présentez un usage concret, une tâche réellement accomplie par l’Agent et un prototype interactif."], ["Quel niveau de prototype est attendu ?", "L’expérience essentielle doit surtout être claire et vérifiable. Site web, Figma, application, simulateur ou appareil peuvent tous servir de point de départ."], ["Peut-on participer avec peu de compétences techniques ?", "Oui. Les projets au design fort peuvent recevoir un soutien logiciel et technique sur place, tout en restant responsables du résultat."], ["Quand les candidatures ferment-elles ?", "Pour les candidatures provenant de l’extérieur de la Chine, la clôture est fixée au dimanche 13 septembre 2026. Pour celles provenant de Chine, elle est prolongée au dimanche 4 octobre 2026. Dans les deux cas, la clôture est à 23 h 59, heure de Pékin (UTC+8). Résultats : international · 18 septembre ; Chine · 9 octobre."]],
-    applyEyebrow: "READY TO BUILD THE NEXT INTERFACE?",
-    applyTitle: "NEXT IS NOT GIVEN.\nDEFINE IT.",
-    applyText: "Présentez votre thèse de catégorie, votre prototype système et votre plan de première version pour Spotlight Shenzhen 2026.",
-    applyButton: "Commencer la candidature",
-    applyHint: "Prévoyez 10–15 minutes ; dossiers acceptés en français, anglais ou chinois",
-    conference: "Visiter GOSIM Shenzhen 2026",
+    topicLabel: "CETTE ÉDITION / THÈME",
+    topicTitle: "Produits natifs IA de nouvelle génération",
+    topicText: "Explorer de nouvelles expériences agentiques répondant à des besoins réels : comprendre le contexte, utiliser des outils et accomplir des tâches.",
+    tags: ["Besoins réels", "Tâches accomplies par les agents", "Prototypes interactifs", "Expérience produit"],
+    directionsTitle: "Orientations initiales",
+    forms: [["Nouveaux appareils intelligents", "Réunir caméras, microphones, capteurs et agents dans une interaction pour créer de nouvelles expériences produit."], ["Appareils existants et systèmes multi-appareils", "Adapter et intégrer montres, lunettes intelligentes, téléphones et ordinateurs pour poursuivre les tâches entre appareils."]],
+    materialsTitle: "Dossier et calendrier initiaux",
+    materials: ["Présentation de l’équipe et du projet", "Utilisateurs, contexte et problème", "Travail de l’agent et différenciation", "Prototype accessible et démo d’une minute", "Objectifs à Shenzhen, besoins et plan open source"],
+    formatTitle: "Déroulement et soutien",
+    stages: [["Sélection en ligne", "Étude des dossiers et prototypes interactifs pour comprendre les utilisateurs, le contexte et la réalisation."], ["Accélération à Shenzhen", "Accompagnement produit, logiciel, matériel et démonstration autour du parcours essentiel."], ["Présentation GOSIM", "Stands, conférences et démonstrations pour rencontrer développeurs, partenaires et communautés open source."]],
+    support: "Les projets sélectionnés bénéficient de visibilité, d’occasions de collaboration et d’un soutien au voyage à Shenzhen.",
+    judgingTitle: "Critères initiaux et open source",
+    judgingText: "60 % pour la valeur produit et l’expérience IA ; 40 % pour un prototype réel, stable et vérifiable.",
+    openText: "La sélection en ligne exigeait un prototype vérifiable sans ouverture obligatoire du code. Les projets sélectionnés doivent ouvrir leur code central, leur prototype ou leurs principaux résultats, avec des exemptions raisonnables.",
+    faqTitle: "FAQ de l’appel initial",
+    faqs: [["Le matériel était-il requis ?", "L’appel initial demandait un appareil intelligent original ou l’adaptation et l’intégration d’appareils existants, avec un prototype interactif."], ["Un concept seul était-il accepté ?", "Le dossier initial exigeait un prototype interactif démontrant l’expérience essentielle."], ["Quand les candidatures ont-elles fermé ?", "Les candidatures internationales ont fermé le 13 septembre 2026 et les candidatures chinoises le 4 octobre 2026, à 23 h 59, heure de Pékin (UTC+8). Les candidatures sont closes."]],
   },
 } as const;
-
-const c = content[locale] || content.en;
-const sectionTitle = (text: string) => text.split("\n");
-const applyPath = locale === "zh"
-  ? "/shenzhen2026/apply/"
-  : `/${locale}/shenzhen2026/apply/`;
+const c = content[locale];
 ---
 
-<Layout
-  title={c.metaTitle}
-  description={c.metaDesc}
-  navDarkMode={true}
-  navBackground="header-home"
-  pageTransitionName="Spotlight Shenzhen 2026: Next-Gen AI-Native Products"
-  socialImage="/images/shenzhen2026/og-shenzhen-film.png"
-  locale={locale}
-  nativeScroll={true}
-  footerVariant="spotlight"
->
-  <div class="spotlight-page monolith-page">
-    <a class="application-ribbon" href={applyPath} aria-label={`${c.ribbonStatus}。${c.ribbonDeadline}。${c.ribbonCta}`}>
-      <div class="application-ribbon__status">
-        <span aria-hidden="true"></span>
-        {c.ribbonStatus}
-      </div>
-      <div class="application-ribbon__marquee" aria-label={c.ribbonDeadline}>
-        <div class="application-ribbon__track" aria-hidden="true">
-          {Array.from({ length: 6 }).map(() => (
-            <span class="application-ribbon__item">
-              <b>SPOTLIGHT SHENZHEN 2026</b>
-              <span>{c.ribbonDeadline}</span>
-              <strong>{c.ribbonCta}<i class="shape-icon shape-icon--arrow shape-icon--up-right"></i></strong>
-            </span>
-          ))}
+<Layout title={`Spotlight Shenzhen 2026 · ${selection.topic}`} description={selection.description} navDarkMode={false} navBackground="header-home" pageTransitionName="Spotlight Shenzhen 2026" socialImage="/images/shenzhen2026/og-shenzhen-film.png" locale={locale} nativeScroll={true} footerVariant="spotlight">
+  <div class="shenzhen-results-page">
+    <ShenzhenSelectedProjects locale={locale} />
+    <section class="topic-section" id="about" data-theme-section="light" aria-labelledby="topic-title">
+      <div class="program-shell topic-layout">
+        <div>
+          <p class="topic-label">{c.topicLabel}</p>
+          <h2 id="topic-title">{c.topicTitle}</h2>
         </div>
-      </div>
-    </a>
-
-    <section class="sz-hero" id="top" data-theme-section="light">
-      <video
-        id="shenzhen-hero-video"
-        class="hero-video"
-        data-autoplay-video
-        autoplay
-        muted
-        loop
-        playsinline
-        webkit-playsinline="true"
-        preload="auto"
-        poster="/images/shenzhen2026/shenzhen-hero-poster.jpg"
-        aria-hidden="true"
-        tabindex="-1"
-      >
-        <source
-          src="/videos/shenzhen-spotlight-soundless-mobile.mp4"
-          type="video/mp4"
-          media="(max-width: 760px)"
-        />
-        <source src="/videos/shenzhen-spotlight-soundless.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-wash" aria-hidden="true"></div>
-      <div class="spotlight-container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow light">{c.eyebrow}</p>
-          <h1>{sectionTitle(c.heroProgramTitle).map((line) => <>{line}<br /></>)}</h1>
-          <p class="hero-slogan">{c.heroTitle} {c.heroAccent}</p>
-        </div>
-        <div class="hero-footer">
-          <div class="hero-meta">
-            {c.meta.map((item) => <div>{item}</div>)}
-          </div>
-          <div class="hero-registration">
-          <div class="hero-actions">
-            <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-            <a class="spot-button ghost" href={applyPath} aria-describedby="application-note">{c.heroSecondary}</a>
-          </div>
-          <div class="application-note" id="application-note"><ShenzhenDeadlines locale={locale} /></div>
-          </div>
+        <div>
+          <p class="topic-text">{c.topicText}</p>
+          <ul class="topic-tags">{c.tags.map((tag) => <li>{tag}</li>)}</ul>
         </div>
       </div>
     </section>
-
-    <section class="spot-section selected-projects" id="selected-projects" data-theme-section="light">
-      <div class="selected-projects-confetti" aria-hidden="true">
-        <video autoplay muted loop playsinline webkit-playsinline preload="metadata">
-          <source src="/videos/confetti.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="spotlight-container">
-        <div class="section-head selected-projects-head">
-          <div class="selected-badge">
-            <img src="/images/shenzhen2026/spotlight-shenzhen-2026-badge.png" alt="Spotlight Shenzhen 2026" width="1250" height="1250" loading="lazy" />
-          </div>
-          <div class="selected-projects-copy">
-            <p class="eyebrow">{c.selectedKicker}</p>
-            <h2>{c.selectedTitle}</h2>
-            <p class="section-intro">{c.selectedText}</p>
-          </div>
-        </div>
-        <p class="selected-projects-note">{c.selectedNote}</p>
-        <div class="selected-project-grid">
-          {c.selectedProjects.map((project, index) => (
-            <article class="selected-project-card">
-              <div class:list={["selected-project-placeholder", { "selected-project-placeholder--xlerobot": project.name === "XLeRobot" }]} aria-hidden="true">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <img src={project.image} alt="" loading="lazy" />
-              </div>
-              <div class="selected-project-info">
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <a href={project.url} target="_blank" rel="noopener noreferrer">{c.selectedLink}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div class="open-call">
-          <div>
-            <p class="eyebrow">{c.ribbonStatus}</p>
-            <h3>{c.openCallTitle}</h3>
-            <p>{c.openCallText}</p>
-          </div>
-          <div class="open-call-actions">
-            <a class="open-call-primary" href={applyPath}>{c.ribbonCta}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-            <a href="#about">{c.inspirationLink}<span class="shape-icon shape-icon--arrow shape-icon--down" aria-hidden="true"></span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section directions" id="about" data-theme-section="light">
-      <div class="spotlight-container">
-        <div class="section-head split-head">
-          <div>
-            <p class="eyebrow">{c.directionsKicker}</p>
-            <h2>{sectionTitle(c.directionsTitle).map((line) => <span class="directions-title-line">{line}</span>)}</h2>
-          </div>
-          <div class="head-side">
-            <p class="section-intro">{c.directionsText}</p>
-          </div>
-        </div>
-
-        <div class="form-grid-primary">
-          {c.forms.map((item, index) => (
-            <article><span>{c.optionLabel} {String.fromCharCode(65 + index)}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section benefits" id="benefits" data-theme-section="light">
-      <div class="spotlight-container">
-        <div class="section-head split-head benefits-head">
-          <div>
-            <p class="eyebrow">{c.benefitsKicker}</p>
-            <h2>{sectionTitle(c.benefitsTitle).map((line) => <>{line}<br /></>)}</h2>
-          </div>
-          <div class="head-side">
-            <p class="section-intro">{c.benefitsText}</p>
-          </div>
-        </div>
-        <div class="benefit-grid">
-          {c.benefits.map((benefit, index) => (
-            <article>
-              <div class="benefit-top">
-                <span>{String(index + 1).padStart(2, "0")} / {benefit[1]}</span>
-                <img src={benefit[4]} alt="" aria-hidden="true" loading="lazy" />
-              </div>
-              <h3>{benefit[0]}</h3>
-              <p>{benefit[2]}</p>
-              <strong>{benefit[3]}</strong>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section submission" id="submission" data-theme-section="light">
-      <div class="spotlight-container">
-        <div class="section-head split-head light-head">
-          <div>
-            <p class="eyebrow light">{c.submitKicker}</p>
-            <h2>{sectionTitle(c.submitTitle).map((line) => <>{line}<br /></>)}</h2>
-          </div>
-          <div class="head-side">
-            <p class="section-intro">{c.submitText}</p>
-          </div>
-        </div>
-
-        <h3 class="subheading">{c.materialsTitle}</h3>
-        <ul class="requirement-list">
-          {c.materials.map((item) => <li>{item}</li>)}
-        </ul>
-        <div class="submission-action">
-          <a href={applyPath}>{c.ribbonCta}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section format" id="format" data-theme-section="light">
-      <div class="spotlight-container">
-        <div class="section-head center-head">
-          <p class="eyebrow">{c.formatKicker}</p>
-          <h2 class="format-title">
-            {c.formatTitle.map((step, index) => <span class="format-title-step"><span>{step}</span>{index < c.formatTitle.length - 1 && <span class="shape-icon shape-icon--arrow format-title-arrow" aria-hidden="true"></span>}</span>)}
-          </h2>
-          <p class="section-intro">{c.formatText}</p>
-        </div>
-        <div class="stage-grid">
-          {c.stages.map((stage, index) => (
-            <article class="stage-card">
-              <div class="stage-top"><span>{stage[0]}</span>{index < 2 && <span class="shape-icon shape-icon--arrow stage-flow-icon" aria-hidden="true"></span>}</div>
-              <h3>{stage[1]}</h3>
-              <strong>{stage[2]}</strong>
-              <p>{stage[3]}</p>
-              {index === 1 && (
-                <div class="stage-support">
-                  <span>{c.sprintSupportTitle}</span>
-                  <ul>{c.sprintSupport.map((item) => <li>{item}</li>)}</ul>
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section judging" id="judging" data-theme-section="light">
-      <div class="spotlight-container">
-        <div class="section-head split-head">
-          <div>
-            <p class="eyebrow">{c.judgingKicker}</p>
-            <h2>{c.judgingTitle}</h2>
-          </div>
-          <div class="head-side">
-            <p class="section-intro">{c.judgingText}</p>
-          </div>
-        </div>
-
-        <div class="score-grid">
-          <article class="score-card subjective-card">
-            <div class="score-header"><div class="score-ring ring-60"><strong>60</strong><small>%</small></div><h3>{c.subjective}</h3></div>
-            <div class="score-lines">
-              {c.subjectiveItems.map((item) => <div><span>{item[0]}</span></div>)}
+    <section class="archive-section" data-theme-section="light">
+      <div class="program-shell">
+        <details class="program-archive" id="program-archive">
+          <summary><span>{selection.archive}</span><span class="archive-toggle" aria-hidden="true">+</span></summary>
+          <div class="archive-content">
+            <p class="archive-intro"><strong>{selection.status}</strong> · {selection.archiveIntro}</p>
+            <div class="archive-group" id="directions">
+              <h3>{c.directionsTitle}</h3>
+              <dl>{c.forms.map(([title, text]) => <div><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
             </div>
-          </article>
-          <article class="score-card objective-card">
-            <div class="score-header"><div class="score-ring ring-40"><strong>40</strong><small>%</small></div><h3>{c.objective}</h3></div>
-            <ul>{c.objectiveItems.map((item) => <li>{item}</li>)}</ul>
-          </article>
-        </div>
-        <div class="outcome-note" id="outcomes">
-          <div><p class="eyebrow">{c.openKicker}</p><h3>{c.openTitle}</h3></div>
-          <p>{c.openNote}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="spot-section faq-section" id="faq">
-      <div class="spotlight-container faq-layout">
-        <div class="faq-title">
-          <p class="eyebrow">{c.faqKicker}</p>
-          <h2>{c.faqTitle}</h2>
-          <a
-            class="qa-group-link"
-            href="/images/shenzhen2026/spotlight-qa-wechat-group.png?v=20261001"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {c.qaGroupLink}
-            <span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
-          </a>
-          <img
-            class="qa-group-qr"
-            src="/images/shenzhen2026/spotlight-qa-wechat-group.png?v=20261001"
-            alt={c.qaGroupAlt}
-            loading="lazy"
-          />
-        </div>
-        <div class="faq-list">
-          {c.faqs.map((faq) => (
-            <details>
-              <summary><span>{faq[0]}</span><span class="faq-toggle" aria-hidden="true"><span class="shape-icon shape-icon--plus"></span></span></summary>
-              <p>{faq[1]}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <ShenzhenBadge locale={locale} />
-
-    <section class="apply-section" id="apply" data-theme-section="light">
-      <div class="spotlight-container apply-inner">
-        <p class="eyebrow light">{c.applyEyebrow}</p>
-        <h2>{sectionTitle(c.applyTitle).map((line) => <>{line}<br /></>)}</h2>
-        <p>{c.applyText}</p>
-        <div class="apply-actions">
-          <a class="apply-primary" href={applyPath}>{c.applyButton}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-          <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.conference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-        </div>
-        <small><span></span>{c.applyHint}</small>
+            <div class="archive-group" id="submission">
+              <h3>{c.materialsTitle}</h3>
+              <ul>{c.materials.map((material) => <li>{material}</li>)}</ul>
+              <div class="archived-schedule"><ShenzhenDeadlines locale={locale} /></div>
+            </div>
+            <div class="archive-group" id="format">
+              <h3>{c.formatTitle}</h3>
+              <dl>{c.stages.map(([title, text]) => <div><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
+              <p>{c.support}</p>
+            </div>
+            <div class="archive-group" id="judging">
+              <h3>{c.judgingTitle}</h3>
+              <p>{c.judgingText}</p>
+              <p>{c.openText}</p>
+            </div>
+            <div class="archive-group" id="faq">
+              <h3>{c.faqTitle}</h3>
+              {c.faqs.map(([question, answer]) => <details class="archive-faq"><summary>{question}</summary><p>{answer}</p></details>)}
+            </div>
+          </div>
+        </details>
       </div>
     </section>
   </div>
 </Layout>
 
-
 <style>
-  :global(html) { scroll-behavior: auto; }
-  :global(body) { background: #f4f3ef; }
-  :global(.monolith-page) {
-    --ink: #171918;
-    --paper: #f4f3ef;
-    --white: #fff;
-    --red: #ff431a;
-    --salmon: #edc5b2;
-    --salmon-light: #f3ddd0;
-    --red-deep: #a53a22;
-    --mineral: #c6d2dc;
-    --mineral-deep: #40596d;
-    --graphite: #1b1d1c;
-    --mist: #e7edf1;
-    --muted: #5e625f;
-    --line: rgba(23, 25, 24, .22);
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
-  }
-
-  :global(body[data-bg-nav="header-home"] .main-nav-bar) {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    isolation: isolate;
-    z-index: 20;
-    box-shadow: none !important;
-  }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill) {
-    opacity: 1 !important;
-    overflow: hidden;
-    background:
-      linear-gradient(112deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .015) 34%, rgba(93, 113, 131, .11) 62%, rgba(7, 9, 8, .08) 100%),
-      rgba(12, 14, 13, .56) !important;
-    -webkit-backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
-    backdrop-filter: blur(28px) saturate(1.12) contrast(1.04);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), inset 0 -1px 0 rgba(255, 255, 255, .06) !important;
-  }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::before) {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(75% 180% at 16% -95%, rgba(255, 255, 255, .3), transparent 58%),
-      radial-gradient(58% 150% at 82% 175%, rgba(101, 133, 158, .16), transparent 62%);
-  }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .nav-fill::after) {
-    content: "";
-    position: absolute;
-    top: -150%;
-    bottom: -150%;
-    left: 24%;
-    width: 20%;
-    pointer-events: none;
-    transform: rotate(18deg);
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .07), transparent);
-    filter: blur(10px);
-  }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .border-bottom) {
-    opacity: 1 !important;
-    background: rgba(255, 255, 255, .14) !important;
-  }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .logo svg path) { fill: #fff !important; }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .link .link-click > span),
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .lang-current) { color: #fff !important; text-shadow: none !important; }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .has-sublinks svg) { stroke: #fff !important; }
-  :global(body[data-bg-nav="header-home"] .main-nav-bar .hamburger .bar) { background: #fff !important; }
-  :global(.footer--spotlight) { background: #181818 !important; border-top: 1px solid rgba(255, 255, 255, .18); }
-
-  .application-ribbon {
-    --ribbon-bg: #ff6a43;
-    position: fixed;
-    top: 72px;
-    left: 0;
-    z-index: 18;
-    width: 100%;
-    height: 46px;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: stretch;
-    color: var(--ink);
-    background: var(--ribbon-bg);
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
-    font-size: 1.125rem;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform .45s cubic-bezier(.7, 0, .3, 1), opacity .2s ease;
-  }
-  .application-ribbon:hover { --ribbon-bg: #ff805f; color: var(--ink); }
-  .application-ribbon:focus-visible { outline: 3px solid #fff; outline-offset: -4px; }
-  .application-ribbon__status {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 22px;
-    white-space: nowrap;
-  }
-  .application-ribbon__status { border-right: 1px solid var(--ink); background: var(--ribbon-bg); }
-  .application-ribbon__status > span {
-    width: 9px;
-    height: 9px;
-    flex: 0 0 auto;
-    border-radius: 50%;
-    background: var(--ink);
-    box-shadow: 0 0 0 4px rgba(23, 25, 24, .14);
-  }
-  .application-ribbon__marquee { min-width: 0; display: flex; align-items: center; overflow: hidden; }
-  .application-ribbon__track {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    will-change: transform;
-    animation: application-ribbon-scroll 42s linear infinite;
-  }
-  .application-ribbon__item { display: flex; align-items: center; gap: 42px; padding-left: 42px; white-space: nowrap; }
-  .application-ribbon__track b { color: rgba(23, 25, 24, .56); font-weight: 650; }
-  .application-ribbon__item strong { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-weight: 900; }
-  .application-ribbon__item strong::before { content: ""; width: 18px; height: 1px; margin-right: 2px; background: rgba(23, 25, 24, .55); }
-  .application-ribbon__item .shape-icon { width: 11px; height: 11px; }
-  :global(body[data-scrolling-started="true"][data-scrolling-direction="down"]) .application-ribbon { transform: translateY(-72px); }
-  :global(body[data-navigation-status="active"]) .application-ribbon { opacity: 0; pointer-events: none; }
-
-  @keyframes application-ribbon-scroll {
-    to { transform: translateX(-50%); }
-  }
-
-  .spotlight-container { width: min(1440px, calc(100% - 96px)); margin: 0 auto; }
-  .spot-section { position: relative; padding: clamp(40px, 4vw, 64px) 0; }
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #a53a22;
-    font-size: 14px;
-    line-height: 1.35;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-  .eyebrow::before { content: ""; width: 15px; height: 3px; flex: 0 0 auto; background: var(--red); }
-  .section-head { margin-bottom: 28px; }
-  .split-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 7vw; align-items: end; }
-  .section-head h2,
-  .faq-title h2 {
-    max-width: 17ch;
-    margin-top: 10px;
-    color: var(--ink);
-    font-size: clamp(2rem, 2.8vw, 3rem);
-    line-height: 1.05;
-    letter-spacing: -.045em;
-    font-weight: 700;
-  }
-  :global(html[lang="zh"]) .section-head h2,
-  :global(html[lang="zh"]) .faq-title h2 { max-width: none; line-height: 1.2; letter-spacing: -.025em; }
-  .section-intro { max-width: 700px; color: var(--muted); font-size: clamp(1rem, 1.1vw, 1.1rem); line-height: 1.6; }
-
-  .sz-hero {
-    position: relative;
-    height: 100svh;
-    min-height: 720px;
-    overflow: hidden;
-    background: #111;
-  }
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    background: #111;
-    filter: none;
-  }
-  .hero-wash {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: .3;
-    background:
-      linear-gradient(90deg, #080808 0%, rgba(8, 8, 8, .86) 22%, rgba(8, 8, 8, .18) 50%, transparent 68%),
-      linear-gradient(180deg, transparent 52%, rgba(8, 8, 8, .2) 68%, #080808 100%);
-  }
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: clamp(150px, 18vh, 190px) 0 42px;
-  }
-  .hero-copy {
-    width: min(730px, 62vw);
-    color: #fff;
-  }
-  .hero-copy {
-    text-shadow: 0 1px 6px rgba(0, 0, 0, .42);
-  }
-  .hero-copy .eyebrow { color: rgba(255, 255, 255, .78); }
-  .hero-copy .eyebrow::before { width: 8px; height: 8px; background: var(--red); }
-  .hero-copy h1 {
-    max-width: 8.2ch;
-    margin: 22px 0 0;
-    color: #fff;
-    font-size: clamp(4.5rem, 6.5vw, 7.4rem);
-    line-height: .96;
-    letter-spacing: -.06em;
-    font-weight: 650;
-  }
-  .hero-slogan { margin-top: 24px; color: rgba(255, 255, 255, .82); font-size: 1.125rem; line-height: 1.45; letter-spacing: .12em; font-weight: 650; }
-  .hero-footer {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
-    gap: 24px 40px;
-    align-items: center;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255, 255, 255, .48);
-  }
-  .hero-meta { display: flex; flex-wrap: wrap; gap: 12px 24px; }
-  .hero-meta div { min-height: 42px; display: flex; align-items: center; padding: 0; border: 0; color: #fff; font-size: 1.25rem; line-height: 1.4; font-weight: 650; }
-  .hero-meta div:first-child { padding-left: 0; }
-  .hero-meta div:last-child { border-right: 0; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-  .spot-button {
-    min-height: 48px;
-    padding: 0 18px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    border: 1px solid rgba(247, 247, 244, .94);
-    color: var(--ink);
-    background: rgba(247, 247, 244, .94);
-    font-size: 1.125rem;
-    line-height: 1.2;
-    font-weight: 750;
-    text-decoration: none;
-    transition: color .2s ease, background .2s ease;
-  }
-  .spot-button:hover { color: var(--ink); border-color: var(--red); background: var(--red); }
-  .monolith-page .hero-actions .spot-button[href^="https://shenzhen2026.gosim.org"] {
-    color: var(--ink) !important;
-    background: rgba(247, 247, 244, .94) !important;
-    border-color: rgba(247, 247, 244, .94) !important;
-  }
-  .spot-button.ghost { color: var(--ink); border-color: var(--red); background: var(--red); }
-  .spot-button.ghost:hover { color: var(--ink); border-color: #fff; background: #fff; }
-  .hero-registration { min-width: 0; }
-  .application-note { margin-top: 14px; }
-  .apply-inner small span { width: 8px; height: 8px; flex: 0 0 auto; background: var(--red); }
-
-  .benefits { background: var(--paper); border-bottom: 1px solid var(--ink); }
-  .benefits-head { align-items: start; }
-  .benefits .eyebrow { color: var(--mineral-deep); }
-  .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); box-shadow: none; }
-  .benefit-grid article { min-height: 0; padding: 22px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
-  .benefit-grid article:last-child { border-right: 0; }
-  .benefit-grid article:first-child { background: var(--salmon); }
-  .benefit-grid article:nth-child(2) { background: var(--mineral); }
-  .benefit-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
-  .benefit-top > span { color: #5a443e; font-size: 13px; line-height: 1.35; font-weight: 800; letter-spacing: .1em; }
-  .benefit-top img { width: 52px; height: 52px; object-fit: contain; }
-  .benefit-grid h3 { margin-top: 24px; color: var(--ink); font-size: clamp(2rem, 2.5vw, 2.8rem); line-height: 1.05; letter-spacing: -.035em; }
-  :global(html[lang="zh"]) .benefit-grid h3 { letter-spacing: -.015em; }
-  .benefit-grid p { margin-top: 12px; color: #474946; font-size: 16px; line-height: 1.68; }
-  .benefit-grid article:first-child p { color: rgba(23, 25, 24, .84); }
-  .benefit-grid strong { margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(23, 25, 24, .35); color: var(--ink); font-size: 14px; line-height: 1.55; }
-
-  .spot-section.selected-projects { padding-block: clamp(60px, 5.5vw, 84px); }
-  .selected-projects { isolation: isolate; overflow: hidden; background: #fffdf8; border-bottom: 1px solid var(--ink); }
-  .selected-projects > .spotlight-container { position: relative; z-index: 1; }
-  .selected-projects-confetti { position: absolute; z-index: 0; inset: 0; overflow: hidden; opacity: .65; pointer-events: none; mix-blend-mode: multiply; }
-  .selected-projects-confetti::after { content: ""; position: absolute; inset: 0; background: rgba(255, 253, 248, .22); }
-  .selected-projects-confetti video { width: 100%; height: 100%; object-fit: cover; filter: saturate(.8); }
-  .selected-projects .selected-projects-head { margin-bottom: clamp(36px, 3.5vw, 52px); }
-  .selected-projects-head { display: grid; grid-template-columns: clamp(150px, 15vw, 220px) minmax(0, 1fr); gap: clamp(24px, 3vw, 40px); align-items: center; }
-  .selected-badge { width: 100%; max-width: 220px; aspect-ratio: 1; position: relative; }
-  .selected-badge img { position: absolute; width: 145%; max-width: none; height: 145%; left: -22.5%; top: -22.5%; object-fit: contain; }
-  .selected-projects-copy .section-intro { max-width: 900px; margin-top: 16px; }
-  .selected-projects .eyebrow { color: var(--mineral-deep); }
-
-  .selected-project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--ink); }
-  .selected-project-card { display: flex; flex-direction: column; min-width: 0; background: var(--paper); border-right: 1px solid var(--ink); }
-  .selected-project-card:last-child { border-right: 0; }
-  .selected-project-placeholder { flex-shrink: 0; position: relative; aspect-ratio: 1.35; overflow: hidden; padding: 18px; display: flex; align-items: flex-end; color: var(--ink); background: #e8e7e2; }
-  .selected-project-placeholder::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .5)); }
-  .selected-project-placeholder img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .selected-project-placeholder--xlerobot img { filter: brightness(1.28) contrast(.92); }
-  .selected-project-placeholder--xlerobot::after { background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, .22)); }
-  .selected-project-placeholder img[src$="hen-local.png"] { object-position: center 44%; }
-  .selected-project-placeholder img[src$="fugleramme.png"] { object-position: center 60%; }
-  .selected-project-placeholder span { position: relative; z-index: 1; color: #fff; text-shadow: 0 1px 7px rgba(0, 0, 0, .6); font-size: clamp(2.4rem, 4vw, 4.8rem); line-height: .8; letter-spacing: -.07em; font-weight: 800; }
-  .selected-project-info { flex: 1; min-height: 190px; padding: 22px; border-top: 1px solid var(--ink); display: flex; flex-direction: column; }
-  .selected-project-info h3 { overflow-wrap: anywhere; color: var(--ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); line-height: 1.18; letter-spacing: -.035em; }
-  .selected-project-info p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.45; }
-  .selected-project-info a { width: max-content; white-space: nowrap; flex-shrink: 0; margin-top: auto; padding-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); border-bottom: 1px solid var(--ink); font-size: 13px; font-weight: 800; text-decoration: none; }
-  .selected-project-info a:hover { color: #a53a22; border-color: #a53a22; }
-  .selected-project-info a .shape-icon { width: 11px; height: 11px; flex-shrink: 0; }
-
-  .submission, .format, .judging, .faq-section { background: var(--paper); }
-
-  .directions {
-    overflow: hidden;
-    background: var(--mist);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .directions .spotlight-container { position: relative; z-index: 1; }
-  .directions .section-head { margin-bottom: 24px; align-items: center; }
-  .directions .section-head h2 {
-    max-width: none;
-    color: var(--ink);
-    font-size: clamp(2.4rem, 3.7vw, 4rem);
-    line-height: .94;
-  }
-  .directions-title-line { display: block; }
-  :global(html[lang="zh"]) .directions .section-head h2 { max-width: none; line-height: 1.05; }
-  :global(html[lang="zh"]) .directions-title-line { white-space: nowrap; }
-  .directions .head-side {
-    padding: 20px 24px;
-    background: rgba(255, 255, 255, .88);
-    border: 1px solid var(--ink);
-    border-left: 5px solid var(--red);
-    box-shadow: none;
-  }
-  .directions .section-intro { color: #343735; font-weight: 600; }
-  .directions .eyebrow { color: var(--mineral-deep); }
-  .directions .eyebrow::before { background: var(--ink); }
-  .form-grid-primary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--ink); box-shadow: none; }
-  .form-grid-primary article { min-height: 0; padding: 22px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
-  .form-grid-primary article:first-child { background: var(--salmon-light); }
-  .form-grid-primary article:nth-child(2) { background: var(--mineral); }
-  .form-grid-primary article:last-child { border-right: 0; }
-  .form-grid-primary span { color: #5a443e; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
-  .form-grid-primary h3 { margin-top: 24px; color: var(--ink); font-size: clamp(1.5rem, 1.8vw, 1.9rem); line-height: 1.25; }
-  .form-grid-primary p { margin-top: 10px; color: #454846; font-size: 15px; line-height: 1.58; }
-  .form-grid-primary article:first-child span { color: var(--muted); }
-  .form-grid-primary article:first-child h3 { color: var(--ink); }
-  .form-grid-primary article:first-child p { color: var(--muted); }
-  .submission { background: var(--paper); border-top: 0; }
-  .submission .light-head h2,
-  .submission .subheading { color: var(--ink); }
-  .submission .light-head .section-intro { color: var(--muted); }
-  .submission .eyebrow.light { color: #a53a22; }
-  .subheading { margin-bottom: 20px; font-size: 22px; line-height: 1.35; }
-  .requirement-list { max-width: 920px; border-top: 1px solid var(--ink); }
-  .requirement-list li { position: relative; padding: 12px 16px 12px 26px; border-bottom: 1px solid var(--ink); color: var(--ink); font-size: 17px; line-height: 1.45; font-weight: 650; }
-  .requirement-list li::before { content: ""; position: absolute; top: 1.6em; left: 4px; width: 8px; height: 8px; background: var(--red); }
-  .submission-action { margin-top: 28px; }
-  .submission-action a {
-    min-height: 52px;
-    padding: 0 22px;
-    display: inline-flex;
-    align-items: center;
-    gap: 32px;
-    color: var(--ink);
-    background: var(--red);
-    border: 1px solid var(--red);
-    font-size: 15px;
-    line-height: 1;
-    font-weight: 800;
-    text-decoration: none;
-    transition: color .2s ease, background .2s ease, border-color .2s ease;
-  }
-  .submission-action a:hover { color: #fff; background: var(--ink); border-color: var(--ink); }
-
-  .format { border-top: 1px solid var(--ink); }
-  .center-head { max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
-  .format .section-head h2 { max-width: none; font-size: clamp(1.5rem, 2.25vw, 2.4rem); line-height: 1.2; }
-  .format-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5em; }
-  .format-title-step { display: inline-flex; align-items: center; gap: .5em; }
-  .format-title-arrow { font-size: .52em; color: var(--red-deep); }
-  .center-head .eyebrow { justify-content: center; }
-  .center-head .section-intro { max-width: 1000px; margin: 12px auto 0; }
-  .stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
-  .stage-card { min-height: 0; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); }
-  .stage-card:last-child { border-right: 0; }
-  .stage-card:nth-child(2) { background: var(--mineral); }
-  .stage-top { display: flex; justify-content: space-between; color: #5b5954; font-size: 14px; font-weight: 800; letter-spacing: .1em; }
-  .stage-top span { color: #a53a22; }
-  .stage-card:nth-child(2) .stage-top span { color: var(--ink); }
-  .stage-flow-icon { font-size: 20px; }
-  .stage-card h3 { margin-top: 22px; color: var(--ink); font-size: clamp(1.45rem, 1.8vw, 1.85rem); line-height: 1.18; }
-  .stage-card strong { margin-top: 12px; color: var(--ink); font-size: 16px; line-height: 1.48; }
-  .stage-card p { margin-top: 8px; color: #54524d; font-size: 15px; line-height: 1.55; }
-  .stage-support { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(23, 25, 24, .34); }
-  .stage-support > span { display: block; color: var(--ink); font-size: 12px; line-height: 1.35; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-  .stage-support ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin-top: 11px; }
-  .stage-support li { position: relative; padding-left: 12px; color: #4f514e; font-size: 13px; line-height: 1.45; }
-  .stage-support li::before { content: ""; position: absolute; top: .62em; left: 0; width: 5px; height: 5px; background: var(--red); }
-
-  .judging { border-top: 0; }
-  .score-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--ink); }
-  .score-card { min-height: 0; padding: 22px; }
-  .subjective-card { border-right: 1px solid var(--ink); }
-  .objective-card { color: #fff; background: var(--ink); }
-  .score-header { display: flex; align-items: baseline; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
-  .objective-card .score-header { border-color: rgba(255, 255, 255, .28); }
-  .score-ring { display: flex; align-items: baseline; color: #a53a22; }
-  .score-ring strong { font-size: clamp(3.8rem, 5vw, 5.6rem); line-height: .8; }
-  .score-ring small { font-size: 16px; }
-  .objective-card .ring-40 strong,
-  .objective-card .ring-40 small { color: #f7f7f4; }
-  .score-header h3 { color: var(--ink); font-size: 22px; }
-  .objective-card .score-header h3 { color: #fff; }
-  .score-lines { margin-top: 14px; }
-  .score-lines div { min-height: 48px; display: flex; align-items: center; border-bottom: 1px solid var(--line); color: #4e4c47; font-size: 15px; }
-  .objective-card ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; margin-top: 14px; }
-  .objective-card li { min-height: 54px; padding: 13px 0 13px 22px; position: relative; border-bottom: 1px solid rgba(255, 255, 255, .22); color: rgba(255, 255, 255, .76); font-size: 15px; line-height: 1.45; }
-  .objective-card li::before,
-  .objective-card li::after { content: ""; position: absolute; left: 0; top: 1.42em; width: 8px; height: 1px; background: var(--red); }
-  .objective-card li::after { transform: rotate(90deg); }
-  .outcome-note { margin-top: 18px; padding: 22px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 6vw; align-items: end; color: #fff; background: var(--ink); border-left: 10px solid var(--mineral); }
-  .outcome-note .eyebrow { color: #fff; }
-  .outcome-note h3 { margin-top: 10px; color: #fff; font-size: clamp(1.65rem, 2.3vw, 2.35rem); line-height: 1.25; }
-  .outcome-note > p { color: rgba(255, 255, 255, .7); font-size: 15px; line-height: 1.62; }
-
-  .faq-section { border-top: 1px solid var(--ink); }
-  .faq-layout { display: grid; grid-template-columns: minmax(250px, .55fr) minmax(0, 1.45fr); gap: 8vw; align-items: start; }
-  .faq-title h2 { max-width: none; }
-  .qa-group-link {
-    width: fit-content;
-    margin-top: 24px;
-    padding-bottom: 5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--ink);
-    border-bottom: 1px solid var(--ink);
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 750;
-    text-decoration: none;
-  }
-  .qa-group-link:hover { color: #a53a22; border-color: #a53a22; }
-  .qa-group-link .shape-icon { width: 12px; height: 12px; }
-  .qa-group-qr {
-    width: min(240px, 100%);
-    margin-top: 22px;
-    display: block;
-    border: 1px solid var(--ink);
-    background: #fff;
-  }
-  .faq-list { border-top: 1px solid var(--ink); }
-  .faq-list details { border-bottom: 1px solid var(--ink); }
-  .faq-list summary { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--ink); cursor: pointer; list-style: none; font-size: 18px; line-height: 1.4; font-weight: 700; }
-  .faq-list summary::-webkit-details-marker { display: none; }
-  .faq-list .faq-toggle { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid var(--ink); transition: transform .2s ease, color .2s ease, background .2s ease; }
-  .faq-list details[open] .faq-toggle { transform: rotate(45deg); color: var(--ink); background: var(--mineral); }
-  .faq-list details > p { max-width: 760px; padding: 0 52px 24px 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
-
-  .apply-section { position: relative; padding: clamp(40px, 4vw, 64px) 0; color: var(--ink); background: var(--salmon-light); border-top: 1px solid var(--ink); }
-  .apply-inner { display: flex; flex-direction: column; align-items: flex-start; }
-  .apply-inner .eyebrow.light { color: var(--ink); }
-  .apply-inner .eyebrow::before { background: var(--ink); }
-  .apply-inner h2 { max-width: 12ch; margin: 18px 0 22px; color: var(--ink); font-size: clamp(2.8rem, 4.4vw, 4.5rem); line-height: .9; letter-spacing: -.055em; }
-  .apply-inner > p { max-width: 760px; color: rgba(10, 10, 10, .75); font-size: 17px; line-height: 1.62; }
-  .apply-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .apply-actions a { min-height: 52px; padding: 0 20px; display: inline-flex; align-items: center; gap: 34px; color: var(--ink); background: transparent; border: 1px solid var(--ink); font-size: 15px; font-weight: 750; text-decoration: none; }
-  .apply-actions a.apply-primary { color: var(--ink); background: var(--red); border-color: var(--red); }
-  .apply-actions a.apply-primary:hover { background: #ff6a43; border-color: #ff6a43; }
-  .apply-inner small { margin-top: 14px; display: flex; align-items: center; gap: 9px; color: rgba(10, 10, 10, .68); font-size: 14px; line-height: 1.4; }
-  .apply-inner small span { background: var(--ink); }
-
-  .selected-projects-note { margin-bottom: 18px; color: var(--muted); font-size: 14px; }
-  .selected-projects-head h2 { max-width: 20ch; font-size: clamp(2.2rem, 3.4vw, 3.5rem); }
-  .selected-project-card { background: #fff; }
-  .open-call { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
-  .open-call h3 { margin: 12px 0; color: var(--ink); font-size: clamp(1.6rem, 2.4vw, 2.4rem); line-height: 1.25; }
-  .open-call p:not(.eyebrow) { max-width: 760px; color: var(--muted); font-size: 16px; line-height: 1.7; }
-  .open-call-actions { display: flex; flex-direction: column; gap: 12px; }
-  .open-call-actions a { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 20px; color: var(--ink); font-size: 15px; text-decoration: none; border: 1px solid var(--line); }
-  .open-call-actions a.open-call-primary { color: var(--ink); background: var(--red); border-color: var(--red); }
-  .open-call-actions a:hover { background: var(--mineral); color: var(--ink); }
-  .spotlight-page a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
-  #about, #selected-projects { scroll-margin-top: 130px; }
+  .shenzhen-results-page { color: #171918; background: #f4f3ef; font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .program-shell { width: min(1200px, calc(100% - 96px)); margin: 0 auto; }
+  .topic-section { padding: 38px 0; border-block: 1px solid #d7d8d1; background: #e7edf1; scroll-margin-top: 90px; }
+  .topic-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; align-items: center; }
+  .topic-label { margin: 0 0 12px; color: #40596d; font-size: 12px; font-weight: 800; letter-spacing: .1em; }
+  .topic-layout h2 { margin: 0; color: #171918; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.25; font-weight: 650; letter-spacing: -.035em; }
+  .topic-text { margin: 0; color: #454846; font-size: 16px; line-height: 1.65; }
+  .topic-tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 16px 0 0; list-style: none; }
+  .topic-tags li { padding: 5px 9px; border: 1px solid #b8c3cb; color: #40596d; font-size: 12px; line-height: 1.4; }
+  .archive-section { padding: 24px 0 48px; }
+  .program-archive { border: 1px solid #d7d8d1; background: #fafaf7; }
+  .program-archive > summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 24px; color: #5e625f; font-size: 15px; font-weight: 700; cursor: pointer; list-style: none; }
+  .program-archive > summary::-webkit-details-marker { display: none; }
+  .program-archive > summary:hover { color: #171918; background: #edf0e9; }
+  summary:focus-visible { outline: 3px solid #a53a22; outline-offset: 3px; }
+  .archive-toggle { font-size: 24px; line-height: 1; }
+  .program-archive[open] > summary .archive-toggle { transform: rotate(45deg); }
+  .archive-content { padding: 0 32px 24px; border-top: 1px solid #d7d8d1; color: #5e625f; font-size: 14px; line-height: 1.65; }
+  .archive-intro { margin: 20px 0; }
+  .archive-intro strong { color: #455b43; }
+  .archive-group { padding-block: 18px; border-top: 1px solid #d7d8d1; }
+  .archive-group h3 { margin: 0 0 12px; color: #454846; font-size: 18px; font-weight: 700; }
+  .archive-group p { margin: 10px 0; }
+  .archive-group ul { padding-left: 20px; list-style: disc; }
+  .archive-group dl { display: grid; gap: 12px; margin: 0; }
+  .archive-group dt { color: #454846; font-weight: 700; }
+  .archive-group dd { margin: 4px 0 0 16px; }
+  .archived-schedule { max-width: 650px; margin-top: 20px; padding: 16px; background: #40596d; }
+  .archive-faq { border-bottom: 1px solid #d7d8d1; }
+  .archive-faq > summary { padding-block: 10px; cursor: pointer; }
+  .archive-faq p { padding-left: 16px; }
   @media (max-width: 760px) {
-    .open-call { grid-template-columns: 1fr; }
-    .spot-section.selected-projects { padding-block: 48px; }
-    .selected-projects .selected-projects-head { margin-bottom: 32px; }
-    .selected-project-info { min-height: 0; padding: 20px; }
-    .selected-projects-head { grid-template-columns: 1fr; gap: 24px; }
-    .selected-badge { width: 150px; }
-    .selected-projects-copy .section-intro { margin-top: 18px; }
-    .selected-projects-head h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .selected-projects-confetti { display: none; }
-  }
-
-  @media (max-width: 1100px) {
-    .spotlight-container { width: min(100% - 56px, 1440px); }
-    .hero-copy { width: min(660px, 72vw); }
-    .hero-copy h1 { font-size: clamp(4rem, 8vw, 6rem); }
-    .hero-footer { grid-template-columns: 1fr; gap: 15px; }
-    .hero-registration { width: min(100%, 460px); }
-    .split-head { grid-template-columns: 1fr; gap: 24px; }
-    .section-head h2 { max-width: 19ch; }
-    .benefit-grid { grid-template-columns: 1fr; }
-    .benefit-grid article { min-height: 0; border-right: 0; border-bottom: 1px solid var(--ink); }
-    .benefit-grid article:last-child { border-bottom: 0; }
-    .selected-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .selected-project-card:nth-child(2) { border-right: 0; }
-    .selected-project-card:nth-child(-n + 2) { border-bottom: 1px solid var(--ink); }
-  }
-
-  @media (max-width: 760px) {
-    :global(body[data-bg-nav="header-home"] .main-nav-bar) { padding-top: 10px; padding-bottom: 10px; }
-    .application-ribbon { top: 66px; height: 42px; grid-template-columns: auto minmax(0, 1fr); font-size: 1rem; }
-    .application-ribbon__status { gap: 7px; padding: 0 13px; }
-    .application-ribbon__status > span { width: 7px; height: 7px; box-shadow: 0 0 0 3px rgba(23, 25, 24, .14); }
-    .application-ribbon__item { gap: 28px; padding-left: 28px; }
-    :global(body[data-scrolling-started="true"][data-scrolling-direction="down"]) .application-ribbon { transform: translateY(-66px); }
-    .spotlight-container { width: calc(100% - 32px); }
-    .spot-section { padding: 36px 0; }
-    .section-head { margin-bottom: 24px; }
-    .section-head h2,
-    .faq-title h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
-    .sz-hero { min-height: 100svh; }
-    .hero-video { object-fit: cover; }
-    .hero-wash {
-      background:
-        linear-gradient(180deg, #080808 0%, rgba(8, 8, 8, .08) 34%, rgba(8, 8, 8, .08) 54%, #080808 100%),
-        linear-gradient(90deg, rgba(8, 8, 8, .84), transparent 76%);
-    }
-    .hero-inner { padding: 132px 0 20px; }
-    .hero-copy { width: 100%; }
-    .hero-copy h1 { max-width: 8.2ch; margin-top: 16px; font-size: clamp(3.2rem, 15vw, 4.6rem); line-height: .96; }
-    .hero-slogan { max-width: 30ch; margin-top: 15px; font-size: 1.125rem; line-height: 1.55; }
-    .hero-footer { gap: 12px; padding-top: 15px; }
-    .hero-meta { gap: 10px 20px; }
-    .hero-meta div,
-    .hero-meta div:first-child { min-height: auto; padding: 0; border: 0; font-size: 1.25rem; }
-    .hero-meta div:first-child { padding-left: 0; }
-    .hero-meta div:last-child { border-right: 0; }
-    .hero-actions { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(105px, .75fr); }
-    .spot-button { min-height: 46px; padding: 0 12px; gap: 10px; font-size: 14px; }
-    .form-grid-primary,
-    .stage-grid,
-    .score-grid { grid-template-columns: 1fr; }
-    .selected-project-grid { grid-template-columns: 1fr; }
-    .selected-project-card,
-    .selected-project-card:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--ink); }
-    .selected-project-card:last-child { border-bottom: 0; }
-    .selected-project-placeholder { aspect-ratio: 1.7; }
-    .form-grid-primary article,
-    .stage-card,
-    .subjective-card { border-right: 0; border-bottom: 1px solid var(--ink); }
-    .form-grid-primary article:last-child,
-    .stage-card:last-child { border-bottom: 0; }
-    .directions .section-head h2 { font-size: clamp(2rem, 9vw, 3rem); }
-    .directions .head-side { padding: 23px 22px; box-shadow: none; }
-    .form-grid-primary { box-shadow: none; }
-    .form-grid-primary article { min-height: 0; }
-    .stage-flow-icon { transform: rotate(90deg); }
-    .objective-card ul { grid-template-columns: 1fr; }
-    .outcome-note,
-    .faq-layout { grid-template-columns: 1fr; gap: 30px; }
-    .faq-list summary { font-size: 17px; }
-    .apply-inner h2 { font-size: clamp(2.6rem, 11vw, 3.5rem); }
-  }
-
-  @media (max-width: 520px) {
-    .application-ribbon__status { padding: 0 10px; }
-    .application-ribbon__status > span { display: none; }
-    .spotlight-container { width: calc(100% - 24px); }
-    .submission-action a { width: 100%; justify-content: space-between; }
-    .apply-actions { display: grid; width: 100%; }
-    .apply-actions a { width: 100%; justify-content: space-between; }
-    .stage-support ul { grid-template-columns: 1fr; }
-    .outcome-note { padding: 24px 20px; }
-  }
-
-  @media (max-height: 760px) and (min-width: 761px) {
-    .sz-hero { min-height: 680px; }
-    .hero-inner { padding-top: 126px; padding-bottom: 24px; }
-    .hero-copy h1 { font-size: clamp(3.7rem, 6vw, 5.8rem); }
-    .hero-slogan { margin-top: 16px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(html) { scroll-behavior: auto; }
-    .application-ribbon__track { animation: none; }
-    .spot-button,
-    .faq-list .faq-toggle { transition: none; }
+    .program-shell { width: calc(100% - 40px); }
+    .topic-layout { grid-template-columns: 1fr; gap: 18px; }
+    .topic-text { font-size: 14px; }
+    .program-archive > summary { padding: 16px; font-size: 14px; }
+    .archive-content { padding: 0 20px 16px; }
+    .archived-schedule { padding: 8px; }
   }
 </style>
