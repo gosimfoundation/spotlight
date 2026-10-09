@@ -79,6 +79,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "第三红岸 Redbank III",
+    image: "/images/shenzhen2026/projects/redbank-iii.jpeg",
+    imageFit: "contain",
     url: "https://redbank-iii.org/sim/",
     description: {
       zh: "会自己值守的开源望远镜集群，由 AI Agent 接收天文警报、调度分布各地的低成本节点协同观测。",
@@ -110,6 +112,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "PhyAgentOS",
+    image: "/images/shenzhen2026/projects/phyagentos.png",
+    imageFit: "contain",
     url: "https://phy-agent-os.x-era.com/",
     description: {
       zh: "面向物理 Agent 的开源运行框架，支持异构机器人接入、Skill 组合，以及执行、反思和改进。",
@@ -119,6 +123,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Meiso Glass",
+    image: "/images/shenzhen2026/projects/meiso.png",
+    imageFit: "contain",
     url: "https://drive.google.com/file/d/1McSmbIymFyLMlMP6jSEKJtLBvM3ihgrt/view",
     description: {
       zh: "面向日常 AI 助手的无线分体式 AR 平台，探索物体识别、空间面板、语音交互与更轻的佩戴体验。",
@@ -150,6 +156,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Mira Light",
+    image: "/images/shenzhen2026/projects/mira.jpeg",
     url: "https://mira-light.notion.site/lunchbox",
     description: {
       zh: "面向桌面场景的灯形陪伴机器人，通过多模态感知与拟人化运动，探索更自然的人机互动。",
