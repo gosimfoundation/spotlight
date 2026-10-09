@@ -53,7 +53,6 @@ const showProjectPhotos = false;
       ))}
     </ol>
     <div class="selection-footer">
-      <div><span class="closed-status">{c.status}</span><p>{c.closed}</p></div>
       <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">
         {c.conference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
       </a>
@@ -104,9 +103,7 @@ const showProjectPhotos = false;
   .selected-project-info h3 { margin: 0; color: var(--selection-ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
   .selected-project-info p { margin: 12px 0 0; color: var(--selection-muted); font-size: 14px; line-height: 1.6; }
   .selected-project-info a { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 20px; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; }
-  .selection-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(23,25,24,.22); }
-  .closed-status { display: inline-flex; padding: 5px 9px; border: 1px solid #40596d; color: #40596d; background: #e7edf1; font-size: 13px; font-weight: 750; line-height: 1.4; }
-  .selection-footer p { margin: 10px 0 0; color: var(--selection-muted); font-size: 14px; line-height: 1.6; }
+  .selection-footer { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(23,25,24,.22); }
   .selection-footer > a { display: inline-flex; align-items: center; gap: 24px; padding: 14px 20px; border: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 15px; font-weight: 750; text-decoration: none; }
   .selected-projects a:hover { color: #a53a22; border-color: #a53a22; }
   .selected-projects a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }

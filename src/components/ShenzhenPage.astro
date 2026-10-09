@@ -328,27 +328,16 @@ const content = {
 } as const;
 
 const selection = shenzhenSelectionCopy[locale];
-const announcement = {
-  zh: "本届入选名单已公布 · GOSIM Shenzhen 2026",
-  en: "Selected projects announced · GOSIM Shenzhen 2026",
-  fr: "La sélection est annoncée · GOSIM Shenzhen 2026",
-}[locale];
 const c = {
   ...content[locale],
   metaDesc: selection.description,
   heroSecondary: selection.viewSelection,
-  ribbonStatus: selection.status,
-  ribbonDeadline: announcement,
+  ribbonDeadline: `${content[locale].meta[0]} · ${content[locale].meta[1]}`,
   ribbonCta: selection.viewSelection,
-  meta: [content[locale].meta[0], content[locale].meta[1], selection.status],
+  meta: [content[locale].meta[0], content[locale].meta[1]],
   submitTitle: { zh: "本届征集材料", en: "Original application materials", fr: "Dossier de candidature initial" }[locale],
   submitText: selection.archiveIntro,
-  faqs: content[locale].faqs.map((faq, index) => index === content[locale].faqs.length - 1
-    ? [faq[0], `${selection.closedDescription} ${faq[1]}`]
-    : faq),
-  applyText: selection.closedDescription,
   applyButton: selection.viewSelection,
-  applyHint: selection.status,
 };
 const sectionTitle = (text: string) => text.split("\n");
 const selectionPath = "#selected-projects";
@@ -366,11 +355,7 @@ const selectionPath = "#selected-projects";
   footerVariant="spotlight"
 >
   <div class="spotlight-page monolith-page">
-    <a class="application-ribbon" href={selectionPath} aria-label={`${c.ribbonStatus}。${c.ribbonDeadline}。${c.ribbonCta}`}>
-      <div class="application-ribbon__status">
-        <span aria-hidden="true"></span>
-        {c.ribbonStatus}
-      </div>
+    <a class="application-ribbon" href={selectionPath} aria-label={`${c.ribbonDeadline}。${c.ribbonCta}`}>
       <div class="application-ribbon__marquee" aria-label={c.ribbonDeadline}>
         <div class="application-ribbon__track" aria-hidden="true">
           {Array.from({ length: 6 }).map(() => (
@@ -420,9 +405,8 @@ const selectionPath = "#selected-projects";
           <div class="hero-registration">
           <div class="hero-actions">
             <a class="spot-button primary" href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.heroConference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
-            <a class="spot-button ghost" href={selectionPath} aria-describedby="application-note">{c.heroSecondary}</a>
+            <a class="spot-button ghost" href={selectionPath}>{c.heroSecondary}</a>
           </div>
-          <div class="application-note" id="application-note"><span class="closed-application-status">{selection.status}</span><p>{selection.closed}</p></div>
           </div>
         </div>
       </div>
@@ -497,7 +481,6 @@ const selectionPath = "#selected-projects";
           {c.materials.map((item) => <li>{item}</li>)}
         </ul>
         <div class="submission-action">
-          <span class="submission-closed" aria-disabled="true">{selection.status}</span>
           <div class="archived-deadlines"><ShenzhenDeadlines locale={locale} /></div>
         </div>
           </div>
@@ -607,12 +590,10 @@ const selectionPath = "#selected-projects";
       <div class="spotlight-container apply-inner">
         <p class="eyebrow light">{c.applyEyebrow}</p>
         <h2>{sectionTitle(c.applyTitle).map((line) => <>{line}<br /></>)}</h2>
-        <p>{c.applyText}</p>
         <div class="apply-actions">
           <a class="apply-primary" href={selectionPath}>{c.applyButton}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
           <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">{c.conference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
         </div>
-        <small><span></span>{c.applyHint}</small>
       </div>
     </section>
   </div>
@@ -699,7 +680,7 @@ const selectionPath = "#selected-projects";
     width: 100%;
     height: 46px;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: stretch;
     color: var(--ink);
     background: var(--ribbon-bg);
@@ -876,7 +857,6 @@ const selectionPath = "#selected-projects";
   .spot-button.ghost { color: var(--ink); border-color: var(--red); background: var(--red); }
   .spot-button.ghost:hover { color: var(--ink); border-color: #fff; background: #fff; }
   .hero-registration { min-width: 0; }
-  .application-note { margin-top: 14px; }
   .apply-inner small span { width: 8px; height: 8px; flex: 0 0 auto; background: var(--red); }
 
   .benefits { background: var(--paper); border-bottom: 1px solid var(--ink); }
@@ -1215,8 +1195,6 @@ const selectionPath = "#selected-projects";
     .faq-list .faq-toggle { transition: none; }
   }
 
-  .closed-application-status { display: inline-block; padding: 5px 9px; border: 1px solid rgba(255,255,255,.55); color: #fff; font-size: 14px; font-weight: 750; }
-  .application-note p { margin: 8px 0 0; color: #e0e8e2; font-size: 14px; line-height: 1.5; }
   .secondary-details { border: 1px solid var(--line); }
   .submission, .faq-section { padding-block: 32px; }
   .secondary-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 24px; color: var(--mineral-deep); font-size: 17px; font-weight: 750; cursor: pointer; list-style: none; }
@@ -1226,7 +1204,6 @@ const selectionPath = "#selected-projects";
   .secondary-details[open] > summary { border-bottom: 1px solid var(--line); }
   .secondary-details[open] > summary .shape-icon { transform: rotate(45deg); }
   .secondary-details-content { padding: 24px; }
-  .submission-closed { display: inline-flex; padding: 12px 20px; border: 1px solid var(--mineral-deep); background: var(--mist); color: var(--mineral-deep); font-size: 15px; font-weight: 750; }
   .archived-deadlines { max-width: 650px; margin-top: 20px; padding: 16px; background: var(--mineral-deep); }
   @media (max-width: 760px) { .secondary-details-content { padding: 20px 16px; } .secondary-details > summary { padding: 18px 16px; } }
 </style>
