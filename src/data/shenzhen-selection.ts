@@ -5,7 +5,6 @@ interface SelectedProject {
   url: string;
   image?: string;
   imagePosition?: string;
-  imageFit?: "cover" | "contain";
   description: Record<Locale, string>;
 }
 
@@ -80,7 +79,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "第三红岸 Redbank III",
     image: "/images/shenzhen2026/projects/redbank-iii.jpeg",
-    imageFit: "contain",
     url: "https://redbank-iii.org/sim/",
     description: {
       zh: "会自己值守的开源望远镜集群，由 AI Agent 接收天文警报、调度分布各地的低成本节点协同观测。",
@@ -91,7 +89,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "橘一下 reset",
     image: "/images/shenzhen2026/projects/cat-idle.jpg",
-    imageFit: "contain",
     url: "https://www.resetcat.xyz/#real-demo",
     description: {
       zh: "通过语音、视觉和实体交互，把用户的注意力从屏幕带回身体与现实世界的 Transition Agent。",
@@ -102,7 +99,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "虾盘 Xiapan USB",
     image: "/images/shenzhen2026/projects/usb.jpg",
-    imageFit: "contain",
+    imagePosition: "center 75%",
     url: "https://usb.u-claw.org.cn/",
     description: {
       zh: "把 AI 维护员装进 U 盘，读取电脑真实状态、调用维护工具，并让对话、报告和设置随盘带走。",
@@ -113,7 +110,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "PhyAgentOS",
     image: "/images/shenzhen2026/projects/phyagentos.png",
-    imageFit: "contain",
     url: "https://phy-agent-os.x-era.com/",
     description: {
       zh: "面向物理 Agent 的开源运行框架，支持异构机器人接入、Skill 组合，以及执行、反思和改进。",
@@ -124,7 +120,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Meiso Glass",
     image: "/images/shenzhen2026/projects/meiso.png",
-    imageFit: "contain",
     url: "https://drive.google.com/file/d/1McSmbIymFyLMlMP6jSEKJtLBvM3ihgrt/view",
     description: {
       zh: "面向日常 AI 助手的无线分体式 AR 平台，探索物体识别、空间面板、语音交互与更轻的佩戴体验。",
@@ -135,7 +130,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Ingora · Qrio",
     image: "/images/shenzhen2026/projects/ingora.jpeg",
-    imageFit: "contain",
     url: "https://www.alipan.com/s/NUPgSx13cmG",
     description: {
       zh: "面向 6–12 岁儿童的语音优先 AI 口语学伴，根据语言水平、兴趣和学习状态提供个性化练习。",
@@ -146,7 +140,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "PoopSense 便知",
     image: "/images/shenzhen2026/projects/poopsense.webp",
-    imageFit: "contain",
     url: "https://poopsense.org/",
     description: {
       zh: "面向家庭的马桶侧传感设备与 AI Agent，减少手动记录负担，将排便特征转化为直观记录和长期回看。",
@@ -167,7 +160,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Octos Learn",
     image: "/images/shenzhen2026/projects/octoslearn.png",
-    imageFit: "contain",
     url: "https://learn.pitun.cc",
     description: {
       zh: "结合语音提问、手写与摄像头输入的 AI 数学白板，将讲解转成可探索的交互式可视化。",
@@ -178,7 +170,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Agentero",
     image: "/images/shenzhen2026/projects/agentero.png",
-    imageFit: "contain",
     url: "https://agentero.app",
     description: {
       zh: "面向科研阅读的 Agent 友好文献阅读器，让 AI Agent 参与文献阅读的完整流程。",

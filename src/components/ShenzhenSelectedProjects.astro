@@ -33,12 +33,13 @@ const c = shenzhenSelectionCopy[locale];
       {shenzhenSelectedProjects.map((project, index) => (
         <li>
           <article class="selection-card selected-project-card">
-            {project.image && <div class:list={["selected-project-media", { "selected-project-media--contain": project.imageFit === "contain", "selected-project-media--xlerobot": project.name === "XLeRobot" }]}>
-              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}; object-fit: ${project.imageFit || "cover"}`} />
+            {project.image && <div class:list={["selected-project-media", { "selected-project-media--xlerobot": project.name === "XLeRobot" }]}>
+              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}`} />
               <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{project.name}</h3>
             </div>}
             <div class="selected-project-info">
-              <h3>{project.name}</h3>
+              {!project.image && <h3>{project.name}</h3>}
               <p>{project.description[locale]}</p>
               <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.projectLink} · ${project.name}`}>
                 <span class="project-link-label">{c.projectLink}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
@@ -79,29 +80,27 @@ const c = shenzhenSelectionCopy[locale];
   .selection-date { margin: 18px 0 0; color: #40596d; font-size: 14px; font-weight: 750; line-height: 1.5; }
   .selected-projects-note { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 18px; color: var(--selection-muted); font-size: 13px; line-height: 1.5; }
   .selected-projects-note strong { color: var(--selection-ink); font-size: 18px; font-weight: 750; }
-  .selected-project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 1px; background: var(--selection-ink); list-style: none; }
-  .selected-project-grid > li { min-width: 0; background: #fff; }
-  .selected-project-card { display: flex; flex-direction: column; height: 100%; min-width: 0; background: #fff; }
-  .selected-project-media { position: relative; flex-shrink: 0; aspect-ratio: 1.35; overflow: hidden; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; background: #e8e7e2; }
-  .selected-project-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.5)); }
+  .selected-project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; margin: 0; padding: 0; list-style: none; }
+  .selected-project-grid > li { min-width: 0; }
+  .selected-project-card { display: flex; flex-direction: column; height: 100%; min-width: 0; overflow: hidden; border: 1px solid rgba(23,25,24,.35); background: #fff; box-shadow: 0 4px 14px rgba(23,25,24,.04); }
+  .selected-project-media { position: relative; flex-shrink: 0; aspect-ratio: 4 / 3; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; background: #fffdf8; }
+  .selected-project-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 30%, rgba(0,0,0,.12) 50%, rgba(0,0,0,.88)); }
   .selected-project-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .selected-project-media--xlerobot img { filter: brightness(1.28) contrast(.92); }
-  .selected-project-media--xlerobot::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,.22)); }
-  .project-number { position: relative; z-index: 1; margin-top: auto; color: #fff; text-shadow: 0 1px 7px rgba(0,0,0,.6); font-size: clamp(2.8rem, 4vw, 4.8rem); font-weight: 800; line-height: .85; letter-spacing: -.07em; }
-  .selected-project-media--contain { background: #fffdf8; }
-  .selected-project-media--contain::after { display: none; }
-  .selected-project-media--contain .project-number { padding: 4px 6px; background: rgba(23,25,24,.8); font-size: 20px; line-height: 1; text-shadow: none; letter-spacing: 0; }
-  .selected-project-info { flex: 1; min-height: 218px; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; }
-  .selected-project-media + .selected-project-info { border-top: 1px solid var(--selection-ink); }
+  .project-number { position: relative; z-index: 1; padding: 5px 8px; background: rgba(23,25,24,.75); color: #fff; font-size: 18px; font-weight: 800; line-height: 1; letter-spacing: .02em; }
+  .selected-project-media h3 { position: relative; z-index: 1; width: 100%; margin: 28px 0 0; color: #fff; font-size: clamp(1.3rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; text-shadow: 0 1px 5px rgba(0,0,0,.4); }
+  .selected-project-info { flex: 1; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; }
   .selected-project-info h3 { margin: 0; color: var(--selection-ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
-  .selected-project-info p { margin: 12px 0 0; color: var(--selection-muted); font-size: 14px; line-height: 1.6; }
-  .selected-project-info a { display: inline-flex; width: max-content; max-width: 100%; flex: 0 0 auto; align-items: center; gap: 8px; margin-top: auto; padding-top: 20px; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; white-space: nowrap; }
+  .selected-project-info p { margin: 0 0 20px; color: var(--selection-muted); font-size: 14px; line-height: 1.7; }
+  .selected-project-info h3 + p { margin-top: 12px; }
+  .selected-project-info a { display: inline-flex; width: max-content; max-width: 100%; flex: 0 0 auto; align-items: center; gap: 8px; margin-top: auto; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; white-space: nowrap; }
   .project-link-label, .selected-project-info a .shape-icon { flex: 0 0 auto; white-space: nowrap; }
   .selection-footer { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(23,25,24,.22); }
   .selection-footer > a { display: inline-flex; align-items: center; gap: 24px; padding: 14px 20px; border: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 15px; font-weight: 750; text-decoration: none; }
   .selected-projects a:hover { color: #a53a22; border-color: #a53a22; }
   .selected-projects a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .selected-projects .shape-icon { width: 11px; height: 11px; }
+  @media (max-width: 1280px) { .selected-project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 1100px) { .selection-shell { width: calc(100% - 56px); } .selected-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 760px) {
     .selected-projects { padding-block: 48px; }
@@ -110,10 +109,9 @@ const c = shenzhenSelectionCopy[locale];
     .selected-badge { width: 200px; }
     .selected-projects-copy h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
     .selection-description { font-size: 16px; }
-    .selected-project-grid { grid-template-columns: 1fr; }
-    .selected-project-media { aspect-ratio: 1.7; }
-    .selected-project-info { min-height: 190px; padding: 20px; }
-    .project-number { font-size: 4.4rem; }
+    .selected-project-grid { grid-template-columns: 1fr; gap: 28px; }
+    .selected-project-media h3 { font-size: 25px; }
+    .selected-project-info { padding: 20px; }
     .selection-footer { align-items: flex-start; }
   }
   @media (prefers-reduced-motion: reduce) { .selected-projects-confetti { display: none; } }
