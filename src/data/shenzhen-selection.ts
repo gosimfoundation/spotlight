@@ -193,7 +193,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
     name: "AI视觉创意大赛“瓦卡奖”",
     image: "/images/shenzhen2026/vacat-2026.jpeg",
     imagePosition: "center top",
-    imageFit: "contain",
+    imageFit: "cover",
     url: "https://www.lg.gov.cn/gab/zwdt/content/post_12890791.html",
     description: {
       zh: "聚焦 AI 视觉创作的赛事与交流平台，以“一赛、一汇、一坊”连接创作者、艺术家、技术专家与产业机构，推动技术创新与创意应用。",
