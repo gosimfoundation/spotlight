@@ -3,7 +3,6 @@ import Layout from "layouts/Layout.astro";
 import ShenzhenDeadlines from "./ShenzhenDeadlines.astro";
 import ShenzhenBadge from "./ShenzhenBadge.astro";
 import ShenzhenSelectedProjects from "./ShenzhenSelectedProjects.astro";
-import VacatShowcase from "./VacatShowcase.astro";
 import { shenzhenSelectionCopy } from "../data/shenzhen-selection";
 import type { Locale } from "../i18n/translations";
 
@@ -414,7 +413,6 @@ const selectionPath = "#selected-projects";
     </section>
 
     <ShenzhenSelectedProjects locale={locale} />
-    <VacatShowcase locale={locale} />
 
     <section class="spot-section directions" id="about" data-theme-section="light">
       <div class="spotlight-container">

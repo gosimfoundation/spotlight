@@ -33,8 +33,8 @@ const c = shenzhenSelectionCopy[locale];
       {shenzhenSelectedProjects.map((project, index) => (
         <li>
           <article class="selection-card selected-project-card">
-            {project.image && <div class:list={["selected-project-media", { "selected-project-media--xlerobot": project.name === "XLeRobot" }]}>
-              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}`} />
+            {project.image && <div class:list={["selected-project-media", { "selected-project-media--xlerobot": project.name === "XLeRobot", "selected-project-media--contain": project.imageFit === "contain" }]}>
+              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}; object-fit: ${project.imageFit || "cover"}`} />
               <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               <h3>{project.name}</h3>
             </div>}
@@ -87,6 +87,7 @@ const c = shenzhenSelectionCopy[locale];
   .selected-project-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 30%, rgba(0,0,0,.12) 50%, rgba(0,0,0,.88)); }
   .selected-project-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .selected-project-media--xlerobot img { filter: brightness(1.28) contrast(.92); }
+  .selected-project-media--contain { background: #071025; }
   .project-number { position: relative; z-index: 1; padding: 5px 8px; background: rgba(23,25,24,.75); color: #fff; font-size: 18px; font-weight: 800; line-height: 1; letter-spacing: .02em; }
   .selected-project-media h3 { position: relative; z-index: 1; width: 100%; margin: 28px 0 0; color: #fff; font-size: clamp(1.3rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; text-shadow: 0 1px 5px rgba(0,0,0,.4); }
   .selected-project-info { flex: 1; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; }

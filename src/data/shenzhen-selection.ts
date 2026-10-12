@@ -5,6 +5,7 @@ interface SelectedProject {
   url: string;
   image?: string;
   imagePosition?: string;
+  imageFit?: "cover" | "contain";
   description: Record<Locale, string>;
 }
 
@@ -188,12 +189,24 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
       fr: "Un mini chien robot programmable pour l’éducation STEM et l’IA physique, avec quatre servomoteurs pour des mouvements agiles et la personnalisation.",
     },
   },
+  {
+    name: "AI视觉创意大赛“瓦卡奖”",
+    image: "/images/shenzhen2026/vacat-2026.jpeg",
+    imagePosition: "center top",
+    imageFit: "contain",
+    url: "https://www.lg.gov.cn/gab/zwdt/content/post_12890791.html",
+    description: {
+      zh: "聚焦 AI 视觉创作的赛事与交流平台，以“一赛、一汇、一坊”连接创作者、艺术家、技术专家与产业机构，推动技术创新与创意应用。",
+      en: "An AI visual creativity competition and exchange platform, connecting creators, artists, technical experts, and industry through contests, forums, and workshops.",
+      fr: "Un concours et une plateforme d’échange pour la création visuelle par IA, réunissant créateurs, artistes, experts techniques et acteurs de l’industrie autour de concours, forums et ateliers.",
+    },
+  },
 ];
 
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
-    description: "17 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手，探索下一代 AI 原生产品。",
+    description: "18 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
     count: "个入选项目",
     note: "名单展示顺序不代表排名",
     topic: "下一代 AI 原生产品",
@@ -208,7 +221,7 @@ export const shenzhenSelectionCopy = {
   },
   en: {
     title: "Selected projects. Center stage.",
-    description: "Meet the 17 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products through robotics, smart devices, and everyday AI assistants.",
+    description: "Meet the 18 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
     count: "selected projects",
     note: "Display order does not indicate ranking",
     topic: "Next-generation AI-native products",
@@ -223,7 +236,7 @@ export const shenzhenSelectionCopy = {
   },
   fr: {
     title: "Les projets sélectionnés à l’honneur.",
-    description: "Découvrez les 17 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents et assistants IA du quotidien.",
+    description: "Découvrez les 18 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
     count: "projets sélectionnés",
     note: "L’ordre d’affichage ne constitue pas un classement",
     topic: "Produits natifs IA de nouvelle génération",
