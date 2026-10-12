@@ -177,12 +177,23 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
       fr: "Un lecteur d’articles scientifiques conçu pour intégrer les agents IA dans tout le parcours de lecture.",
     },
   },
+  {
+    name: "Petoi Quaddle",
+    image: "/images/shenzhen2026/projects/petoi-quaddle.png",
+    imagePosition: "center",
+    url: "https://www.kickstarter.com/projects/petoi/quaddle-open-source-desktop-robot-kit/",
+    description: {
+      zh: "面向 STEM 教育与 Physical AI 实验的可编程迷你机器狗，用 4 个舵机实现行走、横移、旋转和翻转，支持创意定制。",
+      en: "A programmable mini robot dog for STEM and Physical AI, using just four servos for agile movement and hands-on customization.",
+      fr: "Un mini chien robot programmable pour l’éducation STEM et l’IA physique, avec quatre servomoteurs pour des mouvements agiles et la personnalisation.",
+    },
+  },
 ];
 
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
-    description: "16 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手，探索下一代 AI 原生产品。",
+    description: "17 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手，探索下一代 AI 原生产品。",
     count: "个入选项目",
     note: "名单展示顺序不代表排名",
     topic: "下一代 AI 原生产品",
@@ -197,7 +208,7 @@ export const shenzhenSelectionCopy = {
   },
   en: {
     title: "Selected projects. Center stage.",
-    description: "Meet the 16 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products through robotics, smart devices, and everyday AI assistants.",
+    description: "Meet the 17 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products through robotics, smart devices, and everyday AI assistants.",
     count: "selected projects",
     note: "Display order does not indicate ranking",
     topic: "Next-generation AI-native products",
@@ -212,7 +223,7 @@ export const shenzhenSelectionCopy = {
   },
   fr: {
     title: "Les projets sélectionnés à l’honneur.",
-    description: "Découvrez les 16 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents et assistants IA du quotidien.",
+    description: "Découvrez les 17 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents et assistants IA du quotidien.",
     count: "projets sélectionnés",
     note: "L’ordre d’affichage ne constitue pas un classement",
     topic: "Produits natifs IA de nouvelle génération",
