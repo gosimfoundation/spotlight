@@ -3,6 +3,7 @@ import { Picture } from "astro:assets"
 import Layout from "layouts/Layout.astro"
 import SpotlightHero from "components/SpotlightHero.astro"
 import ShenzhenSelectedProjects from "./ShenzhenSelectedProjects.astro"
+import VacatShowcase from "./VacatShowcase.astro"
 import GosimDelft from "images/homepage/gosim-delft.png"
 import GosimParis2 from "images/homepage/gosim-paris2025.png"
 import GosimHangzhou from "images/homepage/gosim-hangzhou.png"
@@ -99,6 +100,7 @@ const benefits = [
   />
 
   <ShenzhenSelectedProjects locale={locale} />
+  <VacatShowcase locale={locale} />
 
   <section
     class="home-section current-spotlight"
