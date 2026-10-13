@@ -2,7 +2,7 @@ import type { Locale } from "../i18n/translations";
 
 interface SelectedProject {
   name: string;
-  showcaseDay: 1 | 2;
+  showcaseDay?: 1 | 2;
   showcaseOrder?: number;
   url: string;
   image?: string;
@@ -25,6 +25,28 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
       zh: "在本地识别鸟鸣，并在电子墨水相框上呈现对应鸟类的自然史插画。",
       en: "An e-ink picture frame that identifies birdsong locally and displays natural-history illustrations.",
       fr: "Un cadre à encre électronique qui reconnaît les chants d’oiseaux localement et affiche des illustrations naturalistes.",
+    },
+  },
+  {
+    name: "Tiny Engineer",
+    image: "/images/shenzhen2026/projects/tiny-engineer.png",
+    imagePosition: "center",
+    url: "https://github.com/jamro/tiny-engineer",
+    description: {
+      zh: "把 AI 编程 Agent 的工作状态，转成桌面机器人的动作、表情、灯光和声音。",
+      en: "A desktop robot that turns a coding agent’s status into movements, expressions, lights, and sounds.",
+      fr: "Un robot de bureau qui traduit l’état d’un agent de programmation en mouvements, expressions, lumières et sons.",
+    },
+  },
+  {
+    name: "XLeRobot",
+    image: "/images/shenzhen2026/projects/xlerobot.png",
+    imagePosition: "center",
+    url: "https://xlerobot.readthedocs.io/en/latest/",
+    description: {
+      zh: "低成本开源双臂移动机器人，通过语音与视觉 Agent 执行导航、抓取和整理任务。",
+      en: "A low-cost, open-source mobile robot with two arms and a voice-and-vision agent for navigation and manipulation.",
+      fr: "Un robot mobile open source à deux bras, piloté par un agent vocal et visuel pour naviguer et manipuler des objets.",
     },
   },
   {
@@ -166,6 +188,16 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
     },
   },
   {
+    name: "Agentero",
+    image: "/images/shenzhen2026/projects/agentero.png",
+    url: "https://agentero.app",
+    description: {
+      zh: "面向科研阅读的 Agent 友好文献阅读器，让 AI Agent 参与文献阅读的完整流程。",
+      en: "An agent-friendly research-paper reader bringing AI agents into the full literature-reading workflow.",
+      fr: "Un lecteur d’articles scientifiques conçu pour intégrer les agents IA dans tout le parcours de lecture.",
+    },
+  },
+  {
     name: "Petoi Quaddle",
     showcaseDay: 1,
     showcaseOrder: 1,
@@ -240,9 +272,9 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
-    description: "15 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
+    description: "18 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
     count: "个入选项目",
-    note: "按两天演讲顺序展示，顺序不代表排名",
+    note: "名单展示顺序不代表排名",
     showcaseTitle: "Spotlight 项目演讲",
     showcaseTime: "12:30–13:30 · 北京时间（UTC+8）",
     showcaseRoom: "3 楼 · 伊敦 1 厅",
@@ -253,6 +285,7 @@ export const shenzhenSelectionCopy = {
     topic: "下一代 AI 原生产品",
     date: "2026 年 10 月 16—17 日 · 中国深圳",
     projectLink: "查看项目",
+    viewSchedule: "查看演讲日程",
     conference: "访问 GOSIM Shenzhen 2026",
     archive: "征集说明与原评选要求",
     archiveIntro: "以下保留原征集说明，供查阅。",
@@ -262,9 +295,9 @@ export const shenzhenSelectionCopy = {
   },
   en: {
     title: "Selected projects. Center stage.",
-    description: "Meet the 15 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
+    description: "Meet the 18 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
     count: "selected projects",
-    note: "Listed in presentation order across two days; not a ranking",
+    note: "Display order does not indicate ranking",
     showcaseTitle: "Spotlight project talks",
     showcaseTime: "12:30–13:30 · China Standard Time (UTC+8)",
     showcaseRoom: "3F · ADEN 1",
@@ -275,6 +308,7 @@ export const shenzhenSelectionCopy = {
     topic: "Next-generation AI-native products",
     date: "October 16–17, 2026 · Shenzhen, China",
     projectLink: "Explore project",
+    viewSchedule: "View presentation schedule",
     conference: "Visit GOSIM Shenzhen 2026",
     archive: "Open call & original selection requirements",
     archiveIntro: "The original program information is retained here for reference.",
@@ -284,9 +318,9 @@ export const shenzhenSelectionCopy = {
   },
   fr: {
     title: "Les projets sélectionnés à l’honneur.",
-    description: "Découvrez les 15 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
+    description: "Découvrez les 18 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
     count: "projets sélectionnés",
-    note: "Ordre de passage sur deux jours, sans classement",
+    note: "L’ordre d’affichage ne constitue pas un classement",
     showcaseTitle: "Présentations des projets Spotlight",
     showcaseTime: "12:30–13:30 · Heure de Chine (UTC+8)",
     showcaseRoom: "3e étage · ADEN 1",
@@ -297,6 +331,7 @@ export const shenzhenSelectionCopy = {
     topic: "Produits natifs IA de nouvelle génération",
     date: "16–17 octobre 2026 · Shenzhen, Chine",
     projectLink: "Découvrir le projet",
+    viewSchedule: "Voir le programme des présentations",
     conference: "Visiter GOSIM Shenzhen 2026",
     archive: "Appel à projets et critères de sélection initiaux",
     archiveIntro: "Les informations initiales du programme restent consultables ici.",

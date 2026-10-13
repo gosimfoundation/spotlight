@@ -1,14 +1,10 @@
 ---
-import { shenzhenSelectedProjects, shenzhenSelectionCopy, shenzhenShowcaseDays, shenzhenShowcaseTime, getShenzhenShowcaseSchedule } from "../data/shenzhen-selection";
+import { shenzhenSelectedProjects, shenzhenSelectionCopy } from "../data/shenzhen-selection";
 import type { Locale } from "../i18n/translations";
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const c = shenzhenSelectionCopy[locale];
-const showcaseDays = shenzhenShowcaseDays.map((day) => ({
-  ...day,
-  projects: getShenzhenShowcaseSchedule(day.day),
-}));
 ---
 
 <section class="selected-projects" id="selected-projects" data-theme-section="light" data-bg-section="light" aria-labelledby="selection-title">
@@ -33,61 +29,28 @@ const showcaseDays = shenzhenShowcaseDays.map((day) => ({
       <strong>{shenzhenSelectedProjects.length} {c.count}</strong>
       <span>{c.note}</span>
     </div>
-    {showcaseDays.map((day, dayIndex) => {
-      const numberOffset = showcaseDays.slice(0, dayIndex).reduce((count, previousDay) => count + previousDay.projects.length, 0);
-      return (
-        <section class="showcase-day" data-showcase-day={day.day} aria-labelledby={`showcase-day-${day.day}`}>
-          <div class="showcase-day-head">
-            <div>
-              <p class="showcase-day-eyebrow">{c.showcaseTitle}</p>
-              <h3 id={`showcase-day-${day.day}`}>{day.label[locale]}<span aria-hidden="true"> · </span><time datetime={day.date}>{day.dateLabel[locale]}</time></h3>
+    <ol class="selected-project-grid" aria-label={c.count}>
+      {shenzhenSelectedProjects.map((project, index) => (
+        <li>
+          <article class="selection-card selected-project-card" id={`selected-project-${index + 1}`}>
+            {project.image && <div class:list={["selected-project-media", { "selected-project-media--xlerobot": project.name === "XLeRobot", "selected-project-media--contain": project.imageFit === "contain" }]}>
+              <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}; object-fit: ${project.imageFit || "cover"}`} />
+              <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{project.name}</h3>
+            </div>}
+            <div class="selected-project-info">
+              {!project.image && <h3>{project.name}</h3>}
+              <p>{project.description[locale]}</p>
+              <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.projectLink} · ${project.name}`}>
+                <span class="project-link-label">{c.projectLink}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
+              </a>
             </div>
-            <div class="showcase-day-details">
-              <p>{c.showcaseTime}</p>
-              <p>{c.showcaseRoom} · {day.projects.length} {c.count}</p>
-            </div>
-          </div>
-          <table class="showcase-agenda">
-            <caption>{c.showcaseSchedule}</caption>
-            <thead><tr><th scope="col">{c.scheduleTime}</th><th scope="col">{c.scheduleProject}</th></tr></thead>
-            <tbody>
-              <tr class="showcase-introduction">
-                <td>{shenzhenShowcaseTime.startTime}–{shenzhenShowcaseTime.introductionEndTime}</td>
-                <th scope="row">{c.showcaseIntro}</th>
-              </tr>
-              {day.projects.map(({ project, startTime, endTime }, index) => (
-                <tr>
-                  <td><time datetime={`${day.date}T${startTime}:00+08:00`}>{startTime}</time>–<time datetime={`${day.date}T${endTime}:00+08:00`}>{endTime}</time></td>
-                  <th scope="row"><a href={`#showcase-project-${numberOffset + index + 1}`}>{project.name}</a></th>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <ol class="selected-project-grid" start={numberOffset + 1} aria-label={`${day.label[locale]} · ${c.showcaseTitle}`}>
-            {day.projects.map(({ project, startTime, endTime }, index) => (
-              <li>
-                <article class="selection-card selected-project-card" id={`showcase-project-${numberOffset + index + 1}`}>
-                  {project.image && <div class:list={["selected-project-media", { "selected-project-media--xlerobot": project.name === "XLeRobot", "selected-project-media--contain": project.imageFit === "contain" }]}>
-                    <img src={project.image} alt={project.name} loading="lazy" decoding="async" style={`object-position: ${project.imagePosition || "center"}; object-fit: ${project.imageFit || "cover"}`} />
-                    <span class="project-number" aria-hidden="true">{String(numberOffset + index + 1).padStart(2, "0")}</span>
-                    <h4>{project.name}</h4>
-                  </div>}
-                  <div class="selected-project-info">
-                    {!project.image && <h4>{project.name}</h4>}
-                    <p class="project-presentation-time">{startTime}–{endTime}</p>
-                    <p>{project.description[locale]}</p>
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${c.projectLink} · ${project.name}`}>
-                      <span class="project-link-label">{c.projectLink}</span><span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
-                    </a>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ol>
-        </section>
-      );
-    })}
+          </article>
+        </li>
+      ))}
+    </ol>
     <div class="selection-footer">
+      <a href="#schedule">{c.viewSchedule}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span></a>
       <a href="https://shenzhen2026.gosim.org" target="_blank" rel="noopener noreferrer">
         {c.conference}<span class="shape-icon shape-icon--arrow shape-icon--up-right" aria-hidden="true"></span>
       </a>
@@ -118,36 +81,20 @@ const showcaseDays = shenzhenShowcaseDays.map((day) => ({
   .selection-date { margin: 18px 0 0; color: #40596d; font-size: 14px; font-weight: 750; line-height: 1.5; }
   .selected-projects-note { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 18px; color: var(--selection-muted); font-size: 13px; line-height: 1.5; }
   .selected-projects-note strong { color: var(--selection-ink); font-size: 18px; font-weight: 750; }
-  .showcase-day + .showcase-day { margin-top: 48px; }
-  .showcase-day-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px 24px; margin-bottom: 24px; padding-top: 24px; border-top: 1px solid rgba(23,25,24,.22); }
-  .showcase-day-eyebrow { margin: 0 0 8px; color: #40596d; font-size: 13px; font-weight: 800; }
-  .showcase-day-head h3 { margin: 0; color: var(--selection-ink); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 750; line-height: 1.35; }
-  .showcase-day-details { color: var(--selection-muted); font-size: 13px; line-height: 1.65; text-align: right; }
-  .showcase-day-details p { margin: 0; }
-  .showcase-agenda { width: 100%; margin: 0 0 28px; border-collapse: collapse; color: var(--selection-ink); font-size: 14px; line-height: 1.5; }
-  .showcase-agenda caption { padding: 0 0 12px; color: #40596d; font-weight: 800; text-align: left; }
-  .showcase-agenda th, .showcase-agenda td { padding: 10px 14px; border-bottom: 1px solid rgba(23,25,24,.14); text-align: left; }
-  .showcase-agenda thead th { background: rgba(64,89,109,.06); color: var(--selection-muted); font-size: 12px; font-weight: 750; }
-  .showcase-agenda td { width: 160px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .showcase-agenda tbody th { font-weight: 650; }
-  .showcase-introduction { background: rgba(255,67,26,.04); }
-  .showcase-agenda a { color: inherit; text-decoration: none; }
-  .showcase-agenda a:hover { text-decoration: underline; }
   .selected-project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; margin: 0; padding: 0; list-style: none; }
   .selected-project-grid > li { min-width: 0; }
-  .selected-project-card { display: flex; flex-direction: column; height: 100%; min-width: 0; overflow: hidden; border: 1px solid rgba(23,25,24,.35); background: #fff; box-shadow: 0 4px 14px rgba(23,25,24,.04); scroll-margin-top: 130px; }
+  .selected-project-card { display: flex; flex-direction: column; height: 100%; min-width: 0; overflow: hidden; border: 1px solid rgba(23,25,24,.35); background: #fff; box-shadow: 0 4px 14px rgba(23,25,24,.04); }
   .selected-project-media { position: relative; flex-shrink: 0; aspect-ratio: 4 / 3; overflow: hidden; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; background: #fffdf8; }
   .selected-project-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 30%, rgba(0,0,0,.12) 50%, rgba(0,0,0,.88)); }
   .selected-project-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .selected-project-media--xlerobot img { filter: brightness(1.28) contrast(.92); }
   .selected-project-media--contain { background: #071025; }
   .project-number { position: relative; z-index: 1; padding: 5px 8px; background: rgba(23,25,24,.75); color: #fff; font-size: 18px; font-weight: 800; line-height: 1; letter-spacing: .02em; }
-  .selected-project-media h4 { position: relative; z-index: 1; width: 100%; margin: 28px 0 0; color: #fff; font-size: clamp(1.3rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; text-shadow: 0 1px 5px rgba(0,0,0,.4); }
+  .selected-project-media h3 { position: relative; z-index: 1; width: 100%; margin: 28px 0 0; color: #fff; font-size: clamp(1.3rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; text-shadow: 0 1px 5px rgba(0,0,0,.4); }
   .selected-project-info { flex: 1; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; }
-  .selected-project-info h4 { margin: 0; color: var(--selection-ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
+  .selected-project-info h3 { margin: 0; color: var(--selection-ink); font-size: clamp(1.25rem, 1.55vw, 1.7rem); font-weight: 700; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
   .selected-project-info p { margin: 0 0 20px; color: var(--selection-muted); font-size: 14px; line-height: 1.7; }
-  .selected-project-info .project-presentation-time { margin: 0 0 10px; color: #40596d; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .selected-project-info h4 + p { margin-top: 12px; }
+  .selected-project-info h3 + p { margin-top: 12px; }
   .selected-project-info a { display: inline-flex; width: max-content; max-width: 100%; flex: 0 0 auto; align-items: center; gap: 8px; margin-top: auto; border-bottom: 1px solid var(--selection-ink); color: var(--selection-ink); font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; white-space: nowrap; }
   .project-link-label, .selected-project-info a .shape-icon { flex: 0 0 auto; white-space: nowrap; }
   .selection-footer { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(23,25,24,.22); }
@@ -164,11 +111,8 @@ const showcaseDays = shenzhenShowcaseDays.map((day) => ({
     .selected-badge { width: 200px; }
     .selected-projects-copy h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
     .selection-description { font-size: 16px; }
-    .showcase-day-details { text-align: left; }
-    .showcase-agenda th, .showcase-agenda td { padding: 10px 8px; }
-    .showcase-agenda td { width: 120px; }
     .selected-project-grid { grid-template-columns: 1fr; gap: 28px; }
-    .selected-project-media h4 { font-size: 25px; }
+    .selected-project-media h3 { font-size: 25px; }
     .selected-project-info { padding: 20px; }
     .selection-footer { align-items: flex-start; }
   }
