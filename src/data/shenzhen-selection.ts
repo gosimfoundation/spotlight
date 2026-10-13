@@ -3,6 +3,7 @@ import type { Locale } from "../i18n/translations";
 interface SelectedProject {
   name: string;
   showcaseDay?: 1 | 2;
+  showcaseTime?: { startTime: string; endTime: string };
   showcaseOrder?: number;
   url: string;
   image?: string;
@@ -17,6 +18,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Fugleramme",
     showcaseDay: 1,
+    showcaseTime: { startTime: "12:42", endTime: "12:49" },
     showcaseOrder: 2,
     image: "/images/shenzhen2026/projects/fugleramme.png",
     imagePosition: "center 60%",
@@ -52,6 +54,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "很 Local 实时翻译",
     showcaseDay: 2,
+    showcaseTime: { startTime: "12:51", endTime: "12:59" },
     image: "/images/shenzhen2026/projects/hen-local.png",
     imagePosition: "center 44%",
     url: "https://henlocal.com/",
@@ -64,6 +67,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "VibeKeys",
     showcaseDay: 2,
+    showcaseTime: { startTime: "12:43", endTime: "12:51" },
     showcaseOrder: 2,
     image: "/images/shenzhen2026/projects/vibekeys-yellow.jpg",
     url: "https://vibekeys.dev",
@@ -76,6 +80,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "事务官座机",
     showcaseDay: 1,
+    showcaseTime: { startTime: "13:03", endTime: "13:10" },
     image: "/images/shenzhen2026/projects/shiwuguanzuoji.webp",
     imagePosition: "70% center",
     url: "https://www.aibooo.cn/",
@@ -88,6 +93,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "第三红岸 Redbank III",
     showcaseDay: 1,
+    showcaseTime: { startTime: "12:56", endTime: "13:03" },
     showcaseOrder: 4,
     image: "/images/shenzhen2026/projects/redbank-iii.jpeg",
     url: "https://redbank-iii.org/sim/",
@@ -100,6 +106,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "橘一下 reset",
     showcaseDay: 1,
+    showcaseTime: { startTime: "13:10", endTime: "13:17" },
     image: "/images/shenzhen2026/projects/cat-idle.jpg",
     url: "https://www.resetcat.xyz/#real-demo",
     description: {
@@ -111,6 +118,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "虾盘 Xiapan USB",
     showcaseDay: 1,
+    showcaseTime: { startTime: "13:17", endTime: "13:24" },
     image: "/images/shenzhen2026/projects/usb.jpg",
     imagePosition: "center 75%",
     url: "https://usb.u-claw.org.cn/",
@@ -123,6 +131,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "PhyAgentOS",
     showcaseDay: 1,
+    showcaseTime: { startTime: "13:24", endTime: "13:30" },
     image: "/images/shenzhen2026/projects/phyagentos.png",
     url: "https://phy-agent-os.x-era.com/",
     description: {
@@ -134,6 +143,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Meiso Glass",
     showcaseDay: 2,
+    showcaseTime: { startTime: "12:59", endTime: "13:07" },
     image: "/images/shenzhen2026/projects/meiso.png",
     url: "https://drive.google.com/file/d/1McSmbIymFyLMlMP6jSEKJtLBvM3ihgrt/view",
     description: {
@@ -145,6 +155,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Ingora · Qrio",
     showcaseDay: 2,
+    showcaseTime: { startTime: "13:07", endTime: "13:15" },
     image: "/images/shenzhen2026/projects/ingora.jpeg",
     url: "https://www.alipan.com/s/NUPgSx13cmG",
     description: {
@@ -156,6 +167,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "PoopSense 便知",
     showcaseDay: 2,
+    showcaseTime: { startTime: "13:15", endTime: "13:23" },
     image: "/images/shenzhen2026/projects/poopsense.webp",
     url: "https://poopsense.org/",
     description: {
@@ -167,6 +179,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Mira Light",
     showcaseDay: 2,
+    showcaseTime: { startTime: "13:23", endTime: "13:30" },
     image: "/images/shenzhen2026/projects/mira.jpeg",
     url: "https://mira-light.notion.site/lunchbox",
     description: {
@@ -178,6 +191,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Octos Learn",
     showcaseDay: 1,
+    showcaseTime: { startTime: "12:49", endTime: "12:56" },
     showcaseOrder: 3,
     image: "/images/shenzhen2026/projects/octoslearn.png",
     url: "https://learn.pitun.cc",
@@ -195,33 +209,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
       zh: "面向科研阅读的 Agent 友好文献阅读器，让 AI Agent 参与文献阅读的完整流程。",
       en: "An agent-friendly research-paper reader bringing AI agents into the full literature-reading workflow.",
       fr: "Un lecteur d’articles scientifiques conçu pour intégrer les agents IA dans tout le parcours de lecture.",
-    },
-  },
-  {
-    name: "Petoi Quaddle",
-    showcaseDay: 1,
-    showcaseOrder: 1,
-    image: "/images/shenzhen2026/projects/petoi-quaddle.png",
-    imagePosition: "center",
-    url: "https://www.kickstarter.com/projects/petoi/quaddle-open-source-desktop-robot-kit/",
-    description: {
-      zh: "面向 STEM 教育与 Physical AI 实验的可编程迷你机器狗，用 4 个舵机实现行走、横移、旋转和翻转，支持创意定制。",
-      en: "A programmable mini robot dog for STEM and Physical AI, using just four servos for agile movement and hands-on customization.",
-      fr: "Un mini chien robot programmable pour l’éducation STEM et l’IA physique, avec quatre servomoteurs pour des mouvements agiles et la personnalisation.",
-    },
-  },
-  {
-    name: "AI视觉创意大赛“瓦卡奖”",
-    showcaseDay: 2,
-    showcaseOrder: 1,
-    image: "/images/shenzhen2026/vacat-2026.jpeg",
-    imagePosition: "center top",
-    imageFit: "cover",
-    url: "https://www.lg.gov.cn/gab/zwdt/content/post_12890791.html",
-    description: {
-      zh: "聚焦 AI 视觉创作的赛事与交流平台，以“一赛、一汇、一坊”连接创作者、艺术家、技术专家与产业机构，推动技术创新与创意应用。",
-      en: "An AI visual creativity competition and exchange platform, connecting creators, artists, technical experts, and industry through contests, forums, and workshops.",
-      fr: "Un concours et une plateforme d’échange pour la création visuelle par IA, réunissant créateurs, artistes, experts techniques et acteurs de l’industrie autour de concours, forums et ateliers.",
     },
   },
 ];
@@ -251,20 +238,9 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
   const projects = shenzhenSelectedProjects
     .filter((project) => project.showcaseDay === day)
     .sort((a, b) => (a.showcaseOrder ?? shenzhenSelectedProjects.length) - (b.showcaseOrder ?? shenzhenSelectedProjects.length));
-  if (!projects.length) return [];
-  const toMinutes = (time: string) => {
-    const [hours, minutes] = time.split(":").map(Number);
-    return hours * 60 + minutes;
-  };
-  const formatTime = (minutes: number) => `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
-  const start = toMinutes(shenzhenShowcaseTime.introductionEndTime);
-  const end = toMinutes(shenzhenShowcaseTime.endTime);
-  const duration = Math.floor((end - start) / projects.length);
-  const longerSlots = (end - start) % projects.length;
-  return projects.map((project, index) => {
-    const slotStart = start + index * duration + Math.min(index, longerSlots);
-    const startTime = formatTime(slotStart);
-    const endTime = formatTime(slotStart + duration + (index < longerSlots ? 1 : 0));
+  return projects.map((project) => {
+    if (!project.showcaseTime) throw new Error(`Missing presentation time for ${project.name}`);
+    const { startTime, endTime } = project.showcaseTime;
     return { project, startTime, endTime, timeSlot: `${startTime}-${endTime}` };
   });
 }
@@ -272,7 +248,7 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
-    description: "18 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
+    description: "16 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手，探索下一代 AI 原生产品与应用。",
     count: "个入选项目",
     note: "名单展示顺序不代表排名",
     showcaseTitle: "Spotlight 项目演讲",
@@ -295,7 +271,7 @@ export const shenzhenSelectionCopy = {
   },
   en: {
     title: "Selected projects. Center stage.",
-    description: "Meet the 18 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
+    description: "Meet the 16 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, and AI assistants.",
     count: "selected projects",
     note: "Display order does not indicate ranking",
     showcaseTitle: "Spotlight project talks",
@@ -318,7 +294,7 @@ export const shenzhenSelectionCopy = {
   },
   fr: {
     title: "Les projets sélectionnés à l’honneur.",
-    description: "Découvrez les 18 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
+    description: "Découvrez les 16 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents et assistants du quotidien.",
     count: "projets sélectionnés",
     note: "L’ordre d’affichage ne constitue pas un classement",
     showcaseTitle: "Présentations des projets Spotlight",
