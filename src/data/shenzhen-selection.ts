@@ -17,6 +17,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Fugleramme",
     showcaseDay: 1,
+    showcaseOrder: 2,
     image: "/images/shenzhen2026/projects/fugleramme.png",
     imagePosition: "center 60%",
     url: "https://github.com/arnegiacomo/fugleramme",
@@ -24,30 +25,6 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
       zh: "在本地识别鸟鸣，并在电子墨水相框上呈现对应鸟类的自然史插画。",
       en: "An e-ink picture frame that identifies birdsong locally and displays natural-history illustrations.",
       fr: "Un cadre à encre électronique qui reconnaît les chants d’oiseaux localement et affiche des illustrations naturalistes.",
-    },
-  },
-  {
-    name: "Tiny Engineer",
-    showcaseDay: 1,
-    image: "/images/shenzhen2026/projects/tiny-engineer.png",
-    imagePosition: "center",
-    url: "https://github.com/jamro/tiny-engineer",
-    description: {
-      zh: "把 AI 编程 Agent 的工作状态，转成桌面机器人的动作、表情、灯光和声音。",
-      en: "A desktop robot that turns a coding agent’s status into movements, expressions, lights, and sounds.",
-      fr: "Un robot de bureau qui traduit l’état d’un agent de programmation en mouvements, expressions, lumières et sons.",
-    },
-  },
-  {
-    name: "XLeRobot",
-    showcaseDay: 1,
-    image: "/images/shenzhen2026/projects/xlerobot.png",
-    imagePosition: "center",
-    url: "https://xlerobot.readthedocs.io/en/latest/",
-    description: {
-      zh: "低成本开源双臂移动机器人，通过语音与视觉 Agent 执行导航、抓取和整理任务。",
-      en: "A low-cost, open-source mobile robot with two arms and a voice-and-vision agent for navigation and manipulation.",
-      fr: "Un robot mobile open source à deux bras, piloté par un agent vocal et visuel pour naviguer et manipuler des objets.",
     },
   },
   {
@@ -89,6 +66,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "第三红岸 Redbank III",
     showcaseDay: 1,
+    showcaseOrder: 4,
     image: "/images/shenzhen2026/projects/redbank-iii.jpeg",
     url: "https://redbank-iii.org/sim/",
     description: {
@@ -177,24 +155,14 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Octos Learn",
-    showcaseDay: 2,
+    showcaseDay: 1,
+    showcaseOrder: 3,
     image: "/images/shenzhen2026/projects/octoslearn.png",
     url: "https://learn.pitun.cc",
     description: {
       zh: "结合语音提问、手写与摄像头输入的 AI 数学白板，将讲解转成可探索的交互式可视化。",
       en: "An AI math whiteboard combining spoken questions, handwriting, and camera input with interactive visual explanations.",
       fr: "Un tableau blanc IA pour les maths, combinant questions orales, écriture et caméra avec des explications visuelles interactives.",
-    },
-  },
-  {
-    name: "Agentero",
-    showcaseDay: 2,
-    image: "/images/shenzhen2026/projects/agentero.png",
-    url: "https://agentero.app",
-    description: {
-      zh: "面向科研阅读的 Agent 友好文献阅读器，让 AI Agent 参与文献阅读的完整流程。",
-      en: "An agent-friendly research-paper reader bringing AI agents into the full literature-reading workflow.",
-      fr: "Un lecteur d’articles scientifiques conçu pour intégrer les agents IA dans tout le parcours de lecture.",
     },
   },
   {
@@ -251,6 +219,7 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
   const projects = shenzhenSelectedProjects
     .filter((project) => project.showcaseDay === day)
     .sort((a, b) => (a.showcaseOrder ?? shenzhenSelectedProjects.length) - (b.showcaseOrder ?? shenzhenSelectedProjects.length));
+  if (!projects.length) return [];
   const toMinutes = (time: string) => {
     const [hours, minutes] = time.split(":").map(Number);
     return hours * 60 + minutes;
@@ -259,9 +228,11 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
   const start = toMinutes(shenzhenShowcaseTime.introductionEndTime);
   const end = toMinutes(shenzhenShowcaseTime.endTime);
   const duration = Math.floor((end - start) / projects.length);
+  const longerSlots = (end - start) % projects.length;
   return projects.map((project, index) => {
-    const startTime = formatTime(start + index * duration);
-    const endTime = formatTime(index === projects.length - 1 ? end : start + (index + 1) * duration);
+    const slotStart = start + index * duration + Math.min(index, longerSlots);
+    const startTime = formatTime(slotStart);
+    const endTime = formatTime(slotStart + duration + (index < longerSlots ? 1 : 0));
     return { project, startTime, endTime, timeSlot: `${startTime}-${endTime}` };
   });
 }
@@ -269,7 +240,7 @@ export function getShenzhenShowcaseSchedule(day: 1 | 2) {
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
-    description: "18 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
+    description: "15 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
     count: "个入选项目",
     note: "按两天演讲顺序展示，顺序不代表排名",
     showcaseTitle: "Spotlight 项目演讲",
@@ -291,7 +262,7 @@ export const shenzhenSelectionCopy = {
   },
   en: {
     title: "Selected projects. Center stage.",
-    description: "Meet the 18 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
+    description: "Meet the 15 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
     count: "selected projects",
     note: "Listed in presentation order across two days; not a ranking",
     showcaseTitle: "Spotlight project talks",
@@ -313,7 +284,7 @@ export const shenzhenSelectionCopy = {
   },
   fr: {
     title: "Les projets sélectionnés à l’honneur.",
-    description: "Découvrez les 18 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
+    description: "Découvrez les 15 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
     count: "projets sélectionnés",
     note: "Ordre de passage sur deux jours, sans classement",
     showcaseTitle: "Présentations des projets Spotlight",
