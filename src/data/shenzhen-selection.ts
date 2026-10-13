@@ -2,6 +2,8 @@ import type { Locale } from "../i18n/translations";
 
 interface SelectedProject {
   name: string;
+  showcaseDay: 1 | 2;
+  showcaseOrder?: number;
   url: string;
   image?: string;
   imagePosition?: string;
@@ -14,6 +16,7 @@ interface SelectedProject {
 export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Fugleramme",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/fugleramme.png",
     imagePosition: "center 60%",
     url: "https://github.com/arnegiacomo/fugleramme",
@@ -25,6 +28,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Tiny Engineer",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/tiny-engineer.png",
     imagePosition: "center",
     url: "https://github.com/jamro/tiny-engineer",
@@ -36,6 +40,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "XLeRobot",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/xlerobot.png",
     imagePosition: "center",
     url: "https://xlerobot.readthedocs.io/en/latest/",
@@ -47,6 +52,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "很 Local 实时翻译",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/hen-local.png",
     imagePosition: "center 44%",
     url: "https://henlocal.com/",
@@ -58,6 +64,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "VibeKeys",
+    showcaseDay: 2,
+    showcaseOrder: 2,
     image: "/images/shenzhen2026/projects/vibekeys-yellow.jpg",
     url: "https://vibekeys.dev",
     description: {
@@ -68,6 +76,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "事务官座机",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/shiwuguanzuoji.webp",
     imagePosition: "70% center",
     url: "https://www.aibooo.cn/",
@@ -79,6 +88,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "第三红岸 Redbank III",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/redbank-iii.jpeg",
     url: "https://redbank-iii.org/sim/",
     description: {
@@ -89,6 +99,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "橘一下 reset",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/cat-idle.jpg",
     url: "https://www.resetcat.xyz/#real-demo",
     description: {
@@ -99,6 +110,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "虾盘 Xiapan USB",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/usb.jpg",
     imagePosition: "center 75%",
     url: "https://usb.u-claw.org.cn/",
@@ -110,6 +122,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "PhyAgentOS",
+    showcaseDay: 1,
     image: "/images/shenzhen2026/projects/phyagentos.png",
     url: "https://phy-agent-os.x-era.com/",
     description: {
@@ -120,6 +133,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Meiso Glass",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/meiso.png",
     url: "https://drive.google.com/file/d/1McSmbIymFyLMlMP6jSEKJtLBvM3ihgrt/view",
     description: {
@@ -130,6 +144,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Ingora · Qrio",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/ingora.jpeg",
     url: "https://www.alipan.com/s/NUPgSx13cmG",
     description: {
@@ -140,6 +155,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "PoopSense 便知",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/poopsense.webp",
     url: "https://poopsense.org/",
     description: {
@@ -150,6 +166,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Mira Light",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/mira.jpeg",
     url: "https://mira-light.notion.site/lunchbox",
     description: {
@@ -160,6 +177,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Octos Learn",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/octoslearn.png",
     url: "https://learn.pitun.cc",
     description: {
@@ -170,6 +188,7 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Agentero",
+    showcaseDay: 2,
     image: "/images/shenzhen2026/projects/agentero.png",
     url: "https://agentero.app",
     description: {
@@ -180,6 +199,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Petoi Quaddle",
+    showcaseDay: 1,
+    showcaseOrder: 1,
     image: "/images/shenzhen2026/projects/petoi-quaddle.png",
     imagePosition: "center",
     url: "https://www.kickstarter.com/projects/petoi/quaddle-open-source-desktop-robot-kit/",
@@ -191,6 +212,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "AI视觉创意大赛“瓦卡奖”",
+    showcaseDay: 2,
+    showcaseOrder: 1,
     image: "/images/shenzhen2026/vacat-2026.jpeg",
     imagePosition: "center top",
     imageFit: "cover",
@@ -203,12 +226,59 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
 ];
 
+export const shenzhenShowcaseDays = [
+  {
+    day: 1,
+    date: "2026-10-16",
+    label: { zh: "第一天", en: "Day 1", fr: "Jour 1" },
+    dateLabel: { zh: "10 月 16 日", en: "October 16", fr: "16 octobre" },
+  },
+  {
+    day: 2,
+    date: "2026-10-17",
+    label: { zh: "第二天", en: "Day 2", fr: "Jour 2" },
+    dateLabel: { zh: "10 月 17 日", en: "October 17", fr: "17 octobre" },
+  },
+] as const;
+
+export const shenzhenShowcaseTime = {
+  startTime: "12:30",
+  introductionEndTime: "12:35",
+  endTime: "13:30",
+} as const;
+
+export function getShenzhenShowcaseSchedule(day: 1 | 2) {
+  const projects = shenzhenSelectedProjects
+    .filter((project) => project.showcaseDay === day)
+    .sort((a, b) => (a.showcaseOrder ?? shenzhenSelectedProjects.length) - (b.showcaseOrder ?? shenzhenSelectedProjects.length));
+  const toMinutes = (time: string) => {
+    const [hours, minutes] = time.split(":").map(Number);
+    return hours * 60 + minutes;
+  };
+  const formatTime = (minutes: number) => `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
+  const start = toMinutes(shenzhenShowcaseTime.introductionEndTime);
+  const end = toMinutes(shenzhenShowcaseTime.endTime);
+  const duration = Math.floor((end - start) / projects.length);
+  return projects.map((project, index) => {
+    const startTime = formatTime(start + index * duration);
+    const endTime = formatTime(index === projects.length - 1 ? end : start + (index + 1) * duration);
+    return { project, startTime, endTime, timeSlot: `${startTime}-${endTime}` };
+  });
+}
+
 export const shenzhenSelectionCopy = {
   zh: {
     title: "入选项目，聚光登场。",
     description: "18 个项目入选 Spotlight Shenzhen 2026。从机器人、智能设备到日常 AI 助手与视觉创意，探索下一代 AI 原生产品与应用。",
     count: "个入选项目",
-    note: "名单展示顺序不代表排名",
+    note: "按两天演讲顺序展示，顺序不代表排名",
+    showcaseTitle: "Spotlight 项目演讲",
+    showcaseTime: "12:30–13:30 · 北京时间（UTC+8）",
+    showcaseRoom: "3 楼 · 伊敦 1 厅",
+    showcaseSchedule: "当天演讲日程",
+    showcaseIntro: "Spotlight 总体介绍",
+    scheduleTime: "时间",
+    scheduleProject: "上台项目",
     topic: "下一代 AI 原生产品",
     date: "2026 年 10 月 16—17 日 · 中国深圳",
     projectLink: "查看项目",
@@ -223,7 +293,14 @@ export const shenzhenSelectionCopy = {
     title: "Selected projects. Center stage.",
     description: "Meet the 18 projects selected for Spotlight Shenzhen 2026, exploring next-generation AI-native products and applications through robotics, smart devices, AI assistants, and visual creativity.",
     count: "selected projects",
-    note: "Display order does not indicate ranking",
+    note: "Listed in presentation order across two days; not a ranking",
+    showcaseTitle: "Spotlight project talks",
+    showcaseTime: "12:30–13:30 · China Standard Time (UTC+8)",
+    showcaseRoom: "3F · ADEN 1",
+    showcaseSchedule: "Presentation schedule",
+    showcaseIntro: "Spotlight introduction",
+    scheduleTime: "Time",
+    scheduleProject: "Project on stage",
     topic: "Next-generation AI-native products",
     date: "October 16–17, 2026 · Shenzhen, China",
     projectLink: "Explore project",
@@ -238,7 +315,14 @@ export const shenzhenSelectionCopy = {
     title: "Les projets sélectionnés à l’honneur.",
     description: "Découvrez les 18 projets sélectionnés pour Spotlight Shenzhen 2026 : robotique, appareils intelligents, assistants du quotidien et création visuelle par IA.",
     count: "projets sélectionnés",
-    note: "L’ordre d’affichage ne constitue pas un classement",
+    note: "Ordre de passage sur deux jours, sans classement",
+    showcaseTitle: "Présentations des projets Spotlight",
+    showcaseTime: "12:30–13:30 · Heure de Chine (UTC+8)",
+    showcaseRoom: "3e étage · ADEN 1",
+    showcaseSchedule: "Programme des présentations",
+    showcaseIntro: "Présentation générale de Spotlight",
+    scheduleTime: "Horaire",
+    scheduleProject: "Projet présenté",
     topic: "Produits natifs IA de nouvelle génération",
     date: "16–17 octobre 2026 · Shenzhen, Chine",
     projectLink: "Découvrir le projet",
