@@ -53,8 +53,9 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "很 Local 实时翻译",
-    showcaseDay: 2,
-    showcaseTime: { startTime: "12:51", endTime: "12:59" },
+    showcaseDay: 1,
+    showcaseTime: { startTime: "12:49", endTime: "12:56" },
+    showcaseOrder: 3,
     image: "/images/shenzhen2026/projects/hen-local.png",
     imagePosition: "center 44%",
     url: "https://henlocal.com/",
@@ -143,7 +144,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Meiso Glass",
     showcaseDay: 2,
-    showcaseTime: { startTime: "12:59", endTime: "13:07" },
+    showcaseTime: { startTime: "13:07", endTime: "13:15" },
+    showcaseOrder: 5,
     image: "/images/shenzhen2026/projects/meiso.png",
     url: "https://drive.google.com/file/d/1McSmbIymFyLMlMP6jSEKJtLBvM3ihgrt/view",
     description: {
@@ -155,7 +157,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Ingora · Qrio",
     showcaseDay: 2,
-    showcaseTime: { startTime: "13:07", endTime: "13:15" },
+    showcaseTime: { startTime: "13:15", endTime: "13:23" },
+    showcaseOrder: 6,
     image: "/images/shenzhen2026/projects/ingora.jpeg",
     url: "https://www.alipan.com/s/NUPgSx13cmG",
     description: {
@@ -167,7 +170,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "PoopSense 便知",
     showcaseDay: 2,
-    showcaseTime: { startTime: "13:15", endTime: "13:23" },
+    showcaseTime: { startTime: "13:23", endTime: "13:30" },
+    showcaseOrder: 7,
     image: "/images/shenzhen2026/projects/poopsense.webp",
     url: "https://poopsense.org/",
     description: {
@@ -179,7 +183,8 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   {
     name: "Mira Light",
     showcaseDay: 2,
-    showcaseTime: { startTime: "13:23", endTime: "13:30" },
+    showcaseTime: { startTime: "12:51", endTime: "12:59" },
+    showcaseOrder: 3,
     image: "/images/shenzhen2026/projects/mira.jpeg",
     url: "https://mira-light.notion.site/lunchbox",
     description: {
@@ -190,9 +195,9 @@ export const shenzhenSelectedProjects: SelectedProject[] = [
   },
   {
     name: "Octos Learn",
-    showcaseDay: 1,
-    showcaseTime: { startTime: "12:49", endTime: "12:56" },
-    showcaseOrder: 3,
+    showcaseDay: 2,
+    showcaseTime: { startTime: "12:59", endTime: "13:07" },
+    showcaseOrder: 4,
     image: "/images/shenzhen2026/projects/octoslearn.png",
     url: "https://learn.pitun.cc",
     description: {
