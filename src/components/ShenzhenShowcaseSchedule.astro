@@ -10,23 +10,27 @@ const copy = {
     title: "Spotlight 演讲日程",
     introduction: "以下演讲在 GOSIM Shenzhen 2026 大会现场举行。",
     conferenceLink: "GOSIM Shenzhen 2026 大会官网",
-    projectCount: "个路演项目",
+    presentationCount: "场演讲",
   },
   en: {
     title: "Spotlight presentation schedule",
     introduction: "These talks take place on site at GOSIM Shenzhen 2026.",
     conferenceLink: "GOSIM Shenzhen 2026 conference website",
-    projectCount: "presenting projects",
+    presentationCount: "presentations",
   },
   fr: {
     title: "Programme des présentations Spotlight",
     introduction: "Ces présentations ont lieu sur place, lors de GOSIM Shenzhen 2026.",
     conferenceLink: "Site de la conférence GOSIM Shenzhen 2026",
-    projectCount: "projets présentés",
+    presentationCount: "présentations",
   },
 }[locale];
 const conferenceUrl = locale === "zh" ? "https://shenzhen2026.gosim.org/zh/" : "https://shenzhen2026.gosim.org/";
 const days = shenzhenShowcaseDays.map((day) => ({ ...day, projects: getShenzhenShowcaseSchedule(day.day) }));
+const getPresentationUrl = (project: { name: string; url: string }) => {
+  const index = shenzhenSelectedProjects.findIndex((selected) => selected.name === project.name);
+  return index >= 0 ? `#selected-project-${index + 1}` : project.url;
+};
 ---
 
 <section class="roadshow-schedule" id="schedule" data-theme-section="light" data-bg-section="light" aria-labelledby="showcase-schedule-title">
@@ -46,7 +50,7 @@ const days = shenzhenShowcaseDays.map((day) => ({ ...day, projects: getShenzhenS
         <section class="schedule-day" data-showcase-day={day.day} aria-labelledby={`showcase-day-${day.day}`}>
           <h3 id={`showcase-day-${day.day}`}>{day.label[locale]} · <time datetime={day.date}>{day.dateLabel[locale]}</time></h3>
           <p class="schedule-day-time">{c.showcaseTime}</p>
-          <p class="schedule-day-room">{c.showcaseRoom} · {day.projects.length} {copy.projectCount}</p>
+          <p class="schedule-day-room">{c.showcaseRoom} · {day.projects.length} {copy.presentationCount}</p>
           <table class="showcase-agenda">
             <caption>{c.showcaseSchedule}</caption>
             <thead><tr><th scope="col">{c.scheduleTime}</th><th scope="col">{c.scheduleProject}</th></tr></thead>
@@ -58,7 +62,7 @@ const days = shenzhenShowcaseDays.map((day) => ({ ...day, projects: getShenzhenS
               {day.projects.map(({ project, startTime, endTime }) => (
                 <tr>
                   <td><time datetime={`${day.date}T${startTime}:00+08:00`}>{startTime}</time>–<time datetime={`${day.date}T${endTime}:00+08:00`}>{endTime}</time></td>
-                  <th scope="row"><a href={`#selected-project-${shenzhenSelectedProjects.indexOf(project) + 1}`}>{project.name}</a></th>
+                  <th scope="row"><a href={getPresentationUrl(project)}>{project.name}</a></th>
                 </tr>
               ))}
             </tbody>

@@ -239,8 +239,26 @@ export const shenzhenShowcaseTime = {
   endTime: "13:30",
 } as const;
 
+// Opening presentations are scheduled separately from the selected projects.
+const shenzhenOpeningPresentations = [
+  {
+    name: "Petoi Quaddle",
+    url: "https://www.kickstarter.com/projects/petoi/quaddle-open-source-desktop-robot-kit/",
+    showcaseDay: 1,
+    showcaseOrder: 1,
+    showcaseTime: { startTime: "12:35", endTime: "12:42" },
+  },
+  {
+    name: "AI视觉创意大赛“瓦卡奖”",
+    url: "https://www.lg.gov.cn/gab/zwdt/content/post_12890791.html",
+    showcaseDay: 2,
+    showcaseOrder: 1,
+    showcaseTime: { startTime: "12:35", endTime: "12:43" },
+  },
+] as const;
+
 export function getShenzhenShowcaseSchedule(day: 1 | 2) {
-  const projects = shenzhenSelectedProjects
+  const projects = [...shenzhenOpeningPresentations, ...shenzhenSelectedProjects]
     .filter((project) => project.showcaseDay === day)
     .sort((a, b) => (a.showcaseOrder ?? shenzhenSelectedProjects.length) - (b.showcaseOrder ?? shenzhenSelectedProjects.length));
   return projects.map((project) => {
