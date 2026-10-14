@@ -1,5 +1,5 @@
 ---
-import { shenzhenSelectedProjects, shenzhenSelectionCopy, shenzhenShowcaseDays, shenzhenShowcaseTime, getShenzhenShowcaseSchedule } from "../data/shenzhen-selection";
+import { shenzhenSelectedProjects, shenzhenSelectionCopy, shenzhenShowcaseDays, getShenzhenShowcaseSchedule } from "../data/shenzhen-selection";
 import type { Locale } from "../i18n/translations";
 
 interface Props { locale: Locale; }
@@ -26,7 +26,12 @@ const copy = {
   },
 }[locale];
 const conferenceUrl = locale === "zh" ? "https://shenzhen2026.gosim.org/zh/" : "https://shenzhen2026.gosim.org/";
-const days = shenzhenShowcaseDays.map((day) => ({ ...day, projects: getShenzhenShowcaseSchedule(day.day) }));
+const days = shenzhenShowcaseDays.map((day) => {
+  const projects = getShenzhenShowcaseSchedule(day.day);
+  const rows = [...projects, { project: null, ...day.introduction }]
+    .sort((a, b) => a.startTime.localeCompare(b.startTime));
+  return { ...day, projects, rows };
+});
 const getPresentationUrl = (project: { name: string; url: string }) => {
   const index = shenzhenSelectedProjects.findIndex((selected) => selected.name === project.name);
   return index >= 0 ? `#selected-project-${index + 1}` : project.url;
@@ -55,14 +60,10 @@ const getPresentationUrl = (project: { name: string; url: string }) => {
             <caption>{c.showcaseSchedule}</caption>
             <thead><tr><th scope="col">{c.scheduleTime}</th><th scope="col">{c.scheduleProject}</th></tr></thead>
             <tbody>
-              <tr class="showcase-introduction">
-                <td>{shenzhenShowcaseTime.startTime}–{shenzhenShowcaseTime.introductionEndTime}</td>
-                <th scope="row">{c.showcaseIntro}</th>
-              </tr>
-              {day.projects.map(({ project, startTime, endTime }) => (
-                <tr>
+              {day.rows.map(({ project, startTime, endTime }) => (
+                <tr class={project ? undefined : "showcase-introduction"}>
                   <td><time datetime={`${day.date}T${startTime}:00+08:00`}>{startTime}</time>–<time datetime={`${day.date}T${endTime}:00+08:00`}>{endTime}</time></td>
-                  <th scope="row"><a href={getPresentationUrl(project)}>{project.name}</a></th>
+                  <th scope="row">{project ? <a href={getPresentationUrl(project)}>{project.name}</a> : c.showcaseIntro}</th>
                 </tr>
               ))}
             </tbody>

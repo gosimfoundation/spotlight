@@ -222,22 +222,18 @@ export const shenzhenShowcaseDays = [
   {
     day: 1,
     date: "2026-10-16",
+    introduction: { startTime: "12:30", endTime: "12:35" },
     label: { zh: "第一天", en: "Day 1", fr: "Jour 1" },
     dateLabel: { zh: "10 月 16 日", en: "October 16", fr: "16 octobre" },
   },
   {
     day: 2,
     date: "2026-10-17",
+    introduction: { startTime: "12:38", endTime: "12:43" },
     label: { zh: "第二天", en: "Day 2", fr: "Jour 2" },
     dateLabel: { zh: "10 月 17 日", en: "October 17", fr: "17 octobre" },
   },
 ] as const;
-
-export const shenzhenShowcaseTime = {
-  startTime: "12:30",
-  introductionEndTime: "12:35",
-  endTime: "13:30",
-} as const;
 
 // Opening presentations are scheduled separately from the selected projects.
 const shenzhenOpeningPresentations = [
@@ -253,7 +249,7 @@ const shenzhenOpeningPresentations = [
     url: "https://www.lg.gov.cn/gab/zwdt/content/post_12890791.html",
     showcaseDay: 2,
     showcaseOrder: 1,
-    showcaseTime: { startTime: "12:35", endTime: "12:43" },
+    showcaseTime: { startTime: "12:30", endTime: "12:38" },
   },
 ] as const;
 
